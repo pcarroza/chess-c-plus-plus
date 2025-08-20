@@ -2,14 +2,14 @@
 #include "models/pieces/Piece.hpp"
 #include "models/Color.hpp"
 
-Piece::Piece(Coordinate *coordinate, Color color) : color(color), coordinate(coordinate), ruleBasedCoordinateGenerator(nullptr)
+Piece::Piece(Coordinate *coordinate, Color color) : color(color), coordinate(coordinate), basedGenerator(nullptr)
 {
 }
 
 Piece::~Piece()
 {
     delete coordinate;
-    delete ruleBasedCoordinateGenerator;
+    delete basedGenerator;
 }
 
 void Piece::set(Coordinate *coordinate)
@@ -49,12 +49,12 @@ bool Piece::has(Coordinate &coordinate)
 
 bool Piece::isMovementValid(const Coordinate &target)
 {
-    return ruleBasedCoordinateGenerator->isMovementValid(target);
+    return basedGenerator->isMovementValid(target);
 }
 
 void Piece::generateMovements()
 {
-    ruleBasedCoordinateGenerator->generate();
+    basedGenerator->generate();
 }
 
 bool Piece::isThePawnPromoted()
