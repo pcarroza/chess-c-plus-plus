@@ -2,7 +2,7 @@
 
 Pawn::Pawn(Coordinate *coordinate, Color color) : Piece(coordinate, color), initialState(true), isItPromoted(false), vulnerablePawn(false)
 {
-    ruleBasedCoordinateGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(*this);
+    basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(*this);
 }
 
 void Pawn::put(Coordinate *target)

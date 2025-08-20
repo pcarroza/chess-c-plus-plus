@@ -62,7 +62,7 @@ protected:
 
     Coordinate *coordinate;
 
-    MovementRulesBaseGeneratorGenerator *ruleBasedCoordinateGenerator;
+    MovementRulesBaseGeneratorGenerator *basedGenerator;
 };
 
 #endif
