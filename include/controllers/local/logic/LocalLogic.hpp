@@ -48,7 +48,7 @@ namespace controllers::local::logic
 
         StateBuilder *stateBuilder;
         
-        LocalOperationControllerBuilder *localOperationControllerBuilder;
+        LocalOperationControllerBuilder *builder;
     };
 }
 

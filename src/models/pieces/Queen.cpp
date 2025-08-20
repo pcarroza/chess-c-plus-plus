@@ -2,7 +2,7 @@
 
 Queen::Queen(Coordinate *coordinate, Color color) : Piece(coordinate, color)
 {
-    ruleBasedCoordinateGenerator = MovementRulesBaseGeneratorFacade::createQueenRuleBasedCoordinateGenerator(*this);
+    basedGenerator = MovementRulesBaseGeneratorFacade::createQueenRuleBasedCoordinateGenerator(*this);
 }
 
 std::string Queen::toString() const

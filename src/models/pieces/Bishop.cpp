@@ -2,7 +2,7 @@
 
 Bishop::Bishop(Coordinate *coordinate, Color color) : Piece(coordinate, color)
 {
-    ruleBasedCoordinateGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(*this);
+    basedGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(*this);
 }
 
 std::string Bishop::toString() const
