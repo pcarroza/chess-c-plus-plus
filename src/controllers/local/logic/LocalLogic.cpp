@@ -10,17 +10,17 @@ namespace controllers::local::logic
         : game(new Game(this)),
           state(nullptr),
           stateBuilder(nullptr),
-          localOperationControllerBuilder(new LocalOperationControllerBuilder(*game))
+          builder(new LocalOperationControllerBuilder(*game))
     {
-        localOperationControllerBuilder->build();
-        stateBuilder = new StateBuilder(localOperationControllerBuilder);
+        builder->build();
+        stateBuilder = new StateBuilder(builder);
         state = stateBuilder->getInitialState();
     }
 
     LocalLogic::~LocalLogic()
     {
         delete game;
-        delete localOperationControllerBuilder;
+        delete builder;
         delete stateBuilder;
     }
 
