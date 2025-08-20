@@ -1,0 +1,17 @@
+@startuml class
+hide empty members
+
+Game *--> Board
+Game ..> Coordinate
+Board *--> Turn
+Board ..> Coordinate
+Board --> Piece
+Piece <|-- Pawn
+Piece <|-- Knight
+Piece <|-- Bishop
+Piece <|-- Rook
+Piece <|-- Queen
+Piece <|-- King
+Piece ..> Coordinate
+
+@enduml

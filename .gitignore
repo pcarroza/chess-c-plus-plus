@@ -1,0 +1,57 @@
+# Compilación
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.libs
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+
+# Archivos de depuración y logs
+*.log
+*.dep
+*.dSYM/
+*.stackdump
+core
+vgcore.*
+
+# CMake
+cmake_install.cmake
+build/
+build-*/
+debug/
+develop/
+develop_deps/
+release/
+bin/
+
+# Archivos temporales de Make
+*.d
+
+# Archivos de proyectos de IDEs
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+*.pro.user
+*.qbs.user
+.idea/
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos temporales de editores
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
