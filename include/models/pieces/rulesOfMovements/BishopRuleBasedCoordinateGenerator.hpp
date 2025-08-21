@@ -1,7 +1,7 @@
 #ifndef BISHOP_RULE_BASED_COORDINATE_GENERATOR_HPP
 #define BISHOP_RULE_BASED_COORDINATE_GENERATOR_HPP
 
-#include "RuleBasedCoordinateGenerator.hpp"
+#include "MovementRulesBaseGenerator.hpp"
 
 namespace models::pieces::rulesOfMovements
 {

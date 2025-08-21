@@ -1,7 +1,7 @@
 #ifndef ROOK_RULE_BASED_COORDINATE_GENERATOR_HPP
 #define ROOK_RULE_BASED_COORDINATE_GENERATOR_HPP
 
-#include "RuleBasedCoordinateGenerator.hpp"
+#include "MovementRulesBaseGenerator.hpp"
 
 namespace models::pieces::rulesOfMovements
 {

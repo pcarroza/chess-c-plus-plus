@@ -1,7 +1,7 @@
 #ifndef QUEEN_RULE_BASED_COORDINATE_GENERATOR_HPP
 #define QUEEN_RULE_BASED_COORDINATE_GENERATOR_HPP
 
-#include "RuleBasedCoordinateGenerator.hpp"
+#include "MovementRulesBaseGenerator.hpp"
 
 namespace models::pieces::rulesOfMovements
 {

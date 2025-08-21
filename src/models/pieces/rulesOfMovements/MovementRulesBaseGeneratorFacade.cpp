@@ -1,4 +1,4 @@
-#include "models/pieces/rulesOfMovements/RulerBasedCoordinateGeneratorFacade.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
 namespace models::pieces::rulesOfMovements
 {

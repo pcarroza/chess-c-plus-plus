@@ -4,7 +4,7 @@
 #include <set>
 #include <list>
 
-#include "./rulesOfMovements/RuleBasedCoordinateGenerator.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
 #include "SelectedPiece.hpp"
 #include "PieceSubject.hpp"
 #include "models/pieces/Coordinate.hpp"

@@ -2,9 +2,6 @@
 #define PAWN_H
 
 #include "Piece.hpp"
-#include "./rulesOfMovements/RulerBasedCoordinateGeneratorFacade.hpp"
-
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
 class Pawn : public Piece
 {

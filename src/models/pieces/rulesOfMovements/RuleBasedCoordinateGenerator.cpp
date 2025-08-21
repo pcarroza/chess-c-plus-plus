@@ -1,8 +1,12 @@
-#include "models/pieces/rulesOfMovements/RuleBasedCoordinateGenerator.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
 #include "models/pieces/Piece.hpp"
 
 namespace models::pieces::rulesOfMovements
 {
+    MovementRulesBaseGenerator::MovementRulesBaseGenerator() : piece(nullptr)
+    {
+    }
+
     MovementRulesBaseGenerator::MovementRulesBaseGenerator(Piece *piece) : piece(piece)
     {
     }

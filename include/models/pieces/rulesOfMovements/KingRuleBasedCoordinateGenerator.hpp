@@ -1,7 +1,7 @@
 #ifndef KING_RULE_BASED_COORDINATE_GENERATOR_HPP
 #define KING_RULE_BASED_COORDINATE_GENERATOR_HPP
 
-#include "RuleBasedCoordinateGenerator.hpp"
+#include "MovementRulesBaseGenerator.hpp"
 #include "common/validators/ValidatorLimitsBoard.hpp"
 
 #include <memory>

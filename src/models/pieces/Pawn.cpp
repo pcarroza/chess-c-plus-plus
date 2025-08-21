@@ -1,8 +1,11 @@
 #include "models/pieces/Pawn.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+
+using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
 Pawn::Pawn(Coordinate *coordinate, Color color) : Piece(coordinate, color), initialState(true), isItPromoted(false), vulnerablePawn(false)
 {
-    basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(*this);
+    basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(this);
 }
 
 void Pawn::put(Coordinate *target)

@@ -1,7 +1,7 @@
 #ifndef RULER_BASED_COORDINATE_GENERATOR_FACADE_HPP
 #define RULER_BASED_COORDINATE_GENERATOR_FACADE_HPP
 
-#include "RuleBasedCoordinateGenerator.hpp"
+#include "MovementRulesBaseGenerator.hpp"
 #include "KingRuleBasedCoordinateGenerator.hpp"
 #include "KnightRuleBasedCoordinateGenerator.hpp"
 #include "BishopRuleBasedCoordinateGenerator.hpp"

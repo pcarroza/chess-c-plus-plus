@@ -1,8 +1,11 @@
 #include "models/pieces/Bishop.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+
+using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
 Bishop::Bishop(Coordinate *coordinate, Color color) : Piece(coordinate, color)
 {
-    basedGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(*this);
+    basedGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(this);
 }
 
 std::string Bishop::toString() const
