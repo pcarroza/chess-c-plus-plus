@@ -24,16 +24,6 @@ public:
 
     virtual ~Piece();
 
-    virtual void put(Coordinate *coordinate) override;
-
-    virtual bool isMovementValid(const Coordinate &coordinate) override;
-
-    virtual bool isThePawnPromoted() override;
-
-    virtual void generateMovements() override;
-
-    virtual bool isVulnerablePawn();
-
     std::list<Coordinate> getValidMovements();
 
     Coordinate *getCoordinate();
@@ -46,11 +36,21 @@ public:
 
     bool has(Coordinate &coordinate);
 
-    bool isNotMoved();
+    virtual void put(Coordinate *coordinate) override;
 
-    bool isKing();
+    virtual bool isMovementValid(const Coordinate &coordinate) override;
 
-    bool isRook();
+    virtual bool isThePawnPromoted() override;
+
+    virtual void generateMovements() override;
+
+    virtual bool isVulnerablePawn();
+
+    virtual bool isNotMoved();
+
+    virtual bool isKing();
+
+    virtual bool isRook();
 
     virtual std::string toString() const = 0;
 
