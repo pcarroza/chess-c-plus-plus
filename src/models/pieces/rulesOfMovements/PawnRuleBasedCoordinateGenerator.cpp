@@ -18,7 +18,7 @@ namespace models::pieces::rulesOfMovements
     {
         Color color = getColor();
 
-        assert(color == Color::NONE && "Error, color is None");
+        assert(color != Color::NONE && "Error. The 'Color' should not be 'NONE'");
 
         possibleMoves.clear();
 
