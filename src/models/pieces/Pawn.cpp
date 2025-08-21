@@ -34,8 +34,6 @@ void Pawn::put(Coordinate *target)
         changeToPromoted();
     }
 
-    delete coordinate;
-
     Piece::put(target);
 }
 

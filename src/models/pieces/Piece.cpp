@@ -19,6 +19,11 @@ void Piece::set(Coordinate *coordinate)
 
 void Piece::put(Coordinate *target)
 {
+    if (coordinate != nullptr)
+    {
+        delete coordinate;
+        coordinate = nullptr;
+    }
     set(target);
 }
 
