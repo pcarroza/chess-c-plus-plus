@@ -18,6 +18,13 @@ namespace models::pieces::rulesOfMovements
         void generate() override;
 
     private:
+        std::list<std::shared_ptr<Coordinate>> calculateForwardMoves(Color color);
+
+        void addCaptureMoveIfValid(Coordinate coordinate);
+
+        Color getColor();
+
+    private:
         Pawn *pawn;
     };
 }

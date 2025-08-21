@@ -15,4 +15,18 @@ namespace models::pieces::rulesOfMovements
     void PawnRuleBasedCoordinateGenerator::generate()
     {
     }
+
+    std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Color color)
+    {
+        return std::list<std::shared_ptr<Coordinate>>();
+    }
+
+    void PawnRuleBasedCoordinateGenerator::addCaptureMoveIfValid(Coordinate coordinate)
+    {
+    }
+
+    Color PawnRuleBasedCoordinateGenerator::getColor()
+    {
+        return Color::WHITE;
+    }
 }
