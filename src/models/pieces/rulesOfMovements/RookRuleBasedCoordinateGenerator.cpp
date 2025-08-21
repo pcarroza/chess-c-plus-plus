@@ -3,7 +3,7 @@
 namespace models::pieces::rulesOfMovements
 {
 
-    RookRuleBasedCoordinateGenerator::RookRuleBasedCoordinateGenerator(Piece &piece) : MovementRulesBaseGeneratorGenerator(piece)
+    RookRuleBasedCoordinateGenerator::RookRuleBasedCoordinateGenerator(Piece &piece) : MovementRulesBaseGenerator(piece)
     {
     }
 

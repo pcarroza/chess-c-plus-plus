@@ -3,7 +3,7 @@
 namespace models::pieces::rulesOfMovements
 {
 
-    QueenRuleBasedCoordinateGenerator::QueenRuleBasedCoordinateGenerator(Piece &piece) : MovementRulesBaseGeneratorGenerator(piece)
+    QueenRuleBasedCoordinateGenerator::QueenRuleBasedCoordinateGenerator(Piece &piece) : MovementRulesBaseGenerator(piece)
     {
     }
 

@@ -12,10 +12,10 @@
 
 namespace models::pieces::rulesOfMovements
 {
-    class MovementRulesBaseGeneratorGenerator;
+    class MovementRulesBaseGenerator;
 }
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorGenerator;
+using models::pieces::rulesOfMovements::MovementRulesBaseGenerator;
 
 class Piece : public PieceSubject, public SelectedPiece
 {
@@ -62,7 +62,7 @@ protected:
 
     Coordinate *coordinate;
 
-    MovementRulesBaseGeneratorGenerator *basedGenerator;
+    MovementRulesBaseGenerator *basedGenerator;
 };
 
 #endif

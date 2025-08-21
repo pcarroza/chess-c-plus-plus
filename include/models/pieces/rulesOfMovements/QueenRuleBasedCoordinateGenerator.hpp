@@ -5,7 +5,7 @@
 
 namespace models::pieces::rulesOfMovements
 {
-    class QueenRuleBasedCoordinateGenerator : public MovementRulesBaseGeneratorGenerator
+    class QueenRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
         QueenRuleBasedCoordinateGenerator(Piece &piece);

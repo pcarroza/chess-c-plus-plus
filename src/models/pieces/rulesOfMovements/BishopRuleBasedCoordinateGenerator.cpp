@@ -4,7 +4,7 @@ namespace models::pieces::rulesOfMovements
 {
 
     BishopRuleBasedCoordinateGenerator::BishopRuleBasedCoordinateGenerator(Piece &piece)
-        : MovementRulesBaseGeneratorGenerator(piece)
+        : MovementRulesBaseGenerator(piece)
     {
     }
 

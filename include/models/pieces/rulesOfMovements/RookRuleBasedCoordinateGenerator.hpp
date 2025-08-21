@@ -5,7 +5,7 @@
 
 namespace models::pieces::rulesOfMovements
 {
-    class RookRuleBasedCoordinateGenerator : public MovementRulesBaseGeneratorGenerator
+    class RookRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
         RookRuleBasedCoordinateGenerator(Piece &piece);

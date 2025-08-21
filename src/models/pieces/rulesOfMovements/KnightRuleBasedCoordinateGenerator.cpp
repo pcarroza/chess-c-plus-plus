@@ -3,7 +3,7 @@
 
 namespace models::pieces::rulesOfMovements
 {
-    KnightRuleBasedCoordinateGenerator::KnightRuleBasedCoordinateGenerator(Piece &piece) : MovementRulesBaseGeneratorGenerator(piece)
+    KnightRuleBasedCoordinateGenerator::KnightRuleBasedCoordinateGenerator(Piece &piece) : MovementRulesBaseGenerator(piece)
     {
     }
 

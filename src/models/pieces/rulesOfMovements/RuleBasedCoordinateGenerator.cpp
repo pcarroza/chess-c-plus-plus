@@ -3,11 +3,11 @@
 
 namespace models::pieces::rulesOfMovements
 {
-    MovementRulesBaseGeneratorGenerator::MovementRulesBaseGeneratorGenerator(Piece &piece) : piece(piece)
+    MovementRulesBaseGenerator::MovementRulesBaseGenerator(Piece &piece) : piece(piece)
     {
     }
 
-    std::list<std::shared_ptr<Coordinate>> MovementRulesBaseGeneratorGenerator::getValidMovements()
+    std::list<std::shared_ptr<Coordinate>> MovementRulesBaseGenerator::getValidMovements()
     {
         std::list<std::shared_ptr<Coordinate>> deepCopy;
 
@@ -18,12 +18,12 @@ namespace models::pieces::rulesOfMovements
         return possibleMoves;
     }
 
-    bool MovementRulesBaseGeneratorGenerator::isMovementValid(const Coordinate &coordinate)
+    bool MovementRulesBaseGenerator::isMovementValid(const Coordinate &coordinate)
     {
         return isContained(coordinate);
     }
 
-    bool MovementRulesBaseGeneratorGenerator::isContained(const Coordinate &target)
+    bool MovementRulesBaseGenerator::isContained(const Coordinate &target)
     {
         auto it = std::find_if(possibleMoves.begin(), possibleMoves.end(), [&](const std::shared_ptr<Coordinate> &coordinate)
                                { return *coordinate == target; });

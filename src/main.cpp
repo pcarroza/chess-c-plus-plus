@@ -31,12 +31,8 @@ using views::console::ConsoleView;
 
 int main()
 {
-
     ConsoleView *consoleView = new ConsoleView();
     delete consoleView;
-
-    Logic *logic = new LocalLogic();
-    delete logic;
 
     Board *board = new Board();
     std::map<Color, std::list<std::shared_ptr<Piece>>> piecesMap = PiecesMapBuilder::build(board);
@@ -88,6 +84,14 @@ int main()
     std::cout << rook4->toString() << std::endl;
     delete rook4;
 
+    Piece *rook5 = new Rook(new Coordinate(1, 2), Color::BLACK);
+    std::cout << rook5->toString() << std::endl;
+    delete rook5;
+
+    Piece *rook6 = new Rook(new Coordinate(1, 2), Color::BLACK);
+    std::cout << rook6->toString() << std::endl;
+    delete rook6;
+
     Piece *queen = new Queen(new Coordinate(1, 2), Color::BLACK);
     std::cout << queen->toString() << std::endl;
     delete queen;
@@ -106,7 +110,9 @@ int main()
 
     delete board;
 
-    Game *game = new Game(nullptr);
+    LocalLogic *logic = new LocalLogic();
+
+    Game *game = new Game(logic);
 
     game->select(Coordinate(1, 2));
 
@@ -120,7 +126,20 @@ int main()
 
     game->put(Coordinate(6, 2));
 
+    game->begin();
+
+    game->finalize();
+
+    game->initialize();
+
+    game->begin();
+
+    game->finalize();
+
+    game->end();
+
     delete game;
+    delete logic;
 
     return 0;
 }

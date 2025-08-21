@@ -15,7 +15,7 @@ using common::validators::ValidatorLimitsBoard;
 
 namespace models::pieces::rulesOfMovements
 {
-    class KingRuleBasedCoordinateGenerator : public MovementRulesBaseGeneratorGenerator
+    class KingRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
         KingRuleBasedCoordinateGenerator(Piece &piece);

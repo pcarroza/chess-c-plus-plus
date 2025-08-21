@@ -20,17 +20,17 @@ namespace models::pieces::rulesOfMovements
     public:
         MovementRulesBaseGeneratorFacade() = delete;
 
-        static MovementRulesBaseGeneratorGenerator *createBishopRuleBasedCoordinateGenerator(Piece &piece);
+        static MovementRulesBaseGenerator *createBishopRuleBasedCoordinateGenerator(Piece &piece);
 
-        static MovementRulesBaseGeneratorGenerator *createKingRuleBasedCoordinateGenerator(Piece &piece);
+        static MovementRulesBaseGenerator *createKingRuleBasedCoordinateGenerator(Piece &piece);
 
-        static MovementRulesBaseGeneratorGenerator *createKnightRuleBasedCoordinateGenerator(Piece &piece);
+        static MovementRulesBaseGenerator *createKnightRuleBasedCoordinateGenerator(Piece &piece);
 
-        static MovementRulesBaseGeneratorGenerator *createQueenRuleBasedCoordinateGenerator(Piece &piece);
+        static MovementRulesBaseGenerator *createQueenRuleBasedCoordinateGenerator(Piece &piece);
 
-        static MovementRulesBaseGeneratorGenerator *createRookRuleBasedCoordinateGenerator(Piece &piece);
+        static MovementRulesBaseGenerator *createRookRuleBasedCoordinateGenerator(Piece &piece);
 
-        static MovementRulesBaseGeneratorGenerator *createPawnRuleBasedCoordinateGenerator(Piece &piece);
+        static MovementRulesBaseGenerator *createPawnRuleBasedCoordinateGenerator(Piece &piece);
     };
 }
 #endif

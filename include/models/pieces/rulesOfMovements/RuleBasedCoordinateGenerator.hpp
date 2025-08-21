@@ -13,12 +13,12 @@ class Piece;
 
 namespace models::pieces::rulesOfMovements
 {
-    class MovementRulesBaseGeneratorGenerator
+    class MovementRulesBaseGenerator
     {
     public:
-        MovementRulesBaseGeneratorGenerator(Piece &piece);
+        MovementRulesBaseGenerator(Piece &piece);
 
-        virtual ~MovementRulesBaseGeneratorGenerator() = default;
+        virtual ~MovementRulesBaseGenerator() = default;
 
         std::list<std::shared_ptr<Coordinate>> getValidMovements();
 

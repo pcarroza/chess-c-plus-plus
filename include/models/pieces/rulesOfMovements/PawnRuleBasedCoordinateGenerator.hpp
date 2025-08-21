@@ -5,7 +5,7 @@
 
 namespace models::pieces::rulesOfMovements
 {
-    class PawnRuleBasedCoordinateGenerator : public MovementRulesBaseGeneratorGenerator
+    class PawnRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
         PawnRuleBasedCoordinateGenerator(Piece &piece);
