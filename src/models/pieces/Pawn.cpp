@@ -3,7 +3,11 @@
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
-Pawn::Pawn(Coordinate *coordinate, Color color) : Piece(coordinate, color), initialState(true), isItPromoted(false), vulnerablePawn(false)
+Pawn::Pawn(Coordinate *coordinate, Color color)
+    : Piece(coordinate, color),
+      initialState(true),
+      isItPromoted(false),
+      vulnerablePawn(false)
 {
     basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(this);
 }
