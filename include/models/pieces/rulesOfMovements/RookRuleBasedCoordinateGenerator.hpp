@@ -8,7 +8,7 @@ namespace models::pieces::rulesOfMovements
     class RookRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        RookRuleBasedCoordinateGenerator(Piece &piece);
+        RookRuleBasedCoordinateGenerator(Piece *piece);
 
         void generate() override;
     };

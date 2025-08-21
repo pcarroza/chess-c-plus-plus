@@ -18,7 +18,7 @@ namespace models::pieces::rulesOfMovements
     class KingRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        KingRuleBasedCoordinateGenerator(Piece &piece);
+        KingRuleBasedCoordinateGenerator(Piece *piece);
 
         void generate() override;
     };

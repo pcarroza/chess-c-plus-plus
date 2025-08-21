@@ -3,7 +3,7 @@
 namespace models::pieces::rulesOfMovements
 {
 
-    BishopRuleBasedCoordinateGenerator::BishopRuleBasedCoordinateGenerator(Piece &piece)
+    BishopRuleBasedCoordinateGenerator::BishopRuleBasedCoordinateGenerator(Piece *piece)
         : MovementRulesBaseGenerator(piece)
     {
     }

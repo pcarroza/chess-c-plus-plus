@@ -2,13 +2,11 @@
 
 namespace models::pieces::rulesOfMovements
 {
-
-    QueenRuleBasedCoordinateGenerator::QueenRuleBasedCoordinateGenerator(Piece &piece) : MovementRulesBaseGenerator(piece)
+    QueenRuleBasedCoordinateGenerator::QueenRuleBasedCoordinateGenerator(Piece *piece) : MovementRulesBaseGenerator(piece)
     {
     }
 
     void QueenRuleBasedCoordinateGenerator::generate()
     {
     }
-
 }

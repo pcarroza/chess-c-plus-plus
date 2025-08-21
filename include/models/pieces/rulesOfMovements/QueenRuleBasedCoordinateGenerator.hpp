@@ -8,7 +8,7 @@ namespace models::pieces::rulesOfMovements
     class QueenRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        QueenRuleBasedCoordinateGenerator(Piece &piece);
+        QueenRuleBasedCoordinateGenerator(Piece *piece);
 
         void generate() override;
     };

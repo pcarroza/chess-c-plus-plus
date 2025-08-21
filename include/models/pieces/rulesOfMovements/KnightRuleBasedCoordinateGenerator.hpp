@@ -16,7 +16,7 @@ namespace models::pieces::rulesOfMovements
     class KnightRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        KnightRuleBasedCoordinateGenerator(Piece &piece);
+        KnightRuleBasedCoordinateGenerator(Piece *piece);
 
         void generate() override;
     };

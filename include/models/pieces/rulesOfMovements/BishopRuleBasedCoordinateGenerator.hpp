@@ -8,7 +8,7 @@ namespace models::pieces::rulesOfMovements
     class BishopRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        BishopRuleBasedCoordinateGenerator(Piece &piece);
+        BishopRuleBasedCoordinateGenerator(Piece *piece);
 
         void generate() override;
     };

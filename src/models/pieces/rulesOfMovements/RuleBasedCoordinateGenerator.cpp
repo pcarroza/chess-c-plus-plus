@@ -3,8 +3,13 @@
 
 namespace models::pieces::rulesOfMovements
 {
-    MovementRulesBaseGenerator::MovementRulesBaseGenerator(Piece &piece) : piece(piece)
+    MovementRulesBaseGenerator::MovementRulesBaseGenerator(Piece *piece) : piece(piece)
     {
+    }
+
+    void MovementRulesBaseGenerator::set(Piece *piece)
+    {
+        this->piece = piece;
     }
 
     std::list<std::shared_ptr<Coordinate>> MovementRulesBaseGenerator::getValidMovements()
