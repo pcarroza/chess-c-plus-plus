@@ -1,5 +1,7 @@
 #include "models/pieces/rulesOfMovements/PawnRuleBasedCoordinateGenerator.hpp"
 
+#include <cassert>
+
 namespace models::pieces::rulesOfMovements
 {
     PawnRuleBasedCoordinateGenerator::PawnRuleBasedCoordinateGenerator(Piece *piece)
@@ -14,6 +16,13 @@ namespace models::pieces::rulesOfMovements
 
     void PawnRuleBasedCoordinateGenerator::generate()
     {
+        Color color = getColor();
+
+        assert(color == Color::NONE && "Error, color is None");
+
+        possibleMoves.clear();
+
+        possibleMoves = calculateForwardMoves(color);
     }
 
     std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Color color)
@@ -27,6 +36,14 @@ namespace models::pieces::rulesOfMovements
 
     Color PawnRuleBasedCoordinateGenerator::getColor()
     {
-        return Color::WHITE;
+        if (pawn->isWhite())
+        {
+            return Color::WHITE;
+        }
+        if (pawn->isBlack())
+        {
+            return Color::BLACK;
+        }
+        return Color::NONE;
     }
 }
