@@ -2,36 +2,36 @@
 
 namespace models
 {
-    Turn::Turn() : currentPlayer(Color::WHITE)
+    Turn::Turn() : currentPlayer(Player::WHITE)
     {
     }
 
-    Color Turn::getCurrentPlayer()
+    Player Turn::getCurrentPlayer()
     {
         return currentPlayer;
     }
 
-    Color Turn::getRivalPlayer()
+    Player Turn::getRivalPlayer()
     {
-        if (currentPlayer == Color::WHITE)
+        if (currentPlayer == Player::WHITE)
         {
-            return Color::BLACK;
+            return Player::BLACK;
         }
         else
         {
-            return Color::WHITE;
+            return Player::WHITE;
         }
     }
 
     void Turn::change()
     {
-        if (currentPlayer == Color::WHITE)
+        if (currentPlayer == Player::WHITE)
         {
-            currentPlayer = Color::BLACK;
+            currentPlayer = Player::BLACK;
         }
         else
         {
-            currentPlayer = Color::WHITE;
+            currentPlayer = Player::WHITE;
         }
     }
 }

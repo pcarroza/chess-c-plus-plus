@@ -12,7 +12,7 @@
 #include "models/pieces/Coordinate.hpp"
 #include "models/pieces/Piece.hpp"
 #include "BoardSubject.hpp"
-#include "models/Color.hpp"
+#include "models/Player.hpp"
 #include "models/Turn.hpp"
 
 using models::Turn;
@@ -51,11 +51,11 @@ public:
     void changeTurn();
 
 private:
-    std::map<Color, std::list<std::shared_ptr<Piece>>> piecesMap;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap;
 
-    std::map<Color, std::list<std::shared_ptr<Piece>>> mapOfRemovedPieces;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> mapOfRemovedPieces;
 
-    std::map<Color, std::list<std::shared_ptr<Piece>>> mapPassantPawns;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> mapPassantPawns;
 
     std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece;
 

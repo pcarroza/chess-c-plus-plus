@@ -2,14 +2,11 @@
 #define PAWN_H
 
 #include "Piece.hpp"
-#include "./rulesOfMovements/RulerBasedCoordinateGeneratorFacade.hpp"
-
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
 class Pawn : public Piece
 {
 public:
-    Pawn(Coordinate *coordinate, Color color);
+    Pawn(Coordinate *coordinate, Player color);
 
     void put(Coordinate *target) override;
 

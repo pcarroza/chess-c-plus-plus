@@ -41,14 +41,14 @@ namespace controllers::local
         game.removeRivalPlayerPiece(coordinate);
     }
 
-    Color LocalController::getCurrentPlayer()
+    Player LocalController::getCurrentPlayer()
     {
-        return Color::WHITE;
+        return Player::WHITE;
     }
 
-    Color LocalController::getRivalPlayer()
+    Player LocalController::getRivalPlayer()
     {
-        return Color::BLACK;
+        return Player::BLACK;
     }
 
     bool LocalController::isTheWhitePieceSelected(Coordinate &coordinate)
