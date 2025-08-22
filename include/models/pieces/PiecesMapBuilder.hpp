@@ -13,7 +13,7 @@ class BoardObserver;
 class PiecesMapBuilder
 {
 public:
-    static std::map<Color, std::list<std::shared_ptr<Piece>>> build(BoardObserver *observerBoard);
+    static std::map<Player, std::list<std::shared_ptr<Piece>>> build(BoardObserver *observerBoard);
 
 private:
     PiecesMapBuilder() = delete;
@@ -22,7 +22,7 @@ private:
 
     static std::list<std::shared_ptr<Piece>> createPiecesBlack();
 
-    static std::list<std::shared_ptr<Piece>> createPieces(int rowForPawnsByColor, int rowForPiecesByColor, Color color);
+    static std::list<std::shared_ptr<Piece>> createPieces(int rowForPawnsByColor, int rowForPiecesByColor, Player color);
 };
 
 #endif

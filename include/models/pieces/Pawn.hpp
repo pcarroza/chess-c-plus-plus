@@ -6,7 +6,7 @@
 class Pawn : public Piece
 {
 public:
-    Pawn(Coordinate *coordinate, Color color);
+    Pawn(Coordinate *coordinate, Player color);
 
     void put(Coordinate *target) override;
 

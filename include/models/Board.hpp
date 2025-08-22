@@ -51,11 +51,11 @@ public:
     void changeTurn();
 
 private:
-    std::map<Color, std::list<std::shared_ptr<Piece>>> piecesMap;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap;
 
-    std::map<Color, std::list<std::shared_ptr<Piece>>> mapOfRemovedPieces;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> mapOfRemovedPieces;
 
-    std::map<Color, std::list<std::shared_ptr<Piece>>> mapPassantPawns;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> mapPassantPawns;
 
     std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece;
 

@@ -12,11 +12,11 @@
 #include <memory>
 #include <iostream>
 
-std::map<Color, std::list<std::shared_ptr<Piece>>> PiecesMapBuilder::build(BoardObserver *observerBoard)
+std::map<Player, std::list<std::shared_ptr<Piece>>> PiecesMapBuilder::build(BoardObserver *observerBoard)
 {
-    std::map<Color, std::list<std::shared_ptr<Piece>>> piecesMap = {
-        {Color::BLACK, createPiecesBlack()},
-        {Color::WHITE, createPiecesWhite()},
+    std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap = {
+        {Player::BLACK, createPiecesBlack()},
+        {Player::WHITE, createPiecesWhite()},
     };
 
     for (auto &pieces : piecesMap)
@@ -33,17 +33,17 @@ std::list<std::shared_ptr<Piece>> PiecesMapBuilder::createPiecesWhite()
 {
     int rowForPawnsByColor = 2;
     int rowForPiecesByColor = 1;
-    return createPieces(rowForPawnsByColor, rowForPiecesByColor, Color::WHITE);
+    return createPieces(rowForPawnsByColor, rowForPiecesByColor, Player::WHITE);
 }
 
 std::list<std::shared_ptr<Piece>> PiecesMapBuilder::createPiecesBlack()
 {
     int rowForPawnsByColor = 7;
     int rowForPiecesByColor = 8;
-    return createPieces(rowForPawnsByColor, rowForPiecesByColor, Color::BLACK);
+    return createPieces(rowForPawnsByColor, rowForPiecesByColor, Player::BLACK);
 }
 
-std::list<std::shared_ptr<Piece>> PiecesMapBuilder::createPieces(int rowForPawnsByColor, int rowForPiecesByColor, Color color)
+std::list<std::shared_ptr<Piece>> PiecesMapBuilder::createPieces(int rowForPawnsByColor, int rowForPiecesByColor, Player color)
 {
     std::list<std::shared_ptr<Piece>> pieces;
     for (size_t i = 1; i <= 8; i++)

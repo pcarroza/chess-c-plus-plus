@@ -10,14 +10,14 @@ namespace models
     public:
         Turn();
 
-        Color getCurrentPlayer();
+        Player getCurrentPlayer();
 
-        Color getRivalPlayer();
+        Player getRivalPlayer();
 
         void change();
 
     private:
-        Color currentPlayer;
+        Player currentPlayer;
     };
 }
 

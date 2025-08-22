@@ -2,7 +2,7 @@
 #include "models/pieces/Piece.hpp"
 #include "models/Color.hpp"
 
-Piece::Piece(Coordinate *coordinate, Color color) : color(color), coordinate(coordinate), basedGenerator(nullptr)
+Piece::Piece(Coordinate *coordinate, Player color) : color(color), coordinate(coordinate), basedGenerator(nullptr)
 {
 }
 

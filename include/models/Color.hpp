@@ -1,7 +1,7 @@
 #ifndef COLOR_HPP
 #define COLOR_HPP
 
-enum class Color
+enum class Player
 {
     WHITE,
     BLACK,

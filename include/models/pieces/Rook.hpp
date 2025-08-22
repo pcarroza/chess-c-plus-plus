@@ -6,7 +6,7 @@
 class Rook : public Piece
 {
 public:
-    Rook(Coordinate *coordinate, Color color);
+    Rook(Coordinate *coordinate, Player color);
 
     std::string toString() const override;
 };

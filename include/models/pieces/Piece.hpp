@@ -20,7 +20,7 @@ using models::pieces::rulesOfMovements::MovementRulesBaseGenerator;
 class Piece : public PieceSubject, public SelectedPiece
 {
 public:
-    Piece(Coordinate *coordinate, Color color);
+    Piece(Coordinate *coordinate, Player color);
 
     virtual ~Piece();
 
@@ -58,7 +58,7 @@ protected:
     void set(Coordinate *coordinate);
 
 protected:
-    Color color;
+    Player color;
 
     Coordinate *coordinate;
 

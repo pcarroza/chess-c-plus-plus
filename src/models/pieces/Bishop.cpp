@@ -3,7 +3,7 @@
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
-Bishop::Bishop(Coordinate *coordinate, Color color) : Piece(coordinate, color)
+Bishop::Bishop(Coordinate *coordinate, Player color) : Piece(coordinate, color)
 {
     basedGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(this);
 }

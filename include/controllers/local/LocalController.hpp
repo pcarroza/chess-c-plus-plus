@@ -27,9 +27,9 @@ namespace controllers::local
 
         void removeRivalPlayerPiece(Coordinate &coordinate);
 
-        Color getCurrentPlayer();
+        Player getCurrentPlayer();
 
-        Color getRivalPlayer();
+        Player getRivalPlayer();
 
         bool isTheWhitePieceSelected(Coordinate &coordinate);
 

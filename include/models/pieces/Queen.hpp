@@ -6,7 +6,7 @@
 class Queen : public Piece
 {
 public:
-    Queen(Coordinate *coordinate, Color color);
+    Queen(Coordinate *coordinate, Player color);
 
     std::string toString() const override;
 };

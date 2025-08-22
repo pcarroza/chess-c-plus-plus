@@ -6,7 +6,7 @@
 class Bishop : public Piece
 {
 public:
-    Bishop(Coordinate *coordinate, Color color);
+    Bishop(Coordinate *coordinate, Player color);
 
     std::string toString() const override;
 };

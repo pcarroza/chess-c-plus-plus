@@ -3,7 +3,7 @@
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
-Knight::Knight(Coordinate *coordinate, Color color) : Piece(coordinate, color)
+Knight::Knight(Coordinate *coordinate, Player color) : Piece(coordinate, color)
 {
     basedGenerator = MovementRulesBaseGeneratorFacade::createKnightRuleBasedCoordinateGenerator(this);
 }

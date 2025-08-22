@@ -3,7 +3,7 @@
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
-Pawn::Pawn(Coordinate *coordinate, Color color)
+Pawn::Pawn(Coordinate *coordinate, Player color)
     : Piece(coordinate, color),
       initialState(true),
       isItPromoted(false),
@@ -80,12 +80,12 @@ void Pawn::changeToPromoted()
 
 bool Pawn::isWhite()
 {
-    return color == Color::WHITE;
+    return color == Player::WHITE;
 }
 
 bool Pawn::isBlack()
 {
-    return color == Color::BLACK;
+    return color == Player::BLACK;
 }
 
 bool Pawn::isVulnerablePawn()

@@ -6,7 +6,7 @@
 class Knight : public Piece
 {
 public:
-    Knight(Coordinate *coordinate, Color color);
+    Knight(Coordinate *coordinate, Player color);
 
     std::string toString() const override;
 };

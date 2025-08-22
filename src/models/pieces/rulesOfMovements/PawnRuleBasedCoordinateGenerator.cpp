@@ -16,16 +16,16 @@ namespace models::pieces::rulesOfMovements
 
     void PawnRuleBasedCoordinateGenerator::generate()
     {
-        Color color = getColor();
+        Player color = getPlayer();
 
-        assert(color != Color::NONE && "Error. The 'Color' should not be 'NONE'");
+        assert(color != Player::NONE && "Error. The 'Color' should not be 'NONE'");
 
         possibleMoves.clear();
 
         possibleMoves = calculateForwardMoves(color);
     }
 
-    std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Color color)
+    std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Player color)
     {
         return std::list<std::shared_ptr<Coordinate>>();
     }
@@ -34,16 +34,16 @@ namespace models::pieces::rulesOfMovements
     {
     }
 
-    Color PawnRuleBasedCoordinateGenerator::getColor()
+    Player PawnRuleBasedCoordinateGenerator::getPlayer()
     {
         if (pawn->isWhite())
         {
-            return Color::WHITE;
+            return Player::WHITE;
         }
         if (pawn->isBlack())
         {
-            return Color::BLACK;
+            return Player::BLACK;
         }
-        return Color::NONE;
+        return Player::NONE;
     }
 }
