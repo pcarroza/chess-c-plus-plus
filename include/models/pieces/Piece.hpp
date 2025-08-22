@@ -8,7 +8,7 @@
 #include "SelectedPiece.hpp"
 #include "PieceSubject.hpp"
 #include "models/pieces/Coordinate.hpp"
-#include "models/Color.hpp"
+#include "models/Player.hpp"
 
 namespace models::pieces::rulesOfMovements
 {

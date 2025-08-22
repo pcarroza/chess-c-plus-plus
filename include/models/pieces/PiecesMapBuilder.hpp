@@ -2,7 +2,7 @@
 #define BUILDER_PIECES_H
 
 #include "Piece.hpp"
-#include "models/Color.hpp"
+#include "models/Player.hpp"
 
 #include <map>
 #include <list>

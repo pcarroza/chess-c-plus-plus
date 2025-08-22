@@ -12,7 +12,7 @@
 #include "models/pieces/Coordinate.hpp"
 #include "models/pieces/Piece.hpp"
 #include "BoardSubject.hpp"
-#include "models/Color.hpp"
+#include "models/Player.hpp"
 #include "models/Turn.hpp"
 
 using models::Turn;

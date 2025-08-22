@@ -1,6 +1,6 @@
 #include "models/pieces/Coordinate.hpp"
 #include "models/pieces/Piece.hpp"
-#include "models/Color.hpp"
+#include "models/Player.hpp"
 
 Piece::Piece(Coordinate *coordinate, Player color) : color(color), coordinate(coordinate), basedGenerator(nullptr)
 {

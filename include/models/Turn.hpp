@@ -1,7 +1,7 @@
 #ifndef TURN_HPP
 #define TURN_HPP
 
-#include "Color.hpp"
+#include "Player.hpp"
 
 namespace models
 {
