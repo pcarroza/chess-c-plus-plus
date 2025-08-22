@@ -1,14 +1,14 @@
 #ifndef ROOK_RULE_BASED_COORDINATE_GENERATOR_HPP
 #define ROOK_RULE_BASED_COORDINATE_GENERATOR_HPP
 
-#include "RuleBasedCoordinateGenerator.hpp"
+#include "MovementRulesBaseGenerator.hpp"
 
 namespace models::pieces::rulesOfMovements
 {
-    class RookRuleBasedCoordinateGenerator : public MovementRulesBaseGeneratorGenerator
+    class RookRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        RookRuleBasedCoordinateGenerator(Piece &piece);
+        RookRuleBasedCoordinateGenerator(Piece *piece);
 
         void generate() override;
     };

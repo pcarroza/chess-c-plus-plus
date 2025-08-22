@@ -1,8 +1,15 @@
 #include "models/pieces/Pawn.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
-Pawn::Pawn(Coordinate *coordinate, Color color) : Piece(coordinate, color), initialState(true), isItPromoted(false), vulnerablePawn(false)
+using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+
+Pawn::Pawn(Coordinate *coordinate, Player color)
+    : Piece(coordinate, color),
+      initialState(true),
+      isItPromoted(false),
+      vulnerablePawn(false)
 {
-    basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(*this);
+    basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(this);
 }
 
 void Pawn::put(Coordinate *target)
@@ -26,8 +33,6 @@ void Pawn::put(Coordinate *target)
     {
         changeToPromoted();
     }
-
-    delete coordinate;
 
     Piece::put(target);
 }
@@ -75,12 +80,12 @@ void Pawn::changeToPromoted()
 
 bool Pawn::isWhite()
 {
-    return color == Color::WHITE;
+    return color == Player::WHITE;
 }
 
 bool Pawn::isBlack()
 {
-    return color == Color::BLACK;
+    return color == Player::BLACK;
 }
 
 bool Pawn::isVulnerablePawn()

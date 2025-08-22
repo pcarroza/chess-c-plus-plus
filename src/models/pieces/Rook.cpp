@@ -1,8 +1,11 @@
 #include "models/pieces/Rook.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
-Rook::Rook(Coordinate *coordinate, Color color) : Piece(coordinate, color)
+using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+
+Rook::Rook(Coordinate *coordinate, Player color) : Piece(coordinate, color)
 {
-    basedGenerator = MovementRulesBaseGeneratorFacade::createRookRuleBasedCoordinateGenerator(*this);
+    basedGenerator = MovementRulesBaseGeneratorFacade::createRookRuleBasedCoordinateGenerator(this);
 }
 
 std::string Rook::toString() const

@@ -13,12 +13,16 @@ class Piece;
 
 namespace models::pieces::rulesOfMovements
 {
-    class MovementRulesBaseGeneratorGenerator
+    class MovementRulesBaseGenerator
     {
     public:
-        MovementRulesBaseGeneratorGenerator(Piece &piece);
+        MovementRulesBaseGenerator();
 
-        virtual ~MovementRulesBaseGeneratorGenerator() = default;
+        MovementRulesBaseGenerator(Piece *piece);
+
+        virtual ~MovementRulesBaseGenerator() = default;
+
+        virtual void set(Piece *piece);
 
         std::list<std::shared_ptr<Coordinate>> getValidMovements();
 
@@ -30,7 +34,7 @@ namespace models::pieces::rulesOfMovements
         bool isContained(const Coordinate &coordinate);
 
     protected:
-        Piece &piece;
+        Piece *piece;
 
         std::list<std::shared_ptr<Coordinate>> possibleMoves;
     };

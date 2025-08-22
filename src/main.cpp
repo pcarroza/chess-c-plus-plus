@@ -31,15 +31,11 @@ using views::console::ConsoleView;
 
 int main()
 {
-
     ConsoleView *consoleView = new ConsoleView();
     delete consoleView;
 
-    Logic *logic = new LocalLogic();
-    delete logic;
-
     Board *board = new Board();
-    std::map<Color, std::list<std::shared_ptr<Piece>>> piecesMap = PiecesMapBuilder::build(board);
+    std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap = PiecesMapBuilder::build(board);
 
     board->selectPiece(Coordinate(1, 2));
 
@@ -51,7 +47,7 @@ int main()
         }
     }
 
-    Piece *pawn = new Pawn(new Coordinate(1, 2), Color::BLACK);
+    Piece *pawn = new Pawn(new Coordinate(1, 2), Player::BLACK);
     std::cout << pawn->toString() << std::endl;
     pawn->put(new Coordinate(2, 2));
     std::cout << pawn->toString() << std::endl;
@@ -72,41 +68,51 @@ int main()
 
     delete pawn;
 
-    Piece *rook1 = new Rook(new Coordinate(1, 2), Color::BLACK);
+    Piece *rook1 = new Rook(new Coordinate(1, 2), Player::BLACK);
     std::cout << rook1->toString() << std::endl;
     delete rook1;
 
-    Piece *rook2 = new Rook(new Coordinate(1, 2), Color::BLACK);
+    Piece *rook2 = new Rook(new Coordinate(1, 2), Player::BLACK);
     std::cout << rook2->toString() << std::endl;
     delete rook2;
 
-    Piece *rook3 = new Rook(new Coordinate(1, 2), Color::BLACK);
+    Piece *rook3 = new Rook(new Coordinate(1, 2), Player::BLACK);
     std::cout << rook3->toString() << std::endl;
     delete rook3;
 
-    Piece *rook4 = new Rook(new Coordinate(1, 2), Color::BLACK);
+    Piece *rook4 = new Rook(new Coordinate(1, 2), Player::BLACK);
     std::cout << rook4->toString() << std::endl;
     delete rook4;
 
-    Piece *queen = new Queen(new Coordinate(1, 2), Color::BLACK);
+    Piece *rook5 = new Rook(new Coordinate(1, 2), Player::BLACK);
+    std::cout << rook5->toString() << std::endl;
+    delete rook5;
+
+    Piece *rook6 = new Rook(new Coordinate(1, 2), Player::BLACK);
+    std::cout << rook6->toString() << std::endl;
+    delete rook6;
+
+    Piece *queen = new Queen(new Coordinate(1, 2), Player::BLACK);
     std::cout << queen->toString() << std::endl;
     delete queen;
 
-    Piece *king = new King(new Coordinate(1, 2), Color::BLACK);
+    Piece *king = new King(new Coordinate(1, 2), Player::BLACK);
     std::cout << king->toString() << std::endl;
     delete king;
 
-    Piece *knight = new Knight(new Coordinate(1, 2), Color::BLACK);
+    Piece *knight = new Knight(new Coordinate(1, 2), Player::BLACK);
     std::cout << knight->toString() << std::endl;
     delete knight;
 
-    Piece *bishop = new Queen(new Coordinate(1, 2), Color::BLACK);
+    Piece *bishop = new Queen(new Coordinate(1, 2), Player::BLACK);
     std::cout << bishop->toString() << std::endl;
     delete bishop;
 
     delete board;
 
-    Game *game = new Game(nullptr);
+    LocalLogic *logic = new LocalLogic();
+
+    Game *game = new Game(logic);
 
     game->select(Coordinate(1, 2));
 
@@ -120,7 +126,20 @@ int main()
 
     game->put(Coordinate(6, 2));
 
+    game->begin();
+
+    game->finalize();
+
+    game->initialize();
+
+    game->begin();
+
+    game->finalize();
+
+    game->end();
+
     delete game;
+    delete logic;
 
     return 0;
 }

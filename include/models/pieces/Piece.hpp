@@ -4,35 +4,25 @@
 #include <set>
 #include <list>
 
-#include "./rulesOfMovements/RuleBasedCoordinateGenerator.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
 #include "SelectedPiece.hpp"
 #include "PieceSubject.hpp"
 #include "models/pieces/Coordinate.hpp"
-#include "models/Color.hpp"
+#include "models/Player.hpp"
 
 namespace models::pieces::rulesOfMovements
 {
-    class MovementRulesBaseGeneratorGenerator;
+    class MovementRulesBaseGenerator;
 }
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorGenerator;
+using models::pieces::rulesOfMovements::MovementRulesBaseGenerator;
 
 class Piece : public PieceSubject, public SelectedPiece
 {
 public:
-    Piece(Coordinate *coordinate, Color color);
+    Piece(Coordinate *coordinate, Player color);
 
     virtual ~Piece();
-
-    virtual void put(Coordinate *coordinate) override;
-
-    virtual bool isMovementValid(const Coordinate &coordinate) override;
-
-    virtual bool isThePawnPromoted() override;
-
-    virtual void generateMovements() override;
-
-    virtual bool isVulnerablePawn();
 
     std::list<Coordinate> getValidMovements();
 
@@ -46,11 +36,21 @@ public:
 
     bool has(Coordinate &coordinate);
 
-    bool isNotMoved();
+    virtual void put(Coordinate *coordinate) override;
 
-    bool isKing();
+    virtual bool isMovementValid(const Coordinate &coordinate) override;
 
-    bool isRook();
+    virtual bool isThePawnPromoted() override;
+
+    virtual void generateMovements() override;
+
+    virtual bool isVulnerablePawn();
+
+    virtual bool isNotMoved();
+
+    virtual bool isKing();
+
+    virtual bool isRook();
 
     virtual std::string toString() const = 0;
 
@@ -58,11 +58,11 @@ protected:
     void set(Coordinate *coordinate);
 
 protected:
-    Color color;
+    Player color;
 
     Coordinate *coordinate;
 
-    MovementRulesBaseGeneratorGenerator *basedGenerator;
+    MovementRulesBaseGenerator *basedGenerator;
 };
 
 #endif
