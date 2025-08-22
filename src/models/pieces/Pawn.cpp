@@ -141,13 +141,13 @@ std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
 
 int Pawn::getPlayerValue(Player player)
 {
-    if (player == Player::WHITE)
+    if (isWhite())
     {
-        return 1;
+        return getPlayerValue(player);
     }
-    if (player == Player::BLACK)
+    if (isBlack())
     {
-        return -1;
+        return getPlayerValue(player);
     }
     assert(false && "Error. The 'Player' should not be 'Player::NONE'");
     return 0;
