@@ -27,10 +27,29 @@ namespace models::pieces::rulesOfMovements
         possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
                                 { return !ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
     }
-
-    std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Player color)
+    std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Player player)
     {
-        return std::list<std::shared_ptr<Coordinate>>();
+        auto coordinateFirstBox = pawn->getDisplacedBy(Coordinate(1, 0));
+        if (pawn->isBoxOccupied(*coordinateFirstBox))
+        {
+            return {};
+        }
+
+        const int singleStep = 1;
+        const int doubleStep = 2;
+        int maximumAdvance = pawn->isInitialState() ? doubleStep : singleStep;
+        if (maximumAdvance == singleStep)
+        {
+            return {std::shared_ptr<Coordinate>(coordinateFirstBox)};
+        }
+
+        auto coordinateSecondBox = pawn->getDisplacedBy(Coordinate(doubleStep, 0));
+        if (pawn->isBoxOccupied(*coordinateSecondBox))
+        {
+            return {std::shared_ptr<Coordinate>(coordinateFirstBox)};
+        }
+
+        return {std::shared_ptr<Coordinate>(coordinateFirstBox), std::shared_ptr<Coordinate>(coordinateSecondBox)};
     }
 
     std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateDiagonalCaptureMoves(Player player)

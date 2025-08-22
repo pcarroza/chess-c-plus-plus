@@ -4,6 +4,7 @@
 #include "common/validators/ValidatorLimitsBoard.hpp"
 #include "MovementRulesBaseGenerator.hpp"
 #include "models/pieces/Pawn.hpp"
+#include "models/Player.hpp"
 
 #include <vector>
 #include <cassert>

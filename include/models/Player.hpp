@@ -3,9 +3,9 @@
 
 enum class Player
 {
-    WHITE,
-    BLACK,
-    NONE
+    WHITE = 1,
+    BLACK = -1,
+    NONE = 0
 };
 
 #endif
