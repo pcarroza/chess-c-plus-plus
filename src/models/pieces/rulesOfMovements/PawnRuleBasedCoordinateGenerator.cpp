@@ -1,8 +1,5 @@
 #include "models/pieces/rulesOfMovements/PawnRuleBasedCoordinateGenerator.hpp"
 
-#include <vector>
-#include <cassert>
-
 namespace models::pieces::rulesOfMovements
 {
     PawnRuleBasedCoordinateGenerator::PawnRuleBasedCoordinateGenerator(Piece *piece)
@@ -17,23 +14,18 @@ namespace models::pieces::rulesOfMovements
 
     void PawnRuleBasedCoordinateGenerator::generate()
     {
-        Player color = getPlayer();
+        Player player = getPlayer();
 
-        assert(color != Player::NONE && "Error. The 'Color' should not be 'NONE'");
+        assert(player != Player::NONE && "Error. The 'Player' should not be 'Player::NONE'");
 
         possibleMoves.clear();
 
-        using CalculateFn = std::list<std::shared_ptr<Coordinate>> (PawnRuleBasedCoordinateGenerator::*)(Player);
+        possibleMoves.splice(possibleMoves.end(), calculateForwardMoves(player));
 
-        std::vector<CalculateFn> calculators = {
-            &PawnRuleBasedCoordinateGenerator::calculateForwardMoves,
-            &PawnRuleBasedCoordinateGenerator::calculateDiagonalCaptureMoves};
+        possibleMoves.splice(possibleMoves.end(), calculateDiagonalCaptureMoves(player));
 
-        for (auto calculator : calculators)
-        {
-            auto moves = (this->*calculator)(color);
-            possibleMoves.splice(possibleMoves.end(), moves);
-        }
+        possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
+                                { return !ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
     }
 
     std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Player color)

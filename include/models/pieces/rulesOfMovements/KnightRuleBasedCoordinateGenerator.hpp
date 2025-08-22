@@ -2,7 +2,7 @@
 #define KNIGHT_RULE_BASED_COORDINATE_GENERATOR_HPP
 
 #include "MovementRulesBaseGenerator.hpp"
-#include "../../../common/validators/ValidatorLimitsBoard.hpp"
+#include "common/validators/ValidatorLimitsBoard.hpp"
 
 namespace common::validators
 {
