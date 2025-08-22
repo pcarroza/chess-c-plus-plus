@@ -10,7 +10,7 @@ namespace views::console
     {
     }
 
-    void ContinueView::interact(ContinueController *continueController)
+    void ContinueView::interact(ContinueController */*continueController*/)
     {
     }
 }

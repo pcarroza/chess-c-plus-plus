@@ -3,7 +3,7 @@
 namespace models::pieces::specialRuleMovements
 {
     SpecialMovesRulesGenerator::SpecialMovesRulesGenerator(Piece *piece)
-    : piece(piece)
+        : piece(piece)
     {
     }
 
@@ -19,9 +19,7 @@ namespace models::pieces::specialRuleMovements
 
     bool SpecialMovesRulesGenerator::isContained(const Coordinate &coordinate)
     {
-        return std::any_of(possibleMoves.begin(), possibleMoves.end(), 
-            [&](const std::shared_ptr<Coordinate>& elem) {
-                return *elem == coordinate;
-            });
+        return std::any_of(possibleMoves.begin(), possibleMoves.end(), [&](const std::shared_ptr<Coordinate> &elem)
+                           { return *elem == coordinate; });
     }
 }

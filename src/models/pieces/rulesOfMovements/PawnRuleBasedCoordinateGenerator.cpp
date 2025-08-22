@@ -56,7 +56,7 @@ namespace models::pieces::rulesOfMovements
 
         for (int offset : offsets)
         {
-            auto coordinate = pawn->getDisplacedBy(Coordinate(getPlayerValue(player), 1));
+            auto coordinate = pawn->getDisplacedBy(Coordinate(getPlayerValue(player), offset));
             if (pawn->isItEnemy(*coordinate))
             {
                 captures.push_back(std::shared_ptr<Coordinate>(coordinate));

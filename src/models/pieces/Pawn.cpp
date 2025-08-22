@@ -17,6 +17,11 @@ Pawn::Pawn(Coordinate *coordinate, Player color)
     basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(this);
 }
 
+Pawn::~Pawn()
+{
+    delete specialGenerator;
+}
+
 void Pawn::put(Coordinate *target)
 {
     if (isInitialState())
@@ -52,7 +57,7 @@ void Pawn::close()
     initialState = false;
 }
 
-bool Pawn::inStep(Coordinate &target)
+bool Pawn::inStep(Coordinate & /*target*/)
 {
     return false;
 }
@@ -119,22 +124,22 @@ bool Pawn::canCaptureRight() const
 
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const
 {
-    return std::shared_ptr<Coordinate>();
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(0, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
 {
-    return std::shared_ptr<Coordinate>();
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(0, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
 {
-    return std::shared_ptr<Coordinate>();
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(0, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
 {
-    return std::shared_ptr<Coordinate>();
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(0, 0)));
 }
 
 int Pawn::getPlayer(Player player)

@@ -16,6 +16,8 @@ class Pawn : public Piece
 public:
     Pawn(Coordinate *coordinate, Player color);
 
+    ~Pawn();
+
     void put(Coordinate *target) override;
 
     bool isMovementValid(const Coordinate &target) override;

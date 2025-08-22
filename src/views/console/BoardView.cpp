@@ -11,7 +11,7 @@ namespace views::console
     {
     }
 
-    void BoardView::interact(PlacementController *placementController)
+    void BoardView::interact(PlacementController */*placementController*/)
     {
     }
 

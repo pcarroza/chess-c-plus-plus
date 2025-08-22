@@ -18,7 +18,7 @@ namespace models::pieces::rulesOfMovements
 
     std::list<std::shared_ptr<Coordinate>> MovementRulesBaseGenerator::getValidMovements()
     {
-        return possibleMoves;
+        return std::move(possibleMoves);
     }
 
     bool MovementRulesBaseGenerator::isMovementValid(const Coordinate &coordinate)
@@ -28,8 +28,7 @@ namespace models::pieces::rulesOfMovements
 
     bool MovementRulesBaseGenerator::isContained(const Coordinate &target)
     {
-        auto it = std::find_if(possibleMoves.begin(), possibleMoves.end(), [&](const std::shared_ptr<Coordinate> &coordinate)
-                               { return *coordinate == target; });
-        return it != possibleMoves.end();
+        return std::any_of(possibleMoves.begin(), possibleMoves.end(), [&](const std::shared_ptr<Coordinate> &coordinate)
+                           { return *coordinate == target; });
     }
 }

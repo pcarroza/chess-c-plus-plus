@@ -11,7 +11,7 @@ namespace views::console
     {
     }
 
-    void StartView::interact(controllers::StartController *startController)
+    void StartView::interact(controllers::StartController * /*startController*/)
     {
     }
 

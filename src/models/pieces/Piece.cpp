@@ -32,17 +32,17 @@ Coordinate *Piece::getCoordinate()
     return coordinate;
 }
 
-Coordinate *Piece::getDisplacedBy(int displacement)
+Coordinate *Piece::getDisplacedBy(int displacement) const
 {
     return new Coordinate(0, displacement);
 }
 
-Coordinate *Piece::getDisplacedBy(const Coordinate &displacement)
+Coordinate *Piece::getDisplacedBy(const Coordinate &displacement) const
 {
-    return new Coordinate(0, 0);
+    return new Coordinate(coordinate->getRow() + displacement.getRow(), coordinate->getColumn() + displacement.getColumn());
 }
 
-Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector)
+Coordinate *Piece::getDisplacedBy(const Coordinate &/*displacement*/, const Coordinate &/*vector*/)
 {
     return new Coordinate(0, 0);
 }

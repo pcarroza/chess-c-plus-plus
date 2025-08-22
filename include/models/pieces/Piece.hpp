@@ -28,9 +28,9 @@ public:
 
     Coordinate *getCoordinate();
 
-    Coordinate *getDisplacedBy(int displacement);
+    Coordinate *getDisplacedBy(int displacement) const;
 
-    Coordinate *getDisplacedBy(const Coordinate &displacement);
+    Coordinate *getDisplacedBy(const Coordinate &displacement) const;
 
     Coordinate *getDisplacedBy(const Coordinate &displacement, const Coordinate &vector);
 

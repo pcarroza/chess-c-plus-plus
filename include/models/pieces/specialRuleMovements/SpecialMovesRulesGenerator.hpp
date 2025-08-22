@@ -18,6 +18,8 @@ namespace models::pieces::specialRuleMovements
     public:
         SpecialMovesRulesGenerator(Piece *piece);
 
+        virtual ~SpecialMovesRulesGenerator() = default;
+
         virtual void generate() = 0;
 
         std::list<std::shared_ptr<Coordinate>> getValidMovements();

@@ -25,7 +25,7 @@ namespace controllers::local
         localContinueController = new LocalContinueController(game);
     }
 
-    void LocalOperationControllerBuilder::build(int users)
+    void LocalOperationControllerBuilder::build(int /*users*/)
     {
     }
 
