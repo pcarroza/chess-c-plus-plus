@@ -8,4 +8,9 @@ enum class Player
     NONE = 0
 };
 
+inline int getPlayerValue(Player player)
+{
+    return static_cast<int>(player);
+}
+
 #endif
