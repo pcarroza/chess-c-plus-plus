@@ -29,13 +29,11 @@ namespace models::pieces::rulesOfMovements
             &PawnRuleBasedCoordinateGenerator::calculateForwardMoves,
             &PawnRuleBasedCoordinateGenerator::calculateDiagonalCaptureMoves};
 
-        for (auto fn : calculators)
+        for (auto calculator : calculators)
         {
-            auto moves = (this->*fn)(color);
+            auto moves = (this->*calculator)(color);
             possibleMoves.splice(possibleMoves.end(), moves);
         }
-
-        
     }
 
     std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Player color)
