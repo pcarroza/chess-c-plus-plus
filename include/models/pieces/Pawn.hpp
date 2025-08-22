@@ -1,7 +1,6 @@
 #ifndef PAWN_H
 #define PAWN_H
 
-#include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 #include "models/pieces/specialRuleMovements/SpecialMovesRulesGenerator.hpp"
 #include "Piece.hpp"
 

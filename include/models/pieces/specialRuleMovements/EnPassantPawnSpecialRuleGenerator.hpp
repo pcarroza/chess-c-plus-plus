@@ -3,7 +3,6 @@
 
 #include "common/validators/ValidatorLimitsBoard.hpp"
 #include "SpecialMovesRulesGenerator.hpp"
-#include "models/pieces/Pawn.hpp"
 #include "models/Player.hpp"
 
 #include <vector>

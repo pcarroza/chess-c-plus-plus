@@ -1,13 +1,16 @@
 #include "models/pieces/Pawn.hpp"
 #include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
 
 Pawn::Pawn(Coordinate *coordinate, Player color)
     : Piece(coordinate, color),
       initialState(true),
       isItPromoted(false),
-      vulnerablePawn(false)
+      vulnerablePawn(false),
+      specialGenerator(new EnPassantPawnSpecialRuleGenerator(this))
 {
     basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(this);
 }
