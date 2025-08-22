@@ -1,6 +1,7 @@
 #include "models/pieces/Pawn.hpp"
 #include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 #include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "Pawn.hpp"
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
@@ -93,6 +94,64 @@ bool Pawn::isBlack()
 bool Pawn::isVulnerablePawn()
 {
     return vulnerablePawn;
+}
+
+bool Pawn::canAdvanceOne() const
+{
+    auto forward = getForwardOne();
+    return !isBoxOccupied(*forward);
+}
+
+bool Pawn::canAdvanceTwo() const
+{
+    if (!isInitialState())
+    {
+        return false;
+    }
+    auto forwardOne = getForwardTwo();
+    if (!isBoxOccupied(*forwardOne))
+    {
+        return false;
+    }
+    auto forwardTwo = getForwardOne();
+    return !isBoxOccupied(*forwardTwo);
+}
+
+bool Pawn::canCaptureLeft() const
+{
+    auto left = getDiagonalLeft();
+    return isItEnemy(*left);
+}
+
+bool Pawn::canCaptureRight() const
+{
+    auto right = getDiagonalRight();
+    return isItEnemy(*right);
+}
+
+bool Pawn::isItPromoted()
+{
+    return false;
+}
+
+std::shared_ptr<Coordinate> Pawn::getForwardOne() const
+{
+    return std::shared_ptr<Coordinate>();
+}
+
+std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
+{
+    return std::shared_ptr<Coordinate>();
+}
+
+std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
+{
+    return std::shared_ptr<Coordinate>();
+}
+
+std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
+{
+    return std::shared_ptr<Coordinate>();
 }
 
 std::string Pawn::toString() const

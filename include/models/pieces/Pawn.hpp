@@ -32,6 +32,22 @@ public:
 
     bool isBlack();
 
+    bool canAdvanceOne() const;
+
+    bool canAdvanceTwo() const;
+
+    bool canCaptureLeft() const;
+
+    bool canCaptureRight() const;
+
+    std::shared_ptr<Coordinate> getForwardOne() const;
+
+    std::shared_ptr<Coordinate> getForwardTwo() const;
+
+    std::shared_ptr<Coordinate> getDiagonalLeft() const;
+
+    std::shared_ptr<Coordinate> getDiagonalRight() const;
+
     std::string toString() const override;
 
 private:
