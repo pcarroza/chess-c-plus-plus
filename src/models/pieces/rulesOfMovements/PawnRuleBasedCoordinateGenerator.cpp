@@ -48,9 +48,12 @@ namespace models::pieces::rulesOfMovements
     std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateDiagonalCaptureMoves(Player player)
     {
         std::list<std::shared_ptr<Coordinate>> captures;
+
         const int letfDiagonal = -1;
         const int rightDiagonal = 1;
+
         std::vector<int> offsets = {letfDiagonal, rightDiagonal};
+
         for (int offset : offsets)
         {
             auto coordinate = pawn->getDisplacedBy(Coordinate(getPlayerValue(player), 1));
@@ -59,6 +62,7 @@ namespace models::pieces::rulesOfMovements
                 captures.push_back(std::shared_ptr<Coordinate>(coordinate));
             }
         }
+
         return captures;
     }
 
