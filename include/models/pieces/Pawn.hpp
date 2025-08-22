@@ -1,7 +1,16 @@
 #ifndef PAWN_H
 #define PAWN_H
 
+#include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "models/pieces/specialRuleMovements/SpecialMovesRulesGenerator.hpp"
 #include "Piece.hpp"
+
+namespace models::pieces::specialRuleMovements
+{
+    class SpecialMovesRulesGenerator;
+}
+
+using models::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
 
 class Pawn : public Piece
 {
@@ -41,6 +50,8 @@ private:
     bool isItPromoted;
 
     bool vulnerablePawn;
+
+    SpecialMovesRulesGenerator *specialGenerator;
 };
 
 #endif
