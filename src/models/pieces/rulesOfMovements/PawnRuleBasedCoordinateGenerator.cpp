@@ -30,7 +30,7 @@ namespace models::pieces::rulesOfMovements
         return std::list<std::shared_ptr<Coordinate>>();
     }
 
-    void PawnRuleBasedCoordinateGenerator::addCaptureMoveIfValid(Coordinate coordinate)
+    void PawnRuleBasedCoordinateGenerator::calculateDiagonalCaptureMoves(Player player)
     {
     }
 
