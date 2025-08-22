@@ -57,8 +57,7 @@ bool Pawn::inStep(Coordinate &target)
 
 bool Pawn::isMovementValid(const Coordinate &target)
 {
-    Coordinate nonConstTarget = target;
-    return Piece::isMovementValid(target);
+    return Piece::isMovementValid(target) || specialGenerator->isMovementValid(target);
 }
 
 void Pawn::generateMovements()

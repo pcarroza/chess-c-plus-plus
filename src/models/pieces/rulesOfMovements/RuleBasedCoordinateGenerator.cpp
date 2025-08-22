@@ -18,12 +18,6 @@ namespace models::pieces::rulesOfMovements
 
     std::list<std::shared_ptr<Coordinate>> MovementRulesBaseGenerator::getValidMovements()
     {
-        std::list<std::shared_ptr<Coordinate>> deepCopy;
-
-        for (const auto &coordinate : possibleMoves)
-        {
-            deepCopy.push_back(std::make_shared<Coordinate>(*coordinate));
-        }
         return possibleMoves;
     }
 
