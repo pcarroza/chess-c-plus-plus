@@ -22,6 +22,7 @@ namespace models::pieces::rulesOfMovements
         possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
                                 { return !ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
     }
+
     std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Player player)
     {
         auto coordinateFirstBox = pawn->getDisplacedBy(Coordinate(getPlayerValue(player), 0));
@@ -36,7 +37,7 @@ namespace models::pieces::rulesOfMovements
         {
             return {std::shared_ptr<Coordinate>(coordinateFirstBox)};
         }
-        auto coordinateSecondBox = pawn->getDisplacedBy(Coordinate(doubleStep, 0));
+        auto coordinateSecondBox = pawn->getDisplacedBy(Coordinate(doubleStep * getPlayerValue(player), 0));
         if (pawn->isBoxOccupied(*coordinateSecondBox))
         {
             return {std::shared_ptr<Coordinate>(coordinateFirstBox)};
