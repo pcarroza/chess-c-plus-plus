@@ -30,13 +30,6 @@ namespace models::pieces::rulesOfMovements
         void generate() override;
 
     private:
-        std::list<std::shared_ptr<Coordinate>> calculateForwardMoves(Player color);
-
-        std::list<std::shared_ptr<Coordinate>> calculateDiagonalCaptureMoves(Player player);
-
-        Player getPlayer();
-
-    private:
         Pawn *pawn;
     };
 }
