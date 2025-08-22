@@ -1,5 +1,6 @@
 #include "models/pieces/rulesOfMovements/PawnRuleBasedCoordinateGenerator.hpp"
 
+#include <vector>
 #include <cassert>
 
 namespace models::pieces::rulesOfMovements
@@ -22,7 +23,19 @@ namespace models::pieces::rulesOfMovements
 
         possibleMoves.clear();
 
-        possibleMoves = calculateForwardMoves(color);
+        using CalculateFn = std::list<std::shared_ptr<Coordinate>> (PawnRuleBasedCoordinateGenerator::*)(Player);
+
+        std::vector<CalculateFn> calculators = {
+            &PawnRuleBasedCoordinateGenerator::calculateForwardMoves,
+            &PawnRuleBasedCoordinateGenerator::calculateDiagonalCaptureMoves};
+
+        for (auto fn : calculators)
+        {
+            auto moves = (this->*fn)(color);
+            possibleMoves.splice(possibleMoves.end(), moves);
+        }
+
+        
     }
 
     std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateForwardMoves(Player color)
@@ -30,8 +43,9 @@ namespace models::pieces::rulesOfMovements
         return std::list<std::shared_ptr<Coordinate>>();
     }
 
-    void PawnRuleBasedCoordinateGenerator::calculateDiagonalCaptureMoves(Player player)
+    std::list<std::shared_ptr<Coordinate>> PawnRuleBasedCoordinateGenerator::calculateDiagonalCaptureMoves(Player player)
     {
+        return std::list<std::shared_ptr<Coordinate>>();
     }
 
     Player PawnRuleBasedCoordinateGenerator::getPlayer()

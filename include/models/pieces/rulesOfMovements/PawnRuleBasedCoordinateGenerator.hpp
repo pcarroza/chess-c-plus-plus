@@ -20,7 +20,7 @@ namespace models::pieces::rulesOfMovements
     private:
         std::list<std::shared_ptr<Coordinate>> calculateForwardMoves(Player color);
 
-        void calculateDiagonalCaptureMoves(Player player);
+        std::list<std::shared_ptr<Coordinate>> calculateDiagonalCaptureMoves(Player player);
 
         Player getPlayer();
 
