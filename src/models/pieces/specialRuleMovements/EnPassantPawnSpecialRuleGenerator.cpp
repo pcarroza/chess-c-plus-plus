@@ -2,7 +2,11 @@
 
 namespace models::pieces::specialRuleMovements
 {
-    EnPassantPawnSpecialRuleGenerator::EnPassantPawnSpecialRuleGenerator()
+    EnPassantPawnSpecialRuleGenerator::EnPassantPawnSpecialRuleGenerator(Piece *piece) : SpecialMovesRulesGenerator(piece)
+    {
+    }
+
+    void EnPassantPawnSpecialRuleGenerator::generate()
     {
     }
 
