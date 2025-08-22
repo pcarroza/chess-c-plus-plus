@@ -26,7 +26,7 @@ public:
 
     bool isVulnerablePawn() override;
 
-    bool isInitialState();
+    bool isInitialState() const;
 
     bool isWhite();
 
@@ -58,6 +58,8 @@ private:
     bool isThePawnPromoted(Coordinate &coordinate);
 
     void changeToPromoted();
+
+    int getPlayerValue(Player player);
 
 private:
     bool initialState;
