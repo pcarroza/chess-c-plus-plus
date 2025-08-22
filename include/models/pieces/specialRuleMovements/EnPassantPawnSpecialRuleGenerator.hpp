@@ -1,8 +1,8 @@
 #ifndef ENPASSANTPAWNSPECIALRULEGENERATOR_HPP
 #define ENPASSANTPAWNSPECIALRULEGENERATOR_HPP
 
-#include "models/pieces/specialRuleMovements/SpecialMovesRulesGenerator.hpp"
 #include "common/validators/ValidatorLimitsBoard.hpp"
+#include "SpecialMovesRulesGenerator.hpp"
 #include "models/pieces/Pawn.hpp"
 #include "models/Player.hpp"
 

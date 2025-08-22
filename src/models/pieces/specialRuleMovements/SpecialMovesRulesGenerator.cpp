@@ -5,5 +5,4 @@ namespace models::pieces::specialRuleMovements
     SpecialMovesRulesGenerator::SpecialMovesRulesGenerator(Piece *piece)
     {
     }
-
 }

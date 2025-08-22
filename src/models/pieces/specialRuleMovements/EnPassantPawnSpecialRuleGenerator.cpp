@@ -9,5 +9,4 @@ namespace models::pieces::specialRuleMovements
     void EnPassantPawnSpecialRuleGenerator::generate()
     {
     }
-
 }
