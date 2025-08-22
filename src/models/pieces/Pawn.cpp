@@ -1,7 +1,8 @@
 #include "models/pieces/Pawn.hpp"
+#include "models/Player.hpp"
+#include "models/pieces/Coordinate.hpp"
 #include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 #include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
-#include "models/pieces/Pawn.hpp"
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
@@ -73,7 +74,7 @@ bool Pawn::isThePawnPromoted()
 
 bool Pawn::isThePawnPromoted(Coordinate &coordinate)
 {
-    return false;
+    return ValidatorLimitsBoard::getInstance().isPieceEndBoardAt(coordinate);
 }
 
 void Pawn::changeToPromoted()
@@ -98,8 +99,7 @@ bool Pawn::isVulnerablePawn()
 
 bool Pawn::canAdvanceOne() const
 {
-    auto forward = getForwardOne();
-    return !isBoxOccupied(*forward);
+    return !isBoxOccupied(*getForwardOne());
 }
 
 bool Pawn::canAdvanceTwo() const
@@ -109,14 +109,12 @@ bool Pawn::canAdvanceTwo() const
 
 bool Pawn::canCaptureLeft() const
 {
-    auto left = getDiagonalLeft();
-    return isItEnemy(*left);
+    return isItEnemy(*getDiagonalLeft());
 }
 
 bool Pawn::canCaptureRight() const
 {
-    auto right = getDiagonalRight();
-    return isItEnemy(*right);
+    return isItEnemy(*getDiagonalRight());
 }
 
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const
@@ -139,7 +137,7 @@ std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
     return std::shared_ptr<Coordinate>();
 }
 
-int Pawn::getPlayerValue(Player player)
+int Pawn::getPlayer(Player player)
 {
     if (isWhite())
     {

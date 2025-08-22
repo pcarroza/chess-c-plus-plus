@@ -59,7 +59,7 @@ private:
 
     void changeToPromoted();
 
-    int getPlayerValue(Player player);
+    int getPlayer(Player player);
 
 private:
     bool initialState;
