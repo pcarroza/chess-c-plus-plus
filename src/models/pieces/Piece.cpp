@@ -2,7 +2,10 @@
 #include "models/pieces/Piece.hpp"
 #include "models/Player.hpp"
 
-Piece::Piece(Coordinate *coordinate, Player color) : player(color), coordinate(coordinate), basedGenerator(nullptr)
+Piece::Piece(Coordinate *coordinate, Player color)
+    : player(color),
+      coordinate(coordinate),
+      basedGenerator(nullptr)
 {
 }
 
@@ -60,11 +63,6 @@ bool Piece::isMovementValid(const Coordinate &target)
 void Piece::generateMovements()
 {
     basedGenerator->generate();
-}
-
-bool Piece::isThePawnPromoted()
-{
-    return false;
 }
 
 bool Piece::isNotMoved()

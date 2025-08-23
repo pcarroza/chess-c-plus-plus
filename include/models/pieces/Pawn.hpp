@@ -24,15 +24,9 @@ public:
 
     void generateMovements() override;
 
-    bool isThePawnPromoted() override;
-
     bool isVulnerablePawn() override;
 
     bool isInitialState() const;
-
-    bool isWhite() const;
-
-    bool isBlack() const;
 
     bool canAdvanceOne() const;
 
@@ -62,6 +56,10 @@ private:
     void changeToPromoted();
 
     int getPlayerDirection() const;
+
+    bool isWhite() const;
+
+    bool isBlack() const;
 
 private:
     bool initialState;

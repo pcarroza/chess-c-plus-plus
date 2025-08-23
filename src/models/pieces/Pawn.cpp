@@ -40,7 +40,7 @@ void Pawn::put(Coordinate *target)
     if (inStep(*target))
     {
         vulnerablePawn = true;
-        addPassantPawn(this);
+        notifyPassingPawn(this);
     }
     else
     {
@@ -75,14 +75,13 @@ void Pawn::close()
     initialState = false;
 }
 
-bool Pawn::inStep(Coordinate & /*target*/)
+bool Pawn::inStep(Coordinate &target)
 {
-    return false;
-}
-
-bool Pawn::isThePawnPromoted()
-{
-    return isThePawnPromoted(*getCoordinate());
+    const int doubleStep = 2;
+    Coordinate *displaced = getDisplacedBy(Coordinate(doubleStep, 0));
+    bool isEquals = *displaced == target;
+    delete displaced;
+    return isEquals;
 }
 
 bool Pawn::isThePawnPromoted(Coordinate &coordinate)
@@ -93,16 +92,6 @@ bool Pawn::isThePawnPromoted(Coordinate &coordinate)
 void Pawn::changeToPromoted()
 {
     isItPromoted = true;
-}
-
-bool Pawn::isWhite() const
-{
-    return player == Player::WHITE;
-}
-
-bool Pawn::isBlack() const
-{
-    return player == Player::BLACK;
 }
 
 bool Pawn::isVulnerablePawn()
@@ -117,9 +106,7 @@ bool Pawn::canAdvanceOne() const
 
 bool Pawn::canAdvanceTwo() const
 {
-    return isInitialState() &&
-           !isBoxOccupied(*getForwardOne()) &&
-           !isBoxOccupied(*getForwardTwo());
+    return isInitialState() && !isBoxOccupied(*getForwardOne()) && !isBoxOccupied(*getForwardTwo());
 }
 
 bool Pawn::canCaptureLeft() const
@@ -166,6 +153,16 @@ int Pawn::getPlayerDirection() const
         assert(false && "Error: Player should not be NONE");
         return 0;
     }
+}
+
+bool Pawn::isWhite() const
+{
+    return player == Player::WHITE;
+}
+
+bool Pawn::isBlack() const
+{
+    return player == Player::BLACK;
 }
 
 std::string Pawn::toString() const

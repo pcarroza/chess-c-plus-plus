@@ -40,8 +40,6 @@ public:
 
     virtual bool isMovementValid(const Coordinate &coordinate) override;
 
-    virtual bool isThePawnPromoted() override;
-
     virtual void generateMovements() override;
 
     virtual bool isVulnerablePawn();
