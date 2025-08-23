@@ -132,7 +132,6 @@ bool Pawn::canCaptureRight() const
     return isItEnemy(*getDiagonalRight());
 }
 
-// Métodos de cálculo de posiciones
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const
 {
     const int direction = SINGLE_STEP * getPlayerDirection();
