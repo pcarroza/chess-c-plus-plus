@@ -26,7 +26,7 @@ public:
 
     std::list<Coordinate> getValidMovements();
 
-    Coordinate *getCoordinate();
+    Coordinate *getCoordinate() const;
 
     Coordinate *getDisplacedBy(int displacement) const;
 
@@ -58,7 +58,7 @@ protected:
     void set(Coordinate *coordinate);
 
 protected:
-    Player color;
+    Player player;
 
     Coordinate *coordinate;
 

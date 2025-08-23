@@ -7,6 +7,14 @@
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
 
+namespace
+{
+    constexpr int SINGLE_STEP = 1;
+    constexpr int DOUBLE_STEP = 2;
+    constexpr int LEFT_DIAGONAL_OFFSET = -1;
+    constexpr int RIGHT_DIAGONAL_OFFSET = 1;
+}
+
 Pawn::Pawn(Coordinate *coordinate, Player color)
     : Piece(coordinate, color),
       initialState(true),
@@ -47,9 +55,19 @@ void Pawn::put(Coordinate *target)
     Piece::put(target);
 }
 
+bool Pawn::isMovementValid(const Coordinate &target)
+{
+    return Piece::isMovementValid(target) || specialGenerator->isMovementValid(target);
+}
+
+void Pawn::generateMovements()
+{
+    Piece::generateMovements();
+}
+
 bool Pawn::isInitialState() const
 {
-    return false;
+    return initialState;
 }
 
 void Pawn::close()
@@ -62,19 +80,9 @@ bool Pawn::inStep(Coordinate & /*target*/)
     return false;
 }
 
-bool Pawn::isMovementValid(const Coordinate &target)
-{
-    return Piece::isMovementValid(target) || specialGenerator->isMovementValid(target);
-}
-
-void Pawn::generateMovements()
-{
-    Piece::generateMovements();
-}
-
 bool Pawn::isThePawnPromoted()
 {
-    return false;
+    return isThePawnPromoted(*getCoordinate());
 }
 
 bool Pawn::isThePawnPromoted(Coordinate &coordinate)
@@ -87,14 +95,14 @@ void Pawn::changeToPromoted()
     isItPromoted = true;
 }
 
-bool Pawn::isWhite()
+bool Pawn::isWhite() const
 {
-    return color == Player::WHITE;
+    return player == Player::WHITE;
 }
 
-bool Pawn::isBlack()
+bool Pawn::isBlack() const
 {
-    return color == Player::BLACK;
+    return player == Player::BLACK;
 }
 
 bool Pawn::isVulnerablePawn()
@@ -109,7 +117,9 @@ bool Pawn::canAdvanceOne() const
 
 bool Pawn::canAdvanceTwo() const
 {
-    return isInitialState() && !isBoxOccupied(*getForwardOne()) && !isBoxOccupied(*getForwardTwo());
+    return isInitialState() &&
+           !isBoxOccupied(*getForwardOne()) &&
+           !isBoxOccupied(*getForwardTwo());
 }
 
 bool Pawn::canCaptureLeft() const
@@ -122,41 +132,52 @@ bool Pawn::canCaptureRight() const
     return isItEnemy(*getDiagonalRight());
 }
 
+// Métodos de cálculo de posiciones
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const
 {
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(0, 0)));
+    const int direction = SINGLE_STEP * getPlayerDirection();
+    return std::shared_ptr<Coordinate>(
+        getDisplacedBy(Coordinate(direction, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
 {
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(0, 0)));
+    const int direction = DOUBLE_STEP * getPlayerDirection();
+    return std::shared_ptr<Coordinate>(
+        getDisplacedBy(Coordinate(direction, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
 {
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(0, 0)));
+    return std::shared_ptr<Coordinate>(
+        getDisplacedBy(Coordinate(getPlayerDirection(), LEFT_DIAGONAL_OFFSET)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
 {
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(0, 0)));
+    return std::shared_ptr<Coordinate>(
+        getDisplacedBy(Coordinate(getPlayerDirection(), RIGHT_DIAGONAL_OFFSET)));
 }
 
-int Pawn::getPlayer(Player player)
+int Pawn::getPlayerDirection() const
 {
-    if (isWhite())
+    switch (player)
     {
-        return getPlayerValue(player);
+    case Player::WHITE:
+        return getPlayerValue(Player::WHITE);
+    case Player::BLACK:
+        return getPlayerValue(Player::BLACK);
+    default:
+        assert(false && "Error: Player should not be NONE");
+        return 0;
     }
-    if (isBlack())
-    {
-        return getPlayerValue(player);
-    }
-    assert(false && "Error. The 'Player' should not be 'Player::NONE'");
-    return 0;
 }
 
 std::string Pawn::toString() const
 {
-    return "Pawn()";
+    std::string colorStr = isWhite() ? "White" : "Black";
+    std::string stateStr = isInitialState() ? "Initial" : "Moved";
+    std::string promotedStr = isItPromoted ? "Promoted" : "Normal";
+
+    return "Pawn(" + colorStr + ", " + stateStr + ", " + promotedStr + ")";
 }

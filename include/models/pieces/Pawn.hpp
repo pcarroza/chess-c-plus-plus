@@ -30,9 +30,9 @@ public:
 
     bool isInitialState() const;
 
-    bool isWhite();
+    bool isWhite() const;
 
-    bool isBlack();
+    bool isBlack() const;
 
     bool canAdvanceOne() const;
 
@@ -61,7 +61,7 @@ private:
 
     void changeToPromoted();
 
-    int getPlayer(Player player);
+    int getPlayerDirection() const;
 
 private:
     bool initialState;
