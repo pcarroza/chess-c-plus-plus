@@ -136,27 +136,23 @@ bool Pawn::canCaptureRight() const
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const
 {
     const int direction = SINGLE_STEP * getPlayerDirection();
-    return std::shared_ptr<Coordinate>(
-        getDisplacedBy(Coordinate(direction, 0)));
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
 {
     const int direction = DOUBLE_STEP * getPlayerDirection();
-    return std::shared_ptr<Coordinate>(
-        getDisplacedBy(Coordinate(direction, 0)));
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
 {
-    return std::shared_ptr<Coordinate>(
-        getDisplacedBy(Coordinate(getPlayerDirection(), LEFT_DIAGONAL_OFFSET)));
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(), LEFT_DIAGONAL_OFFSET)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
 {
-    return std::shared_ptr<Coordinate>(
-        getDisplacedBy(Coordinate(getPlayerDirection(), RIGHT_DIAGONAL_OFFSET)));
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(), RIGHT_DIAGONAL_OFFSET)));
 }
 
 int Pawn::getPlayerDirection() const
@@ -178,6 +174,5 @@ std::string Pawn::toString() const
     std::string colorStr = isWhite() ? "White" : "Black";
     std::string stateStr = isInitialState() ? "Initial" : "Moved";
     std::string promotedStr = isItPromoted ? "Promoted" : "Normal";
-
     return "Pawn(" + colorStr + ", " + stateStr + ", " + promotedStr + ")";
 }
