@@ -22,16 +22,26 @@
 #include "models/pieces/Coordinate.hpp"
 #include "./Logic.hpp"
 
+#include "controllers/local/LocalStartController.hpp"
 #include "views/console/ConsoleView.hpp"
 #include "models/Game.hpp"
 
+using controllers::local::LocalStartController;
 using controllers::local::logic::LocalLogic;
 using views::console::ConsoleView;
 
 int main()
 {
+
+    LocalLogic *logic1 = new LocalLogic();
+
+    Game *game1 = new Game(logic1);
     ConsoleView *consoleView = new ConsoleView();
+    StartController *start = new LocalStartController(*game1, nullptr);
+    consoleView->interact(start);
     delete consoleView;
+    delete logic1;
+    delete game1;
 
     Board *board = new Board();
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap = PiecesMapBuilder::build(board);
