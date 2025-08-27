@@ -1,8 +1,8 @@
 #include "views/console/StartView.hpp"
+#include "controllers/StartController.hpp"
 
 namespace views::console
 {
-
     StartView::StartView()
     {
     }
@@ -11,8 +11,9 @@ namespace views::console
     {
     }
 
-    void StartView::interact(controllers::StartController * /*startController*/)
+    void StartView::interact(controllers::StartController *startController)
     {
+        startController->start(2);
+        delete startController;
     }
-
 }

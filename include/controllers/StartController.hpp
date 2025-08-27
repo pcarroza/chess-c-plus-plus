@@ -14,7 +14,6 @@ namespace controllers
 
         virtual void start(int users) = 0;
 
-        virtual void accept(OperationControllerVisitor &operationControllerVisitor) = 0;
     };
 }
 
