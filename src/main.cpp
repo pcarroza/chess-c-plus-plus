@@ -32,7 +32,6 @@ using views::console::ConsoleView;
 
 int main()
 {
-
     LocalLogic *logic1 = new LocalLogic();
 
     Game *game1 = new Game(logic1);
