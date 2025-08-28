@@ -7,11 +7,6 @@ namespace models::pieces::rulesOfMovements
     {
     }
 
-    void MovementRulesBaseGenerator::set(Piece *piece)
-    {
-        this->piece = piece;
-    }
-
     MovementRulesBaseGenerator::MovementRulesBaseGenerator(Piece *piece) : piece(piece)
     {
     }

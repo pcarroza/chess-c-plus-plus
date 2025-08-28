@@ -50,6 +50,10 @@ public:
 
     void changeTurn();
 
+    Player getCurrentPlayer();
+
+    Player getRivalPlayer();
+
 private:
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap;
 
