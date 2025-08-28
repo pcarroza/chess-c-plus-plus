@@ -27,7 +27,7 @@ void Game::put(const Coordinate &coordinate)
 
 bool Game::isEmpty(const Coordinate &coordiante)
 {
-    return board->isBoxEmpty(coordiante);
+    return board->isSquareEmpty(coordiante);
 }
 
 bool Game::isMovementValid(const Coordinate &coordinate)

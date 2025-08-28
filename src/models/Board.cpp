@@ -25,12 +25,12 @@ void Board::set(std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece)
     this->movementsSelectedPiece = movementsSelectedPiece;
 }
 
-bool Board::isItEnemy(const Coordinate & /*coordinate*/) const
+bool Board::isEnemy(const Coordinate & /*coordinate*/) const
 {
     return false;
 }
 
-bool Board::isBoxEmpty(const Coordinate & /*coordinate*/) const
+bool Board::isSquareEmpty(const Coordinate & /*coordinate*/) const
 {
     return false;
 }
@@ -40,7 +40,7 @@ bool Board::someColor(const Coordinate & /*coordinate*/) const
     return false;
 }
 
-bool Board::isBoxOccupied(const Coordinate & /*coordinate*/) const
+bool Board::isSquareOccupied(const Coordinate & /*coordinate*/) const
 {
     return false;
 }

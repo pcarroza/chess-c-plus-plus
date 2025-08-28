@@ -19,11 +19,11 @@ public:
 
     virtual void add(Piece *enPassantPawn) = 0;
 
-    virtual bool isItEnemy(const Coordinate &coordinate) const = 0;
+    virtual bool isEnemy(const Coordinate &coordinate) const = 0;
 
-    virtual bool isBoxEmpty(const Coordinate &coordinate) const = 0;
+    virtual bool isSquareEmpty(const Coordinate &coordinate) const = 0;
 
-    virtual bool isBoxOccupied(const Coordinate &coordinate) const = 0;
+    virtual bool isSquareOccupied(const Coordinate &coordinate) const = 0;
 
     virtual bool someColor(const Coordinate &coordinate) const = 0;
 };

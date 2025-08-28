@@ -111,12 +111,12 @@ bool Pawn::canAdvanceTwo() const
 
 bool Pawn::canCaptureLeft() const
 {
-    return isItEnemy(*getDiagonalLeft());
+    return isEnemy(*getDiagonalLeft());
 }
 
 bool Pawn::canCaptureRight() const
 {
-    return isItEnemy(*getDiagonalRight());
+    return isEnemy(*getDiagonalRight());
 }
 
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const

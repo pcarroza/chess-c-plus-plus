@@ -5,9 +5,9 @@ void PieceSubject::subscribe(BoardObserver *boardObserver)
     this->boardObserver = boardObserver;
 }
 
-bool PieceSubject::isItEnemy(const Coordinate &coordinate) const
+bool PieceSubject::isEnemy(const Coordinate &coordinate) const
 {
-    return boardObserver->isItEnemy(coordinate);
+    return boardObserver->isEnemy(coordinate);
 }
 
 bool PieceSubject::sameColor(const Coordinate &coordinate) const
@@ -17,7 +17,7 @@ bool PieceSubject::sameColor(const Coordinate &coordinate) const
 
 bool PieceSubject::isBoxOccupied(const Coordinate &coordinate) const
 {
-    return boardObserver->isBoxOccupied(coordinate);
+    return boardObserver->isSquareOccupied(coordinate);
 }
 
 void PieceSubject::notifyPassingPawn(Piece *enPassantPawn)

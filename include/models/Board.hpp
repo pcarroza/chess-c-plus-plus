@@ -28,13 +28,13 @@ public:
 
     void set(std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece) override;
 
-    bool isItEnemy(const Coordinate &coordinate) const override;
+    bool isEnemy(const Coordinate &coordinate) const override;
 
-    bool isBoxEmpty(const Coordinate &coordinate) const override;
+    bool isSquareEmpty(const Coordinate &coordinate) const override;
 
     bool someColor(const Coordinate &coordinate) const override;
 
-    bool isBoxOccupied(const Coordinate &coordinate) const override;
+    bool isSquareOccupied(const Coordinate &coordinate) const override;
 
     bool isMovementValid(const Coordinate &coordinate);
 

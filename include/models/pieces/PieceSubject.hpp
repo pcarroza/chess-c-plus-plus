@@ -11,7 +11,7 @@ public:
 
     void subscribe(BoardObserver *boardObserver);
 
-    bool isItEnemy(const Coordinate &coordinate) const;
+    bool isEnemy(const Coordinate &coordinate) const;
 
     bool sameColor(const Coordinate &coordinate) const;
 
