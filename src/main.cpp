@@ -42,6 +42,7 @@ int main()
     delete consoleView;
     delete logic1;
     delete game1;
+    delete start;
 
     Board *board = new Board();
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap = PiecesMapBuilder::build(board);

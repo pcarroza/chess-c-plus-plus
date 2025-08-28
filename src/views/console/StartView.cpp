@@ -15,10 +15,5 @@ namespace views::console
     void StartView::interact(StartController *startController)
     {
         startController->start(2);
-        delete startController;
-        std::cout << startController << std::endl;
-        startController = nullptr;
-        std::cout << startController << std::endl;
-
     }
 }

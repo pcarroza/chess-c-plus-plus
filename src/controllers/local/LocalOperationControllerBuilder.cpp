@@ -13,16 +13,14 @@ namespace controllers::local
 
     LocalOperationControllerBuilder::~LocalOperationControllerBuilder()
     {
-        delete localStartController;
-        delete localContinueController;
         builders.clear();
     }
 
     void LocalOperationControllerBuilder::build()
     {
-        localStartController = new LocalStartController(game, this);
+        localStartController = std::make_unique<LocalStartController>(game, this);
         builders.resize(Game::NUMBER_OF_PLAYERS);
-        localContinueController = new LocalContinueController(game);
+        localContinueController = std::make_unique<LocalContinueController>(game);
     }
 
     void LocalOperationControllerBuilder::build(int /*users*/)
@@ -31,7 +29,7 @@ namespace controllers::local
 
     LocalStartController *LocalOperationControllerBuilder::getStartController()
     {
-        return localStartController;
+        return localStartController.get();
     }
 
     LocalOperationController *LocalOperationControllerBuilder::getPlacementController()
@@ -41,6 +39,6 @@ namespace controllers::local
 
     LocalContinueController *LocalOperationControllerBuilder::getContinueController()
     {
-        return localContinueController;
+        return localContinueController.get();
     }
 }
