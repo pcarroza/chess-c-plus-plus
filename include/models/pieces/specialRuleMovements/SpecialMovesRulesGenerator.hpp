@@ -1,5 +1,5 @@
-#ifndef MOVE_RULES_MANAGER_HPP
-#define MOVE_RULES_MANAGER_HPP
+#ifndef SPECIALMOVESRULESGENERATOR_HPP
+#define SPECIALMOVESRULESGENERATOR_HPP
 
 #include "models/pieces/Coordinate.hpp"
 #include "models/pieces/Piece.hpp"
@@ -11,32 +11,28 @@
 class Coordinate;
 class Piece;
 
-namespace models::pieces::rulesOfMovements
+namespace models::pieces::specialRuleMovements
 {
-    class MovementRulesBaseGenerator
+    class SpecialMovesRulesGenerator
     {
     public:
-        MovementRulesBaseGenerator();
+        SpecialMovesRulesGenerator(Piece *piece);
 
-        MovementRulesBaseGenerator(Piece *piece);
+        virtual ~SpecialMovesRulesGenerator() = default;
 
-        virtual ~MovementRulesBaseGenerator() = default;
-
-        virtual void set(Piece *piece);
+        virtual void generate() = 0;
 
         std::list<std::shared_ptr<Coordinate>> getValidMovements();
 
         bool isMovementValid(const Coordinate &coordinate);
 
-        virtual void generate() = 0;
-
     private:
         bool isContained(const Coordinate &coordinate);
 
     protected:
-        Piece *piece;
-
         std::list<std::shared_ptr<Coordinate>> possibleMoves;
+
+        Piece *piece;
     };
 }
 

@@ -26,11 +26,11 @@ public:
 
     std::list<Coordinate> getValidMovements();
 
-    Coordinate *getCoordinate();
+    Coordinate *getCoordinate() const;
 
-    Coordinate *getDisplacedBy(int displacement);
+    Coordinate *getDisplacedBy(int displacement) const;
 
-    Coordinate *getDisplacedBy(const Coordinate &displacement);
+    Coordinate *getDisplacedBy(const Coordinate &displacement) const;
 
     Coordinate *getDisplacedBy(const Coordinate &displacement, const Coordinate &vector);
 
@@ -39,8 +39,6 @@ public:
     virtual void put(Coordinate *coordinate) override;
 
     virtual bool isMovementValid(const Coordinate &coordinate) override;
-
-    virtual bool isThePawnPromoted() override;
 
     virtual void generateMovements() override;
 
@@ -58,7 +56,7 @@ protected:
     void set(Coordinate *coordinate);
 
 protected:
-    Player color;
+    Player player;
 
     Coordinate *coordinate;
 

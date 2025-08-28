@@ -1,7 +1,6 @@
 #ifndef CONSOLE_VIEW_HPP
 #define CONSOLE_VIEW_HPP
 
-#include "./View.hpp"
 #include "controllers/OperationController.hpp"
 #include "controllers/OperationControllerVisitor.hpp"
 #include "controllers/ContinueController.hpp"
@@ -10,6 +9,7 @@
 #include "ContinueView.hpp"
 #include "StartView.hpp"
 #include "GameView.hpp"
+#include "./View.hpp"
 
 #include <memory>
 

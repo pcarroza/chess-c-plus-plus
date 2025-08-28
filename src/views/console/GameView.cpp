@@ -10,6 +10,6 @@ namespace views::console
     {
     }
 
-    void GameView::interact(PlacementController *placementController) {}
+    void GameView::interact(PlacementController */*placementController*/) {}
 
 }

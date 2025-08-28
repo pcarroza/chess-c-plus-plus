@@ -1,15 +1,33 @@
 #include "models/pieces/Pawn.hpp"
+#include "models/Player.hpp"
+#include "models/pieces/Coordinate.hpp"
 #include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
+
+namespace
+{
+    constexpr int SINGLE_STEP = 1;
+    constexpr int DOUBLE_STEP = 2;
+    constexpr int LEFT_DIAGONAL_OFFSET = -1;
+    constexpr int RIGHT_DIAGONAL_OFFSET = 1;
+}
 
 Pawn::Pawn(Coordinate *coordinate, Player color)
     : Piece(coordinate, color),
       initialState(true),
       isItPromoted(false),
-      vulnerablePawn(false)
+      vulnerablePawn(false),
+      specialGenerator(new EnPassantPawnSpecialRuleGenerator(this))
 {
     basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(this);
+}
+
+Pawn::~Pawn()
+{
+    delete specialGenerator;
 }
 
 void Pawn::put(Coordinate *target)
@@ -22,7 +40,7 @@ void Pawn::put(Coordinate *target)
     if (inStep(*target))
     {
         vulnerablePawn = true;
-        addPassantPawn(this);
+        notifyPassingPawn(this);
     }
     else
     {
@@ -37,9 +55,19 @@ void Pawn::put(Coordinate *target)
     Piece::put(target);
 }
 
-bool Pawn::isInitialState()
+bool Pawn::isMovementValid(const Coordinate &target)
 {
-    return false;
+    return Piece::isMovementValid(target) || specialGenerator->isMovementValid(target);
+}
+
+void Pawn::generateMovements()
+{
+    Piece::generateMovements();
+}
+
+bool Pawn::isInitialState() const
+{
+    return initialState;
 }
 
 void Pawn::close()
@@ -49,28 +77,16 @@ void Pawn::close()
 
 bool Pawn::inStep(Coordinate &target)
 {
-    return false;
-}
-
-bool Pawn::isMovementValid(const Coordinate &target)
-{
-    Coordinate nonConstTarget = target;
-    return Piece::isMovementValid(target);
-}
-
-void Pawn::generateMovements()
-{
-    Piece::generateMovements();
-}
-
-bool Pawn::isThePawnPromoted()
-{
-    return false;
+    const int doubleStep = 2;
+    Coordinate *displaced = getDisplacedBy(Coordinate(doubleStep, 0));
+    bool isEquals = *displaced == target;
+    delete displaced;
+    return isEquals;
 }
 
 bool Pawn::isThePawnPromoted(Coordinate &coordinate)
 {
-    return false;
+    return ValidatorLimitsBoard::getInstance().isPieceEndBoardAt(coordinate);
 }
 
 void Pawn::changeToPromoted()
@@ -78,22 +94,81 @@ void Pawn::changeToPromoted()
     isItPromoted = true;
 }
 
-bool Pawn::isWhite()
-{
-    return color == Player::WHITE;
-}
-
-bool Pawn::isBlack()
-{
-    return color == Player::BLACK;
-}
-
 bool Pawn::isVulnerablePawn()
 {
     return vulnerablePawn;
 }
 
+bool Pawn::canAdvanceOne() const
+{
+    return !isBoxOccupied(*getForwardOne());
+}
+
+bool Pawn::canAdvanceTwo() const
+{
+    return isInitialState() && !isBoxOccupied(*getForwardOne()) && !isBoxOccupied(*getForwardTwo());
+}
+
+bool Pawn::canCaptureLeft() const
+{
+    return isItEnemy(*getDiagonalLeft());
+}
+
+bool Pawn::canCaptureRight() const
+{
+    return isItEnemy(*getDiagonalRight());
+}
+
+std::shared_ptr<Coordinate> Pawn::getForwardOne() const
+{
+    const int direction = SINGLE_STEP * getPlayerDirection();
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
+}
+
+std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
+{
+    const int direction = DOUBLE_STEP * getPlayerDirection();
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
+}
+
+std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
+{
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(), LEFT_DIAGONAL_OFFSET)));
+}
+
+std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
+{
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(), RIGHT_DIAGONAL_OFFSET)));
+}
+
+int Pawn::getPlayerDirection() const
+{
+    switch (player)
+    {
+    case Player::WHITE:
+        return getPlayerValue(Player::WHITE);
+    case Player::BLACK:
+        return getPlayerValue(Player::BLACK);
+    default:
+        assert(false && "Error: Player should not be NONE");
+        return 0;
+    }
+}
+
+bool Pawn::isWhite() const
+{
+    return player == Player::WHITE;
+}
+
+bool Pawn::isBlack() const
+{
+    return player == Player::BLACK;
+}
+
 std::string Pawn::toString() const
 {
-    return "Pawn()";
+    std::string colorStr = isWhite() ? "White" : "Black";
+    std::string stateStr = isInitialState() ? "Initial" : "Moved";
+    std::string promotedStr = isItPromoted ? "Promoted" : "Normal";
+    return "Pawn(" + colorStr + ", " + stateStr + ", " + promotedStr + ")";
 }

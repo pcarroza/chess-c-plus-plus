@@ -5,34 +5,43 @@
 #include <algorithm>
 #include <map>
 
-#include "./models/pieces/Coordinate.hpp"
-#include "./models/pieces/PiecesMapBuilder.hpp"
-#include "./models/pieces/Pawn.hpp"
-#include "./models/pieces/Rook.hpp"
-#include "./models/pieces/Queen.hpp"
-#include "./models/pieces/Bishop.hpp"
-#include "./models/pieces/King.hpp"
-#include "./models/pieces/Knight.hpp"
-#include "./models/pieces/King.hpp"
+#include "models/pieces/Coordinate.hpp"
+#include "models/pieces/PiecesMapBuilder.hpp"
+#include "models/pieces/Pawn.hpp"
+#include "models/pieces/Rook.hpp"
+#include "models/pieces/Queen.hpp"
+#include "models/pieces/Bishop.hpp"
+#include "models/pieces/King.hpp"
+#include "models/pieces/Knight.hpp"
+#include "models/pieces/King.hpp"
 
-#include "./controllers/local/logic/LocalLogic.hpp"
-#include "./controllers/local/logic/StateBuilder.hpp"
-#include "./models/Game.hpp"
-#include "./models/Board.hpp"
-#include "./models/pieces/Coordinate.hpp"
+#include "controllers/local/logic/LocalLogic.hpp"
+#include "controllers/local/logic/StateBuilder.hpp"
+#include "models/Game.hpp"
+#include "models/Board.hpp"
+#include "models/pieces/Coordinate.hpp"
 #include "./Logic.hpp"
 
+#include "controllers/local/LocalStartController.hpp"
 #include "views/console/ConsoleView.hpp"
 #include "models/Game.hpp"
 
+using controllers::local::LocalStartController;
 using controllers::local::logic::LocalLogic;
-
 using views::console::ConsoleView;
 
 int main()
 {
+    LocalLogic *logic1 = new LocalLogic();
+
+    Game *game1 = new Game(logic1);
     ConsoleView *consoleView = new ConsoleView();
+    StartController *start = new LocalStartController(*game1, nullptr);
+    consoleView->interact(start);
     delete consoleView;
+    delete logic1;
+    delete game1;
+    delete start;
 
     Board *board = new Board();
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap = PiecesMapBuilder::build(board);
@@ -63,7 +72,6 @@ int main()
     std::cout << pawn->toString() << std::endl;
 
     bool isValid = pawn->isMovementValid(Coordinate(8, 2));
-
     std::cout << isValid << std::endl;
 
     delete pawn;
@@ -111,31 +119,19 @@ int main()
     delete board;
 
     LocalLogic *logic = new LocalLogic();
-
     Game *game = new Game(logic);
-
     game->select(Coordinate(1, 2));
-
     game->put(Coordinate(2, 2));
-
     game->put(Coordinate(3, 2));
-
     game->put(Coordinate(4, 2));
-
     game->put(Coordinate(5, 2));
-
     game->put(Coordinate(6, 2));
 
     game->begin();
-
     game->finalize();
-
     game->initialize();
-
     game->begin();
-
     game->finalize();
-
     game->end();
 
     delete game;

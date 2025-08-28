@@ -17,7 +17,7 @@ namespace models
         void change();
 
     private:
-        Player currentPlayer;
+        int index;
     };
 }
 

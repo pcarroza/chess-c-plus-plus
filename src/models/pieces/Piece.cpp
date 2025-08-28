@@ -2,7 +2,10 @@
 #include "models/pieces/Piece.hpp"
 #include "models/Player.hpp"
 
-Piece::Piece(Coordinate *coordinate, Player color) : color(color), coordinate(coordinate), basedGenerator(nullptr)
+Piece::Piece(Coordinate *coordinate, Player color)
+    : player(color),
+      coordinate(coordinate),
+      basedGenerator(nullptr)
 {
 }
 
@@ -27,24 +30,24 @@ void Piece::put(Coordinate *target)
     set(target);
 }
 
-Coordinate *Piece::getCoordinate()
+Coordinate *Piece::getCoordinate() const
 {
     return coordinate;
 }
 
-Coordinate *Piece::getDisplacedBy(int displacement)
+Coordinate *Piece::getDisplacedBy(int displacement) const
 {
-    return new Coordinate(0, displacement);
+    return getCoordinate()->getDisplacedBy(displacement);
 }
 
-Coordinate *Piece::getDisplacedBy(const Coordinate &displacement)
+Coordinate *Piece::getDisplacedBy(const Coordinate &displacement) const
 {
-    return new Coordinate(0, 0);
+    return getCoordinate()->getDisplacedBy(displacement);
 }
 
 Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector)
 {
-    return new Coordinate(0, 0);
+    return getCoordinate()->getDisplacedBy(displacement, vector);
 }
 
 bool Piece::has(Coordinate &coordinate)
@@ -60,11 +63,6 @@ bool Piece::isMovementValid(const Coordinate &target)
 void Piece::generateMovements()
 {
     basedGenerator->generate();
-}
-
-bool Piece::isThePawnPromoted()
-{
-    return false;
 }
 
 bool Piece::isNotMoved()

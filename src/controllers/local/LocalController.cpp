@@ -51,12 +51,12 @@ namespace controllers::local
         return Player::BLACK;
     }
 
-    bool LocalController::isTheWhitePieceSelected(Coordinate &coordinate)
+    bool LocalController::isTheWhitePieceSelected(Coordinate &/*coordinate*/)
     {
         return false;
     }
 
-    bool LocalController::isTheBlackPieceSelected(Coordinate &coordinate)
+    bool LocalController::isTheBlackPieceSelected(Coordinate &/*coordinate*/)
     {
         return false;
     }
