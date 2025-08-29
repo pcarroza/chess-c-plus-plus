@@ -1,9 +1,9 @@
+#include "common/validators/ValidatorLimitsBoard.hpp"
 #include "models/pieces/PiecesMapBuilder.hpp"
 #include "models/Board.hpp"
 
 #include <iostream>
 #include <assert.h>
-#include "common/validators/ValidatorLimitsBoard.hpp"
 
 using common::validators::ValidatorLimitsBoard;
 
@@ -32,6 +32,8 @@ void Board::set(std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements)
 
 void Board::selectPiece(const Coordinate &coordinate)
 {
+    assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");
+    assert(!isSquareEmpty(coordinate) && "Invalid coordinate");
 
     auto &pieces = getPiecesBy(getCurrentPlayer());
 
