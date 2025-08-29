@@ -28,6 +28,10 @@ public:
 
     void set(std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece) override;
 
+    void selectPiece(const Coordinate &coordinate);
+
+    void putPieceTo(const Coordinate &coordinate);
+
     bool isEnemy(const Coordinate &coordinate) const override;
 
     bool isSquareEmpty(const Coordinate &coordinate) const override;
@@ -39,10 +43,6 @@ public:
     bool isMovementValid(const Coordinate &coordinate);
 
     void add(Piece *enPassantPawn) override;
-
-    void selectPiece(const Coordinate &coordinate);
-
-    void putPieceTo(const Coordinate &coordinate);
 
     void removeCurrentPlayerPiece(const Coordinate &coordinate);
 

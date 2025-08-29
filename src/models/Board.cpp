@@ -25,6 +25,16 @@ void Board::set(std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece)
     this->selectedPieceMovements = movementsSelectedPiece;
 }
 
+void Board::selectPiece(const Coordinate &coordinate)
+{
+    std::cout << "Piece selected at: " << coordinate << std::endl;
+}
+
+void Board::putPieceTo(const Coordinate &coordinate)
+{
+    std::cout << "Piece put at: " << coordinate << std::endl;
+}
+
 bool Board::isEnemy(const Coordinate & /*coordinate*/) const
 {
     return false;
@@ -53,16 +63,6 @@ void Board::add(Piece *enPassantPawns)
 bool Board::isMovementValid(const Coordinate & /*coordinate*/)
 {
     return false;
-}
-
-void Board::selectPiece(const Coordinate &coordinate)
-{
-    std::cout << "Piece selected at: " << coordinate << std::endl;
-}
-
-void Board::putPieceTo(const Coordinate &coordinate)
-{
-    std::cout << "Piece put at: " << coordinate << std::endl;
 }
 
 void Board::removeCurrentPlayerPiece(const Coordinate & /*coordinate*/)
