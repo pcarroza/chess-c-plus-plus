@@ -26,7 +26,7 @@ public:
 
     void set(Piece *piece) override;
 
-    void set(std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece) override;
+    void set(std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements) override;
 
     void selectPiece(const Coordinate &coordinate);
 
@@ -50,6 +50,10 @@ public:
 
     void changeTurn();
 
+    bool isWithinBoardLimits(const Coordinate &coordinate);
+
+    std::list<std::shared_ptr<Piece>> &getPiecesBy(Player player);
+
     Player getCurrentPlayer();
 
     Player getRivalPlayer();
@@ -61,7 +65,7 @@ private:
 
     std::map<Player, std::list<std::shared_ptr<Piece>>> enPassantPawnsMap;
 
-    std::list<std::shared_ptr<Coordinate>> selectedPieceMovements;
+    std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements;
 
     SelectedPiece *selectedPiece;
 

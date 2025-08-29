@@ -15,7 +15,7 @@ public:
 
     virtual void set(Piece *piece) = 0;
 
-    virtual void set(std::list<std::shared_ptr<Coordinate>> coordinates) = 0;
+    virtual void set(std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements) = 0;
 
     virtual void add(Piece *enPassantPawn) = 0;
 

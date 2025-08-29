@@ -25,7 +25,7 @@ public:
 
     virtual ~Piece();
 
-    std::list<Coordinate> getValidMovements();
+    std::list<std::shared_ptr<Coordinate>> &getValidMovements();
 
     Coordinate *getCoordinate() const;
 
@@ -35,7 +35,7 @@ public:
 
     Coordinate *getDisplacedBy(const Coordinate &displacement, const Coordinate &vector);
 
-    bool isAt(Coordinate &coordinate);
+    bool isAt(const Coordinate &coordinate);
 
     virtual void put(Coordinate *coordinate) override;
 
