@@ -20,7 +20,7 @@ bool PieceSubject::isBoxOccupied(const Coordinate &coordinate) const
     return boardObserver->isSquareOccupied(coordinate);
 }
 
-void PieceSubject::notifyPassingPawn(Piece *enPassantPawn)
+void PieceSubject::notifyEnPassantPawn(Piece *enPassantPawn)
 {
     boardObserver->add(enPassantPawn);
 }

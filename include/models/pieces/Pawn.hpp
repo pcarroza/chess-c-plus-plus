@@ -24,7 +24,11 @@ public:
 
     void generateMovements() override;
 
-    bool isVulnerablePawn() override;
+    bool isVulnerablePawn() const;
+
+    bool isisItPromoted() const;
+
+    bool isInitialState() const;
 
     bool isInitialState() const;
 
@@ -43,6 +47,8 @@ public:
     std::shared_ptr<Coordinate> getDiagonalLeft() const;
 
     std::shared_ptr<Coordinate> getDiagonalRight() const;
+
+    void accept(PieceVisitor &visitor) override;
 
     std::string toString() const override;
 

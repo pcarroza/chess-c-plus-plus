@@ -50,7 +50,7 @@ Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordina
     return getCoordinate()->getDisplacedBy(displacement, vector);
 }
 
-bool Piece::has(Coordinate &coordinate)
+bool Piece::isAt(Coordinate &coordinate)
 {
     return *getCoordinate() == coordinate;
 }
@@ -63,24 +63,4 @@ bool Piece::isMovementValid(const Coordinate &target)
 void Piece::generateMovements()
 {
     basedGenerator->generate();
-}
-
-bool Piece::isNotMoved()
-{
-    return true;
-}
-
-bool Piece::isKing()
-{
-    return false;
-}
-
-bool Piece::isRook()
-{
-    return false;
-}
-
-bool Piece::isVulnerablePawn()
-{
-    return false;
 }

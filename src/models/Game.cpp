@@ -22,7 +22,7 @@ void Game::select(const Coordinate &coordinate)
 
 void Game::put(const Coordinate &coordinate)
 {
-    board->putPiece(coordinate);
+    board->movePieceTo(coordinate);
 }
 
 bool Game::isEmpty(const Coordinate &coordiante)
@@ -44,6 +44,7 @@ void Game::removeCurrentPlayerPiece(const Coordinate &coordinate)
 {
     board->removeCurrentPlayerPiece(coordinate);
 }
+
 
 void Game::removeRivalPlayerPiece(const Coordinate &coordinate)
 {

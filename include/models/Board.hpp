@@ -42,7 +42,7 @@ public:
 
     void selectPiece(const Coordinate &coordinate);
 
-    void putPiece(const Coordinate &coordinate);
+    void movePieceTo(const Coordinate &coordinate);
 
     void removeCurrentPlayerPiece(const Coordinate &coordinate);
 
@@ -57,11 +57,11 @@ public:
 private:
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap;
 
-    std::map<Player, std::list<std::shared_ptr<Piece>>> mapOfRemovedPieces;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> removedPieces;
 
-    std::map<Player, std::list<std::shared_ptr<Piece>>> mapPassantPawns;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> enPassantPawnsMap;
 
-    std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece;
+    std::list<std::shared_ptr<Coordinate>> selectedPieceMovements;
 
     SelectedPiece *selectedPiece;
 

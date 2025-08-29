@@ -1,8 +1,9 @@
-#include "models/pieces/Pawn.hpp"
 #include "models/Player.hpp"
+#include "models/pieces/Pawn.hpp"
 #include "models/pieces/Coordinate.hpp"
 #include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 #include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "Pawn.hpp"
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
@@ -40,10 +41,11 @@ void Pawn::put(Coordinate *target)
     if (inStep(*target))
     {
         vulnerablePawn = true;
-        notifyPassingPawn(this);
+        notifyEnPassantPawn(this);
     }
     else
     {
+        // implementar cambio en el Board
         vulnerablePawn = false;
     }
 
@@ -63,6 +65,16 @@ bool Pawn::isMovementValid(const Coordinate &target)
 void Pawn::generateMovements()
 {
     Piece::generateMovements();
+}
+
+bool Pawn::isVulnerablePawn() const
+{
+    return vulnerablePawn;
+}
+
+bool Pawn::isPromoted() const
+{
+    return isItPromoted;
 }
 
 bool Pawn::isInitialState() const
@@ -163,6 +175,11 @@ bool Pawn::isWhite() const
 bool Pawn::isBlack() const
 {
     return player == Player::BLACK;
+}
+
+void Pawn::accept(PieceVisitor &visitor)
+{
+    visitor.visit(*this);
 }
 
 std::string Pawn::toString() const

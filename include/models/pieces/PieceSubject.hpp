@@ -17,7 +17,7 @@ public:
 
     bool isBoxOccupied(const Coordinate &coordinate) const;
 
-    void notifyPassingPawn(Piece *piece);
+    void notifyEnPassantPawn(Piece *piece);
 
 protected:
     BoardObserver *boardObserver;

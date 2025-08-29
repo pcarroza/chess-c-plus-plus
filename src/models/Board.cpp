@@ -22,7 +22,7 @@ void Board::set(Piece *piece)
 
 void Board::set(std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece)
 {
-    this->movementsSelectedPiece = movementsSelectedPiece;
+    this->selectedPieceMovements = movementsSelectedPiece;
 }
 
 bool Board::isEnemy(const Coordinate & /*coordinate*/) const
@@ -47,7 +47,7 @@ bool Board::isSquareOccupied(const Coordinate & /*coordinate*/) const
 
 void Board::add(Piece *enPassantPawns)
 {
-    mapPassantPawns[getCurrentPlayer()].push_back(std::shared_ptr<Piece>(enPassantPawns));
+    enPassantPawnsMap[getCurrentPlayer()].push_back(std::shared_ptr<Piece>(enPassantPawns));
 }
 
 bool Board::isMovementValid(const Coordinate & /*coordinate*/)
@@ -60,7 +60,7 @@ void Board::selectPiece(const Coordinate &coordinate)
     std::cout << "Piece selected at: " << coordinate << std::endl;
 }
 
-void Board::putPiece(const Coordinate &coordinate)
+void Board::movePieceTo(const Coordinate &coordinate)
 {
     std::cout << "Piece put at: " << coordinate << std::endl;
 }
