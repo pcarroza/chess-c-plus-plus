@@ -22,7 +22,7 @@ void Game::select(const Coordinate &coordinate)
 
 void Game::put(const Coordinate &coordinate)
 {
-    board->movePieceTo(coordinate);
+    board->putPieceTo(coordinate);
 }
 
 bool Game::isEmpty(const Coordinate &coordiante)

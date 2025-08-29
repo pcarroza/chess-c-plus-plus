@@ -42,7 +42,7 @@ public:
 
     void selectPiece(const Coordinate &coordinate);
 
-    void movePieceTo(const Coordinate &coordinate);
+    void putPieceTo(const Coordinate &coordinate);
 
     void removeCurrentPlayerPiece(const Coordinate &coordinate);
 

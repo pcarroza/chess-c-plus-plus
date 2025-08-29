@@ -60,7 +60,7 @@ void Board::selectPiece(const Coordinate &coordinate)
     std::cout << "Piece selected at: " << coordinate << std::endl;
 }
 
-void Board::movePieceTo(const Coordinate &coordinate)
+void Board::putPieceTo(const Coordinate &coordinate)
 {
     std::cout << "Piece put at: " << coordinate << std::endl;
 }
