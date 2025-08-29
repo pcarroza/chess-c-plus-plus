@@ -3,7 +3,6 @@
 #include "models/pieces/Coordinate.hpp"
 #include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 #include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
-#include "Pawn.hpp"
 
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
@@ -104,11 +103,6 @@ bool Pawn::isThePawnPromoted(Coordinate &coordinate)
 void Pawn::changeToPromoted()
 {
     isItPromoted = true;
-}
-
-bool Pawn::isVulnerablePawn()
-{
-    return vulnerablePawn;
 }
 
 bool Pawn::canAdvanceOne() const

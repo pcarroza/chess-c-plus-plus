@@ -26,9 +26,7 @@ public:
 
     bool isVulnerablePawn() const;
 
-    bool isisItPromoted() const;
-
-    bool isInitialState() const;
+    bool isPromoted() const;
 
     bool isInitialState() const;
 

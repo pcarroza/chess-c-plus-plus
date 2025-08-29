@@ -17,7 +17,7 @@ bool PawnPromotionVisitor::isPawnPromoted() const
 
 void PawnPromotionVisitor::visit(Pawn &pawn)
 {
-    pawnPromoted = pawn.isItPromoted();
+    pawnPromoted = pawn.isPromoted();
 }
 
 void PawnPromotionVisitor::visit(King &king)
