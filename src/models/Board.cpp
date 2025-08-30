@@ -51,8 +51,6 @@ void Board::selectPiece(const Coordinate &coordinate)
     {
         assert(false && "Piece not found in this coordinate");
     }
-
-    std::cout << "Piece selected at: " << coordinate << std::endl;
 }
 
 void Board::putPieceTo(const Coordinate &coordinate)
@@ -82,7 +80,7 @@ bool Board::isSquareOccupied(const Coordinate & /*coordinate*/) const
 
 void Board::add(Piece *enPassantPawns)
 {
-    enPassantPawnsMap[getCurrentPlayer()].push_back(std::shared_ptr<Piece>(enPassantPawns));
+    enPassantPawnsMap.at(getCurrentPlayer()).push_back(std::shared_ptr<Piece>(enPassantPawns));
 }
 
 bool Board::isMovementValid(const Coordinate & /*coordinate*/)
