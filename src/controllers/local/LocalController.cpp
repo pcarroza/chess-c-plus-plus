@@ -11,12 +11,12 @@ namespace controllers::local
         game.getValidMovements();
     }
 
-    void LocalController::select(Coordinate &coordinate)
+    void LocalController::selectPiece(Coordinate &coordinate)
     {
         game.selectPieceTo(coordinate);
     }
 
-    void LocalController::put(Coordinate &coordinate)
+    void LocalController::putPiece(Coordinate &coordinate)
     {
         game.putPieceTo(coordinate);
     }

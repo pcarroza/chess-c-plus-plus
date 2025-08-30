@@ -7,28 +7,28 @@
 
 bool PieceInspector::isPawnVulnerable(Piece &piece)
 {
-    PawnVulnerabilityVisitor visitar;
-    piece.accept(visitar);
-    return visitar.isPawnVulnerable();
+    PawnVulnerabilityVisitor visitor;
+    piece.accept(visitor);
+    return visitor.isPawnVulnerable();
 }
 
 bool PieceInspector::isPawnPromoted(Piece &piece)
 {
-    PawnPromotionVisitor visitar;
-    piece.accept(visitar);
-    return visitar.isPawnPromoted();
+    PawnPromotionVisitor visitor;
+    piece.accept(visitor);
+    return visitor.isPawnPromoted();
 }
 
 bool PieceInspector::isKing(Piece &piece)
 {
-    KingFinderVisitor visitar;
-    piece.accept(visitar);
-    return visitar.isKingFound();
+    KingFinderVisitor visitor;
+    piece.accept(visitor);
+    return visitor.isKingFound();
 }
 
 bool PieceInspector::isRook(Piece &piece)
 {
-    RookFinderVisitor vistar;
-    piece.accept(vistar);
-    return vistar.isRookFound();
+    RookFinderVisitor visitor;
+    piece.accept(visitor);
+    return visitor.isRookFound();
 }

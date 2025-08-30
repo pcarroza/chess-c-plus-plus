@@ -50,6 +50,8 @@ public:
 
     void add(Piece *enPassantPawn) override;
 
+    void deleteEnPassantPawn(Piece *piece) override;
+
     void removeCurrentPlayerPiece(const Coordinate &coordinate);
 
     void removeRivalPlayerPiece(const Coordinate &coordinate);

@@ -117,6 +117,11 @@ void Board::removeRivalPlayerPiece(const Coordinate & /*coordinate*/)
     std::cout << "" << std::endl;
 }
 
+void Board::deleteEnPassantPawn(Piece *piece)
+{
+    
+}
+
 void Board::changeTurn()
 {
     turn->change();

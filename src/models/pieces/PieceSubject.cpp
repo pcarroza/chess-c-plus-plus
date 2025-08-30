@@ -15,7 +15,7 @@ bool PieceSubject::sameColor(const Coordinate &coordinate) const
     return boardObserver->someColor(coordinate);
 }
 
-bool PieceSubject::isBoxOccupied(const Coordinate &coordinate) const
+bool PieceSubject::isSquareOccupied(const Coordinate &coordinate) const
 {
     return boardObserver->isSquareOccupied(coordinate);
 }
@@ -23,4 +23,9 @@ bool PieceSubject::isBoxOccupied(const Coordinate &coordinate) const
 void PieceSubject::notifyEnPassantPawn(Piece *enPassantPawn)
 {
     boardObserver->add(enPassantPawn);
+}
+
+void PieceSubject::notifyDeletedEnPassantPawn(Piece *piece)
+{
+    boardObserver->deleteEnPassantPawn(piece);
 }

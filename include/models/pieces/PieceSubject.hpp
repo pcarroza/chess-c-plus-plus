@@ -15,9 +15,11 @@ public:
 
     bool sameColor(const Coordinate &coordinate) const;
 
-    bool isBoxOccupied(const Coordinate &coordinate) const;
+    bool isSquareOccupied(const Coordinate &coordinate) const;
 
     void notifyEnPassantPawn(Piece *piece);
+
+    void notifyDeletedEnPassantPawn(Piece *piece);
 
 protected:
     BoardObserver *boardObserver;

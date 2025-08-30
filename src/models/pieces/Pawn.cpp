@@ -107,12 +107,12 @@ void Pawn::changeToPromoted()
 
 bool Pawn::canAdvanceOne() const
 {
-    return !isBoxOccupied(*getForwardOne());
+    return !isSquareOccupied(*getForwardOne());
 }
 
 bool Pawn::canAdvanceTwo() const
 {
-    return isInitialState() && !isBoxOccupied(*getForwardOne()) && !isBoxOccupied(*getForwardTwo());
+    return isInitialState() && !isSquareOccupied(*getForwardOne()) && !isSquareOccupied(*getForwardTwo());
 }
 
 bool Pawn::canCaptureLeft() const
