@@ -22,9 +22,9 @@ public:
 
     void getValidMovements();
 
-    void select(const Coordinate &coordinate);
+    void selectPieceTo(const Coordinate &coordinate);
 
-    void put(const Coordinate &coordinate);
+    void putPieceTo(const Coordinate &coordinate);
 
     bool isEmpty(const Coordinate &coordinate);
 

@@ -120,12 +120,12 @@ int main()
 
     LocalLogic *logic = new LocalLogic();
     Game *game = new Game(logic);
-    game->select(Coordinate(1, 2));
-    game->put(Coordinate(2, 2));
-    game->put(Coordinate(3, 2));
-    game->put(Coordinate(4, 2));
-    game->put(Coordinate(5, 2));
-    game->put(Coordinate(6, 2));
+    game->selectPieceTo(Coordinate(1, 2));
+    game->putPieceTo(Coordinate(2, 2));
+    game->putPieceTo(Coordinate(3, 2));
+    game->putPieceTo(Coordinate(4, 2));
+    game->putPieceTo(Coordinate(5, 2));
+    game->putPieceTo(Coordinate(6, 2));
 
     game->begin();
     game->finalize();
