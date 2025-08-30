@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <assert.h>
+#include "Board.hpp"
 
 using common::validators::ValidatorLimitsBoard;
 
@@ -55,7 +56,18 @@ void Board::selectPiece(const Coordinate &coordinate)
 
 void Board::putPieceTo(const Coordinate &coordinate)
 {
+    selectedPiece->put(new Coordinate(coordinate));
     std::cout << "Piece put at: " << coordinate << std::endl;
+}
+
+bool Board::isSelectedPiece()
+{
+    return selectedPiece != nullptr;
+}
+
+bool Board::clearSelectedPiece()
+{
+    return selectedPiece = nullptr;
 }
 
 bool Board::isEnemy(const Coordinate & /*coordinate*/) const

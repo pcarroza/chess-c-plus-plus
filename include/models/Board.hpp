@@ -32,6 +32,8 @@ public:
 
     void putPieceTo(const Coordinate &coordinate);
 
+    bool isSelectedPiece();
+
     bool isEnemy(const Coordinate &coordinate) const override;
 
     bool isSquareEmpty(const Coordinate &coordinate) const override;

@@ -45,7 +45,6 @@ void Game::removeCurrentPlayerPiece(const Coordinate &coordinate)
     board->removeCurrentPlayerPiece(coordinate);
 }
 
-
 void Game::removeRivalPlayerPiece(const Coordinate &coordinate)
 {
     board->removeRivalPlayerPiece(coordinate);
