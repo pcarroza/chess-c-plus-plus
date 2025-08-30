@@ -1,10 +1,10 @@
 #include "common/validators/ValidatorLimitsBoard.hpp"
 #include "models/pieces/PiecesMapBuilder.hpp"
+#include "models/pieces/PieceInspector.hpp"
 #include "models/Board.hpp"
 
 #include <iostream>
 #include <assert.h>
-#include "Board.hpp"
 
 using common::validators::ValidatorLimitsBoard;
 
@@ -56,6 +56,8 @@ void Board::selectPiece(const Coordinate &coordinate)
 
 void Board::putPieceTo(const Coordinate &coordinate)
 {
+    assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");
+    assert(selectedPiece != nullptr && "Invalid coordinate");
     selectedPiece->put(new Coordinate(coordinate));
     std::cout << "Piece put at: " << coordinate << std::endl;
 }
@@ -68,6 +70,11 @@ bool Board::isSelectedPiece()
 bool Board::clearSelectedPiece()
 {
     return selectedPiece = nullptr;
+}
+
+bool Board::isThePawnPromoted()
+{
+    return PieceInspector::isPawnPromoted(*static_cast<Piece *>(selectedPiece));
 }
 
 bool Board::isEnemy(const Coordinate & /*coordinate*/) const
@@ -95,9 +102,9 @@ void Board::add(Piece *enPassantPawns)
     enPassantPawnsMap.at(getCurrentPlayer()).push_back(std::shared_ptr<Piece>(enPassantPawns));
 }
 
-bool Board::isMovementValid(const Coordinate & /*coordinate*/)
+bool Board::isMovementValid(const Coordinate &coordinate)
 {
-    return false;
+    return selectedPiece->isMovementValid(coordinate);
 }
 
 void Board::removeCurrentPlayerPiece(const Coordinate & /*coordinate*/)

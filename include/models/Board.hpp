@@ -34,6 +34,10 @@ public:
 
     bool isSelectedPiece();
 
+    bool clearSelectedPiece();
+
+    bool isThePawnPromoted();
+
     bool isEnemy(const Coordinate &coordinate) const override;
 
     bool isSquareEmpty(const Coordinate &coordinate) const override;
