@@ -10,9 +10,9 @@ bool PieceSubject::isEnemy(const Coordinate &coordinate) const
     return boardObserver->isEnemy(coordinate);
 }
 
-bool PieceSubject::sameColor(const Coordinate &coordinate) const
+bool PieceSubject::isSameColorPieceAt(const Coordinate &coordinate) const
 {
-    return boardObserver->someColor(coordinate);
+    return boardObserver->isSameColorPieceAt(coordinate);
 }
 
 bool PieceSubject::isSquareOccupied(const Coordinate &coordinate) const

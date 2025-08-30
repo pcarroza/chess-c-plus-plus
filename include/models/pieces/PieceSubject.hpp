@@ -13,7 +13,7 @@ public:
 
     bool isEnemy(const Coordinate &coordinate) const;
 
-    bool sameColor(const Coordinate &coordinate) const;
+    bool isSameColorPieceAt(const Coordinate &coordinate) const;
 
     bool isSquareOccupied(const Coordinate &coordinate) const;
 

@@ -87,7 +87,7 @@ bool Board::isSquareEmpty(const Coordinate & /*coordinate*/) const
     return false;
 }
 
-bool Board::someColor(const Coordinate & /*coordinate*/) const
+bool Board::isSameColorPieceAt(const Coordinate & /*coordinate*/) const
 {
     return false;
 }

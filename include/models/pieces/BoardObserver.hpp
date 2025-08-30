@@ -27,7 +27,7 @@ public:
 
     virtual bool isSquareOccupied(const Coordinate &coordinate) const = 0;
 
-    virtual bool someColor(const Coordinate &coordinate) const = 0;
+    virtual bool isSameColorPieceAt(const Coordinate &coordinate) const = 0;
 };
 
 #endif

@@ -42,7 +42,7 @@ public:
 
     bool isSquareEmpty(const Coordinate &coordinate) const override;
 
-    bool someColor(const Coordinate &coordinate) const override;
+    bool isSameColorPieceAt(const Coordinate &coordinate) const override;
 
     bool isSquareOccupied(const Coordinate &coordinate) const override;
 
