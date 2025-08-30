@@ -107,6 +107,11 @@ bool Board::isMovementValid(const Coordinate &coordinate)
     return selectedPiece->isMovementValid(coordinate);
 }
 
+void Board::deleteEnPassantPawn(Piece *piece)
+{
+    std::cout << piece << std::endl;
+}
+
 void Board::removeCurrentPlayerPiece(const Coordinate & /*coordinate*/)
 {
     std::cout << "" << std::endl;
@@ -115,11 +120,6 @@ void Board::removeCurrentPlayerPiece(const Coordinate & /*coordinate*/)
 void Board::removeRivalPlayerPiece(const Coordinate & /*coordinate*/)
 {
     std::cout << "" << std::endl;
-}
-
-void Board::deleteEnPassantPawn(Piece *piece)
-{
-    
 }
 
 void Board::changeTurn()

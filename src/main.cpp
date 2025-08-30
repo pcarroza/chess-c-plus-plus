@@ -57,6 +57,7 @@ int main()
     }
 
     Piece *pawn = new Pawn(new Coordinate(1, 2), Player::BLACK);
+    pawn->subscribe(board);
     std::cout << pawn->toString() << std::endl;
     pawn->put(new Coordinate(2, 2));
     std::cout << pawn->toString() << std::endl;

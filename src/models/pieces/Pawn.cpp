@@ -44,7 +44,7 @@ void Pawn::put(Coordinate *target)
     }
     else
     {
-        // implementar cambio en el Board
+        notifyDeletedEnPassantPawn(this);
         vulnerablePawn = false;
     }
 
