@@ -52,6 +52,8 @@ void Board::selectPiece(const Coordinate &coordinate)
     {
         assert(false && "Piece not found in this coordinate");
     }
+    std::cout << "Piece selected at: " << coordinate << std::endl;
+    std::cout << "Selected piece: " << selectedPiece << std::endl;
 }
 
 void Board::putPieceTo(const Coordinate &coordinate)
