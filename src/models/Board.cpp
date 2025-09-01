@@ -114,9 +114,20 @@ void Board::deleteEnPassantPawn(Piece *piece)
     std::cout << piece << std::endl;
 }
 
-void Board::removeCurrentPlayerPiece(const Coordinate & /*coordinate*/)
+void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
 {
-    std::cout << "" << std::endl;
+    auto &pieces = getPiecesBy(getCurrentPlayer());
+    auto &removed = removedPieces.at(getCurrentPlayer());
+
+    auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                             {
+        if (piece->isAt(coordinate))
+        {
+            removed.push_back(piece);
+            return true;
+        }
+        return false; });
+    pieces.erase(it, pieces.end());
 }
 
 void Board::removeRivalPlayerPiece(const Coordinate & /*coordinate*/)
