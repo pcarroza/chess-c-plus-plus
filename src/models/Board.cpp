@@ -127,6 +127,7 @@ void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
             return true;
         }
         return false; });
+        
     pieces.erase(it, pieces.end());
 }
 
