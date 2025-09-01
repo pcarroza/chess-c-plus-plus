@@ -134,9 +134,21 @@ void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
     pieces.erase(it, pieces.end());
 }
 
-void Board::removeRivalPlayerPiece(const Coordinate & /*coordinate*/)
+void Board::removeRivalPlayerPiece(const Coordinate &coordinate)
 {
-    std::cout << "" << std::endl;
+    auto &pieces = getPiecesBy(getRivalPlayer());
+    auto &removed = removedPieces.at(getRivalPlayer());
+
+    auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                             {
+        if (piece->isAt(coordinate))
+        {
+            removed.push_back(piece);
+            return true;
+        }
+        return false; });
+
+    pieces.erase(it, pieces.end());
 }
 
 void Board::changeTurn()
