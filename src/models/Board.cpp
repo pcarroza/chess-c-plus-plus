@@ -111,6 +111,9 @@ bool Board::isMovementValid(const Coordinate &coordinate)
 
 void Board::deleteEnPassantPawn(Piece *piece)
 {
+    auto &enPassantPawns = enPassantPawnsMap.at(getCurrentPlayer());
+    auto it = std::remove(enPassantPawns.begin(), enPassantPawns.end(), piece);
+    enPassantPawns.erase(it, enPassantPawns.end());
     std::cout << piece << std::endl;
 }
 
@@ -127,7 +130,7 @@ void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
             return true;
         }
         return false; });
-        
+
     pieces.erase(it, pieces.end());
 }
 
