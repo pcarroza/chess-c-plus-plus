@@ -61,8 +61,6 @@ void Board::selectPiece(const Coordinate &coordinate)
     {
         assert(false && "Piece not found in this coordinate");
     }
-    std::cout << "Piece selected at: " << coordinate << std::endl;
-    std::cout << "Selected piece: " << selectedPiece << std::endl;
 }
 
 void Board::putPieceTo(const Coordinate &coordinate)
@@ -70,7 +68,6 @@ void Board::putPieceTo(const Coordinate &coordinate)
     assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");
     assert(selectedPiece != nullptr && "Invalid coordinate");
     selectedPiece->put(new Coordinate(coordinate));
-    std::cout << "Piece put at: " << coordinate << std::endl;
 }
 
 bool Board::isSelectedPiece()
@@ -123,7 +120,6 @@ void Board::deleteEnPassantPawn(Piece *piece)
     auto &enPassantPawns = enPassantPawnsMap.at(getCurrentPlayer());
     enPassantPawns.remove_if([piece](const std::shared_ptr<Piece> &it)
                              { return it.get() == piece; });
-    std::cout << piece << std::endl;
 }
 
 void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
@@ -134,11 +130,6 @@ void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
 void Board::removeRivalPlayerPiece(const Coordinate &coordinate)
 {
     removePiece(coordinate, getRivalPlayer());
-}
-
-void Board::changeTurn()
-{
-    turn->change();
 }
 
 void Board::removePiece(const Coordinate &coordinate, Player player)
@@ -156,6 +147,11 @@ void Board::removePiece(const Coordinate &coordinate, Player player)
         return false; });
 
     pieces.erase(it, pieces.end());
+}
+
+void Board::changeTurn()
+{
+    turn->change();
 }
 
 bool Board::isWithinBoardLimits(const Coordinate &coordinate)
