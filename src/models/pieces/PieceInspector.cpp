@@ -1,8 +1,8 @@
-#include "models/pieces/PieceInspector.hpp"
 #include "models/pieces/PawnVulnerabilityVisitor.hpp"
 #include "models/pieces/PawnPromotionVisitor.hpp"
 #include "models/pieces/KingFinderVisitor.hpp"
 #include "models/pieces/RookFinderVisitor.hpp"
+#include "models/pieces/PieceInspector.hpp"
 #include "models/pieces/Piece.hpp"
 
 bool PieceInspector::isPawnVulnerable(Piece &piece)

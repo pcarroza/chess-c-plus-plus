@@ -67,6 +67,8 @@ public:
     Player getRivalPlayer();
 
 private:
+    void removePiece(const Coordinate &coordinate, Player player);
+
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap;
 
     std::map<Player, std::list<std::shared_ptr<Piece>>> removedPieces;

@@ -14,6 +14,15 @@ Board::Board()
       selectedPieceMovements(nullptr),
       turn(new Turn())
 {
+    removedPieces = {
+        {Player::BLACK, std::list<std::shared_ptr<Piece>>()},
+        {Player::WHITE, std::list<std::shared_ptr<Piece>>()},
+    };
+
+    enPassantPawnsMap = {
+        {Player::BLACK, std::list<std::shared_ptr<Piece>>()},
+        {Player::WHITE, std::list<std::shared_ptr<Piece>>()},
+    };
 }
 
 Board::~Board()
@@ -112,48 +121,41 @@ bool Board::isMovementValid(const Coordinate &coordinate)
 void Board::deleteEnPassantPawn(Piece *piece)
 {
     auto &enPassantPawns = enPassantPawnsMap.at(getCurrentPlayer());
-    auto it = std::remove(enPassantPawns.begin(), enPassantPawns.end(), piece);
-    enPassantPawns.erase(it, enPassantPawns.end());
+    enPassantPawns.remove_if([piece](const std::shared_ptr<Piece> &it)
+                             { return it.get() == piece; });
     std::cout << piece << std::endl;
 }
 
 void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
 {
-    auto &pieces = getPiecesBy(getCurrentPlayer());
-    auto &removed = removedPieces.at(getCurrentPlayer());
-
-    auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
-                             {
-        if (piece->isAt(coordinate))
-        {
-            removed.push_back(piece);
-            return true;
-        }
-        return false; });
-
-    pieces.erase(it, pieces.end());
+    removePiece(coordinate, getCurrentPlayer());
 }
 
 void Board::removeRivalPlayerPiece(const Coordinate &coordinate)
 {
-    auto &pieces = getPiecesBy(getRivalPlayer());
-    auto &removed = removedPieces.at(getRivalPlayer());
-
-    auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
-                             {
-        if (piece->isAt(coordinate))
-        {
-            removed.push_back(piece);
-            return true;
-        }
-        return false; });
-
-    pieces.erase(it, pieces.end());
+    removePiece(coordinate, getRivalPlayer());
 }
 
 void Board::changeTurn()
 {
     turn->change();
+}
+
+void Board::removePiece(const Coordinate &coordinate, Player player)
+{
+    auto &pieces = getPiecesBy(player);
+    auto &removed = removedPieces.at(player);
+
+    auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                             {
+        if (piece->isAt(coordinate))
+        {
+            removed.push_back(piece);
+            return true;
+        }
+        return false; });
+
+    pieces.erase(it, pieces.end());
 }
 
 bool Board::isWithinBoardLimits(const Coordinate &coordinate)
