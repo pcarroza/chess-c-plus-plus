@@ -50,6 +50,16 @@ void Game::removeRivalPlayerPiece(const Coordinate &coordinate)
     board->removeRivalPlayerPiece(coordinate);
 }
 
+Player Game::getCurrentPlayer()
+{
+    return board->getCurrentPlayer();
+}
+
+Player Game::getRivalPlayer()
+{
+    return board->getRivalPlayer();
+}
+
 void Game::initialize()
 {
     board->initialize();

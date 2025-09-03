@@ -43,7 +43,7 @@ namespace controllers::local
 
     Player LocalController::getCurrentPlayer()
     {
-        return Player::WHITE;
+        return game.getCurrentPlayer();
     }
 
     Player LocalController::getRivalPlayer()

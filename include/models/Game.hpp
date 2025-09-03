@@ -36,6 +36,10 @@ public:
 
     void removeRivalPlayerPiece(const Coordinate &coordinate);
 
+    Player getCurrentPlayer();
+
+    Player getRivalPlayer();
+
     void initialize();
 
     void begin();
