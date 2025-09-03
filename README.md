@@ -1,66 +1,66 @@
-# Chess C++
+# Ajedrez en C++
 
-This project is a functional chess game developed in C++, created as a practical demonstration of fundamental software engineering design principles. The primary goal is not just to build a chess game, but to do so by meticulously applying best practices to create a codebase that is maintainable, scalable, and easy to understand.
+## Diagrama de Casos de Uso
 
-## Core Objective: Demonstrating Design Principles
+![Diagrama de Casos de Uso](docs/diagrams/out/docs/diagrams/src/usecase/caseuse.svg)
 
-The main purpose of this repository is to serve as a case study in the application of key software engineering principles. It aims to showcase how these concepts can be integrated into a real-world C++ project to improve its quality and structure.
+Este proyecto es un juego de ajedrez funcional desarrollado en C++, creado como una demostración práctica de los principios fundamentales de diseño de la ingeniería de software. El objetivo principal no es solo construir un juego de ajedrez, sino hacerlo aplicando meticulosamente las mejores prácticas para crear una base de código que sea mantenible, escalable y fácil de entender.
 
-## Applied Design Principles
+## Objetivo Principal: Demostración de Principios de Diseño
 
-The following principles were central to the development of this project:
+El propósito principal de este repositorio es servir como un caso de estudio en la aplicación de principios clave de la ingeniería de software. Busca mostrar cómo estos conceptos pueden integrarse en un proyecto real de C++ para mejorar su calidad y estructura.
+
+## Principios de Diseño Aplicados
+
+Los siguientes principios fueron fundamentales para el desarrollo de este proyecto:
 
 ### SOLID
-The SOLID principles are a set of five design principles intended to make software designs more understandable, flexible, and maintainable.
+Los principios SOLID son un conjunto de cinco principios de diseño destinados a hacer que los diseños de software sean más comprensibles, flexibles y mantenibles.
 
-*   **Single Responsibility Principle (SRP):** Each class has one, and only one, reason to change. For example, the `Board` class is only responsible for managing the state of the chessboard, while `Piece` derivatives handle piece-specific logic.
-*   **Open/Closed Principle (OCP):** Software entities (classes, modules, functions) should be open for extension but closed for modification. This is heavily used in the piece movement rules, where new pieces or special moves can be added without modifying existing rule-checking logic.
-*   **Liskov Substitution Principle (LSP):** Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program. All piece types (e.g., `Rook`, `Pawn`) are substitutable for the base `Piece` class.
-*   **Interface Segregation Principle (ISP):** No client should be forced to depend on methods it does not use. Different controller interfaces (`OperationController`, `PlacementController`) are defined so that views only interact with the operations they need.
-*   **Dependency Inversion Principle (DIP):** High-level modules should not depend on low-level modules. Both should depend on abstractions. The logic depends on abstractions like `OperationController` rather than concrete implementations like `LocalOperationController`.
+*   **Principio de Responsabilidad Única (SRP):** Cada clase tiene una, y solo una, razón para cambiar. Por ejemplo, la clase `Board` solo es responsable de gestionar el estado del tablero de ajedrez, mientras que los derivados de `Piece` manejan la lógica específica de cada pieza.
+*   **Principio de Abierto/Cerrado (OCP):** Las entidades de software (clases, módulos, funciones) deben estar abiertas a la extensión pero cerradas a la modificación. Esto se utiliza ampliamente en las reglas de movimiento de las piezas, donde se pueden agregar nuevas piezas o movimientos especiales sin modificar la lógica de verificación de reglas existente.
+*   **Principio de Sustitución de Liskov (LSP):** Los objetos de una superclase deben ser reemplazables por objetos de una subclase sin afectar la corrección del programa. Todos los tipos de piezas (por ejemplo, `Rook`, `Pawn`) son sustituibles por la clase base `Piece`.
+*   **Principio de Segregación de Interfaces (ISP):** Ningún cliente debe ser forzado a depender de métodos que no utiliza. Se definen diferentes interfaces de controlador (`OperationController`, `PlacementController`) para que las vistas solo interactúen con las operaciones que necesitan.
+*   **Principio de Inversión de Dependencias (DIP):** Los módulos de alto nivel no deben depender de los módulos de bajo nivel. Ambos deben depender de abstracciones. La lógica depende de abstracciones como `OperationController` en lugar de implementaciones concretas como `LocalOperationController`.
 
-### DRY (Don't Repeat Yourself)
-The DRY principle states that "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system." We avoid code duplication by abstracting common functionalities into base classes and helper functions, such as the movement strategies for pieces (`HorizontalMovementStrategy`, `DiagonalMovementStrategy`).
+### DRY (No te repitas)
+El principio DRY establece que "Cada pieza de conocimiento debe tener una representación única, inequívoca y autorizada dentro de un sistema". Evitamos la duplicación de código abstrayendo funcionalidades comunes en clases base y funciones de ayuda, como las estrategias de movimiento para las piezas (`HorizontalMovementStrategy`, `DiagonalMovementStrategy`).
 
-### YAGNI (You Ain't Gonna Need It)
-Functionality was only added when it was required. The project focuses on delivering the core chess logic and a simple console interface, avoiding premature optimization or features that are not essential to the main goal.
+### YAGNI (No vas a necesitarlo)
+La funcionalidad solo se agregó cuando fue necesaria. El proyecto se centra en ofrecer la lógica central del ajedrez y una interfaz de consola simple, evitando la optimización prematura o características que no son esenciales para el objetivo principal.
 
-### Clean Code
-Following Clean Code principles, the code is written to be readable and self-documenting. This includes:
-*   **Meaningful Names:** Variables and functions are named to clearly express their purpose.
-*   **Small Functions:** Functions are kept short and focused on a single task.
-*   **Clear Structure:** The project is organized into logical modules and directories.
+### Código Limpio
+Siguiendo los principios de Código Limpio, el código está escrito para ser legible y auto-documentado. Esto incluye:
+*   **Nombres Significativos:** Las variables y funciones se nombran para expresar claramente su propósito.
+*   **Funciones Pequeñas:** Las funciones se mantienen cortas y enfocadas en una sola tarea.
+*   **Estructura Clara:** El proyecto está organizado en módulos y directorios lógicos.
 
-### MVC (Model-View-Controller)
-The project is structured following a Model-View-Controller architectural pattern to ensure a clear separation of concerns:
-*   **Model:** Represents the core data and business logic of the game (e.g., `Game`, `Board`, `Piece`). It is completely independent of the UI.
-*   **View:** Responsible for presenting the model to the user. The `console` view (`ConsoleView`, `BoardView`) is a concrete implementation that displays the game state on the command line.
-*   **Controller:** Acts as an intermediary between the Model and the View, handling user input and updating the model as necessary (e.g., `StartController`, `SelectPieceController`).
+### MVC (Modelo-Vista-Controlador)
+El proyecto está estructurado siguiendo un patrón de arquitectura Modelo-Vista-Controlador para garantizar una clara separación de responsabilidades:
+*   **Modelo:** Representa los datos centrales y la lógica de negocio del juego (ej., `Game`, `Board`, `Piece`). Es completamente independiente de la interfaz de usuario.
+*   **Vista:** Responsable de presentar el modelo al usuario. La vista de `consola` (`ConsoleView`, `BoardView`) es una implementación concreta que muestra el estado del juego en la línea de comandos.
+*   **Controlador:** Actúa como intermediario entre el Modelo y la Vista, manejando la entrada del usuario y actualizando el modelo según sea necesario (ej., `StartController`, `SelectPieceController`).
 
-### Separation of Responsibilities
-Beyond MVC, responsibilities are clearly distributed. For example, coordinate validation, piece movement logic, game state transitions, and user interaction are all handled by distinct parts of the system, making the codebase easier to debug, test, and extend.
+### Separación de Responsabilidades
+Más allá de MVC, las responsabilidades están claramente distribuidas. Por ejemplo, la validación de coordenadas, la lógica de movimiento de piezas, las transiciones de estado del juego y la interacción del usuario son manejadas por partes distintas del sistema, lo que hace que la base de código sea más fácil de depurar, probar y extender.
 
-## Project Structure
+## Estructura del Proyecto
 
-- **`/include`**: Contains all header files (`.hpp`), defining the interfaces and classes.
-- **`/src`**: Contains the implementation files (`.cpp`).
-- **`/build`**: Contains build artifacts and dependencies.
-- **`/docs`**: Project documentation, including diagrams.
-- **`Makefile`**: The build script for compiling the project.
+- **`/include`**: Contiene todos los archivos de cabecera (`.hpp`), definiendo las interfaces y clases.
+- **`/src`**: Contiene los archivos de implementación (`.cpp`).
+- **`/build`**: Contiene los artefactos de compilación y dependencias.
+- **`/docs`**: Documentación del proyecto, incluyendo diagramas.
+- **`Makefile`**: El script de compilación para el proyecto.
 
-## How to Build and Run
+## Cómo Compilar y Ejecutar
 
-1.  **Clone the repository.**
-2.  **Navigate to the project root directory.**
-3.  **Compile the code:**
+1.  **Clona el repositorio.**
+2.  **Navega al directorio raíz del proyecto.**
+3.  **Compila el código:**
     ```sh
     make
     ```
-4.  **Run the game:**
+4.  **Ejecuta el juego:**
     ```sh
     ./bin/chess
     ```
-
-## Use Case Diagram
-
-![Use Case Diagram](docs/diagrams/out/docs/diagrams/src/usecase/caseuse.svg)
