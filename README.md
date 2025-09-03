@@ -22,11 +22,6 @@ Los principios SOLID son un conjunto de cinco principios de diseño destinados a
 *   **Principio de Sustitución de Liskov (LSP):** Los objetos de una superclase deben ser reemplazables por objetos de una subclase sin afectar la corrección del programa. Todos los tipos de piezas (por ejemplo, `Rook`, `Pawn`) son sustituibles por la clase base `Piece`.
 *   **Principio de Segregación de Interfaces (ISP):** Ningún cliente debe ser forzado a depender de métodos que no utiliza. Se definen diferentes interfaces de controlador (`OperationController`, `PlacementController`) para que las vistas solo interactúen con las operaciones que necesitan.
 *   **Principio de Inversión de Dependencias (DIP):** Los módulos de alto nivel no deben depender de los módulos de bajo nivel. Ambos deben depender de abstracciones. La lógica depende de abstracciones como `OperationController` en lugar de implementaciones concretas como `LocalOperationController`.
-*   **Principio de Responsabilidad Única (SRP):** Cada clase tiene una, y solo una, razón para cambiar. Por ejemplo, la clase `Board` solo es responsable de gestionar el estado del tablero de ajedrez, mientras que los derivados de `Piece` manejan la lógica específica de cada pieza.
-*   **Principio de Abierto/Cerrado (OCP):** Las entidades de software (clases, módulos, funciones) deben estar abiertas a la extensión pero cerradas a la modificación. Esto se utiliza ampliamente en las reglas de movimiento de las piezas, donde se pueden agregar nuevas piezas o movimientos especiales sin modificar la lógica de verificación de reglas existente.
-*   **Principio de Sustitución de Liskov (LSP):** Los objetos de una superclase deben ser reemplazables por objetos de una subclase sin afectar la corrección del programa. Todos los tipos de piezas (por ejemplo, `Rook`, `Pawn`) son sustituibles por la clase base `Piece`.
-*   **Principio de Segregación de Interfaces (ISP):** Ningún cliente debe ser forzado a depender de métodos que no utiliza. Se definen diferentes interfaces de controlador (`OperationController`, `PlacementController`) para que las vistas solo interactúen con las operaciones que necesitan.
-*   **Principio de Inversión de Dependencias (DIP):** Los módulos de alto nivel no deben depender de los módulos de bajo nivel. Ambos deben depender de abstracciones. La lógica depende de abstracciones como `OperationController` en lugar de implementaciones concretas como `LocalOperationController`.
 
 ### DRY (No te repitas)
 El principio DRY establece que "Cada pieza de conocimiento debe tener una representación única, inequívoca y autorizada dentro de un sistema". Evitamos la duplicación de código abstrayendo funcionalidades comunes en clases base y funciones de ayuda, como las estrategias de movimiento para las piezas (`HorizontalMovementStrategy`, `DiagonalMovementStrategy`).
@@ -77,8 +72,14 @@ El proyecto está organizado en una estructura de directorios que separa clarame
 
 ## Cómo Compilar y Ejecutar
 
-1.  **Clona el repositorio.**
-2.  **Navega al directorio raíz del proyecto.**
+1.  **Clona el repositorio:**
+    ```sh
+    git clone https://github.com/pcarroza/chess-c-plus-plus.git
+    ```
+2.  **Navega al directorio raíz del proyecto:**
+    ```sh
+    cd chess-c-plus-plus
+    ```
 3.  **Compila el código:**
     ```sh
     make
@@ -87,3 +88,8 @@ El proyecto está organizado en una estructura de directorios que separa clarame
     ```sh
     ./bin/chess
     ```
+5.  **Verificar fugas de memoria (opcional):**
+    ```sh
+    valgrind ./bin/chess
+    ```
+    > **Nota:** Debes tener `valgrind` instalado. En sistemas basados en Debian/Ubuntu, puedes instalarlo con `sudo apt-get install valgrind`.
