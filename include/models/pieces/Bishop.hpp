@@ -2,14 +2,13 @@
 #define BISHOP_H
 
 #include "Piece.hpp"
-#include "./rulesOfMovements/RulerBasedCoordinateGeneratorFacade.hpp"
-
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
 class Bishop : public Piece
 {
 public:
-    Bishop(Coordinate *coordinate, Color color);
+    Bishop(Coordinate *coordinate, Player color);
+
+    void accept(PieceVisitor &visitor) override;
 
     std::string toString() const override;
 };

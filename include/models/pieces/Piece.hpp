@@ -4,53 +4,46 @@
 #include <set>
 #include <list>
 
-#include "./rulesOfMovements/RuleBasedCoordinateGenerator.hpp"
+#include "models/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
+#include "models/pieces/PieceVisitor.hpp"
+#include "models/pieces/Coordinate.hpp"
+#include "models/Player.hpp"
 #include "SelectedPiece.hpp"
 #include "PieceSubject.hpp"
-#include "models/pieces/Coordinate.hpp"
-#include "models/Color.hpp"
 
 namespace models::pieces::rulesOfMovements
 {
-    class MovementRulesBaseGeneratorGenerator;
+    class MovementRulesBaseGenerator;
 }
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorGenerator;
+using models::pieces::rulesOfMovements::MovementRulesBaseGenerator;
 
 class Piece : public PieceSubject, public SelectedPiece
 {
 public:
-    Piece(Coordinate *coordinate, Color color);
+    Piece(Coordinate *coordinate, Player color);
 
     virtual ~Piece();
+
+    std::list<std::shared_ptr<Coordinate>> &getValidMovements();
+
+    Coordinate *getCoordinate() const;
+
+    Coordinate *getDisplacedBy(int displacement) const;
+
+    Coordinate *getDisplacedBy(const Coordinate &displacement) const;
+
+    Coordinate *getDisplacedBy(const Coordinate &displacement, const Coordinate &vector);
+
+    bool isAt(const Coordinate &coordinate);
 
     virtual void put(Coordinate *coordinate) override;
 
     virtual bool isMovementValid(const Coordinate &coordinate) override;
 
-    virtual bool isThePawnPromoted() override;
-
     virtual void generateMovements() override;
 
-    virtual bool isVulnerablePawn();
-
-    std::list<Coordinate> getValidMovements();
-
-    Coordinate *getCoordinate();
-
-    Coordinate *getDisplacedBy(int displacement);
-
-    Coordinate *getDisplacedBy(const Coordinate &displacement);
-
-    Coordinate *getDisplacedBy(const Coordinate &displacement, const Coordinate &vector);
-
-    bool has(Coordinate &coordinate);
-
-    bool isNotMoved();
-
-    bool isKing();
-
-    bool isRook();
+    virtual void accept(PieceVisitor &visitor) = 0;
 
     virtual std::string toString() const = 0;
 
@@ -58,11 +51,11 @@ protected:
     void set(Coordinate *coordinate);
 
 protected:
-    Color color;
+    Player player;
 
     Coordinate *coordinate;
 
-    MovementRulesBaseGeneratorGenerator *basedGenerator;
+    MovementRulesBaseGenerator *basedGenerator;
 };
 
 #endif

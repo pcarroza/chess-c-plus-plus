@@ -2,7 +2,7 @@
 #define MOVE_RULES_MANAGER_HPP
 
 #include "models/pieces/Coordinate.hpp"
-#include "../Piece.hpp"
+#include "models/pieces/Piece.hpp"
 
 #include <list>
 #include <memory>
@@ -13,14 +13,18 @@ class Piece;
 
 namespace models::pieces::rulesOfMovements
 {
-    class MovementRulesBaseGeneratorGenerator
+    class MovementRulesBaseGenerator
     {
     public:
-        MovementRulesBaseGeneratorGenerator(Piece &piece);
+        MovementRulesBaseGenerator();
 
-        virtual ~MovementRulesBaseGeneratorGenerator() = default;
+        MovementRulesBaseGenerator(Piece *piece);
 
-        std::list<std::shared_ptr<Coordinate>> getValidMovements();
+        virtual ~MovementRulesBaseGenerator() = default;
+
+        virtual void set(Piece *piece);
+
+        std::list<std::shared_ptr<Coordinate>> &getValidMovements();
 
         bool isMovementValid(const Coordinate &coordinate);
 
@@ -30,7 +34,7 @@ namespace models::pieces::rulesOfMovements
         bool isContained(const Coordinate &coordinate);
 
     protected:
-        Piece &piece;
+        Piece *piece;
 
         std::list<std::shared_ptr<Coordinate>> possibleMoves;
     };

@@ -1,0 +1,28 @@
+@startuml caseuse
+left to right direction
+actor "Jugador" as J
+
+rectangle "Sistema de Ajedrez" {
+  usecase "Start" as UC10
+  usecase "Continue" as UC11
+  usecase "Exit" as UC12
+  usecase "PutPiece" as UC3
+  usecase "SelectPiece" as UC1
+  usecase "RemovePiece" as UC4
+  usecase "PromotePawn" as UC5
+  usecase "ApplyCastling" as UC6
+  usecase "ApplyEnPassant" as UC7
+}
+
+J --> UC1
+J --> UC3
+J --> UC10
+J --> UC11
+J --> UC12
+UC1 -> UC3: include
+UC3 <.. UC4 : extend
+UC3 <.. UC5 : extend
+UC3 <.. UC6 : extend
+UC3 <.. UC7 : extend
+
+@enduml

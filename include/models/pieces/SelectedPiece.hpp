@@ -12,8 +12,6 @@ public:
 
     virtual bool isMovementValid(const Coordinate &coordinate) = 0;
 
-    virtual bool isThePawnPromoted() = 0;
-
     virtual void generateMovements() = 0;
 };
 

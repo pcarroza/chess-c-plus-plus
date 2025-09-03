@@ -1,14 +1,14 @@
 #ifndef BISHOP_RULE_BASED_COORDINATE_GENERATOR_HPP
 #define BISHOP_RULE_BASED_COORDINATE_GENERATOR_HPP
 
-#include "RuleBasedCoordinateGenerator.hpp"
+#include "MovementRulesBaseGenerator.hpp"
 
 namespace models::pieces::rulesOfMovements
 {
-    class BishopRuleBasedCoordinateGenerator : public MovementRulesBaseGeneratorGenerator
+    class BishopRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        BishopRuleBasedCoordinateGenerator(Piece &piece);
+        BishopRuleBasedCoordinateGenerator(Piece *piece);
 
         void generate() override;
     };

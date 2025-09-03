@@ -11,14 +11,14 @@ namespace controllers::local
         game.getValidMovements();
     }
 
-    void LocalController::select(Coordinate &coordinate)
+    void LocalController::selectPiece(Coordinate &coordinate)
     {
-        game.select(coordinate);
+        game.selectPieceTo(coordinate);
     }
 
-    void LocalController::put(Coordinate &coordinate)
+    void LocalController::putPiece(Coordinate &coordinate)
     {
-        game.put(coordinate);
+        game.putPieceTo(coordinate);
     }
 
     bool LocalController::isEmpty(Coordinate &coordinate)
@@ -41,22 +41,22 @@ namespace controllers::local
         game.removeRivalPlayerPiece(coordinate);
     }
 
-    Color LocalController::getCurrentPlayer()
+    Player LocalController::getCurrentPlayer()
     {
-        return Color::WHITE;
+        return Player::WHITE;
     }
 
-    Color LocalController::getRivalPlayer()
+    Player LocalController::getRivalPlayer()
     {
-        return Color::BLACK;
+        return Player::BLACK;
     }
 
-    bool LocalController::isTheWhitePieceSelected(Coordinate &coordinate)
+    bool LocalController::isTheWhitePieceSelected(Coordinate &/*coordinate*/)
     {
         return false;
     }
 
-    bool LocalController::isTheBlackPieceSelected(Coordinate &coordinate)
+    bool LocalController::isTheBlackPieceSelected(Coordinate &/*coordinate*/)
     {
         return false;
     }

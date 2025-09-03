@@ -2,7 +2,7 @@
 #define LOCAL_CONTROLLER_HPP
 
 #include "models/pieces/Coordinate.hpp"
-#include "models/Color.hpp"
+#include "models/Player.hpp"
 #include "models/Game.hpp"
 
 namespace controllers::local
@@ -15,9 +15,9 @@ namespace controllers::local
 
         void getValidMovements();
 
-        void select(Coordinate &coordinate);
+        void selectPiece(Coordinate &coordinate);
 
-        void put(Coordinate &coordinate);
+        void putPiece(Coordinate &coordinate);
 
         bool isEmpty(Coordinate &coordinate);
 
@@ -27,9 +27,9 @@ namespace controllers::local
 
         void removeRivalPlayerPiece(Coordinate &coordinate);
 
-        Color getCurrentPlayer();
+        Player getCurrentPlayer();
 
-        Color getRivalPlayer();
+        Player getRivalPlayer();
 
         bool isTheWhitePieceSelected(Coordinate &coordinate);
 

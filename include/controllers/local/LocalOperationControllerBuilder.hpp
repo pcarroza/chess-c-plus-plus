@@ -36,11 +36,11 @@ namespace controllers::local
     private:
         Game &game;
 
-        LocalStartController *localStartController;
+        std::unique_ptr<LocalStartController> localStartController;
 
         std::vector<std::shared_ptr<LocalPlacementControllerBuilder>> builders;
 
-        LocalContinueController *localContinueController;
+        std::unique_ptr<LocalContinueController> localContinueController;
     };
 }
 

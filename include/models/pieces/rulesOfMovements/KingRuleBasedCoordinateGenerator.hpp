@@ -1,7 +1,7 @@
 #ifndef KING_RULE_BASED_COORDINATE_GENERATOR_HPP
 #define KING_RULE_BASED_COORDINATE_GENERATOR_HPP
 
-#include "RuleBasedCoordinateGenerator.hpp"
+#include "MovementRulesBaseGenerator.hpp"
 #include "common/validators/ValidatorLimitsBoard.hpp"
 
 #include <memory>
@@ -15,10 +15,10 @@ using common::validators::ValidatorLimitsBoard;
 
 namespace models::pieces::rulesOfMovements
 {
-    class KingRuleBasedCoordinateGenerator : public MovementRulesBaseGeneratorGenerator
+    class KingRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        KingRuleBasedCoordinateGenerator(Piece &piece);
+        KingRuleBasedCoordinateGenerator(Piece *piece);
 
         void generate() override;
     };

@@ -1,8 +1,11 @@
 #include "models/pieces/Coordinate.hpp"
 #include "models/pieces/Piece.hpp"
-#include "models/Color.hpp"
+#include "models/Player.hpp"
 
-Piece::Piece(Coordinate *coordinate, Color color) : color(color), coordinate(coordinate), basedGenerator(nullptr)
+Piece::Piece(Coordinate *coordinate, Player color)
+    : player(color),
+      coordinate(coordinate),
+      basedGenerator(nullptr)
 {
 }
 
@@ -17,32 +20,42 @@ void Piece::set(Coordinate *coordinate)
     this->coordinate = coordinate;
 }
 
+std::list<std::shared_ptr<Coordinate>> &Piece::getValidMovements()
+{
+    return basedGenerator->getValidMovements();
+}
+
 void Piece::put(Coordinate *target)
 {
+    if (coordinate != nullptr)
+    {
+        delete coordinate;
+        coordinate = nullptr;
+    }
     set(target);
 }
 
-Coordinate *Piece::getCoordinate()
+Coordinate *Piece::getCoordinate() const
 {
     return coordinate;
 }
 
-Coordinate *Piece::getDisplacedBy(int displacement)
+Coordinate *Piece::getDisplacedBy(int displacement) const
 {
-    return new Coordinate(0, displacement);
+    return getCoordinate()->getDisplacedBy(displacement);
 }
 
-Coordinate *Piece::getDisplacedBy(const Coordinate &displacement)
+Coordinate *Piece::getDisplacedBy(const Coordinate &displacement) const
 {
-    return new Coordinate(0, 0);
+    return getCoordinate()->getDisplacedBy(displacement);
 }
 
 Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector)
 {
-    return new Coordinate(0, 0);
+    return getCoordinate()->getDisplacedBy(displacement, vector);
 }
 
-bool Piece::has(Coordinate &coordinate)
+bool Piece::isAt(const Coordinate &coordinate)
 {
     return *getCoordinate() == coordinate;
 }
@@ -55,29 +68,4 @@ bool Piece::isMovementValid(const Coordinate &target)
 void Piece::generateMovements()
 {
     basedGenerator->generate();
-}
-
-bool Piece::isThePawnPromoted()
-{
-    return false;
-}
-
-bool Piece::isNotMoved()
-{
-    return true;
-}
-
-bool Piece::isKing()
-{
-    return false;
-}
-
-bool Piece::isRook()
-{
-    return false;
-}
-
-bool Piece::isVulnerablePawn()
-{
-    return false;
 }

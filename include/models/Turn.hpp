@@ -1,7 +1,7 @@
 #ifndef TURN_HPP
 #define TURN_HPP
 
-#include "Color.hpp"
+#include "Player.hpp"
 
 namespace models
 {
@@ -10,14 +10,14 @@ namespace models
     public:
         Turn();
 
-        Color getCurrentPlayer();
+        Player getCurrentPlayer();
 
-        Color getRivalPlayer();
+        Player getRivalPlayer();
 
         void change();
 
     private:
-        Color currentPlayer;
+        int index;
     };
 }
 

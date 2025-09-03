@@ -17,7 +17,7 @@ namespace controllers::local
         controllers.clear();
     }
 
-    void LocalPlacementControllerBuilder::build(std::vector<LocalCoordinateController *> localCoordinateControllers)
+    void LocalPlacementControllerBuilder::build(std::vector<LocalCoordinateController *> /*localCoordinateControllers*/)
     {
         // La implementación de la función debe ir aquí.
     }

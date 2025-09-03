@@ -1,15 +1,22 @@
 #ifndef PAWN_H
 #define PAWN_H
 
+#include "models/pieces/specialRuleMovements/SpecialMovesRulesGenerator.hpp"
 #include "Piece.hpp"
-#include "./rulesOfMovements/RulerBasedCoordinateGeneratorFacade.hpp"
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+namespace models::pieces::specialRuleMovements
+{
+    class SpecialMovesRulesGenerator;
+}
+
+using models::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
 
 class Pawn : public Piece
 {
 public:
-    Pawn(Coordinate *coordinate, Color color);
+    Pawn(Coordinate *coordinate, Player color);
+
+    ~Pawn();
 
     void put(Coordinate *target) override;
 
@@ -17,15 +24,29 @@ public:
 
     void generateMovements() override;
 
-    bool isThePawnPromoted() override;
+    bool isVulnerablePawn() const;
 
-    bool isVulnerablePawn() override;
+    bool isPromoted() const;
 
-    bool isInitialState();
+    bool isInitialState() const;
 
-    bool isWhite();
+    bool canAdvanceOne() const;
 
-    bool isBlack();
+    bool canAdvanceTwo() const;
+
+    bool canCaptureLeft() const;
+
+    bool canCaptureRight() const;
+
+    std::shared_ptr<Coordinate> getForwardOne() const;
+
+    std::shared_ptr<Coordinate> getForwardTwo() const;
+
+    std::shared_ptr<Coordinate> getDiagonalLeft() const;
+
+    std::shared_ptr<Coordinate> getDiagonalRight() const;
+
+    void accept(PieceVisitor &visitor) override;
 
     std::string toString() const override;
 
@@ -38,12 +59,20 @@ private:
 
     void changeToPromoted();
 
+    int getPlayerDirection() const;
+
+    bool isWhite() const;
+
+    bool isBlack() const;
+
 private:
     bool initialState;
 
     bool isItPromoted;
 
     bool vulnerablePawn;
+
+    SpecialMovesRulesGenerator *specialGenerator;
 };
 
 #endif

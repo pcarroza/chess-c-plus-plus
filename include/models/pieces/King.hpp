@@ -2,14 +2,13 @@
 #define KING_H
 
 #include "Piece.hpp"
-#include "./rulesOfMovements/RulerBasedCoordinateGeneratorFacade.hpp"
-
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
 class King : public Piece
 {
 public:
-    King(Coordinate *coordinate, Color color);
+    King(Coordinate *coordinate, Player color);
+
+    void accept(PieceVisitor &visitor) override;
 
     std::string toString() const override;
 };

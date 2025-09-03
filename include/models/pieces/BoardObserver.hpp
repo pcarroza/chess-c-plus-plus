@@ -15,17 +15,19 @@ public:
 
     virtual void set(Piece *piece) = 0;
 
-    virtual void set(std::list<std::shared_ptr<Coordinate>> coordinates) = 0;
+    virtual void set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements) = 0;
 
     virtual void add(Piece *enPassantPawn) = 0;
 
-    virtual bool isItEnemy(const Coordinate &coordinate) const = 0;
+    virtual void deleteEnPassantPawn(Piece *piece) = 0;
 
-    virtual bool isBoxEmpty(const Coordinate &coordinate) const = 0;
+    virtual bool isEnemy(const Coordinate &coordinate) const = 0;
 
-    virtual bool isBoxOccupied(const Coordinate &coordinate) const = 0;
+    virtual bool isSquareEmpty(const Coordinate &coordinate) const = 0;
 
-    virtual bool someColor(const Coordinate &coordinate) const = 0;
+    virtual bool isSquareOccupied(const Coordinate &coordinate) const = 0;
+
+    virtual bool isSameColorPieceAt(const Coordinate &coordinate) const = 0;
 };
 
 #endif

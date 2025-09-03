@@ -3,7 +3,8 @@
 
 namespace models::pieces::rulesOfMovements
 {
-    KnightRuleBasedCoordinateGenerator::KnightRuleBasedCoordinateGenerator(Piece &piece) : MovementRulesBaseGeneratorGenerator(piece)
+    KnightRuleBasedCoordinateGenerator::KnightRuleBasedCoordinateGenerator(Piece *piece)
+        : MovementRulesBaseGenerator(piece)
     {
     }
 
@@ -15,19 +16,19 @@ namespace models::pieces::rulesOfMovements
         possibleMoves.clear();
 
         possibleMoves = {
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(doubleStep, simpleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(doubleStep, -simpleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-doubleStep, simpleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-doubleStep, -simpleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(simpleStep, doubleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(simpleStep, -doubleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-simpleStep, doubleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-simpleStep, -doubleStep)))};
+            std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(doubleStep, simpleStep))),
+            std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(doubleStep, -simpleStep))),
+            std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(-doubleStep, simpleStep))),
+            std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(-doubleStep, -simpleStep))),
+            std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(simpleStep, doubleStep))),
+            std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(simpleStep, -doubleStep))),
+            std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(-simpleStep, doubleStep))),
+            std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(-simpleStep, -doubleStep)))};
 
         possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
                                 { return !ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
 
-        possibleMoves.remove_if([&](const std::shared_ptr<Coordinate> &coordinate)
-                                { return piece.sameColor(*coordinate); });
+        possibleMoves.remove_if([this](const std::shared_ptr<Coordinate> &coordinate)
+                                { return piece->isSameColorPieceAt(*coordinate); });
     }
 }

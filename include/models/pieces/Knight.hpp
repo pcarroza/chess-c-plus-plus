@@ -2,14 +2,13 @@
 #define KNIGHT_H
 
 #include "Piece.hpp"
-#include "./rulesOfMovements/RulerBasedCoordinateGeneratorFacade.hpp"
-
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
 class Knight : public Piece
 {
 public:
-    Knight(Coordinate *coordinate, Color color);
+    Knight(Coordinate *coordinate, Player color);
+
+    void accept(PieceVisitor &visitor) override;
 
     std::string toString() const override;
 };

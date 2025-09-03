@@ -15,19 +15,19 @@ void Game::getValidMovements()
     std::cout << "Getting valid movements." << std::endl;
 }
 
-void Game::select(const Coordinate &coordinate)
+void Game::selectPieceTo(const Coordinate &coordinate)
 {
     board->selectPiece(coordinate);
 }
 
-void Game::put(const Coordinate &coordinate)
+void Game::putPieceTo(const Coordinate &coordinate)
 {
-    board->putPiece(coordinate);
+    board->putPieceTo(coordinate);
 }
 
 bool Game::isEmpty(const Coordinate &coordiante)
 {
-    return board->isBoxEmpty(coordiante);
+    return board->isSquareEmpty(coordiante);
 }
 
 bool Game::isMovementValid(const Coordinate &coordinate)
