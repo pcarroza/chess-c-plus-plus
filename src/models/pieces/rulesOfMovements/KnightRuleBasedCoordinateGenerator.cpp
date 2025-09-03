@@ -29,6 +29,6 @@ namespace models::pieces::rulesOfMovements
                                 { return !ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
 
         possibleMoves.remove_if([this](const std::shared_ptr<Coordinate> &coordinate)
-                                { return piece->sameColor(*coordinate); });
+                                { return piece->isSameColorPieceAt(*coordinate); });
     }
 }

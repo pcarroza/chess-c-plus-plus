@@ -8,6 +8,11 @@ Bishop::Bishop(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     basedGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(this);
 }
 
+void Bishop::accept(PieceVisitor &visitor)
+{
+    visitor.visit(*this);
+}
+
 std::string Bishop::toString() const
 {
     return "Bishop()";

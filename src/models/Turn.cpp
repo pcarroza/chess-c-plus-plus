@@ -13,7 +13,8 @@ namespace models
 
     Player Turn::getRivalPlayer()
     {
-        int rivalPlayerIndex = (index + 1) % 2;
+        int auxIndex = index;
+        int rivalPlayerIndex = (auxIndex + 1) % 2;
         return PLAYERS[rivalPlayerIndex];
     }
 

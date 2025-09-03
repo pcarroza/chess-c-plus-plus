@@ -24,7 +24,7 @@ namespace models::pieces::rulesOfMovements
 
         virtual void set(Piece *piece);
 
-        std::list<std::shared_ptr<Coordinate>> getValidMovements();
+        std::list<std::shared_ptr<Coordinate>> &getValidMovements();
 
         bool isMovementValid(const Coordinate &coordinate);
 

@@ -15,9 +15,9 @@ namespace controllers::local
 
         void getValidMovements();
 
-        void select(Coordinate &coordinate);
+        void selectPiece(Coordinate &coordinate);
 
-        void put(Coordinate &coordinate);
+        void putPiece(Coordinate &coordinate);
 
         bool isEmpty(Coordinate &coordinate);
 

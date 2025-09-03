@@ -11,14 +11,14 @@ namespace controllers::local
         game.getValidMovements();
     }
 
-    void LocalController::select(Coordinate &coordinate)
+    void LocalController::selectPiece(Coordinate &coordinate)
     {
-        game.select(coordinate);
+        game.selectPieceTo(coordinate);
     }
 
-    void LocalController::put(Coordinate &coordinate)
+    void LocalController::putPiece(Coordinate &coordinate)
     {
-        game.put(coordinate);
+        game.putPieceTo(coordinate);
     }
 
     bool LocalController::isEmpty(Coordinate &coordinate)

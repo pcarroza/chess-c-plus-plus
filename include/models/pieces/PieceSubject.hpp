@@ -11,13 +11,15 @@ public:
 
     void subscribe(BoardObserver *boardObserver);
 
-    bool isItEnemy(const Coordinate &coordinate) const;
+    bool isEnemy(const Coordinate &coordinate) const;
 
-    bool sameColor(const Coordinate &coordinate) const;
+    bool isSameColorPieceAt(const Coordinate &coordinate) const;
 
-    bool isBoxOccupied(const Coordinate &coordinate) const;
+    bool isSquareOccupied(const Coordinate &coordinate) const;
 
-    void notifyPassingPawn(Piece *piece);
+    void notifyEnPassantPawn(Piece *piece);
+
+    void notifyDeletedEnPassantPawn(Piece *piece);
 
 protected:
     BoardObserver *boardObserver;

@@ -26,23 +26,31 @@ public:
 
     void set(Piece *piece) override;
 
-    void set(std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece) override;
+    void set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements) override;
 
-    bool isItEnemy(const Coordinate &coordinate) const override;
+    void selectPiece(const Coordinate &coordinate);
 
-    bool isBoxEmpty(const Coordinate &coordinate) const override;
+    void putPieceTo(const Coordinate &coordinate);
 
-    bool someColor(const Coordinate &coordinate) const override;
+    bool isSelectedPiece();
 
-    bool isBoxOccupied(const Coordinate &coordinate) const override;
+    bool clearSelectedPiece();
+
+    bool isThePawnPromoted();
+
+    bool isEnemy(const Coordinate &coordinate) const override;
+
+    bool isSquareEmpty(const Coordinate &coordinate) const override;
+
+    bool isSameColorPieceAt(const Coordinate &coordinate) const override;
+
+    bool isSquareOccupied(const Coordinate &coordinate) const override;
 
     bool isMovementValid(const Coordinate &coordinate);
 
     void add(Piece *enPassantPawn) override;
 
-    void selectPiece(const Coordinate &coordinate);
-
-    void putPiece(const Coordinate &coordinate);
+    void deleteEnPassantPawn(Piece *piece) override;
 
     void removeCurrentPlayerPiece(const Coordinate &coordinate);
 
@@ -50,14 +58,24 @@ public:
 
     void changeTurn();
 
+    bool isWithinBoardLimits(const Coordinate &coordinate);
+
+    std::list<std::shared_ptr<Piece>> &getPiecesBy(Player player);
+
+    Player getCurrentPlayer();
+
+    Player getRivalPlayer();
+
 private:
+    void removePiece(const Coordinate &coordinate, Player player);
+
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap;
 
-    std::map<Player, std::list<std::shared_ptr<Piece>>> mapOfRemovedPieces;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> removedPieces;
 
-    std::map<Player, std::list<std::shared_ptr<Piece>>> mapPassantPawns;
+    std::map<Player, std::list<std::shared_ptr<Piece>>> enPassantPawnsMap;
 
-    std::list<std::shared_ptr<Coordinate>> movementsSelectedPiece;
+    std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements;
 
     SelectedPiece *selectedPiece;
 

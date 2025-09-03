@@ -7,11 +7,6 @@ namespace models::pieces::rulesOfMovements
     {
     }
 
-    void MovementRulesBaseGenerator::set(Piece *piece)
-    {
-        this->piece = piece;
-    }
-
     MovementRulesBaseGenerator::MovementRulesBaseGenerator(Piece *piece) : piece(piece)
     {
     }
@@ -21,9 +16,9 @@ namespace models::pieces::rulesOfMovements
         this->piece = piece;
     }
 
-    std::list<std::shared_ptr<Coordinate>> MovementRulesBaseGenerator::getValidMovements()
+    std::list<std::shared_ptr<Coordinate>> &MovementRulesBaseGenerator::getValidMovements()
     {
-        return std::move(possibleMoves);
+        return possibleMoves;
     }
 
     bool MovementRulesBaseGenerator::isMovementValid(const Coordinate &coordinate)

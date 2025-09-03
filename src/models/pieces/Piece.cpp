@@ -20,6 +20,11 @@ void Piece::set(Coordinate *coordinate)
     this->coordinate = coordinate;
 }
 
+std::list<std::shared_ptr<Coordinate>> &Piece::getValidMovements()
+{
+    return basedGenerator->getValidMovements();
+}
+
 void Piece::put(Coordinate *target)
 {
     if (coordinate != nullptr)
@@ -50,7 +55,7 @@ Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordina
     return getCoordinate()->getDisplacedBy(displacement, vector);
 }
 
-bool Piece::has(Coordinate &coordinate)
+bool Piece::isAt(const Coordinate &coordinate)
 {
     return *getCoordinate() == coordinate;
 }
@@ -63,24 +68,4 @@ bool Piece::isMovementValid(const Coordinate &target)
 void Piece::generateMovements()
 {
     basedGenerator->generate();
-}
-
-bool Piece::isNotMoved()
-{
-    return true;
-}
-
-bool Piece::isKing()
-{
-    return false;
-}
-
-bool Piece::isRook()
-{
-    return false;
-}
-
-bool Piece::isVulnerablePawn()
-{
-    return false;
 }

@@ -57,6 +57,7 @@ int main()
     }
 
     Piece *pawn = new Pawn(new Coordinate(1, 2), Player::BLACK);
+    pawn->subscribe(board);
     std::cout << pawn->toString() << std::endl;
     pawn->put(new Coordinate(2, 2));
     std::cout << pawn->toString() << std::endl;
@@ -120,12 +121,12 @@ int main()
 
     LocalLogic *logic = new LocalLogic();
     Game *game = new Game(logic);
-    game->select(Coordinate(1, 2));
-    game->put(Coordinate(2, 2));
-    game->put(Coordinate(3, 2));
-    game->put(Coordinate(4, 2));
-    game->put(Coordinate(5, 2));
-    game->put(Coordinate(6, 2));
+    game->selectPieceTo(Coordinate(1, 2));
+    game->putPieceTo(Coordinate(2, 2));
+    game->putPieceTo(Coordinate(3, 2));
+    game->putPieceTo(Coordinate(4, 2));
+    game->putPieceTo(Coordinate(5, 2));
+    game->putPieceTo(Coordinate(6, 2));
 
     game->begin();
     game->finalize();

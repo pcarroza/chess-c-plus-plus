@@ -5,10 +5,11 @@
 #include <list>
 
 #include "models/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
-#include "SelectedPiece.hpp"
-#include "PieceSubject.hpp"
+#include "models/pieces/PieceVisitor.hpp"
 #include "models/pieces/Coordinate.hpp"
 #include "models/Player.hpp"
+#include "SelectedPiece.hpp"
+#include "PieceSubject.hpp"
 
 namespace models::pieces::rulesOfMovements
 {
@@ -24,7 +25,7 @@ public:
 
     virtual ~Piece();
 
-    std::list<Coordinate> getValidMovements();
+    std::list<std::shared_ptr<Coordinate>> &getValidMovements();
 
     Coordinate *getCoordinate() const;
 
@@ -34,7 +35,7 @@ public:
 
     Coordinate *getDisplacedBy(const Coordinate &displacement, const Coordinate &vector);
 
-    bool has(Coordinate &coordinate);
+    bool isAt(const Coordinate &coordinate);
 
     virtual void put(Coordinate *coordinate) override;
 
@@ -42,13 +43,7 @@ public:
 
     virtual void generateMovements() override;
 
-    virtual bool isVulnerablePawn();
-
-    virtual bool isNotMoved();
-
-    virtual bool isKing();
-
-    virtual bool isRook();
+    virtual void accept(PieceVisitor &visitor) = 0;
 
     virtual std::string toString() const = 0;
 

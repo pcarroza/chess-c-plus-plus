@@ -1,5 +1,5 @@
-#include "models/pieces/Pawn.hpp"
 #include "models/Player.hpp"
+#include "models/pieces/Pawn.hpp"
 #include "models/pieces/Coordinate.hpp"
 #include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 #include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
@@ -40,10 +40,11 @@ void Pawn::put(Coordinate *target)
     if (inStep(*target))
     {
         vulnerablePawn = true;
-        notifyPassingPawn(this);
+        notifyEnPassantPawn(this);
     }
     else
     {
+        notifyDeletedEnPassantPawn(this);
         vulnerablePawn = false;
     }
 
@@ -63,6 +64,16 @@ bool Pawn::isMovementValid(const Coordinate &target)
 void Pawn::generateMovements()
 {
     Piece::generateMovements();
+}
+
+bool Pawn::isVulnerablePawn() const
+{
+    return vulnerablePawn;
+}
+
+bool Pawn::isPromoted() const
+{
+    return isItPromoted;
 }
 
 bool Pawn::isInitialState() const
@@ -94,29 +105,24 @@ void Pawn::changeToPromoted()
     isItPromoted = true;
 }
 
-bool Pawn::isVulnerablePawn()
-{
-    return vulnerablePawn;
-}
-
 bool Pawn::canAdvanceOne() const
 {
-    return !isBoxOccupied(*getForwardOne());
+    return !isSquareOccupied(*getForwardOne());
 }
 
 bool Pawn::canAdvanceTwo() const
 {
-    return isInitialState() && !isBoxOccupied(*getForwardOne()) && !isBoxOccupied(*getForwardTwo());
+    return isInitialState() && !isSquareOccupied(*getForwardOne()) && !isSquareOccupied(*getForwardTwo());
 }
 
 bool Pawn::canCaptureLeft() const
 {
-    return isItEnemy(*getDiagonalLeft());
+    return isEnemy(*getDiagonalLeft());
 }
 
 bool Pawn::canCaptureRight() const
 {
-    return isItEnemy(*getDiagonalRight());
+    return isEnemy(*getDiagonalRight());
 }
 
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const
@@ -163,6 +169,11 @@ bool Pawn::isWhite() const
 bool Pawn::isBlack() const
 {
     return player == Player::BLACK;
+}
+
+void Pawn::accept(PieceVisitor &visitor)
+{
+    visitor.visit(*this);
 }
 
 std::string Pawn::toString() const
