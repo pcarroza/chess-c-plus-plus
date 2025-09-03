@@ -40,6 +40,11 @@ void Board::set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements)
     this->selectedPieceMovements = &selectedPieceMovements;
 }
 
+std::list<std::shared_ptr<Coordinate>> &Board::getValidMovements()
+{
+    return *selectedPieceMovements;
+}
+
 void Board::selectPiece(const Coordinate &coordinate)
 {
     assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");

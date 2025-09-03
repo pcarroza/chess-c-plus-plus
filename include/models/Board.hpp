@@ -28,6 +28,8 @@ public:
 
     void set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements) override;
 
+    std::list<std::shared_ptr<Coordinate>> &getValidMovements();
+
     void selectPiece(const Coordinate &coordinate);
 
     void putPieceTo(const Coordinate &coordinate);

@@ -12,7 +12,7 @@ Game::~Game()
 
 void Game::getValidMovements()
 {
-    std::cout << "Getting valid movements." << std::endl;
+    board->getValidMovements();
 }
 
 void Game::selectPieceTo(const Coordinate &coordinate)
