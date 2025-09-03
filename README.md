@@ -46,11 +46,29 @@ Más allá de MVC, las responsabilidades están claramente distribuidas. Por eje
 
 ## Estructura del Proyecto
 
-- **`/include`**: Contiene todos los archivos de cabecera (`.hpp`), definiendo las interfaces y clases.
-- **`/src`**: Contiene los archivos de implementación (`.cpp`).
-- **`/build`**: Contiene los artefactos de compilación y dependencias.
-- **`/docs`**: Documentación del proyecto, incluyendo diagramas.
-- **`Makefile`**: El script de compilación para el proyecto.
+El proyecto está organizado en una estructura de directorios que separa claramente las interfaces (`include`), las implementaciones (`src`), la compilación (`build`), los ejecutables (`bin`) y la documentación (`docs`). Esta organización facilita la navegación y el mantenimiento del código.
+
+- **`/include`**: Contiene todos los archivos de cabecera (`.hpp`). Define las "interfaces" o contratos de todas las clases y módulos del sistema.
+    - `common/`: Utilidades transversales como constantes (`BoardConstants.hpp`) y validadores.
+    - `models/`: **(Modelo)** Contiene la lógica de negocio y las estructuras de datos del juego.
+        - `pieces/`: Define las piezas del ajedrez, sus movimientos base, reglas especiales (`EnPassantPawnSpecialRuleGenerator.hpp`) y comportamientos. Es el corazón del modelo.
+        - `Game.hpp`, `Board.hpp`, `Turn.hpp`: Clases centrales que gestionan el estado y las reglas del juego.
+    - `views/`: **(Vista)** Responsable de la presentación de datos al usuario.
+        - `console/`: Implementación concreta de la vista para la línea de comandos. `BoardView.hpp` se encarga de "dibujar" el tablero.
+    - `controllers/`: **(Controlador)** Actúa como intermediario entre el Modelo y la Vista.
+        - `local/`: Implementación de los controladores para una partida local. La subcarpeta `logic/` contiene la lógica de estados (`InitialState`, `InGameState`, etc.) que gestiona el ciclo de vida de la partida.
+        - `OperationController.hpp`, `PlacementController.hpp`: Definen las operaciones que la vista puede invocar, siguiendo el Principio de Segregación de Interfaces.
+
+- **`/src`**: Contiene los archivos de implementación (`.cpp`) que desarrollan la lógica definida en los encabezados de `/include`. La estructura de directorios en `src` es un espejo de la de `include`, lo que facilita la localización del código.
+
+- **`/build`**: Almacena los archivos intermedios generados durante el proceso de compilación (archivos objeto `.o`, dependencias).
+
+- **`/bin`**: Contiene el archivo ejecutable final (`chess`) generado tras una compilación exitosa.
+
+- **`/docs`**: Incluye la documentación del proyecto.
+    - `diagrams/`: Contiene los diagramas de diseño, tanto en su formato de código fuente (`.wsd` de PlantUML) como en su formato de imagen (`.svg`).
+
+- **`Makefile`**: El script que automatiza el proceso de compilación y enlazado del proyecto. Define comandos como `make` para construir el ejecutable.
 
 ## Cómo Compilar y Ejecutar
 
