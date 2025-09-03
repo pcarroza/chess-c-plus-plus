@@ -26,7 +26,7 @@ public:
 
     void set(Piece *piece) override;
 
-    void set(std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements) override;
+    void set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements) override;
 
     void selectPiece(const Coordinate &coordinate);
 

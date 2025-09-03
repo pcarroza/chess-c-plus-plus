@@ -35,9 +35,9 @@ void Board::set(Piece *piece)
     this->selectedPiece = piece;
 }
 
-void Board::set(std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements)
+void Board::set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements)
 {
-    this->selectedPieceMovements = selectedPieceMovements;
+    this->selectedPieceMovements = &selectedPieceMovements;
 }
 
 void Board::selectPiece(const Coordinate &coordinate)
@@ -54,7 +54,7 @@ void Board::selectPiece(const Coordinate &coordinate)
     {
         auto &piece = *it;
         piece->generateMovements();
-        set(&piece->getValidMovements());
+        set(piece->getValidMovements());
         selectedPiece = piece.get();
     }
     else
