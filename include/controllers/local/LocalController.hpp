@@ -21,7 +21,7 @@ namespace controllers::local
 
         bool isEmpty(Coordinate &coordinate);
 
-        bool isMovementValid(Coordinate coordinate);
+        bool isMovementValid(Coordinate &coordinate);
 
         void removeCurrentPlayerPiece(Coordinate &coordinate);
 

@@ -26,7 +26,7 @@ namespace controllers::local
         return game.isEmpty(coordinate);
     }
 
-    bool LocalController::isMovementValid(Coordinate coordinate)
+    bool LocalController::isMovementValid(Coordinate &coordinate)
     {
         return game.isMovementValid(coordinate);
     }
