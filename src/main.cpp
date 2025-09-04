@@ -23,12 +23,14 @@
 #include "./Logic.hpp"
 
 #include "controllers/local/LocalStartController.hpp"
+#include "controllers/local/LocalOperationControllerBuilder.hpp"
 #include "views/console/ConsoleView.hpp"
 #include "models/Game.hpp"
 
 using controllers::local::LocalStartController;
 using controllers::local::logic::LocalLogic;
 using views::console::ConsoleView;
+using controllers::local::LocalOperationControllerBuilder;
 
 int main()
 {
@@ -36,12 +38,15 @@ int main()
 
     Game *game1 = new Game(logic1);
     ConsoleView *consoleView = new ConsoleView();
-    StartController *start = new LocalStartController(*game1, nullptr);
+    LocalOperationControllerBuilder *builder = new LocalOperationControllerBuilder(*game1);
+    builder->build();
+    StartController *start = builder->getStartController();
     consoleView->interact(start);
+    
     delete consoleView;
     delete logic1;
     delete game1;
-    delete start;
+    delete builder;
 
     Board *board = new Board();
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap = PiecesMapBuilder::build(board);

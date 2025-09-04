@@ -3,7 +3,8 @@
 
 namespace controllers::local
 {
-    LocalSelectPieceController::LocalSelectPieceController(Game &game, LocalCoordinateController *coordenateController) : LocalPlacementController(game), coordenateController(coordenateController)
+    LocalSelectPieceController::LocalSelectPieceController(Game &game, LocalCoordinateController *coordenateController)
+        : LocalPlacementController(game), coordenateController(coordenateController)
     {
     }
 
