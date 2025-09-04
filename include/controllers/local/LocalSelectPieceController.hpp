@@ -8,12 +8,17 @@
 
 namespace controllers::local
 {
+    class LocalCoordinateController;
+
     class LocalSelectPieceController : public LocalPlacementController, public SelectPieceController
     {
     public:
-        LocalSelectPieceController(Game &game);
+        LocalSelectPieceController(Game &game, LocalCoordinateController *coordenateController);
 
         void accept(OperationControllerVisitor &operationControllerVisitor) override;
+
+    private:
+        LocalCoordinateController *coordenateController;
     };
 }
 

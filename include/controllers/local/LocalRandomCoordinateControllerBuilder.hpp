@@ -11,7 +11,7 @@ namespace controllers::local
     public:
         LocalRandomCoordinateControllerBuilder(Game &game);
 
-        void build() override;
+        void build();
     };
 }
 

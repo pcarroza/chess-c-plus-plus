@@ -1,6 +1,8 @@
 #include "controllers/local/LocalPlacementControllerBuilder.hpp"
 #include "controllers/local/LocalSelectPieceController.hpp"
 #include "controllers/local/LocalPutPieceController.hpp"
+#include "controllers/local/LocalCoordinateController.hpp"
+#include <memory>
 
 namespace controllers::local
 {
@@ -10,20 +12,23 @@ namespace controllers::local
 
     LocalPlacementControllerBuilder::~LocalPlacementControllerBuilder()
     {
-        for (LocalPlacementController *controller : controllers)
-        {
-            delete controller;
-        }
-        controllers.clear();
     }
 
-    void LocalPlacementControllerBuilder::build(std::vector<LocalCoordinateController *> /*localCoordinateControllers*/)
+    void LocalPlacementControllerBuilder::build(std::vector<std::unique_ptr<LocalCoordinateController>> localCoordinateControllers)
     {
-        // La implementación de la función debe ir aquí.
+        this->localCoordinateControllers = std::move(localCoordinateControllers);
+        controllers.push_back(std::make_unique<LocalSelectPieceController>(game, this->localCoordinateControllers[0].get()));
+        controllers.push_back(std::make_unique<LocalPutPieceController>(game, this->localCoordinateControllers[0].get()));
     }
 
     LocalPlacementController *LocalPlacementControllerBuilder::getPlacementController()
     {
         return nullptr;
     }
+
+    Game &LocalPlacementControllerBuilder::getGame()
+    {
+        return game;
+    }
+
 }

@@ -1,7 +1,8 @@
 #ifndef LOCAL_OPERATION_CONTROLLER_BUILDER_HPP
 #define LOCAL_OPERATION_CONTROLLER_BUILDER_HPP
 
-#include <vector>
+#include <list>
+#include <memory>
 
 #include "models/Game.hpp"
 
@@ -35,10 +36,12 @@ namespace controllers::local
 
     private:
         Game &game;
+        
+        unsigned int builderCursor;
 
         std::unique_ptr<LocalStartController> localStartController;
 
-        std::vector<std::shared_ptr<LocalPlacementControllerBuilder>> builders;
+        std::list<std::shared_ptr<LocalPlacementControllerBuilder>> builders;
 
         std::unique_ptr<LocalContinueController> localContinueController;
     };

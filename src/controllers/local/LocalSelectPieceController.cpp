@@ -1,8 +1,9 @@
 #include "controllers/local/LocalSelectPieceController.hpp"
+#include "controllers/local/LocalCoordinateController.hpp"
 
 namespace controllers::local
 {
-    LocalSelectPieceController::LocalSelectPieceController(Game &game) : LocalPlacementController(game)
+    LocalSelectPieceController::LocalSelectPieceController(Game &game, LocalCoordinateController *coordenateController) : LocalPlacementController(game), coordenateController(coordenateController)
     {
     }
 

@@ -11,7 +11,7 @@ namespace controllers::local
     public:
         LocalUserPlacementControllerBuilder(Game &game);
 
-        void build() override;
+        void build();
     };
 }
 
