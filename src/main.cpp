@@ -42,7 +42,7 @@ int main()
     builder->build();
     StartController *start = builder->getStartController();
     consoleView->interact(start);
-    
+
     delete consoleView;
     delete logic1;
     delete game1;
@@ -126,12 +126,12 @@ int main()
 
     LocalLogic *logic = new LocalLogic();
     Game *game = new Game(logic);
-    game->selectPieceTo(Coordinate(1, 2));
-    game->putPieceTo(Coordinate(2, 2));
-    game->putPieceTo(Coordinate(3, 2));
-    game->putPieceTo(Coordinate(4, 2));
-    game->putPieceTo(Coordinate(5, 2));
-    game->putPieceTo(Coordinate(6, 2));
+    game->selectPiece(Coordinate(1, 2));
+    game->putPiece(Coordinate(2, 2));
+    game->putPiece(Coordinate(3, 2));
+    game->putPiece(Coordinate(4, 2));
+    game->putPiece(Coordinate(5, 2));
+    game->putPiece(Coordinate(6, 2));
 
     game->begin();
     game->finalize();

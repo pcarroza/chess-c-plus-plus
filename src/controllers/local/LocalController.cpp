@@ -13,12 +13,12 @@ namespace controllers::local
 
     void LocalController::selectPiece(Coordinate &coordinate)
     {
-        game.selectPieceTo(coordinate);
+        game.selectPiece(coordinate);
     }
 
     void LocalController::putPiece(Coordinate &coordinate)
     {
-        game.putPieceTo(coordinate);
+        game.putPiece(coordinate);
     }
 
     bool LocalController::isEmpty(Coordinate &coordinate)

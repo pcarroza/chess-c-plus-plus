@@ -15,12 +15,12 @@ void Game::getValidMovements()
     board->getValidMovements();
 }
 
-void Game::selectPieceTo(const Coordinate &coordinate)
+void Game::selectPiece(const Coordinate &coordinate)
 {
     board->selectPiece(coordinate);
 }
 
-void Game::putPieceTo(const Coordinate &coordinate)
+void Game::putPiece(const Coordinate &coordinate)
 {
     board->putPieceTo(coordinate);
 }
