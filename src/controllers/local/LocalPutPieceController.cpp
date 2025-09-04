@@ -3,8 +3,8 @@
 
 namespace controllers::local
 {
-
-    LocalPutPieceController::LocalPutPieceController(Game &game, LocalCoordinateController *coordenateController) : LocalPlacementController(game), coordenateController(coordenateController)
+    LocalPutPieceController::LocalPutPieceController(Game &game, LocalCoordinateController *coordenateController)
+        : LocalPlacementController(game), localCoordinateController(coordenateController)
     {
     }
 

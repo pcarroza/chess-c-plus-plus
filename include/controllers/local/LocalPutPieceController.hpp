@@ -18,7 +18,7 @@ namespace controllers::local
         void accept(OperationControllerVisitor &operationControllerVisitor) override;
 
     private:
-        LocalCoordinateController *coordenateController;
+        LocalCoordinateController *localCoordinateController;
     };
 }
 
