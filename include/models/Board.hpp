@@ -58,11 +58,11 @@ public:
 
     void removeRivalPlayerPiece(const Coordinate &coordinate);
 
-    void changeTurn();
-
     bool isWithinBoardLimits(const Coordinate &coordinate);
 
     std::list<std::shared_ptr<Piece>> &getPiecesBy(Player player);
+
+    void changeTurn();
 
     Player getCurrentPlayer();
 
@@ -71,6 +71,7 @@ public:
 private:
     void removePiece(const Coordinate &coordinate, Player player);
 
+private:
     std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap;
 
     std::map<Player, std::list<std::shared_ptr<Piece>>> removedPieces;

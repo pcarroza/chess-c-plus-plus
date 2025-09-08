@@ -154,11 +154,6 @@ void Board::removePiece(const Coordinate &coordinate, Player player)
     pieces.erase(it, pieces.end());
 }
 
-void Board::changeTurn()
-{
-    turn->change();
-}
-
 bool Board::isWithinBoardLimits(const Coordinate &coordinate)
 {
     return ValidatorLimitsBoard::getInstance().isWithinLimits(coordinate);
@@ -167,6 +162,11 @@ bool Board::isWithinBoardLimits(const Coordinate &coordinate)
 std::list<std::shared_ptr<Piece>> &Board::getPiecesBy(Player player)
 {
     return piecesMap.at(player);
+}
+
+void Board::changeTurn()
+{
+    turn->change();
 }
 
 Player Board::getCurrentPlayer()
