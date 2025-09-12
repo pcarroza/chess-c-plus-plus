@@ -59,12 +59,6 @@ private:
 
     void changeToPromoted();
 
-    int getPlayerDirection() const;
-
-    bool isWhite() const;
-
-    bool isBlack() const;
-
 private:
     bool initialState;
 

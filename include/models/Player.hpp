@@ -12,7 +12,7 @@ enum class Player
 
 static constexpr std::array<Player, 2> PLAYERS = {Player::WHITE, Player::BLACK};
 
-inline int getPlayerValue(Player player)
+inline int getPlayerDirection(Player player)
 {
     return static_cast<int>(player);
 }

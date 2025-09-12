@@ -9,10 +9,7 @@ using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
 
 namespace
 {
-    constexpr int SINGLE_STEP = 1;
-    constexpr int DOUBLE_STEP = 2;
-    constexpr int LEFT_DIAGONAL_OFFSET = -1;
-    constexpr int RIGHT_DIAGONAL_OFFSET = 1;
+  
 }
 
 Pawn::Pawn(Coordinate *coordinate, Player color)
@@ -127,48 +124,28 @@ bool Pawn::canCaptureRight() const
 
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const
 {
-    const int direction = SINGLE_STEP * getPlayerDirection();
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
+    const int SINGLE_STEP = 1;
+    const int singleStep = SINGLE_STEP * getPlayerDirection(player);
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(singleStep, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
 {
-    const int direction = DOUBLE_STEP * getPlayerDirection();
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
+    const int DOUBLE_STEP = 2;
+    const int doubleStep = DOUBLE_STEP * getPlayerDirection(player);
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(doubleStep, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
 {
+    const int LEFT_DIAGONAL_OFFSET = -1;
     return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(), LEFT_DIAGONAL_OFFSET)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
 {
+    const int RIGHT_DIAGONAL_OFFSET = 1;
     return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(), RIGHT_DIAGONAL_OFFSET)));
-}
-
-int Pawn::getPlayerDirection() const
-{
-    switch (player)
-    {
-    case Player::WHITE:
-        return getPlayerValue(Player::WHITE);
-    case Player::BLACK:
-        return getPlayerValue(Player::BLACK);
-    default:
-        assert(false && "Error: Player should not be NONE");
-        return 0;
-    }
-}
-
-bool Pawn::isWhite() const
-{
-    return player == Player::WHITE;
-}
-
-bool Pawn::isBlack() const
-{
-    return player == Player::BLACK;
 }
 
 void Pawn::accept(PieceVisitor &visitor)
@@ -178,7 +155,7 @@ void Pawn::accept(PieceVisitor &visitor)
 
 std::string Pawn::toString() const
 {
-    std::string colorStr = isWhite() ? "White" : "Black";
+    std::string colorStr = player == Player::WHITE ? "White" : "Black";
     std::string stateStr = isInitialState() ? "Initial" : "Moved";
     std::string promotedStr = isItPromoted ? "Promoted" : "Normal";
     return "Pawn(" + colorStr + ", " + stateStr + ", " + promotedStr + ")";
