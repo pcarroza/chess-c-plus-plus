@@ -139,13 +139,13 @@ std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
 std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
 {
     const int LEFT_DIAGONAL_OFFSET = -1;
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(), LEFT_DIAGONAL_OFFSET)));
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), LEFT_DIAGONAL_OFFSET)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
 {
     const int RIGHT_DIAGONAL_OFFSET = 1;
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(), RIGHT_DIAGONAL_OFFSET)));
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), RIGHT_DIAGONAL_OFFSET)));
 }
 
 void Pawn::accept(PieceVisitor &visitor)
