@@ -140,9 +140,9 @@ std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
     return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), RIGHT_DIAGONAL_OFFSET)));
 }
 
-void Pawn::accept(PieceVisitor &visitor)
+void Pawn::accept(PieceVisitor &pieceVisitor)
 {
-    visitor.visit(*this);
+    pieceVisitor.visit(*this);
 }
 
 std::string Pawn::toString() const
