@@ -7,11 +7,6 @@
 using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 using models::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
 
-namespace
-{
-  
-}
-
 Pawn::Pawn(Coordinate *coordinate, Player color)
     : Piece(coordinate, color),
       initialState(true),
@@ -33,7 +28,6 @@ void Pawn::put(Coordinate *target)
     {
         close();
     }
-
     if (inStep(*target))
     {
         vulnerablePawn = true;
@@ -44,12 +38,10 @@ void Pawn::put(Coordinate *target)
         notifyDeletedEnPassantPawn(this);
         vulnerablePawn = false;
     }
-
     if (isThePawnPromoted(*target))
     {
         changeToPromoted();
     }
-
     Piece::put(target);
 }
 
