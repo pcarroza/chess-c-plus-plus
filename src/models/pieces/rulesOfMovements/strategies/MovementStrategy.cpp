@@ -18,10 +18,7 @@ namespace models::pieces::rulesOfMovements::strategies
         return coordinates;
     }
 
-    std::list<std::shared_ptr<Coordinate>> MovementStrategy::generateRecursive(
-        std::list<std::shared_ptr<Coordinate>> coordinates,
-        Coordinate &vector,
-        int step)
+    void MovementStrategy::generateRecursive(std::list<std::shared_ptr<Coordinate>> coordinates, Coordinate &vector, int step)
     {
         Coordinate &coordinate = getDisplacedCoordinateBy(step, vector);
         if (!ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinates.back()))
