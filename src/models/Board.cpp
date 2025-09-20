@@ -125,7 +125,7 @@ bool Board::isSameColorPieceAt(const Coordinate &coordinate)
     return false;
 }
 
-bool Board::isSquareOccupied(const Coordinate & /*coordinate*/) const
+bool Board::isSquareOccupied(const Coordinate & /*coordinate*/)
 {
     return false;
 }

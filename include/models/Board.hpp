@@ -46,7 +46,7 @@ public:
 
     bool isSameColorPieceAt(const Coordinate &coordinate) override;
 
-    bool isSquareOccupied(const Coordinate &coordinate) const override;
+    bool isSquareOccupied(const Coordinate &coordinate) override;
 
     bool isMovementValid(const Coordinate &coordinate);
 
