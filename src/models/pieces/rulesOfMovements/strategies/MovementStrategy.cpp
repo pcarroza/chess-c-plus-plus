@@ -22,7 +22,6 @@ namespace models::pieces::rulesOfMovements::strategies
         int step)
     {
         Coordinate &coordinate = getDisplacedCoordinateBy(step, vector);
-
         if (!ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinates.back()))
         {
             return;
