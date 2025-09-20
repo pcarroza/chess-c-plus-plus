@@ -33,7 +33,7 @@ namespace models::pieces::rulesOfMovements::strategies
         if (piece->isEnemy(coordinate))
         {
             coordinates.push_back(std::shared_ptr<Coordinate>(new Coordinate(coordinate)));
-            return coordinates;
+            return;
         }
         coordinates.push_back(std::shared_ptr<Coordinate>(new Coordinate(coordinate)));
         return generateRecursive(coordinates, vector, step + 1);
