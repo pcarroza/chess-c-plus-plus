@@ -122,12 +122,15 @@ bool Board::isSameColorPieceAt(const Coordinate &coordinate)
 {
     auto &pieces = getPiecesBy(getCurrentPlayer());
 
-    return false;
+    return std::any_of(pieces.begin(), pieces.end(),
+                     [&](const std::shared_ptr<Piece> &piece) {
+                         return piece->isAt(coordinate);
+                     });
 }
 
-bool Board::isSquareOccupied(const Coordinate & /*coordinate*/)
+bool Board::isSquareOccupied(const Coordinate &coordinate)
 {
-    return false;
+    return !isSquareEmpty(coordinate);
 }
 
 void Board::add(Piece *enPassantPawns)
