@@ -18,11 +18,11 @@ namespace models::pieces::rulesOfMovements::strategies
 
         virtual ~MovementStrategy() = default;
 
-        std::list<std::shared_ptr<Coordinate>> generate(Coordinate *coordinate);
+        std::list<std::shared_ptr<Coordinate>> generate(const Coordinate &coordinate);
 
-        void generateRecursive(std::list<std::shared_ptr<Coordinate>> coordinates, Coordinate &vector, int step);
+        void generateRecursive(std::list<std::shared_ptr<Coordinate>> coordinates, const Coordinate &coordinate, int step);
 
-        virtual Coordinate &getDisplacedCoordinateBy(int increment, Coordinate &vector) = 0;
+        virtual Coordinate &getDisplacedCoordinateBy(int increment, const Coordinate &coordinate) = 0;
 
     private:
         Piece *piece;

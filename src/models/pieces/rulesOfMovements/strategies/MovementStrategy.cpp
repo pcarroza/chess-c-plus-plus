@@ -11,14 +11,14 @@ namespace models::pieces::rulesOfMovements::strategies
     {
     }
 
-    std::list<std::shared_ptr<Coordinate>> MovementStrategy::generate(Coordinate *coordinate)
+    std::list<std::shared_ptr<Coordinate>> MovementStrategy::generate(const Coordinate &coordinate)
     {
         std::list<std::shared_ptr<Coordinate>> coordinates;
-        generateRecursive(coordinates, *coordinate, 1);
+        generateRecursive(coordinates, coordinate, 1);
         return coordinates;
     }
 
-    void MovementStrategy::generateRecursive(std::list<std::shared_ptr<Coordinate>> coordinates, Coordinate &vector, int step)
+    void MovementStrategy::generateRecursive(std::list<std::shared_ptr<Coordinate>> coordinates, const Coordinate &vector, int step)
     {
         Coordinate &coordinate = getDisplacedCoordinateBy(step, vector);
         if (!ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinates.back()))
