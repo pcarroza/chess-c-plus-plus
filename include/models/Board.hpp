@@ -40,11 +40,11 @@ public:
 
     bool isThePawnPromoted();
 
-    bool isEnemy(const Coordinate &coordinate) const override;
+    bool isEnemy(const Coordinate &coordinate) override;
 
-    bool isSquareEmpty(const Coordinate &coordinate) const override;
+    bool isSquareEmpty(const Coordinate &coordinate) override;
 
-    bool isSameColorPieceAt(const Coordinate &coordinate) const override;
+    bool isSameColorPieceAt(const Coordinate &coordinate) override;
 
     bool isSquareOccupied(const Coordinate &coordinate) const override;
 

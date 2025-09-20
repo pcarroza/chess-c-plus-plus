@@ -21,9 +21,9 @@ public:
 
     virtual void deleteEnPassantPawn(Piece *piece) = 0;
 
-    virtual bool isEnemy(const Coordinate &coordinate) const = 0;
+    virtual bool isEnemy(const Coordinate &coordinate) = 0;
 
-    virtual bool isSquareEmpty(const Coordinate &coordinate) const = 0;
+    virtual bool isSquareEmpty(const Coordinate &coordinate) = 0;
 
     virtual bool isSquareOccupied(const Coordinate &coordinate) const = 0;
 

@@ -90,18 +90,40 @@ bool Board::isThePawnPromoted()
     return PieceInspector::isPawnPromoted(*static_cast<Piece *>(selectedPiece));
 }
 
-bool Board::isEnemy(const Coordinate & /*coordinate*/) const
+bool Board::isEnemy(const Coordinate &coordinate)
 {
-    return false;
+    auto &pieces = getPiecesBy(getRivalPlayer());
+
+    auto it = std::find_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                           { return piece->isAt(coordinate); });
+
+    return it != pieces.end();
 }
 
-bool Board::isSquareEmpty(const Coordinate & /*coordinate*/) const
+bool Board::isSquareEmpty(const Coordinate &coordinate)
 {
-    return false;
+    auto pieceFinder = [&](const std::shared_ptr<Piece> &piece)
+    { return piece->isAt(coordinate); };
+
+    auto &currentPieces = getPiecesBy(getCurrentPlayer());
+    if (std::any_of(currentPieces.begin(), currentPieces.end(), pieceFinder))
+    {
+        return false;
+    }
+
+    auto &rivalPieces = getPiecesBy(getRivalPlayer());
+    if (std::any_of(rivalPieces.begin(), rivalPieces.end(), pieceFinder))
+    {
+        return false;
+    }
+
+    return true;
 }
 
-bool Board::isSameColorPieceAt(const Coordinate & /*coordinate*/) const
+bool Board::isSameColorPieceAt(const Coordinate &coordinate)
 {
+    auto &pieces = getPiecesBy(getCurrentPlayer());
+
     return false;
 }
 
