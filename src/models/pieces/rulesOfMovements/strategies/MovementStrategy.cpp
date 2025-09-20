@@ -13,7 +13,9 @@ namespace models::pieces::rulesOfMovements::strategies
 
     std::list<std::shared_ptr<Coordinate>> MovementStrategy::generate(Coordinate *coordinate)
     {
-        return std::list<std::shared_ptr<Coordinate>>();
+        std::list<std::shared_ptr<Coordinate>> coordinates;
+        generateRecursive(coordinates, *coordinate, 1);
+        return coordinates;
     }
 
     std::list<std::shared_ptr<Coordinate>> MovementStrategy::generateRecursive(
