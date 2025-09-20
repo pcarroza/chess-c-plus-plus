@@ -94,10 +94,8 @@ bool Board::isEnemy(const Coordinate &coordinate)
 {
     auto &pieces = getPiecesBy(getRivalPlayer());
 
-    auto it = std::find_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+    return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
                            { return piece->isAt(coordinate); });
-
-    return it != pieces.end();
 }
 
 bool Board::isSquareEmpty(const Coordinate &coordinate)

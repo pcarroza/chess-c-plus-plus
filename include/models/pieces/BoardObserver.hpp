@@ -25,9 +25,9 @@ public:
 
     virtual bool isSquareEmpty(const Coordinate &coordinate) = 0;
 
-    virtual bool isSquareOccupied(const Coordinate &coordinate) const = 0;
+    virtual bool isSquareOccupied(const Coordinate &coordinate) = 0;
 
-    virtual bool isSameColorPieceAt(const Coordinate &coordinate) const = 0;
+    virtual bool isSameColorPieceAt(const Coordinate &coordinate) = 0;
 };
 
 #endif
