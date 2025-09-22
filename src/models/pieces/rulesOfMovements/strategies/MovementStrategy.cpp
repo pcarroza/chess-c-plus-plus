@@ -6,7 +6,6 @@ using common::validators::ValidatorLimitsBoard;
 
 namespace models::pieces::rulesOfMovements::strategies
 {
-
     MovementStrategy::MovementStrategy(Piece *piece) : piece(piece)
     {
     }
