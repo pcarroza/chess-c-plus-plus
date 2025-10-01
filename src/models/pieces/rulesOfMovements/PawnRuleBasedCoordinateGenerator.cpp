@@ -29,7 +29,7 @@ namespace models::pieces::rulesOfMovements
             possibleMoves.push_back(pawn->getDiagonalRight());
 
         possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
-                                { return !ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
+                                { return not ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
     }
 }
 

@@ -26,7 +26,7 @@ namespace models::pieces::rulesOfMovements
             std::shared_ptr<Coordinate>(piece->getDisplacedBy(Coordinate(-simpleStep, -doubleStep)))};
 
         possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
-                                { return !ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
+                                { return not ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
 
         possibleMoves.remove_if([this](const std::shared_ptr<Coordinate> &coordinate)
                                 { return piece->isSameColorPieceAt(*coordinate); });

@@ -8,9 +8,9 @@ Knight::Knight(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     basedGenerator = MovementRulesBaseGeneratorFacade::createKnightRuleBasedCoordinateGenerator(this);
 }
 
-void Knight::accept(PieceVisitor &visitor)
+void Knight::accept(PieceVisitor &pieceVisitor)
 {
-    visitor.visit(*this);
+    pieceVisitor.visit(*this);
 }
 
 std::string Knight::toString() const

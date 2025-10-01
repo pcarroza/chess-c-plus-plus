@@ -16,7 +16,7 @@ int Coordinate::getColumn() const
 
 bool Coordinate::operator==(const Coordinate &other) const
 {
-    return row == other.row && column == other.column;
+    return row == other.row and column == other.column;
 }
 
 Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
