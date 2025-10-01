@@ -8,7 +8,6 @@ namespace controllers
     class ContinueController;
 
     class PlacementController;
-
 }
 
 namespace controllers

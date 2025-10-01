@@ -29,11 +29,11 @@ public:
 
     Coordinate *getCoordinate() const;
 
-    Coordinate *getDisplacedBy(int displacement) const;
+    Coordinate *getDisplacedBy(int increase) const;
 
-    Coordinate *getDisplacedBy(const Coordinate &displacement) const;
+    Coordinate *getDisplacedBy(const Coordinate &increase) const;
 
-    Coordinate *getDisplacedBy(const Coordinate &displacement, const Coordinate &vector);
+    Coordinate *getDisplacedBy(const Coordinate &increase, const Coordinate &vector);
 
     bool isAt(const Coordinate &coordinate);
 

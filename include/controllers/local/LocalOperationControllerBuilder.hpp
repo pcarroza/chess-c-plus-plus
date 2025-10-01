@@ -9,8 +9,11 @@
 namespace controllers::local
 {
     class LocalStartController;
+    
     class LocalOperationController;
+
     class LocalPlacementControllerBuilder;
+    
     class LocalContinueController;
 }
 

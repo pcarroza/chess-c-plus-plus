@@ -32,3 +32,4 @@ namespace models::pieces::rulesOfMovements
                                 { return !ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
     }
 }
+
