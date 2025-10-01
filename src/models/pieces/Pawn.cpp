@@ -35,8 +35,8 @@ void Pawn::put(Coordinate *target)
     }
     else
     {
-        notifyDeletedEnPassantPawn(this);
         vulnerablePawn = false;
+        notifyDeletedEnPassantPawn(this);
     }
     if (isThePawnPromoted(*target))
     {
@@ -116,28 +116,28 @@ bool Pawn::canCaptureRight() const
 
 std::shared_ptr<Coordinate> Pawn::getForwardOne() const
 {
-    const int SINGLE_STEP = 1;
-    const int singleStep = SINGLE_STEP * getPlayerDirection(player);
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(singleStep, 0)));
+    const int singgleStep = 1;
+    const int direction = singgleStep * getPlayerDirection(player);
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
 {
-    const int DOUBLE_STEP = 2;
-    const int doubleStep = DOUBLE_STEP * getPlayerDirection(player);
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(doubleStep, 0)));
+    const int doubleStep = 2;
+    const int direction = doubleStep * getPlayerDirection(player);
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
 {
-    const int LEFT_DIAGONAL_OFFSET = -1;
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), LEFT_DIAGONAL_OFFSET)));
+    const int leftDiagonalOffset = -1;
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), leftDiagonalOffset)));
 }
 
 std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
 {
-    const int RIGHT_DIAGONAL_OFFSET = 1;
-    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), RIGHT_DIAGONAL_OFFSET)));
+    const int rightDiagonalOffset = 1;
+    return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), rightDiagonalOffset)));
 }
 
 void Pawn::accept(PieceVisitor &pieceVisitor)
