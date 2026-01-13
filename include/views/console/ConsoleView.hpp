@@ -1,11 +1,11 @@
 #ifndef CONSOLE_VIEW_HPP
 #define CONSOLE_VIEW_HPP
 
-#include "controllers/OperationController.hpp"
-#include "controllers/OperationControllerVisitor.hpp"
-#include "controllers/ContinueController.hpp"
-#include "controllers/PlacementController.hpp"
-#include "controllers/StartController.hpp"
+#include "controllers/modules/game/OperationController.hpp"
+#include "controllers/modules/game/OperationControllerVisitor.hpp"
+#include "controllers/modules/game/ContinueController.hpp"
+#include "controllers/modules/game/PlacementController.hpp"
+#include "controllers/modules/game/StartController.hpp"
 #include "ContinueView.hpp"
 #include "StartView.hpp"
 #include "GameView.hpp"
@@ -13,31 +13,18 @@
 
 #include <memory>
 
-namespace controllers
-{
-    class OperationController;
-
-    class PlacementController;
-
-    class ContinueController;
-
-    class StartController;
-}
-
 namespace views::console
 {
     class StartView;
-
     class GameView;
-
     class ContinueView;
 }
 
-using controllers::ContinueController;
-using controllers::OperationController;
-using controllers::OperationControllerVisitor;
-using controllers::PlacementController;
-using controllers::StartController;
+using controllers::modules::game::ContinueController;
+using controllers::modules::game::OperationController;
+using controllers::modules::game::OperationControllerVisitor;
+using controllers::modules::game::PlacementController;
+using controllers::modules::game::StartController;
 
 namespace views::console
 {

@@ -1,19 +1,17 @@
 #ifndef LOGIC_HPP
 #define LOGIC_HPP
 
-namespace controllers
+namespace controllers::modules::game
 {
     class OperationController;
 }
-
-using controllers::OperationController;
 
 class Logic
 {
 public:
     virtual ~Logic() = default;
 
-    virtual OperationController *getController() = 0;
+    virtual controllers::modules::game::OperationController *getController() = 0;
 };
 
 #endif

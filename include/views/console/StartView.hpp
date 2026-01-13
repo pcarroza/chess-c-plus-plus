@@ -1,12 +1,11 @@
 #ifndef START_VIEW_HPP
 #define START_VIEW_HPP
 
-namespace controllers
-{
-    class StartController;
-}
+#include <iostream>
 
-using controllers::StartController;
+#include "../../controllers/modules/game/StartController.hpp"
+
+using controllers::modules::game::StartController;
 
 namespace views::console
 {

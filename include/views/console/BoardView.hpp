@@ -1,9 +1,9 @@
 #ifndef BOARD_VIEW_HPP
 #define BOARD_VIEW_HPP
 
-#include "controllers/PlacementController.hpp"
+#include "controllers/modules/game/PlacementController.hpp"
 
-using controllers::PlacementController;
+using controllers::modules::game::PlacementController;
 
 namespace views::console
 {

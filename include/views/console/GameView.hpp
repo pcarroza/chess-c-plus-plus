@@ -1,14 +1,14 @@
 #ifndef GAME_VIEW_HPP
 #define GAME_VIEW_HPP
 
-#include "../../controllers/PlacementController.hpp"
+#include "../../controllers/modules/game/PlacementController.hpp"
 
-namespace controllers
+namespace controllers::modules::game
 {
     class PlacementController;
 }
 
-using controllers::PlacementController;
+using controllers::modules::game::PlacementController;
 
 namespace views::console
 {

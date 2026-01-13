@@ -2,9 +2,9 @@
 #define STANDALONE_HPP
 
 #include "Chess.hpp"
-#include "controllers/local/logic/LocalLogic.hpp"
+#include "controllers/modules/game/local/logic/LocalLogic.hpp"
 
-using controllers::local::logic::LocalLogic;
+using controllers::modules::game::local::logic::LocalLogic;
 
 class Logic;
 

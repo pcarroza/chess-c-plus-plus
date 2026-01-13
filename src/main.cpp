@@ -15,22 +15,22 @@
 #include "models/pieces/Knight.hpp"
 #include "models/pieces/King.hpp"
 
-#include "controllers/local/logic/LocalLogic.hpp"
-#include "controllers/local/logic/StateBuilder.hpp"
+#include "controllers/modules/game/local/logic/LocalLogic.hpp"
+#include "controllers/modules/game/local/logic/StateBuilder.hpp"
 #include "models/Game.hpp"
 #include "models/Board.hpp"
 #include "models/pieces/Coordinate.hpp"
 #include "./Logic.hpp"
 
-#include "controllers/local/LocalStartController.hpp"
-#include "controllers/local/LocalOperationControllerBuilder.hpp"
+#include "controllers/modules/game/local/LocalStartController.hpp"
+#include "controllers/modules/game/local/LocalOperationControllerBuilder.hpp"
 #include "views/console/ConsoleView.hpp"
 #include "models/Game.hpp"
 
-using controllers::local::LocalStartController;
-using controllers::local::logic::LocalLogic;
+using controllers::modules::game::local::LocalStartController;
+using controllers::modules::game::local::logic::LocalLogic;
 using views::console::ConsoleView;
-using controllers::local::LocalOperationControllerBuilder;
+using controllers::modules::game::local::LocalOperationControllerBuilder;
 
 int main()
 {

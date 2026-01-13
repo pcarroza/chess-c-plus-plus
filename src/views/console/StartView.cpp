@@ -1,5 +1,5 @@
 #include "views/console/StartView.hpp"
-#include "controllers/StartController.hpp"
+#include "controllers/modules/game/StartController.hpp"
 #include <iostream>
 
 namespace views::console
