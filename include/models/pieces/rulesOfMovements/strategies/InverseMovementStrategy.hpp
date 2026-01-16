@@ -1,16 +1,19 @@
-#ifndef DIAGONAL_MOVEMENT_STRATEGY_HPP
-#define DIAGONAL_MOVEMENT_STRATEGY_HPP
+#ifndef INVERSE_MOVEMENT_STRATEGY_HPP
+#define INVERSE_MOVEMENT_STRATEGY_HPP
 
 #include "models/pieces/rulesOfMovements/strategies/MovementStrategy.hpp"
 
+#include <list>
+#include <memory>
+
 namespace models::pieces::rulesOfMovements::strategies
 {
-    class DiagonalMovementStrategy : public MovementStrategy
+    class InverseMovementStrategy : public MovementStrategy
     {
     public:
-        DiagonalMovementStrategy() = delete;
-        
-        DiagonalMovementStrategy(Piece *piece);
+        InverseMovementStrategy(Piece *piece);
+
+        InverseMovementStrategy() = delete;
 
         std::list<std::shared_ptr<Coordinate>> generate() override;
 

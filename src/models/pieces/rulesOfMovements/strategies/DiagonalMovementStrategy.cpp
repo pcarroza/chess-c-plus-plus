@@ -1,11 +1,24 @@
 #include "models/pieces/rulesOfMovements/strategies/DiagonalMovementStrategy.hpp"
-#include "models/pieces/rulesOfMovements/strategies/HorizontalMovementStrategy.hpp"
+#include "models/pieces/Coordinate.hpp"
 
 namespace models::pieces::rulesOfMovements::strategies
 {
-    std::list<std::shared_ptr<Coordinate>> DiagonalMovementStrategy::generatePseudoCoordinates(Piece &piece)
+    DiagonalMovementStrategy::DiagonalMovementStrategy(Piece *piece) : MovementStrategy(piece)
     {
-        return std::list<std::shared_ptr<Coordinate>>();
     }
 
+    std::list<std::shared_ptr<Coordinate>> DiagonalMovementStrategy::generate()
+    {
+        std::list<std::shared_ptr<Coordinate>> movements;
+
+        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(1, 1)));
+        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(-1, -1)));
+
+        return movements;
+    }
+
+    Coordinate *DiagonalMovementStrategy::getDisplacedCoordinateBy(int increment, const Coordinate &vector)
+    {
+        return piece->getDisplacedBy(Coordinate(increment, increment), vector);
+    }
 }
