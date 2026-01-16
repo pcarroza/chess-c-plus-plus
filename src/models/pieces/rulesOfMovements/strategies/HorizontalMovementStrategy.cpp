@@ -15,8 +15,8 @@ namespace models::pieces::rulesOfMovements::strategies
     {
         std::list<std::shared_ptr<Coordinate>> movements;
 
-        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(1, 0)));
-        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(-1, 0)));
+        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(1, 1)));
+        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(1, -1)));
 
         return movements;
     }
