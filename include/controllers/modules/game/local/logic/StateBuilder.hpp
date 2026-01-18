@@ -9,8 +9,11 @@ namespace controllers::modules::game::local
 namespace controllers::modules::game::local::logic
 {
     class InitialState;
+
     class InGameState;
+
     class FinalState;
+
     class EndState;
 }
 

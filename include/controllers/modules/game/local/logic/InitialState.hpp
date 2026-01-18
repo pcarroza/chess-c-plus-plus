@@ -28,6 +28,7 @@ namespace controllers::modules::game::local::logic
 
     private:
         LocalStartController *localStartController;
+
     };
 }
 

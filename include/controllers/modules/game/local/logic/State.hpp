@@ -19,7 +19,6 @@ namespace controllers::modules::game::local::logic
     {
 
     public:
-    
         State(StateBuilder *stateBuilder);
 
         virtual ~State() = default;
@@ -35,7 +34,6 @@ namespace controllers::modules::game::local::logic
         virtual LocalOperationController *getController() const = 0;
 
     protected:
-    
         StateBuilder *stateBuilder;
 
     };

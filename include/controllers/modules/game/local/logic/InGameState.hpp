@@ -25,6 +25,7 @@ namespace controllers::modules::game::local::logic
 
     private:
         LocalOperationControllerBuilder *builder;
+
     };
 }
 
