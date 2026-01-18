@@ -1,10 +1,10 @@
 #ifndef LOCAL_EN_PASSANT_PAWN_CONTROLLER_HPP
 #define LOCAL_EN_PASSANT_PAWN_CONTROLLER_HPP
 
+#include "models/Game.hpp"
 #include "LocalOperationController.hpp"
 #include "LocalPlacementController.hpp"
 #include "controllers/modules/game/EnPassantPawnController.hpp"
-#include "models/Game.hpp"
 #include "controllers/modules/game/OperationControllerVisitor.hpp"
 #include "controllers/modules/game/SpecialMovementsControllerVisitor.hpp"
 
