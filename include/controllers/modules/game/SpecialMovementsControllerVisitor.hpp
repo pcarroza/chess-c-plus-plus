@@ -4,7 +4,9 @@
 namespace controllers::modules::game
 {
     class EnPassantPawnController;
+
     class PromotionPawnController;
+    
     class CastlingMovesController;
 }
 

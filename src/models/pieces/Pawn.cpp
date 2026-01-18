@@ -24,6 +24,7 @@ Pawn::~Pawn()
 
 void Pawn::put(Coordinate *target)
 {
+    //  hay error en la logica de negocio
     if (isInitialState())
     {
         close();

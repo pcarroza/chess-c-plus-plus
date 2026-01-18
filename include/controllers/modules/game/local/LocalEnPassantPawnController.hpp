@@ -18,6 +18,7 @@ namespace controllers::modules::game::local
         bool isApplicable();
 
         void accept(SpecialMovementsControllerVisitor &specialMovementsControllerVisitor) override;
+        
         void accept(OperationControllerVisitor &operationControllerVisitor) override;
     };
 }

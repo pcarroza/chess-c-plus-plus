@@ -20,6 +20,7 @@ namespace controllers::modules::game::local
         LocalCastlingMovesController(Game &game);
 
         void accept(SpecialMovementsControllerVisitor &operationControllerVisitor) override;
+        
         void accept(OperationControllerVisitor &operationControllerVisitor) override;
     };
 }
