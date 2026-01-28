@@ -1,10 +1,10 @@
-#include "models/pieces/rulesOfMovements/strategies/HorizontalMovementStrategy.hpp"
-#include "models/pieces/Piece.hpp"
-#include "models/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/HorizontalMovementStrategy.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 
 #include <cassert>
 
-namespace models::pieces::rulesOfMovements::strategies
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
 
     HorizontalMovementStrategy::HorizontalMovementStrategy(Piece *piece) : MovementStrategy(piece)

@@ -3,7 +3,7 @@
 
 #include "common/validators/ValidatorLimitsBoard.hpp"
 #include "SpecialMovesRulesGenerator.hpp"
-#include "models/Player.hpp"
+#include "models/modules/game/Player.hpp"
 
 #include <vector>
 #include <cassert>
@@ -15,7 +15,7 @@ namespace common::validators
 
 using common::validators::ValidatorLimitsBoard;
 
-namespace models::pieces::specialRuleMovements
+namespace models::modules::game::pieces::specialRuleMovements
 {
     class EnPassantPawnSpecialRuleGenerator : public SpecialMovesRulesGenerator
     {

@@ -1,19 +1,22 @@
-#include "models/pieces/Bishop.hpp"
-#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/Bishop.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
-Bishop::Bishop(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+namespace models::modules::game::pieces
 {
-    basedGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(this);
-}
+    Bishop::Bishop(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+    {
+        basedGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(this);
+    }
 
-void Bishop::accept(PieceVisitor &visitor)
-{
-    visitor.visit(*this);
-}
+    void Bishop::accept(PieceVisitor &visitor)
+    {
+        visitor.visit(*this);
+    }
 
-std::string Bishop::toString() const
-{
-    return "Bishop()";
+    std::string Bishop::toString() const
+    {
+        return "Bishop()";
+    }
 }

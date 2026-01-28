@@ -3,8 +3,8 @@
 
 #include "LocalOperationController.hpp"
 #include "LocalPlacementController.hpp"
+#include "models/modules/game/Game.hpp"
 #include "controllers/modules/game/SpecialMovementsController.hpp"
-#include "models/Game.hpp"
 
 namespace controllers
 {

@@ -3,27 +3,30 @@
 
 #include "PieceVisitor.hpp"
 
-class PawnPromotionVisitor : public PieceVisitor
+namespace models::modules::game::pieces
 {
-public:
-    PawnPromotionVisitor();
+    class PawnPromotionVisitor : public PieceVisitor
+    {
+    public:
+        PawnPromotionVisitor();
 
-    bool isPawnPromoted() const;
+        bool isPawnPromoted() const;
 
-    void visit(King &king) override;
+        void visit(King &king) override;
 
-    void visit(Queen &queen) override;
+        void visit(Queen &queen) override;
 
-    void visit(Rook &rook) override;
+        void visit(Rook &rook) override;
 
-    void visit(Bishop &bishop) override;
+        void visit(Bishop &bishop) override;
 
-    void visit(Knight &knight) override;
+        void visit(Knight &knight) override;
 
-    void visit(Pawn &pawn) override;
+        void visit(Pawn &pawn) override;
 
-private:
-    bool pawnPromoted;
-};
+    private:
+        bool pawnPromoted;
+    };
+}
 
 #endif

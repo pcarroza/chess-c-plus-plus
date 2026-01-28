@@ -1,6 +1,6 @@
-#include "models/pieces/rulesOfMovements/RookRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/RookRuleBasedCoordinateGenerator.hpp"
 
-namespace models::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rulesOfMovements
 {
     RookRuleBasedCoordinateGenerator::RookRuleBasedCoordinateGenerator(Piece *piece) : MovementRulesBaseGenerator(piece)
     {

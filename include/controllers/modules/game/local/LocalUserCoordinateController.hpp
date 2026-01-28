@@ -2,7 +2,7 @@
 #define LOCAL_USER_COORDINATE_CONTROLLER_HPP
 
 #include "LocalCoordinateController.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game::local
 {

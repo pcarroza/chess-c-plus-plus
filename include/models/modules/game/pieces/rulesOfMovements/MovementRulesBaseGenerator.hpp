@@ -8,8 +8,12 @@
 #include <memory>
 #include <algorithm>
 
-class Coordinate;
-class Piece;
+
+namespace models::modules::game::pieces {
+    class Piece;
+    class Coordinate;
+}
+
 
 namespace models::modules::game::pieces::rulesOfMovements
 {

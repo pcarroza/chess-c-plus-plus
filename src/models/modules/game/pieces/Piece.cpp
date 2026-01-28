@@ -1,71 +1,75 @@
-#include "models/pieces/Coordinate.hpp"
-#include "models/pieces/Piece.hpp"
-#include "models/Player.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
+#include "models/modules/game/Player.hpp"
 
-Piece::Piece(Coordinate *coordinate, Player color)
-    : player(color),
-      coordinate(coordinate),
-      basedGenerator(nullptr)
+namespace models::modules::game::pieces
 {
-}
 
-Piece::~Piece()
-{
-    delete coordinate;
-    delete basedGenerator;
-}
+    Piece::Piece(Coordinate *coordinate, Player color)
+        : player(color),
+          coordinate(coordinate),
+          basedGenerator(nullptr)
+    {
+    }
 
-void Piece::set(Coordinate *coordinate)
-{
-    this->coordinate = coordinate;
-}
-
-std::list<std::shared_ptr<Coordinate>> &Piece::getValidMovements()
-{
-    return basedGenerator->getValidMovements();
-}
-
-void Piece::put(Coordinate *target)
-{
-    if (coordinate != nullptr)
+    Piece::~Piece()
     {
         delete coordinate;
-        coordinate = nullptr;
+        delete basedGenerator;
     }
-    set(target);
-}
 
-Coordinate *Piece::getCoordinate() const
-{
-    return coordinate;
-}
+    void Piece::set(Coordinate *coordinate)
+    {
+        this->coordinate = coordinate;
+    }
 
-Coordinate *Piece::getDisplacedBy(int displacement) const
-{
-    return getCoordinate()->getDisplacedBy(displacement);
-}
+    std::list<std::shared_ptr<Coordinate>> &Piece::getValidMovements()
+    {
+        return basedGenerator->getValidMovements();
+    }
 
-Coordinate *Piece::getDisplacedBy(const Coordinate &displacement) const
-{
-    return getCoordinate()->getDisplacedBy(displacement);
-}
+    void Piece::put(Coordinate *target)
+    {
+        if (coordinate != nullptr)
+        {
+            delete coordinate;
+            coordinate = nullptr;
+        }
+        set(target);
+    }
 
-Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector)
-{
-    return getCoordinate()->getDisplacedBy(displacement, vector);
-}
+    Coordinate *Piece::getCoordinate() const
+    {
+        return coordinate;
+    }
 
-bool Piece::isAt(const Coordinate &coordinate)
-{
-    return *getCoordinate() == coordinate;
-}
+    Coordinate *Piece::getDisplacedBy(int displacement) const
+    {
+        return getCoordinate()->getDisplacedBy(displacement);
+    }
 
-bool Piece::isMovementValid(const Coordinate &target)
-{
-    return basedGenerator->isMovementValid(target);
-}
+    Coordinate *Piece::getDisplacedBy(const Coordinate &displacement) const
+    {
+        return getCoordinate()->getDisplacedBy(displacement);
+    }
 
-void Piece::generateMovements()
-{
-    basedGenerator->generate();
+    Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector)
+    {
+        return getCoordinate()->getDisplacedBy(displacement, vector);
+    }
+
+    bool Piece::isAt(const Coordinate &coordinate)
+    {
+        return *getCoordinate() == coordinate;
+    }
+
+    bool Piece::isMovementValid(const Coordinate &target)
+    {
+        return basedGenerator->isMovementValid(target);
+    }
+
+    void Piece::generateMovements()
+    {
+        basedGenerator->generate();
+    }
 }

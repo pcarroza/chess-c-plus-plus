@@ -1,7 +1,7 @@
-#include "models/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
-#include "models/pieces/Piece.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
 
-namespace models::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rulesOfMovements
 {
     MovementRulesBaseGenerator::MovementRulesBaseGenerator() : piece(nullptr)
     {

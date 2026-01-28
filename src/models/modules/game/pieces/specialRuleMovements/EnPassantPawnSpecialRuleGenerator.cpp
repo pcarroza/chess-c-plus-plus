@@ -1,6 +1,6 @@
-#include "models/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 
-namespace models::pieces::specialRuleMovements
+namespace models::modules::game::pieces::specialRuleMovements
 {
     EnPassantPawnSpecialRuleGenerator::EnPassantPawnSpecialRuleGenerator(Piece *piece) : SpecialMovesRulesGenerator(piece)
     {

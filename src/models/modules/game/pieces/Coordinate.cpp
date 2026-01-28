@@ -1,46 +1,49 @@
-#include "models/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 
-Coordinate::Coordinate(int row, int column) : row(row), column(column) {}
-
-Coordinate::Coordinate() : row(0), column(0) {}
-
-int Coordinate::getRow() const
+namespace models::modules::game::pieces
 {
-    return row;
-}
+    Coordinate::Coordinate(int row, int column) : row(row), column(column) {}
 
-int Coordinate::getColumn() const
-{
-    return column;
-}
+    Coordinate::Coordinate() : row(0), column(0) {}
 
-bool Coordinate::operator==(const Coordinate &other) const
-{
-    return row == other.row and column == other.column;
-}
+    int Coordinate::getRow() const
+    {
+        return row;
+    }
 
-Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
-{
-    return Coordinate(displacement).scaleBy(vector);
-}
+    int Coordinate::getColumn() const
+    {
+        return column;
+    }
 
-Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement) const
-{
-    return new Coordinate(getRow() + displacement.getRow(), getColumn() + displacement.getColumn());
-}
+    bool Coordinate::operator==(const Coordinate &other) const
+    {
+        return row == other.row and column == other.column;
+    }
 
-Coordinate *Coordinate::getDisplacedBy(int displacement) const
-{
-    return new Coordinate(getRow() + displacement, getColumn() + displacement);
-}
+    Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
+    {
+        return Coordinate(displacement).scaleBy(vector);
+    }
 
-Coordinate *Coordinate::scaleBy(const Coordinate &factor) const
-{
-    return new Coordinate(getRow() * factor.getRow(), getColumn() * factor.getColumn());
-}
+    Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement) const
+    {
+        return new Coordinate(getRow() + displacement.getRow(), getColumn() + displacement.getColumn());
+    }
 
-std::ostream &operator<<(std::ostream &os, const Coordinate &coordinate)
-{
-    os << "Coordinate(" << coordinate.row << ", " << coordinate.column << ")";
-    return os;
+    Coordinate *Coordinate::getDisplacedBy(int displacement) const
+    {
+        return new Coordinate(getRow() + displacement, getColumn() + displacement);
+    }
+
+    Coordinate *Coordinate::scaleBy(const Coordinate &factor) const
+    {
+        return new Coordinate(getRow() * factor.getRow(), getColumn() * factor.getColumn());
+    }
+
+    std::ostream &operator<<(std::ostream &os, const Coordinate &coordinate)
+    {
+        os << "Coordinate(" << coordinate.getRow() << ", " << coordinate.getColumn() << ")";
+        return os;
+    }
 }

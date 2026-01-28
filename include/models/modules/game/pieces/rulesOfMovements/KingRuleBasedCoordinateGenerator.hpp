@@ -13,7 +13,7 @@ namespace common::validators
 
 using common::validators::ValidatorLimitsBoard;
 
-namespace models::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rulesOfMovements
 {
     class KingRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {

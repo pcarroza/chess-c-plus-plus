@@ -1,19 +1,22 @@
-#include "models/pieces/Knight.hpp"
-#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/Knight.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
-Knight::Knight(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+namespace models::modules::game::pieces
 {
-    basedGenerator = MovementRulesBaseGeneratorFacade::createKnightRuleBasedCoordinateGenerator(this);
-}
+    Knight::Knight(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+    {
+        basedGenerator = MovementRulesBaseGeneratorFacade::createKnightRuleBasedCoordinateGenerator(this);
+    }
 
-void Knight::accept(PieceVisitor &pieceVisitor)
-{
-    pieceVisitor.visit(*this);
-}
+    void Knight::accept(PieceVisitor &pieceVisitor)
+    {
+        pieceVisitor.visit(*this);
+    }
 
-std::string Knight::toString() const
-{
-    return "Knight()";
+    std::string Knight::toString() const
+    {
+        return "Knight()";
+    }
 }

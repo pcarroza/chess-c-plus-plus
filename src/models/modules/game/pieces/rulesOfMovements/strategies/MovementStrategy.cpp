@@ -1,10 +1,10 @@
-#include "models/pieces/rulesOfMovements/strategies/MovementStrategy.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/MovementStrategy.hpp"
 #include "common/validators/ValidatorLimitsBoard.hpp"
-#include "models/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 
 using common::validators::ValidatorLimitsBoard;
 
-namespace models::pieces::rulesOfMovements::strategies
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
     MovementStrategy::MovementStrategy(Piece *piece) : piece(piece)
     {

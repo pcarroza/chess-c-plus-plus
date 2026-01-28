@@ -2,12 +2,11 @@
 #define VALIDATOR_LIMITS_BOARD_HPP
 
 #include "common/constants/BoardConstants.hpp"
-#include "models/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 #include "ClosedInterval.hpp"
 
-class Coordinate;
-
 using common::constants::MAX_LIMIT;
+using models::modules::game::pieces::Coordinate;
 
 namespace common::validators
 {

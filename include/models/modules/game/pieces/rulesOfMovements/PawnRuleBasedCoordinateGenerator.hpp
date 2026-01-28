@@ -3,8 +3,8 @@
 
 #include "common/validators/ValidatorLimitsBoard.hpp"
 #include "MovementRulesBaseGenerator.hpp"
-#include "models/pieces/Pawn.hpp"
-#include "models/Player.hpp"
+#include "models/modules/game/pieces/Pawn.hpp"
+#include "models/modules/game/Player.hpp"
 
 #include <vector>
 #include <cassert>
@@ -16,7 +16,7 @@ namespace common::validators
 
 using common::validators::ValidatorLimitsBoard;
 
-namespace models::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rulesOfMovements
 {
     class PawnRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {

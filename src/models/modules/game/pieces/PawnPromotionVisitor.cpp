@@ -1,46 +1,50 @@
-#include "models/pieces/PawnPromotionVisitor.hpp"
-#include "models/pieces/King.hpp"
-#include "models/pieces/Queen.hpp"
-#include "models/pieces/Rook.hpp"
-#include "models/pieces/Bishop.hpp"
-#include "models/pieces/Knight.hpp"
-#include "models/pieces/Pawn.hpp"
+#include "models/modules/game/pieces/PawnPromotionVisitor.hpp"
+#include "models/modules/game/pieces/King.hpp"
+#include "models/modules/game/pieces/Queen.hpp"
+#include "models/modules/game/pieces/Rook.hpp"
+#include "models/modules/game/pieces/Bishop.hpp"
+#include "models/modules/game/pieces/Knight.hpp"
+#include "models/modules/game/pieces/Pawn.hpp"
 
-PawnPromotionVisitor::PawnPromotionVisitor() : pawnPromoted(false)
+namespace models::modules::game::pieces
 {
-}
 
-bool PawnPromotionVisitor::isPawnPromoted() const
-{
-    return pawnPromoted;
-}
+    PawnPromotionVisitor::PawnPromotionVisitor() : pawnPromoted(false)
+    {
+    }
 
-void PawnPromotionVisitor::visit(Pawn &pawn)
-{
-    pawnPromoted = pawn.isPromoted();
-}
+    bool PawnPromotionVisitor::isPawnPromoted() const
+    {
+        return pawnPromoted;
+    }
 
-void PawnPromotionVisitor::visit(King &king)
-{
-    // Do nothing
-}
+    void PawnPromotionVisitor::visit(Pawn &pawn)
+    {
+        pawnPromoted = pawn.isPromoted();
+    }
 
-void PawnPromotionVisitor::visit(Queen &queen)
-{
-    // Do nothing
-}
+    void PawnPromotionVisitor::visit(King &king)
+    {
+        // Do nothing
+    }
 
-void PawnPromotionVisitor::visit(Rook &rook)
-{
-    // Do nothing
-}
+    void PawnPromotionVisitor::visit(Queen &queen)
+    {
+        // Do nothing
+    }
 
-void PawnPromotionVisitor::visit(Bishop &bishop)
-{
-    // Do nothing
-}
+    void PawnPromotionVisitor::visit(Rook &rook)
+    {
+        // Do nothing
+    }
 
-void PawnPromotionVisitor::visit(Knight &knight)
-{
-    // Do nothing
+    void PawnPromotionVisitor::visit(Bishop &bishop)
+    {
+        // Do nothing
+    }
+
+    void PawnPromotionVisitor::visit(Knight &knight)
+    {
+        // Do nothing
+    }
 }

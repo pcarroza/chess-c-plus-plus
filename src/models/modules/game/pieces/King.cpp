@@ -1,19 +1,22 @@
-#include "models/pieces/King.hpp"
-#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/King.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
-King::King(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+namespace models::modules::game::pieces
 {
-    basedGenerator = MovementRulesBaseGeneratorFacade::createKingRuleBasedCoordinateGenerator(this);
-}
+    King::King(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+    {
+        basedGenerator = MovementRulesBaseGeneratorFacade::createKingRuleBasedCoordinateGenerator(this);
+    }
 
-void King::accept(PieceVisitor &visitor)
-{
-    visitor.visit(*this);
-}
+    void King::accept(PieceVisitor &visitor)
+    {
+        visitor.visit(*this);
+    }
 
-std::string King::toString() const
-{
-    return "King()";
+    std::string King::toString() const
+    {
+        return "King()";
+    }
 }

@@ -4,7 +4,7 @@
 #include "LocalOperationController.hpp"
 #include "LocalPlacementController.hpp"
 #include "controllers/modules/game/PromotionPawnController.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game
 {

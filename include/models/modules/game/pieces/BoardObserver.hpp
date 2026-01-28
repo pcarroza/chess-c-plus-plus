@@ -4,7 +4,11 @@
 #include <list>
 #include <memory>
 
-class Piece;
+namespace models::modules::game::pieces {
+    class Piece;
+    class Coordinate;
+}
+
 
 namespace models::modules::game::pieces
 {

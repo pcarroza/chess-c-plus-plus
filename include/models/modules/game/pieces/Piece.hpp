@@ -11,13 +11,13 @@
 #include "models/modules/game/pieces/PieceSubject.hpp"
 #include "models/modules/game/Player.hpp"
 
-namespace models::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rulesOfMovements
 {
     class MovementRulesBaseGenerator;
 }
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGenerator;
 using models::modules::game::Player;
+using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGenerator;
 
 namespace models::modules::game::pieces
 {

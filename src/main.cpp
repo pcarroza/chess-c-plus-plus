@@ -5,32 +5,45 @@
 #include <algorithm>
 #include <map>
 
-#include "models/pieces/Coordinate.hpp"
-#include "models/pieces/PiecesMapBuilder.hpp"
-#include "models/pieces/Pawn.hpp"
-#include "models/pieces/Rook.hpp"
-#include "models/pieces/Queen.hpp"
-#include "models/pieces/Bishop.hpp"
-#include "models/pieces/King.hpp"
-#include "models/pieces/Knight.hpp"
-#include "models/pieces/King.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/PiecesMapBuilder.hpp"
+#include "models/modules/game/pieces/Pawn.hpp"
+#include "models/modules/game/pieces/Rook.hpp"
+#include "models/modules/game/pieces/Queen.hpp"
+#include "models/modules/game/pieces/Bishop.hpp"
+#include "models/modules/game/pieces/King.hpp"
+#include "models/modules/game/pieces/Knight.hpp"
+#include "models/modules/game/pieces/King.hpp"
 
 #include "controllers/modules/game/local/logic/LocalLogic.hpp"
 #include "controllers/modules/game/local/logic/StateBuilder.hpp"
-#include "models/Game.hpp"
-#include "models/Board.hpp"
-#include "models/pieces/Coordinate.hpp"
+#include "models/modules/game/Game.hpp"
+#include "models/modules/game/Board.hpp"
 #include "./Logic.hpp"
 
 #include "controllers/modules/game/local/LocalStartController.hpp"
 #include "controllers/modules/game/local/LocalOperationControllerBuilder.hpp"
 #include "views/console/ConsoleView.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 
+using controllers::modules::game::local::LocalOperationControllerBuilder;
 using controllers::modules::game::local::LocalStartController;
 using controllers::modules::game::local::logic::LocalLogic;
 using views::console::ConsoleView;
-using controllers::modules::game::local::LocalOperationControllerBuilder;
+
+using models::modules::game::Game;
+using models::modules::game::Board;
+using models::modules::game::pieces::Coordinate;
+using models::modules::game::pieces::PiecesMapBuilder;
+using models::modules::game::pieces::Pawn;
+using models::modules::game::pieces::Rook;
+using models::modules::game::pieces::Queen;
+using models::modules::game::pieces::Bishop;
+using models::modules::game::pieces::King;
+using models::modules::game::pieces::Knight;
+using models::modules::game::pieces::Player;
+using models::modules::game::pieces::Piece;
+
 
 int main()
 {

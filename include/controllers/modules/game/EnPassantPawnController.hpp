@@ -1,7 +1,7 @@
 #ifndef EN_PASSANT_PAWN_CONTROLLER_HPP
 #define EN_PASSANT_PAWN_CONTROLLER_HPP
 
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 #include "OperationController.hpp"
 #include "OperationControllerVisitor.hpp"
 #include "SpecialMovementsControllerVisitor.hpp"

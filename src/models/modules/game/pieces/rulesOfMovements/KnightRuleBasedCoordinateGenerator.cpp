@@ -1,7 +1,8 @@
-#include "models/pieces/rulesOfMovements/KnightRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/KnightRuleBasedCoordinateGenerator.hpp"
+
 #include <memory>
 
-namespace models::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rulesOfMovements
 {
     KnightRuleBasedCoordinateGenerator::KnightRuleBasedCoordinateGenerator(Piece *piece)
         : MovementRulesBaseGenerator(piece)

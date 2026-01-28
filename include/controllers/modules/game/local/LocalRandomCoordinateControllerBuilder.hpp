@@ -2,7 +2,7 @@
 #define LOCAL_RANDOM_COORDINATE_CONTROLLER_BUILDER_HPP
 
 #include "LocalPlacementControllerBuilder.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game::local
 {

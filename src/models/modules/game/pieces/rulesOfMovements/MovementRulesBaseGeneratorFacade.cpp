@@ -1,6 +1,6 @@
-#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
-namespace models::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rulesOfMovements
 {
     MovementRulesBaseGenerator *MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(Piece *piece)
     {

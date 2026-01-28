@@ -1,11 +1,11 @@
 #ifndef LOCAL_CASTLING_MOVES_CONTROLLER_HPP
 #define LOCAL_CASTLING_MOVES_CONTROLLER_HPP
 
-#include "controllers/modules/game/CastlingMovesController.hpp"
 #include "LocalOperationController.hpp"
 #include "LocalPlacementController.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 #include "controllers/modules/game/OperationControllerVisitor.hpp"
+#include "controllers/modules/game/CastlingMovesController.hpp"
 
 namespace controllers::modules::game
 {

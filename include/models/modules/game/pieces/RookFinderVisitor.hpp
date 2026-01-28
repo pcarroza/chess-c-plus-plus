@@ -3,27 +3,31 @@
 
 #include "PieceVisitor.hpp"
 
-class RookFinderVisitor : public PieceVisitor
+namespace models::modules::game::pieces
 {
-public:
-    RookFinderVisitor();
 
-    bool isRookFound() const;
+    class RookFinderVisitor : public PieceVisitor
+    {
+    public:
+        RookFinderVisitor();
 
-    void visit(King &king) override;
+        bool isRookFound() const;
 
-    void visit(Queen &queen) override;
+        void visit(King &king) override;
 
-    void visit(Rook &rook) override;
+        void visit(Queen &queen) override;
 
-    void visit(Bishop &bishop) override;
+        void visit(Rook &rook) override;
 
-    void visit(Knight &knight) override;
+        void visit(Bishop &bishop) override;
 
-    void visit(Pawn &pawn) override;
+        void visit(Knight &knight) override;
 
-private:
-    bool rookFound;
-};
+        void visit(Pawn &pawn) override;
+
+    private:
+        bool rookFound;
+    };
+}
 
 #endif

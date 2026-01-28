@@ -1,9 +1,9 @@
-#include "models/pieces/rulesOfMovements/strategies/VerticalMovementStrategy.hpp"
-#include "models/pieces/Piece.hpp"
-#include "models/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/VerticalMovementStrategy.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 #include <cassert>
 
-namespace models::pieces::rulesOfMovements::strategies
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
     VerticalMovementStrategy::VerticalMovementStrategy(Piece *piece) : MovementStrategy(piece)
     {

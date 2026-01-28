@@ -4,7 +4,7 @@
 #include "controllers/modules/game/PutPieceController.hpp"
 #include "LocalOperationController.hpp"
 #include "LocalPlacementController.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game::local
 {

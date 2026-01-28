@@ -2,7 +2,7 @@
 #define LOCAL_LOGIC_HPP
 
 #include "controllers/modules/game/local/LocalOperationController.hpp"
-#include "models/LogicObserver.hpp"
+#include "models/modules/game/LogicObserver.hpp"
 #include "Logic.hpp"
 
 namespace controllers::modules::game::local
@@ -20,7 +20,7 @@ namespace controllers::modules::game::local::logic
 class Game;
 
 using controllers::modules::game::local::LocalOperationController;
-using models::LogicObserver;
+using models::modules::game::LogicObserver;
 
 namespace controllers::modules::game::local::logic
 {

@@ -1,8 +1,8 @@
 #ifndef CASTLING_MOVES_CONTROLLER_HPP
 #define CASTLING_MOVES_CONTROLLER_HPP
 
-#include "models/Game.hpp"
 #include "OperationController.hpp"
+#include "models/modules/game/Game.hpp"
 #include "SpecialMovementsControllerVisitor.hpp"
 
 namespace controllers::modules::game

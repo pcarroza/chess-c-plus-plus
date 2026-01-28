@@ -3,7 +3,7 @@
 #include "controllers/modules/game/local/logic/StateBuilder.hpp"
 #include "controllers/modules/game/local/logic/InitialState.hpp"
 #include "controllers/modules/game/local/logic/LocalLogic.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game::local::logic
 {

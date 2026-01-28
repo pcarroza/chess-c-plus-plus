@@ -4,7 +4,9 @@
 #include <list>
 #include <memory>
 
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
+
+using models::modules::game::Game;
 
 namespace controllers::modules::game::local
 {

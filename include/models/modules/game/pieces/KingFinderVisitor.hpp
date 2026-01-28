@@ -11,7 +11,7 @@
 
 namespace models::modules::game::pieces
 {
-    class KingFinderVisitor : public ::PieceVisitor
+    class KingFinderVisitor : public PieceVisitor
     {
     public:
         KingFinderVisitor();

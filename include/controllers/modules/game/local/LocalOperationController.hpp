@@ -4,7 +4,7 @@
 #include "controllers/modules/game/OperationControllerVisitor.hpp"
 #include "controllers/modules/game/OperationController.hpp"
 #include "LocalController.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game::local
 {

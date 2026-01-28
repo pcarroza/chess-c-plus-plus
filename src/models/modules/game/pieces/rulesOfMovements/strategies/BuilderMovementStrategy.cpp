@@ -1,11 +1,11 @@
-#include "models/pieces/rulesOfMovements/strategies/BuilderMovementStrategy.hpp"
-#include "models/pieces/rulesOfMovements/strategies/VerticalMovementStrategy.hpp"
-#include "models/pieces/rulesOfMovements/strategies/HorizontalMovementStrategy.hpp"
-#include "models/pieces/rulesOfMovements/strategies/InverseMovementStrategy.hpp"
-#include "models/pieces/rulesOfMovements/strategies/DiagonalMovementStrategy.hpp"
-#include "models/pieces/Piece.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/BuilderMovementStrategy.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/VerticalMovementStrategy.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/HorizontalMovementStrategy.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/InverseMovementStrategy.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/DiagonalMovementStrategy.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
 
-namespace models::pieces::rulesOfMovements::strategies
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
     std::list<std::shared_ptr<Coordinate>> BuilderMovementStrategy::buildRookMovements(Piece &piece)
     {

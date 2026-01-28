@@ -1,9 +1,9 @@
 #ifndef SELECT_PIECE_CONTROLLER_HPP
 #define SELECT_PIECE_CONTROLLER_HPP
 
-#include "models/Game.hpp"
 #include "OperationController.hpp"
 #include "OperationControllerVisitor.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game
 {

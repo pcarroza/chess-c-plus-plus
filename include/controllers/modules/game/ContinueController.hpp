@@ -1,7 +1,7 @@
 #ifndef CONTINUE_CONTROLLER_HPP
 #define CONTINUE_CONTROLLER_HPP
 
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 #include "OperationController.hpp"
 #include "OperationControllerVisitor.hpp"
 

@@ -1,6 +1,6 @@
-#include "models/pieces/rulesOfMovements/QueenRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/QueenRuleBasedCoordinateGenerator.hpp"
 
-namespace models::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rulesOfMovements
 {
     QueenRuleBasedCoordinateGenerator::QueenRuleBasedCoordinateGenerator(Piece *piece) : MovementRulesBaseGenerator(piece)
     {

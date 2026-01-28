@@ -3,7 +3,7 @@
 
 #include "MovementStrategy.hpp"
 
-namespace models::pieces::rulesOfMovements::strategies
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
     class VerticalMovementStrategy : public MovementStrategy
     {

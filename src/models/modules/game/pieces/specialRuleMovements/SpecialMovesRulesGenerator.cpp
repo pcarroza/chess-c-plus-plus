@@ -1,6 +1,6 @@
-#include "models/pieces/specialRuleMovements/SpecialMovesRulesGenerator.hpp"
+#include "models/modules/game/pieces/specialRuleMovements/SpecialMovesRulesGenerator.hpp"
 
-namespace models::pieces::specialRuleMovements
+namespace models::modules::game::pieces::specialRuleMovements
 {
     SpecialMovesRulesGenerator::SpecialMovesRulesGenerator(Piece *piece)
         : piece(piece)

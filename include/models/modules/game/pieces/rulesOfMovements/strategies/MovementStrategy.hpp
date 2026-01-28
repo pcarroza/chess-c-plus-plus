@@ -1,15 +1,18 @@
 #ifndef MOVEMENT_STRATEGY_HPP
 #define MOVEMENT_STRATEGY_HPP
 
-#include "models/pieces/Piece.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
 
 #include <list>
 #include <memory>
 
-class Coordinate;
-class Piece;
+namespace models::modules::game::pieces {
+    class Piece;
+    class Coordinate;
+}
 
-namespace models::pieces::rulesOfMovements::strategies
+
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
     class MovementStrategy
     {

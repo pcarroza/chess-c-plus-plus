@@ -2,8 +2,8 @@
 #define LOCAL_PLACEMENT_CONTROLLER_HPP
 
 #include "LocalOperationController.hpp"
+#include "models/modules/game/Game.hpp"
 #include "controllers/modules/game/PlacementController.hpp"
-#include "models/Game.hpp"
 
 namespace controllers::modules::game::local
 {

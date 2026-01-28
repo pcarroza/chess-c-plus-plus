@@ -1,170 +1,175 @@
 #include "common/validators/ValidatorLimitsBoard.hpp"
-#include "models/pieces/PiecesMapBuilder.hpp"
-#include "models/pieces/PieceInspector.hpp"
-#include "models/Board.hpp"
+#include "models/modules/game/pieces/PiecesMapBuilder.hpp"
+#include "models/modules/game/pieces/PieceInspector.hpp"
+#include "models/modules/game/Board.hpp"
 
 #include <iostream>
 #include <assert.h>
 
 using common::validators::ValidatorLimitsBoard;
+using models::modules::game::pieces::PieceInspector;
+using models::modules::game::pieces::PiecesMapBuilder;
 
-Board::Board()
-    : piecesMap(PiecesMapBuilder::build(this)),
-      selectedPiece(nullptr),
-      selectedPieceMovements(nullptr),
-      turn(new Turn())
+namespace models::modules::game
 {
-    removedPieces = {
-        {Player::BLACK, std::list<std::shared_ptr<Piece>>()},
-        {Player::WHITE, std::list<std::shared_ptr<Piece>>()},
-    };
 
-    enPassantPawnsMap = {
-        {Player::BLACK, std::list<std::shared_ptr<Piece>>()},
-        {Player::WHITE, std::list<std::shared_ptr<Piece>>()},
-    };
-}
+    Board::Board()
+        : piecesMap(PiecesMapBuilder::build(this)),
+          selectedPiece(nullptr),
+          selectedPieceMovements(nullptr),
+          turn(new Turn())
+    {
+        removedPieces = {
+            {Player::BLACK, std::list<std::shared_ptr<Piece>>()},
+            {Player::WHITE, std::list<std::shared_ptr<Piece>>()},
+        };
 
-Board::~Board()
-{
-    delete turn;
-}
+        enPassantPawnsMap = {
+            {Player::BLACK, std::list<std::shared_ptr<Piece>>()},
+            {Player::WHITE, std::list<std::shared_ptr<Piece>>()},
+        };
+    }
 
-void Board::set(Piece *piece)
-{
-    this->selectedPiece = piece;
-}
+    Board::~Board()
+    {
+        delete turn;
+    }
 
-void Board::set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements)
-{
-    this->selectedPieceMovements = &selectedPieceMovements;
-}
+    void Board::set(Piece *piece)
+    {
+        this->selectedPiece = piece;
+    }
 
-std::list<std::shared_ptr<Coordinate>> &Board::getValidMovements()
-{
-    return *selectedPieceMovements;
-}
+    void Board::set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements)
+    {
+        this->selectedPieceMovements = &selectedPieceMovements;
+    }
 
-void Board::selectPiece(const Coordinate &coordinate)
-{
-    assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");
-    assert(!isSquareEmpty(coordinate) && "Invalid coordinate");
+    std::list<std::shared_ptr<Coordinate>> &Board::getValidMovements()
+    {
+        return *selectedPieceMovements;
+    }
 
-    auto &pieces = getPiecesBy(getCurrentPlayer());
+    void Board::selectPiece(const Coordinate &coordinate)
+    {
+        assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");
+        assert(!isSquareEmpty(coordinate) && "Invalid coordinate");
 
-    auto it = std::find_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+        auto &pieces = getPiecesBy(getCurrentPlayer());
+
+        auto it = std::find_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                               { return piece->isAt(coordinate); });
+
+        if (it != pieces.end())
+        {
+            auto &piece = *it;
+            piece->generateMovements();
+            set(piece->getValidMovements());
+            selectedPiece = piece.get();
+        }
+        else
+        {
+            assert(false && "Piece not found in this coordinate");
+        }
+    }
+
+    void Board::putPieceTo(const Coordinate &coordinate)
+    {
+        assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");
+        assert(selectedPiece != nullptr && "Invalid coordinate");
+        selectedPiece->put(new Coordinate(coordinate));
+    }
+
+    bool Board::isSelectedPiece()
+    {
+        return selectedPiece != nullptr;
+    }
+
+    bool Board::clearSelectedPiece()
+    {
+        return selectedPiece = nullptr;
+    }
+
+    bool Board::isThePawnPromoted()
+    {
+        return PieceInspector::isPawnPromoted(*static_cast<Piece *>(selectedPiece));
+    }
+
+    bool Board::isEnemy(const Coordinate &coordinate)
+    {
+        auto &pieces = getPiecesBy(getRivalPlayer());
+
+        return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
                            { return piece->isAt(coordinate); });
-
-    if (it != pieces.end())
-    {
-        auto &piece = *it;
-        piece->generateMovements();
-        set(piece->getValidMovements());
-        selectedPiece = piece.get();
-    }
-    else
-    {
-        assert(false && "Piece not found in this coordinate");
-    }
-}
-
-void Board::putPieceTo(const Coordinate &coordinate)
-{
-    assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");
-    assert(selectedPiece != nullptr && "Invalid coordinate");
-    selectedPiece->put(new Coordinate(coordinate));
-}
-
-bool Board::isSelectedPiece()
-{
-    return selectedPiece != nullptr;
-}
-
-bool Board::clearSelectedPiece()
-{
-    return selectedPiece = nullptr;
-}
-
-bool Board::isThePawnPromoted()
-{
-    return PieceInspector::isPawnPromoted(*static_cast<Piece *>(selectedPiece));
-}
-
-bool Board::isEnemy(const Coordinate &coordinate)
-{
-    auto &pieces = getPiecesBy(getRivalPlayer());
-
-    return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
-                       { return piece->isAt(coordinate); });
-}
-
-bool Board::isSquareEmpty(const Coordinate &coordinate)
-{
-    auto pieceFinder = [&](const std::shared_ptr<Piece> &piece)
-    { return piece->isAt(coordinate); };
-
-    auto &currentPieces = getPiecesBy(getCurrentPlayer());
-    if (std::any_of(currentPieces.begin(), currentPieces.end(), pieceFinder))
-    {
-        return false;
     }
 
-    auto &rivalPieces = getPiecesBy(getRivalPlayer());
-    if (std::any_of(rivalPieces.begin(), rivalPieces.end(), pieceFinder))
+    bool Board::isSquareEmpty(const Coordinate &coordinate)
     {
-        return false;
+        auto pieceFinder = [&](const std::shared_ptr<Piece> &piece)
+        { return piece->isAt(coordinate); };
+
+        auto &currentPieces = getPiecesBy(getCurrentPlayer());
+        if (std::any_of(currentPieces.begin(), currentPieces.end(), pieceFinder))
+        {
+            return false;
+        }
+
+        auto &rivalPieces = getPiecesBy(getRivalPlayer());
+        if (std::any_of(rivalPieces.begin(), rivalPieces.end(), pieceFinder))
+        {
+            return false;
+        }
+
+        return true;
     }
 
-    return true;
-}
+    bool Board::isSameColorPieceAt(const Coordinate &coordinate)
+    {
+        auto &pieces = getPiecesBy(getCurrentPlayer());
 
-bool Board::isSameColorPieceAt(const Coordinate &coordinate)
-{
-    auto &pieces = getPiecesBy(getCurrentPlayer());
+        return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                           { return piece->isAt(coordinate); });
+    }
 
-    return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
-                       { return piece->isAt(coordinate); });
-}
+    bool Board::isSquareOccupied(const Coordinate &coordinate)
+    {
+        return !isSquareEmpty(coordinate);
+    }
 
-bool Board::isSquareOccupied(const Coordinate &coordinate)
-{
-    return !isSquareEmpty(coordinate);
-}
+    void Board::add(Piece *enPassantPawns)
+    {
+        enPassantPawnsMap.at(getCurrentPlayer()).push_back(std::shared_ptr<Piece>(enPassantPawns));
+    }
 
-void Board::add(Piece *enPassantPawns)
-{
-    enPassantPawnsMap.at(getCurrentPlayer()).push_back(std::shared_ptr<Piece>(enPassantPawns));
-}
+    bool Board::isMovementValid(const Coordinate &coordinate)
+    {
+        return selectedPiece->isMovementValid(coordinate);
+    }
 
-bool Board::isMovementValid(const Coordinate &coordinate)
-{
-    return selectedPiece->isMovementValid(coordinate);
-}
+    void Board::deleteEnPassantPawn(Piece *piece)
+    {
+        auto &enPassantPawns = enPassantPawnsMap.at(getCurrentPlayer());
+        enPassantPawns.remove_if([piece](const std::shared_ptr<Piece> &it)
+                                 { return it.get() == piece; });
+    }
 
-void Board::deleteEnPassantPawn(Piece *piece)
-{
-    auto &enPassantPawns = enPassantPawnsMap.at(getCurrentPlayer());
-    enPassantPawns.remove_if([piece](const std::shared_ptr<Piece> &it)
-                             { return it.get() == piece; });
-}
+    void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
+    {
+        removePiece(coordinate, getCurrentPlayer());
+    }
 
-void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
-{
-    removePiece(coordinate, getCurrentPlayer());
-}
+    void Board::removeRivalPlayerPiece(const Coordinate &coordinate)
+    {
+        removePiece(coordinate, getRivalPlayer());
+    }
 
-void Board::removeRivalPlayerPiece(const Coordinate &coordinate)
-{
-    removePiece(coordinate, getRivalPlayer());
-}
+    void Board::removePiece(const Coordinate &coordinate, Player player)
+    {
+        auto &pieces = getPiecesBy(player);
+        auto &removed = removedPieces.at(player);
 
-void Board::removePiece(const Coordinate &coordinate, Player player)
-{
-    auto &pieces = getPiecesBy(player);
-    auto &removed = removedPieces.at(player);
-
-    auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
-                             {
+        auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                                 {
         if (piece->isAt(coordinate))
         {
             removed.push_back(piece);
@@ -172,30 +177,32 @@ void Board::removePiece(const Coordinate &coordinate, Player player)
         }
         return false; });
 
-    pieces.erase(it, pieces.end());
-}
+        pieces.erase(it, pieces.end());
+    }
 
-bool Board::isWithinBoardLimits(const Coordinate &coordinate)
-{
-    return ValidatorLimitsBoard::getInstance().isWithinLimits(coordinate);
-}
+    bool Board::isWithinBoardLimits(const Coordinate &coordinate)
+    {
+        return ValidatorLimitsBoard::getInstance().isWithinLimits(coordinate);
+    }
 
-std::list<std::shared_ptr<Piece>> &Board::getPiecesBy(Player player)
-{
-    return piecesMap.at(player);
-}
+    std::list<std::shared_ptr<Piece>> &Board::getPiecesBy(Player player)
+    {
+        return piecesMap.at(player);
+    }
 
-void Board::changeTurn()
-{
-    turn->change();
-}
+    void Board::changeTurn()
+    {
+        turn->change();
+    }
 
-Player Board::getCurrentPlayer()
-{
-    return turn->getCurrentPlayer();
-}
+    Player Board::getCurrentPlayer()
+    {
+        return turn->getCurrentPlayer();
+    }
 
-Player Board::getRivalPlayer()
-{
-    return turn->getRivalPlayer();
+    Player Board::getRivalPlayer()
+    {
+        return turn->getRivalPlayer();
+    }
+
 }

@@ -1,22 +1,17 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "models/modules/game/pieces/Board.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
+#include "models/modules/game/Board.hpp"
 
 #include <iostream>
 
-namespace models
-{
-    class LogicObserver;
-}
+using models::modules::game::Board;
+using models::modules::game::LogicObserver;
+using models::modules::game::pieces::Coordinate;
 
 namespace models::modules::game
 {
-    using models::modules::game::LogicObserver;
-    using models::modules::game::pieces::Board;
-    using models::modules::game::pieces::Coordinate;
-
     class Game
     {
     public:

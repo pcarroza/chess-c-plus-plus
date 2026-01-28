@@ -1,17 +1,19 @@
 #ifndef SPECIALMOVESRULESGENERATOR_HPP
 #define SPECIALMOVESRULESGENERATOR_HPP
 
-#include "models/pieces/Coordinate.hpp"
-#include "models/pieces/Piece.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
 
 #include <list>
 #include <memory>
 #include <algorithm>
 
-class Coordinate;
-class Piece;
+namespace models::modules::game::pieces {
+    class Piece;
+    class Coordinate;
+}
 
-namespace models::pieces::specialRuleMovements
+namespace models::modules::game::pieces::specialRuleMovements
 {
     class SpecialMovesRulesGenerator
     {

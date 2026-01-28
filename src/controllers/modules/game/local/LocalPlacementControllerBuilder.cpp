@@ -30,5 +30,4 @@ namespace controllers::modules::game::local
     {
         return game;
     }
-
 }

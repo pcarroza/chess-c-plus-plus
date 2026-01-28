@@ -1,9 +1,11 @@
 #ifndef LOCAL_CONTROLLER_HPP
 #define LOCAL_CONTROLLER_HPP
 
-#include "models/pieces/Coordinate.hpp"
-#include "models/Player.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
+#include "models/modules/game/Player.hpp"
+#include "models/modules/game/Game.hpp"
+
+using models::modules::game::Game;
 
 namespace controllers::modules::game::local
 {

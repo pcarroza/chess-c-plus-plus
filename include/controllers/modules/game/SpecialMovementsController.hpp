@@ -1,7 +1,7 @@
 #ifndef SPECIAL_MOVEMENTS_CONTROLLER_HPP
 #define SPECIAL_MOVEMENTS_CONTROLLER_HPP
 
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 #include "OperationController.hpp"
 #include "SpecialMovementsControllerVisitor.hpp"
 

@@ -1,10 +1,10 @@
-#include "models/pieces/rulesOfMovements/strategies/InverseMovementStrategy.hpp"
-#include "models/pieces/Piece.hpp"
-#include "models/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/InverseMovementStrategy.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 
 #include <cassert>
 
-namespace models::pieces::rulesOfMovements::strategies
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
     InverseMovementStrategy::InverseMovementStrategy(Piece *piece) : MovementStrategy(piece)
     {

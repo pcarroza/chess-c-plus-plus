@@ -3,7 +3,7 @@
 
 #include "LocalOperationController.hpp"
 #include "controllers/modules/game/ContinueController.hpp"
-#include "models/Game.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game::local
 {

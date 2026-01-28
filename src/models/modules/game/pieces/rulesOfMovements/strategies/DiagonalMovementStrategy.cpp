@@ -1,7 +1,7 @@
-#include "models/pieces/rulesOfMovements/strategies/DiagonalMovementStrategy.hpp"
-#include "models/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/DiagonalMovementStrategy.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 
-namespace models::pieces::rulesOfMovements::strategies
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
     DiagonalMovementStrategy::DiagonalMovementStrategy(Piece *piece) : MovementStrategy(piece)
     {

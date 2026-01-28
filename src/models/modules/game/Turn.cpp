@@ -1,4 +1,8 @@
-#include "models/Turn.hpp"
+#include "models/modules/game/Turn.hpp"
+#include "models/modules/game/Player.hpp"
+
+using models::modules::game::Player;
+using models::modules::game::PLAYERS;
 
 namespace models
 {

@@ -1,21 +1,21 @@
 #ifndef PAWN_H
 #define PAWN_H
 
-#include "models/pieces/specialRuleMovements/SpecialMovesRulesGenerator.hpp"
-#include "Piece.hpp"
-#include "Coordinate.hpp"
+#include "models/modules/game/pieces/specialRuleMovements/SpecialMovesRulesGenerator.hpp"
 #include "models/modules/game/Player.hpp"
+#include "Coordinate.hpp"
+#include "Piece.hpp"
 
-namespace models::pieces::specialRuleMovements
+using models::modules::game::Player;
+using models::modules::game::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
+
+namespace models::modules::game::pieces::specialRuleMovements
 {
     class SpecialMovesRulesGenerator;
 }
 
 namespace models::modules::game::pieces
 {
-    using models::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
-    using ::models::modules::game::Player;
-
     class Pawn : public Piece
     {
     public:

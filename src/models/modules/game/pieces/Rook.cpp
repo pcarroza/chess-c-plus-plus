@@ -1,19 +1,22 @@
-#include "models/pieces/Rook.hpp"
-#include "models/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/Rook.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
-using models::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 
-Rook::Rook(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+namespace models::modules::game::pieces
 {
-    basedGenerator = MovementRulesBaseGeneratorFacade::createRookRuleBasedCoordinateGenerator(this);
-}
+    Rook::Rook(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+    {
+        basedGenerator = MovementRulesBaseGeneratorFacade::createRookRuleBasedCoordinateGenerator(this);
+    }
 
-void Rook::accept(PieceVisitor &visitor)
-{
-    visitor.visit(*this);
-}
+    void Rook::accept(PieceVisitor &visitor)
+    {
+        visitor.visit(*this);
+    }
 
-std::string Rook::toString() const
-{
-    return "Rook()";
+    std::string Rook::toString() const
+    {
+        return "Rook()";
+    }
 }

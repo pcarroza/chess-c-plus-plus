@@ -1,9 +1,9 @@
 #ifndef DIAGONAL_MOVEMENT_STRATEGY_HPP
 #define DIAGONAL_MOVEMENT_STRATEGY_HPP
 
-#include "models/pieces/rulesOfMovements/strategies/MovementStrategy.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/strategies/MovementStrategy.hpp"
 
-namespace models::pieces::rulesOfMovements::strategies
+namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
     class DiagonalMovementStrategy : public MovementStrategy
     {
