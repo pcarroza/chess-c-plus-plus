@@ -203,5 +203,4 @@ namespace models::modules::game
     {
         return turn->getRivalPlayer();
     }
-
 }

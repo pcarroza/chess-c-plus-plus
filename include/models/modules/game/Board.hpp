@@ -91,7 +91,6 @@ namespace models::modules::game
 
         Turn *turn;
     };
-
 }
 
 #endif
