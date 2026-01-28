@@ -9,10 +9,10 @@
 #include <list>
 #include <memory>
 
+using ::models::modules::game::Player;
+
 namespace models::modules::game::pieces
 {
-    using ::models::modules::game::Player;
-
     class PiecesMapBuilder
     {
     public:

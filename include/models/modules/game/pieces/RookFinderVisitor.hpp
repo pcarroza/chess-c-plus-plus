@@ -5,7 +5,6 @@
 
 namespace models::modules::game::pieces
 {
-
     class RookFinderVisitor : public PieceVisitor
     {
     public:
