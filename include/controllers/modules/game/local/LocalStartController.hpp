@@ -9,7 +9,10 @@
 namespace controllers::modules::game::local
 {
     class LocalOperationControllerBuilder;
+}
 
+namespace controllers::modules::game::local
+{
     class LocalStartController : public LocalOperationController, public StartController
     {
     public:

@@ -9,11 +9,8 @@ namespace controllers::modules::game::local
 namespace controllers::modules::game::local::logic
 {
     class InitialState;
-
     class InGameState;
-
     class FinalState;
-
     class EndState;
 }
 
@@ -21,7 +18,6 @@ namespace controllers::modules::game::local::logic
 {
     class StateBuilder
     {
-
     public:
         StateBuilder(LocalOperationControllerBuilder *builder);
 

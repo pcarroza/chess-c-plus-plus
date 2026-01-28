@@ -11,7 +11,6 @@ namespace controllers::modules::game::local
 {
     class LocalController
     {
-
     public:
         LocalController(Game &game);
 

@@ -18,7 +18,6 @@ namespace controllers::modules::game::local::logic
 {
     class InitialState : public State
     {
-
     public:
         InitialState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder);
 
@@ -28,7 +27,6 @@ namespace controllers::modules::game::local::logic
 
     private:
         LocalStartController *localStartController;
-
     };
 }
 

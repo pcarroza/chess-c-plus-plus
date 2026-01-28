@@ -17,7 +17,6 @@ namespace controllers::modules::game::local::logic
 {
     class State
     {
-
     public:
         State(StateBuilder *stateBuilder);
 
@@ -35,7 +34,6 @@ namespace controllers::modules::game::local::logic
 
     protected:
         StateBuilder *stateBuilder;
-
     };
 }
 

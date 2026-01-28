@@ -12,7 +12,6 @@ namespace controllers::modules::game::local::logic
 {
     class EndState : public State
     {
-
     public:
         EndState(StateBuilder *stateBuilder);
 

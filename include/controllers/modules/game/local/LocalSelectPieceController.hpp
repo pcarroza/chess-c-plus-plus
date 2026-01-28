@@ -9,7 +9,10 @@
 namespace controllers::modules::game::local
 {
     class LocalCoordinateController;
+}
 
+namespace controllers::modules::game::local
+{
     class LocalSelectPieceController : public LocalPlacementController, public SelectPieceController
     {
     public:

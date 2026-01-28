@@ -11,17 +11,13 @@ using models::modules::game::Game;
 namespace controllers::modules::game::local
 {
     class LocalStartController;
-    
     class LocalOperationController;
-
     class LocalPlacementControllerBuilder;
-    
     class LocalContinueController;
 }
 
 namespace controllers::modules::game::local
 {
-
     class LocalOperationControllerBuilder
     {
     public:
@@ -41,7 +37,7 @@ namespace controllers::modules::game::local
 
     private:
         Game &game;
-        
+
         unsigned int builderCursor;
 
         std::unique_ptr<LocalStartController> localStartController;
