@@ -17,9 +17,13 @@ namespace controllers::modules::game::local::logic
     class StateBuilder;
 }
 
-class Game;
+namespace models::modules::game
+{
+    class Game;
+}
 
 using controllers::modules::game::local::LocalOperationController;
+using models::modules::game::Game;
 using models::modules::game::LogicObserver;
 
 namespace controllers::modules::game::local::logic
@@ -47,7 +51,7 @@ namespace controllers::modules::game::local::logic
         State *state;
 
         StateBuilder *stateBuilder;
-        
+
         LocalOperationControllerBuilder *builder;
     };
 }
