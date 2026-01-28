@@ -1,8 +1,8 @@
 #ifndef REMOTE_USER_PLACEMENT_CONTROLLER_BUILDER_HPP
 #define REMOTE_USER_PLACEMENT_CONTROLLER_BUILDER_HPP
 
-#include "models/Game.hpp"
 #include "RemoteUserPlacementControllerBuilder.hpp"
+#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game::remote
 {
@@ -10,7 +10,6 @@ namespace controllers::modules::game::remote
     {
     public:
         RemoteUserPlacementControllerBuilder(Game *game);
-
     };
 }
 

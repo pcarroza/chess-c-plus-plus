@@ -5,7 +5,8 @@
 #include "OperationController.hpp"
 #include "SpecialMovementsControllerVisitor.hpp"
 
-namespace controllers::modules::game{
+namespace controllers::modules::game
+{
     class SpecialMovementsController : virtual public OperationController
     {
     public:

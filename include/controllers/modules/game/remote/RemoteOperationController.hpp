@@ -10,7 +10,6 @@ namespace controllers::modules::game::remote
     {
     public:
         RemoteOperationController(Game *game);
-        
     };
 }
 

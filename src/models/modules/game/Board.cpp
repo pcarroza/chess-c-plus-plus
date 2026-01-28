@@ -12,7 +12,6 @@ using models::modules::game::pieces::PiecesMapBuilder;
 
 namespace models::modules::game
 {
-
     Board::Board()
         : piecesMap(PiecesMapBuilder::build(this)),
           selectedPiece(nullptr),

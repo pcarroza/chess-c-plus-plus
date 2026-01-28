@@ -9,10 +9,8 @@ namespace models::modules::game::pieces {
     class Coordinate;
 }
 
-
 namespace models::modules::game::pieces
 {
-
     class BoardObserver
     {
     public:

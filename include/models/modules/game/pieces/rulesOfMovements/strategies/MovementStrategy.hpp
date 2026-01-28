@@ -6,11 +6,11 @@
 #include <list>
 #include <memory>
 
-namespace models::modules::game::pieces {
+namespace models::modules::game::pieces
+{
     class Piece;
     class Coordinate;
 }
-
 
 namespace models::modules::game::pieces::rulesOfMovements::strategies
 {
@@ -24,7 +24,6 @@ namespace models::modules::game::pieces::rulesOfMovements::strategies
         virtual std::list<std::shared_ptr<Coordinate>> generate() = 0;
 
     protected:
-
         std::list<std::shared_ptr<Coordinate>> generate(const Coordinate &vector);
 
         virtual Coordinate *getDisplacedCoordinateBy(int increment, const Coordinate &coordinate) = 0;
@@ -34,7 +33,6 @@ namespace models::modules::game::pieces::rulesOfMovements::strategies
 
     protected:
         Piece *piece;
-
     };
 }
 

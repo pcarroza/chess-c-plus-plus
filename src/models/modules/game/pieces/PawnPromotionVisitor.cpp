@@ -8,7 +8,6 @@
 
 namespace models::modules::game::pieces
 {
-
     PawnPromotionVisitor::PawnPromotionVisitor() : pawnPromoted(false)
     {
     }

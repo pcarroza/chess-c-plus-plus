@@ -8,12 +8,11 @@
 #include <memory>
 #include <algorithm>
 
-
-namespace models::modules::game::pieces {
+namespace models::modules::game::pieces
+{
     class Piece;
     class Coordinate;
 }
-
 
 namespace models::modules::game::pieces::rulesOfMovements
 {

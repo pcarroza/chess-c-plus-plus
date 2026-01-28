@@ -4,9 +4,7 @@
 namespace controllers::modules::game
 {
     class StartController;
-
     class ContinueController;
-
     class PlacementController;
 }
 
@@ -14,7 +12,6 @@ namespace controllers::modules::game
 {
     class OperationControllerVisitor
     {
-
     public:
         virtual ~OperationControllerVisitor() = default;
 

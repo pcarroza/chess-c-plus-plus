@@ -1,38 +1,35 @@
 #ifndef PIECE_VISITOR_HPP
 #define PIECE_VISITOR_HPP
 
-namespace models::modules::game::pieces {
-
-class King;
-
-class Queen;
-
-class Rook;
-
-class Bishop;
-
-class Knight;
-
-class Pawn;
-
-class PieceVisitor
+namespace models::modules::game::pieces
 {
-public:
-    virtual ~PieceVisitor() = default;
+    class King;
+    class Queen;
+    class Rook;
+    class Bishop;
+    class Knight;
+    class Pawn;
+}
 
-    virtual void visit(King &king) = 0;
+namespace models::modules::game::pieces
+{
+    class PieceVisitor
+    {
+    public:
+        virtual ~PieceVisitor() = default;
 
-    virtual void visit(Queen &queen) = 0;
-    
-    virtual void visit(Rook &rook) = 0;
-    
-    virtual void visit(Bishop &bishop) = 0;
-    
-    virtual void visit(Knight &knight) = 0;
-    
-    virtual void visit(Pawn &pawn) = 0;
-};
+        virtual void visit(King &king) = 0;
 
+        virtual void visit(Queen &queen) = 0;
+
+        virtual void visit(Rook &rook) = 0;
+
+        virtual void visit(Bishop &bishop) = 0;
+
+        virtual void visit(Knight &knight) = 0;
+
+        virtual void visit(Pawn &pawn) = 0;
+    };
 }
 
 #endif

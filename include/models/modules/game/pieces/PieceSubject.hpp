@@ -6,7 +6,6 @@
 
 namespace models::modules::game::pieces
 {
-
     class PieceSubject
     {
     public:

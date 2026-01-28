@@ -81,5 +81,4 @@ namespace models::modules::game
     {
         board->finalize();
     }
-
 }
