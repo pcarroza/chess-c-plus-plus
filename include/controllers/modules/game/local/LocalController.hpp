@@ -5,10 +5,12 @@
 #include "models/modules/game/Player.hpp"
 #include "models/modules/game/Game.hpp"
 
-using models::modules::game::Game;
-
 namespace controllers::modules::game::local
 {
+    using models::modules::game::Game;
+    using models::modules::game::Player;
+    using models::modules::game::pieces::Coordinate;
+
     class LocalController
     {
     public:

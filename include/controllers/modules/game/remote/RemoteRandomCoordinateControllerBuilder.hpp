@@ -9,7 +9,6 @@ namespace controllers::modules::game::remote
     {
     public:
         RemoteRandomCoordinateControllerBuilder(Game *game);
-
     };
 }
 

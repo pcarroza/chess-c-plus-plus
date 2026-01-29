@@ -6,10 +6,10 @@
 #include "models/modules/game/Player.hpp"
 #include "PieceVisitor.hpp"
 
+using models::modules::game::Player;
+
 namespace models::modules::game::pieces
 {
-    using ::models::modules::game::Player;
-
     class Bishop : public Piece
     {
     public:

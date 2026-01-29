@@ -1,4 +1,5 @@
 #include "models/modules/game/Game.hpp"
+#include "models/modules/game/Board.hpp"
 
 namespace models::modules::game
 {

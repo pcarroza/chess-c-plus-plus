@@ -1,4 +1,5 @@
 #include "Chess.hpp"
+#include "controllers/modules/game/OperationController.hpp"
 
 Chess::Chess() : logic(nullptr), view(nullptr)
 {
@@ -21,4 +22,14 @@ void Chess::run()
     {
         view = getView();
     }
+
+    controllers::modules::game::OperationController *controller;
+    do
+    {
+        controller = logic->getController();
+        if (controller != nullptr)
+        {
+            view->interact(controller);
+        }
+    } while (controller != nullptr);
 }

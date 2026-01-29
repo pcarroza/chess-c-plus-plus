@@ -1,10 +1,13 @@
+#include "models/modules/game/pieces/PieceVisitor.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/Piece.hpp"
 #include "models/modules/game/Player.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
+
+using models::modules::game::Player;
 
 namespace models::modules::game::pieces
 {
-
     Piece::Piece(Coordinate *coordinate, Player color)
         : player(color),
           coordinate(coordinate),

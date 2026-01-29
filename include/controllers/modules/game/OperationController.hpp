@@ -2,7 +2,6 @@
 #define OPERATION_CONTROLLER_HPP
 
 #include "./OperationControllerVisitor.hpp"
-#include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game
 {

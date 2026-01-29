@@ -14,7 +14,6 @@ namespace controllers::modules::game
 {
     class CastlingMovesController : virtual public OperationController
     {
-
     public:
         virtual ~CastlingMovesController() = default;
 

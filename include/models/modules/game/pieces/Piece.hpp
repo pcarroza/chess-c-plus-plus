@@ -1,19 +1,26 @@
 #ifndef PIECE_H
 #define PIECE_H
 
-#include <set>
-#include <list>
-
-#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
-#include "models/modules/game/pieces/PieceVisitor.hpp"
-#include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/SelectedPiece.hpp"
 #include "models/modules/game/pieces/PieceSubject.hpp"
 #include "models/modules/game/Player.hpp"
 
+#include <set>
+#include <list>
+
+namespace models::modules::game::pieces
+{
+    class PieceVisitor;
+}
+
 namespace models::modules::game::pieces::rulesOfMovements
 {
     class MovementRulesBaseGenerator;
+}
+
+namespace models::modules::game::pieces
+{
+    class Coordinate;
 }
 
 using models::modules::game::Player;

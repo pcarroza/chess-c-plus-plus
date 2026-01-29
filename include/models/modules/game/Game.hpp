@@ -2,16 +2,15 @@
 #define GAME_H
 
 #include "models/modules/game/pieces/Coordinate.hpp"
-#include "models/modules/game/Board.hpp"
-
-#include <iostream>
-
-using models::modules::game::Board;
-using models::modules::game::LogicObserver;
-using models::modules::game::pieces::Coordinate;
+#include "models/modules/game/LogicObserver.hpp"
+#include "models/modules/game/Player.hpp"
 
 namespace models::modules::game
 {
+    class Board;
+
+    using models::modules::game::pieces::Coordinate;
+
     class Game
     {
     public:

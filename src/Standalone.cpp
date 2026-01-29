@@ -1,7 +1,11 @@
 #include "Standalone.hpp"
+#include "views/console/ConsoleView.hpp"
+
+using views::console::ConsoleView;
 
 Standalone::Standalone()
 {
+    logic = new LocalLogic();
 }
 
 Standalone::~Standalone()
@@ -10,10 +14,10 @@ Standalone::~Standalone()
 
 Logic *Standalone::getLogic()
 {
-    return nullptr;
+    return logic;
 }
 
 View *Standalone::getView()
 {
-    return nullptr;
+    return new ConsoleView();
 }

@@ -1,8 +1,9 @@
 #include "models/modules/game/Player.hpp"
-#include "models/modules/game//pieces/Pawn.hpp"
-#include "models/modules/game//pieces/Coordinate.hpp"
-#include "models/modules/game//pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
-#include "models/modules/game//pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "models/modules/game/pieces/Pawn.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "models/modules/game/pieces/PieceVisitor.hpp"
 
 using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
