@@ -2,12 +2,16 @@
 #define KING_FINDER_VISITOR_HPP
 
 #include "PieceVisitor.hpp"
-#include "King.hpp"
-#include "Queen.hpp"
-#include "Rook.hpp"
-#include "Bishop.hpp"
-#include "Knight.hpp"
-#include "Pawn.hpp"
+
+namespace models::modules::game::pieces
+{
+    class King;
+    class Queen;
+    class Rook;
+    class Bishop;
+    class Knight;
+    class Pawn;
+}
 
 namespace models::modules::game::pieces
 {

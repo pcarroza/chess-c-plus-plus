@@ -5,6 +5,7 @@
 #include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
 
 using models::modules::game::Player;
+using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGenerator;
 
 namespace models::modules::game::pieces
 {

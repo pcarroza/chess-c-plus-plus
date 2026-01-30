@@ -7,24 +7,18 @@
 
 #include <set>
 #include <list>
+#include <memory>
 
 namespace models::modules::game::pieces
 {
     class PieceVisitor;
+    class Coordinate;
 }
 
 namespace models::modules::game::pieces::rulesOfMovements
 {
     class MovementRulesBaseGenerator;
 }
-
-namespace models::modules::game::pieces
-{
-    class Coordinate;
-}
-
-using models::modules::game::Player;
-using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGenerator;
 
 namespace models::modules::game::pieces
 {
@@ -47,11 +41,11 @@ namespace models::modules::game::pieces
 
         bool isAt(const Coordinate &coordinate);
 
-        virtual void put(Coordinate *coordinate) override;
+        void put(Coordinate *coordinate) override;
 
-        virtual bool isMovementValid(const Coordinate &coordinate) override;
+        bool isMovementValid(const Coordinate &coordinate) override;
 
-        virtual void generateMovements() override;
+        void generateMovements() override;
 
         virtual void accept(PieceVisitor &visitor) = 0;
 
@@ -60,12 +54,11 @@ namespace models::modules::game::pieces
     protected:
         void set(Coordinate *coordinate);
 
-    protected:
         Player player;
 
         Coordinate *coordinate;
 
-        MovementRulesBaseGenerator *basedGenerator;
+        rulesOfMovements::MovementRulesBaseGenerator *basedGenerator;
     };
 }
 
