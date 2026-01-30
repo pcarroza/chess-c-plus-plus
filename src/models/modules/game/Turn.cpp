@@ -4,7 +4,7 @@
 using models::modules::game::Player;
 using models::modules::game::PLAYERS;
 
-namespace models
+namespace models::modules::game
 {
     Turn::Turn() : index(0)
     {

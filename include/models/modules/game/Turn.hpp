@@ -5,7 +5,7 @@
 
 using models::modules::game::Player;
 
-namespace models
+namespace models::modules::game
 {
     class Turn
     {
