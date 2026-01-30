@@ -3,13 +3,15 @@
 
 #include "Piece.hpp"
 #include "models/modules/game/Player.hpp"
-#include "BoardObserver.hpp"
 
 #include <map>
 #include <list>
 #include <memory>
 
-using ::models::modules::game::Player;
+namespace models::modules::game::pieces
+{
+    class BoardObserver;
+}
 
 namespace models::modules::game::pieces
 {

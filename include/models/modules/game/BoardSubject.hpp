@@ -12,7 +12,7 @@ namespace models::modules::game::pieces
     public:
         virtual ~BoardSubject() = default;
 
-        void subscribe(::models::modules::game::LogicObserver *logicObserver);
+        void subscribe(LogicObserver *logicObserver);
 
         void initialize();
 
