@@ -1,4 +1,6 @@
 #include "models/modules/game/pieces/King.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/PieceVisitor.hpp"
 #include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
 
 using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;

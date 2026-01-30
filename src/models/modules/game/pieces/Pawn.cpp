@@ -7,6 +7,7 @@
 
 using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
 using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
+using models::modules::game::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
 
 namespace models::modules::game::pieces
 {
