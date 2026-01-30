@@ -8,21 +8,20 @@
 #include <map>
 
 #include "models/modules/game/pieces/SelectedPiece.hpp"
-#include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/BoardObserver.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/Piece.hpp"
 #include "models/modules/game/BoardSubject.hpp"
 #include "models/modules/game/Player.hpp"
 #include "models/modules/game/Turn.hpp"
 
-using models::modules::game::Turn;
 using models::modules::game::Player;
+using models::modules::game::Turn;
 using models::modules::game::pieces::BoardObserver;
 using models::modules::game::pieces::BoardSubject;
 using models::modules::game::pieces::Coordinate;
 using models::modules::game::pieces::Piece;
 using models::modules::game::pieces::SelectedPiece;
-using models::modules::game::pieces::Coordinate;
 
 namespace models::modules::game
 {
