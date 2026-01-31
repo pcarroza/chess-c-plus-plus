@@ -1,9 +1,9 @@
 #include "models/modules/game/pieces/King.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/PieceVisitor.hpp"
-#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/rules/MovementRulesBaseGeneratorFacade.hpp"
 
-using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+using models::modules::game::pieces::rules::MovementRulesBaseGeneratorFacade;
 
 namespace models::modules::game::pieces
 {

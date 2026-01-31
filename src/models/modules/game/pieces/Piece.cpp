@@ -2,10 +2,10 @@
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/Piece.hpp"
 #include "models/modules/game/Player.hpp"
-#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGenerator.hpp"
+#include "models/modules/game/pieces/rules/MovementRulesBaseGenerator.hpp"
 
 using models::modules::game::Player;
-using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGenerator;
+using models::modules::game::pieces::rules::MovementRulesBaseGenerator;
 
 namespace models::modules::game::pieces
 {

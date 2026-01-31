@@ -1,7 +1,7 @@
 #include "models/modules/game/pieces/Rook.hpp"
-#include "models/modules/game/pieces/rulesOfMovements/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/rules/MovementRulesBaseGeneratorFacade.hpp"
 
-using models::modules::game::pieces::rulesOfMovements::MovementRulesBaseGeneratorFacade;
+using models::modules::game::pieces::rules::MovementRulesBaseGeneratorFacade;
 
 namespace models::modules::game::pieces
 {

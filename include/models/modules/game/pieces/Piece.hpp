@@ -15,7 +15,7 @@ namespace models::modules::game::pieces
     class Coordinate;
 }
 
-namespace models::modules::game::pieces::rulesOfMovements
+namespace models::modules::game::pieces::rules
 {
     class MovementRulesBaseGenerator;
 }
@@ -58,7 +58,7 @@ namespace models::modules::game::pieces
 
         Coordinate *coordinate;
 
-        rulesOfMovements::MovementRulesBaseGenerator *basedGenerator;
+        rules::MovementRulesBaseGenerator *basedGenerator;
     };
 }
 

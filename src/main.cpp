@@ -24,23 +24,24 @@
 
 #include "controllers/modules/game/local/LocalStartController.hpp"
 #include "views/console/ConsoleView.hpp"
+#include "controllers/modules/game/local/errors/GameErrorTypeGenerator.hpp"
 
 using controllers::modules::game::local::LocalStartController;
 using controllers::modules::game::local::logic::LocalLogic;
-using views::console::ConsoleView;
-using models::modules::game::Game;
 using models::modules::game::Board;
-using models::modules::game::pieces::Coordinate;
-using models::modules::game::pieces::Piece;
-using models::modules::game::pieces::Pawn;
-using models::modules::game::pieces::Rook;
-using models::modules::game::pieces::Queen;
+using models::modules::game::Game;
+using models::modules::game::Player;
 using models::modules::game::pieces::Bishop;
+using models::modules::game::pieces::Coordinate;
 using models::modules::game::pieces::King;
 using models::modules::game::pieces::Knight;
+using models::modules::game::pieces::Pawn;
+using models::modules::game::pieces::Piece;
 using models::modules::game::pieces::PiecesMapBuilder;
-using models::modules::game::Player;
-
+using models::modules::game::pieces::Queen;
+using models::modules::game::pieces::Rook;
+using views::console::ConsoleView;
+using controllers::modules::game::local::errors::GameErrorTypeGenerator;
 
 int main()
 {
@@ -149,6 +150,13 @@ int main()
 
     delete game;
     delete logic;
+
+    Game game2(nullptr);
+
+    // Uso idéntico al Java
+    auto report1 = GameErrorTypeGenerator::NOT_EMPTY.getErrorReport(game2);
+    auto report2 = GameErrorTypeGenerator::REPEATED_COORDINATE.getErrorReport(game2);
+    auto report3 = GameErrorTypeGenerator::NOT_PROPERTY.getErrorReport(game2);
 
     return 0;
 }
