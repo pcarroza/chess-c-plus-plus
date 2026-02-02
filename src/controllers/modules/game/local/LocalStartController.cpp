@@ -10,7 +10,7 @@ namespace controllers::modules::game::local
 
     void LocalStartController::start(int users)
     {
-        localOperationControllerBuilder->build(users);
+        //localOperationControllerBuilder->build(users);
     }
 
     void LocalStartController::accept(OperationControllerVisitor &operationControllerVisitor)
