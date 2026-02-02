@@ -1,5 +1,5 @@
-#include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/PiecesMapBuilder.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/Knight.hpp"
 #include "models/modules/game/pieces/Bishop.hpp"
 #include "models/modules/game/pieces/Queen.hpp"
@@ -20,7 +20,6 @@ namespace models::modules::game::pieces
             {Player::BLACK, createPiecesBlack()},
             {Player::WHITE, createPiecesWhite()},
         };
-
         for (auto &pieces : piecesMap)
         {
             for (auto &piece : pieces.second)

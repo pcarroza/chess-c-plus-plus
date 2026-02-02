@@ -31,5 +31,4 @@ namespace models::modules::game::pieces
     {
         boardObserver->deleteEnPassantPawn(piece);
     }
-
 }
