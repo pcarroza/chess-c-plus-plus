@@ -5,6 +5,16 @@
 
 namespace models::modules::game::pieces
 {
+    class King;
+    class Queen;
+    class Rook;
+    class Bishop;
+    class Knight;
+    class Pawn;
+}
+
+namespace models::modules::game::pieces
+{
     class RookFinderVisitor : public PieceVisitor
     {
     public:

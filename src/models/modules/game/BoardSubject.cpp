@@ -4,26 +4,26 @@ namespace models::modules::game::pieces
 {
     void BoardSubject::subscribe(LogicObserver *logicObserver)
     {
-        this->observer = logicObserver;
+        this->logicObserver = logicObserver;
     }
 
     void BoardSubject::initialize()
     {
-        observer->initialize();
+        logicObserver->initialize();
     }
 
     void BoardSubject::begin()
     {
-        observer->begin();
+        logicObserver->begin();
     }
 
     void BoardSubject::finalize()
     {
-        observer->finalize();
+        logicObserver->finalize();
     }
 
     void BoardSubject::end()
     {
-        observer->end();
+        logicObserver->end();
     }
 }

@@ -48,13 +48,17 @@ int main()
     LocalLogic *logic = new LocalLogic();
     Game *game = new Game(logic);
 
-
     game->selectPiece(Coordinate(1,1));
-
-    
 
     delete logic;
     delete game;
+
+
+    auto report1 = GameErrorTypeGenerator::NOT_EMPTY.getErrorReport(*game);
+    auto report2 = GameErrorTypeGenerator::REPEATED_COORDINATE.getErrorReport(*game);
+    auto report3 = GameErrorTypeGenerator::NOT_PROPERTY.getErrorReport(*game);
+
+
 
     return 0;
 }

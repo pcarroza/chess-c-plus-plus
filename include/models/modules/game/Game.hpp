@@ -14,7 +14,7 @@ namespace models::modules::game
     class Game
     {
     public:
-        Game(LogicObserver *observer);
+        Game(LogicObserver *logicObserver);
 
         ~Game();
 

@@ -3,9 +3,9 @@
 
 namespace models::modules::game
 {
-    Game::Game(LogicObserver *observer) : board(new Board())
+    Game::Game(LogicObserver *logicObserver) : board(new Board())
     {
-        board->subscribe(observer);
+        board->subscribe(logicObserver);
     }
 
     Game::~Game()

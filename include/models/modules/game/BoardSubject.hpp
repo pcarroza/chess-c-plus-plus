@@ -5,6 +5,8 @@
 #include <list>
 #include <memory>
 
+using models::modules::game::LogicObserver;
+
 namespace models::modules::game::pieces
 {
     class BoardSubject
@@ -23,7 +25,7 @@ namespace models::modules::game::pieces
         void end();
 
     private:
-        ::models::modules::game::LogicObserver *observer;
+        LogicObserver *logicObserver;
     };
 }
 
