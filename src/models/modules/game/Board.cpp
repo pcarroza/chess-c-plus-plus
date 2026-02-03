@@ -8,8 +8,8 @@
 #include <assert.h>
 
 using common::validators::ValidatorLimitsBoard;
-using models::modules::game::pieces::PieceInspector;
 using models::modules::game::pieces::PiecesMapBuilder;
+using models::modules::game::pieces::isPawnPromoted;
 
 namespace models::modules::game
 {
@@ -92,7 +92,7 @@ namespace models::modules::game
 
     bool Board::isThePawnPromoted()
     {
-        return PieceInspector::isPawnPromoted(*static_cast<Piece *>(selectedPiece));
+        return isPawnPromoted(*static_cast<Piece *>(selectedPiece));
     }
 
     bool Board::isEnemy(const Coordinate &coordinate)

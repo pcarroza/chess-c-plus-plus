@@ -7,28 +7,28 @@
 
 namespace models::modules::game::pieces
 {
-    bool PieceInspector::isPawnVulnerable(Piece &piece)
+    bool isPawnVulnerable(Piece &piece)
     {
         PawnVulnerabilityVisitor visitor;
         piece.accept(visitor);
         return visitor.isPawnVulnerable();
     }
 
-    bool PieceInspector::isPawnPromoted(Piece &piece)
+    bool isPawnPromoted(Piece &piece)
     {
         PawnPromotionVisitor visitor;
         piece.accept(visitor);
         return visitor.isPawnPromoted();
     }
 
-    bool PieceInspector::isKing(Piece &piece)
+    bool isKing(Piece &piece)
     {
         KingFinderVisitor visitor;
         piece.accept(visitor);
         return visitor.isKingFound();
     }
 
-    bool PieceInspector::isRook(Piece &piece)
+    bool isRook(Piece &piece)
     {
         RookFinderVisitor visitor;
         piece.accept(visitor);

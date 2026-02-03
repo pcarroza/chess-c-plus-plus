@@ -12,19 +12,13 @@ using models::modules::game::pieces::Piece;
 
 namespace models::modules::game::pieces
 {
-    class PieceInspector
-    {
-    public:
-        ~PieceInspector() = delete;
+    bool isPawnVulnerable(Piece &piece);
 
-        static bool isPawnVulnerable(Piece &piece);
+    bool isPawnPromoted(Piece &piece);
 
-        static bool isPawnPromoted(Piece &piece);
+    bool isKing(Piece &piece);
 
-        static bool isKing(Piece &piece);
-
-        static bool isRook(Piece &piece);
-    };
+    bool isRook(Piece &piece);
 }
 
 #endif
