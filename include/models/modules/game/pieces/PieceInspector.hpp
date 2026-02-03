@@ -2,7 +2,13 @@
 #define PIECE_INSPECTOR_HPP
 
 #include <memory>
-#include "Piece.hpp"
+
+namespace models::modules::game::pieces
+{
+    class Piece;
+}
+
+using models::modules::game::pieces::Piece;
 
 namespace models::modules::game::pieces
 {
@@ -18,8 +24,6 @@ namespace models::modules::game::pieces
         static bool isKing(Piece &piece);
 
         static bool isRook(Piece &piece);
-
-    private:
     };
 }
 

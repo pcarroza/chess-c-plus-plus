@@ -12,9 +12,9 @@ namespace models::modules::game::pieces
         basedGenerator = MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(this);
     }
 
-    void Bishop::accept(PieceVisitor &visitor)
+    void Bishop::accept(PieceVisitor &pieceVisitor)
     {
-        visitor.visit(*this);
+        pieceVisitor.visit(*this);
     }
 
     std::string Bishop::toString() const

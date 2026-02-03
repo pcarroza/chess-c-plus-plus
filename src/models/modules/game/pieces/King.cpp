@@ -12,9 +12,9 @@ namespace models::modules::game::pieces
         basedGenerator = MovementRulesBaseGeneratorFacade::createKingRuleBasedCoordinateGenerator(this);
     }
 
-    void King::accept(PieceVisitor &visitor)
+    void King::accept(PieceVisitor &pieceVisitor)
     {
-        visitor.visit(*this);
+        pieceVisitor.visit(*this);
     }
 
     std::string King::toString() const
