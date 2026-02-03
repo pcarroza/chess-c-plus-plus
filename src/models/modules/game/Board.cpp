@@ -2,6 +2,7 @@
 #include "models/modules/game/pieces/PiecesMapBuilder.hpp"
 #include "models/modules/game/pieces/PieceInspector.hpp"
 #include "models/modules/game/Board.hpp"
+#include "models/modules/game/Player.hpp"
 
 #include <iostream>
 #include <assert.h>

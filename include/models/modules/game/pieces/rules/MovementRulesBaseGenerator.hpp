@@ -27,9 +27,9 @@ namespace models::modules::game::pieces::rules
 
         virtual void set(Piece *piece);
 
-        std::list<std::shared_ptr<Coordinate>> &getValidMovements();
-
         bool isMovementValid(const Coordinate &coordinate);
+
+        std::list<std::shared_ptr<Coordinate>> &getMovements();
 
         virtual void generate() = 0;
 

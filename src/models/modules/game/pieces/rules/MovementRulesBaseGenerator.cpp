@@ -16,7 +16,7 @@ namespace models::modules::game::pieces::rules
         this->piece = piece;
     }
 
-    std::list<std::shared_ptr<Coordinate>> &MovementRulesBaseGenerator::getValidMovements()
+    std::list<std::shared_ptr<Coordinate>> &MovementRulesBaseGenerator::getMovements()
     {
         return possibleMoves;
     }

@@ -9,8 +9,8 @@ using models::modules::game::pieces::rules::MovementRulesBaseGenerator;
 
 namespace models::modules::game::pieces
 {
-    Piece::Piece(Coordinate *coordinate, Player color)
-        : player(color),
+    Piece::Piece(Coordinate *coordinate, Player player)
+        : player(player),
           coordinate(coordinate),
           basedGenerator(nullptr)
     {
@@ -29,7 +29,12 @@ namespace models::modules::game::pieces
 
     std::list<std::shared_ptr<Coordinate>> &Piece::getValidMovements()
     {
-        return basedGenerator->getValidMovements();
+        return basedGenerator->getMovements();
+    }
+
+    int Piece::getVectorPlayer() const
+    {
+        return this->player.getVectorPlayer();
     }
 
     void Piece::put(Coordinate *target)

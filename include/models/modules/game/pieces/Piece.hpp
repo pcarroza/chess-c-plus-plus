@@ -25,11 +25,13 @@ namespace models::modules::game::pieces
     class Piece : public PieceSubject, public SelectedPiece
     {
     public:
-        Piece(Coordinate *coordinate, Player color);
+        Piece(Coordinate *coordinate, Player player);
 
         virtual ~Piece();
 
         std::list<std::shared_ptr<Coordinate>> &getValidMovements();
+
+        int getVectorPlayer() const;
 
         Coordinate *getCoordinate() const;
 

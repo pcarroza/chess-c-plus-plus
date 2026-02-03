@@ -11,8 +11,8 @@ using models::modules::game::pieces::specialRuleMovements::SpecialMovesRulesGene
 
 namespace models::modules::game::pieces
 {
-    Pawn::Pawn(Coordinate *coordinate, Player color)
-        : Piece(coordinate, color),
+    Pawn::Pawn(Coordinate *coordinate, Player player)
+        : Piece(coordinate, player),
           initialState(true),
           isItPromoted(false),
           vulnerablePawn(false),
@@ -122,7 +122,7 @@ namespace models::modules::game::pieces
     std::shared_ptr<Coordinate> Pawn::getForwardOne() const
     {
         const int singgleStep = 1;
-        const int direction = singgleStep * getPlayerDirection(player);
+        const int direction = singgleStep * Piece::getVectorPlayer();
         return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
     }
 
