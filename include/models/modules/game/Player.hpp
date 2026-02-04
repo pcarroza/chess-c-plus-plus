@@ -10,21 +10,18 @@ namespace models::modules::game
     class Player
     {
     public:
-        // Constructor de copia y asignación
         Player(const Player &) = default;
+
         Player &operator=(const Player &) = default;
+
         ~Player() = default;
 
-        // Getters (inline constexpr para optimización)
         constexpr int getValue() const noexcept { return value_; }
 
         constexpr int getVectorPlayer() const noexcept { return value_; }
 
         const char *getName() const noexcept { return name_; }
 
-        // Operadores de comparación (inline constexpr)
-
-        // Métodos de verificación (inline constexpr)
         constexpr bool isValid() const noexcept
         {
             return *this != NONE;
@@ -70,8 +67,7 @@ namespace models::modules::game
 
         const char *name_;
 
-        constexpr Player(int value, const char *name) noexcept
-            : value_(value), name_(name) {}
+        constexpr Player(int value, const char *name) noexcept : value_(value), name_(name) {}
 
     public:
         static const Player WHITE;

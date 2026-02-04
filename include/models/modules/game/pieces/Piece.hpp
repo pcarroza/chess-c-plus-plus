@@ -20,6 +20,8 @@ namespace models::modules::game::pieces::rules
     class MovementRulesBaseGenerator;
 }
 
+using models::modules::game::pieces::rules::MovementRulesBaseGenerator;
+
 namespace models::modules::game::pieces
 {
     class Piece : public PieceSubject, public SelectedPiece
@@ -60,7 +62,7 @@ namespace models::modules::game::pieces
 
         Coordinate *coordinate;
 
-        rules::MovementRulesBaseGenerator *basedGenerator;
+        MovementRulesBaseGenerator *basedGenerator;
     };
 }
 

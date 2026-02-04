@@ -1,4 +1,8 @@
-# Compilación
+# Compilación y CMake
+# Ignorar el directorio de build completo
+/build/
+
+# Archivos objeto y librerías
 *.o
 *.obj
 *.lo
@@ -9,27 +13,24 @@
 *.so
 *.so.*
 *.dylib
+*.a
+*.lib
 *.exe
 *.out
 *.app
 
-# Archivos de depuración y logs
-*.log
-*.dep
-*.dSYM/
-*.stackdump
-core
-vgcore.*
-
-# CMake
+# Archivos generados por CMake
+CMakeCache.txt
+CMakeFiles/
 cmake_install.cmake
-build/
-build-*/
-debug/
-develop/
-develop_deps/
-release/
-bin/
+install_manifest.txt
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+_deps/ # Para FetchContent de dependencias como googletest
+
+# Directorio de ejecutables (si no está dentro de /build/)
+/bin/
 
 # Archivos temporales de Make
 *.d
