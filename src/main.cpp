@@ -214,6 +214,7 @@ void testRetroCompatibility()
 int main()
 {
     std::cout << "Starting Player class tests..." << std::endl;
+    std::cout << "Starting Player class tests..." << std::endl;
 
     try
     {
