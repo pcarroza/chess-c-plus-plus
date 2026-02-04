@@ -101,51 +101,42 @@ Este proyecto utiliza CMake para gestionar la compilación de forma portable.
     cd chess-c-plus-plus
     ```
 
-2.  **Crea un directorio de compilación:**
-    Es una buena práctica compilar fuera del árbol de fuentes.
+2.  **Configura y Compila el proyecto:**
+    Estos comandos crearán un directorio `build`, configurarán el proyecto dentro de él y compilarán el código. Todo se ejecuta desde el directorio raíz del proyecto.
 
-    ```sh
-    mkdir build
-    cd build
-    ```
-
-3.  **Configura el proyecto con CMake:**
     - Para una compilación de **debug** (recomendada para desarrollo):
       ```sh
-      cmake .. -DCMAKE_BUILD_TYPE=Debug
-      ```
-    - Para una compilación de **release** (optimizada para rendimiento):
-      ```sh
-      cmake .. -DCMAKE_BUILD_TYPE=Release
+      cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+      cmake --build build
       ```
 
-4.  **Compila el código:**
-    Este comando invocará la herramienta de compilación subyacente (como `make`).cmc
-    ```sh
-    cmake --build .
-    ```
+    - Para una compilación de **release** (optimizada para rendimiento):
+      ```sh
+      cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      cmake --build build
+      ```
 
 ### Ejecutar la Aplicación
 
-El ejecutable se creará dentro del directorio `build/bin`.
+El ejecutable se creará dentro del directorio `build/bin`. Para ejecutarlo desde el directorio raíz:
 
 - **Para ejecutar el juego:**
 
   ```sh
-  ./bin/chess
+  ./build/bin/chess
   ```
 
 - **Para verificar fugas de memoria (opcional):**
   Asegúrate de estar usando una compilación de `Debug`.
   ```sh
-  valgrind ./bin/chess
+  valgrind ./build/bin/chess
   ```
   > **Nota:** Debes tener `valgrind` instalado. En sistemas basados en Debian/Ubuntu, puedes instalarlo con `sudo apt-get install valgrind`.
 
 ### Ejecutar los Tests
 
-Los tests se compilan automáticamente. Para ejecutarlos, usa CTest desde el directorio de compilación.
+Para ejecutar los tests desde el directorio raíz, usa CTest indicando el directorio de compilación:
 
 ```sh
-ctest
+ctest --test-dir build
 ```
