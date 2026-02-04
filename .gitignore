@@ -34,6 +34,7 @@ _deps/ # Para FetchContent de dependencias como googletest
 
 # Archivos temporales de Make
 *.d
+Makefile
 
 # Archivos de proyectos de IDEs
 *.code-workspace
