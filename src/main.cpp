@@ -205,9 +205,9 @@ void testRetroCompatibility()
     std::cout << "\n=== Testing Retrocompatibility ===" << std::endl;
 
     // Test función auxiliar getPlayerDirection
-    assert(getPlayerDirection(Player::WHITE) == 1);
-    assert(getPlayerDirection(Player::BLACK) == -1);
-    assert(getPlayerDirection(Player::NONE) == 0);
+    assert(Player::WHITE.getVectorPlayer() == 1);
+    assert(Player::BLACK.getVectorPlayer() == -1);
+    assert(Player::NONE.getVectorPlayer() == 0);
     std::cout << "✓ getPlayerDirection() function works" << std::endl;
 }
 
@@ -216,13 +216,6 @@ int main()
     std::cout << "Starting Player class tests..." << std::endl;
     std::cout << "Starting Player class tests..." << std::endl;
     std::cout << "Starting Player class tests..." << std::endl;
-    std::cout << "Starting Player class tests..." << std::endl;
-    std::cout << "Starting Player class tests..." << std::endl;
-    std::cout << "Starting Player class tests..." << std::endl;
-    std::cout << "Starting Player class tests..." << std::endl;
-    std::cout << "Starting Player class tests..." << std::endl;
-    std::cout << "Starting Player class tests..." << std::endl;
-
 
     try
     {
