@@ -3,13 +3,12 @@
 #include "models/modules/game/pieces/PieceVisitor.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesBaseGeneratorFacade.hpp"
 
-using models::modules::game::pieces::rules::MovementRulesBaseGeneratorFacade;
 
 namespace models::modules::game::pieces
 {
     King::King(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     {
-        basedGenerator = MovementRulesBaseGeneratorFacade::createKingRuleBasedCoordinateGenerator(this);
+        basedGenerator = rules::createKingRuleBasedCoordinateGenerator(this);
     }
 
     void King::accept(PieceVisitor &pieceVisitor)

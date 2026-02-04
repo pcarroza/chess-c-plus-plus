@@ -8,8 +8,8 @@
 #include <assert.h>
 
 using common::validators::ValidatorLimitsBoard;
-using models::modules::game::pieces::PiecesMapBuilder;
 using models::modules::game::pieces::isPawnPromoted;
+using models::modules::game::pieces::PiecesMapBuilder;
 
 namespace models::modules::game
 {

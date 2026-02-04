@@ -5,7 +5,6 @@
 #include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 #include "models/modules/game/pieces/PieceVisitor.hpp"
 
-using models::modules::game::pieces::rules::MovementRulesBaseGeneratorFacade;
 using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
 using models::modules::game::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
 
@@ -18,7 +17,7 @@ namespace models::modules::game::pieces
           vulnerablePawn(false),
           specialGenerator(new EnPassantPawnSpecialRuleGenerator(this))
     {
-        basedGenerator = MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(this);
+        basedGenerator = rules::createPawnRuleBasedCoordinateGenerator(this);
     }
 
     Pawn::~Pawn()

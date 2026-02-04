@@ -6,14 +6,19 @@ BUILD_TYPE=${1:-Debug}
 BUILD_DIR="build"
 
 # Inform the user
-echo "==== Configuring Project ===="
-echo "Build Type: ${BUILD_TYPE}"
-echo "Build Directory: ${BUILD_DIR}"
+# Check if configuration is needed (missing cache or different build type)
+if [ ! -f "${BUILD_DIR}/CMakeCache.txt" ] || ! grep -q "CMAKE_BUILD_TYPE:STRING=${BUILD_TYPE}" "${BUILD_DIR}/CMakeCache.txt"; then
+    echo "==== Configuring Project ===="
+    echo "Build Type: ${BUILD_TYPE}"
+    echo "Build Directory: ${BUILD_DIR}"
 
-# Configure the project using CMake
-# -S . : Source directory is the current one
-# -B ${BUILD_DIR}: Binary (build) directory
-cmake -S . -B "${BUILD_DIR}" -DCMAKE_BUILD_TYPE="${BUILD_TYPE}"
+    # Configure the project using CMake
+    # -S . : Source directory is the current one
+    # -B ${BUILD_DIR}: Binary (build) directory
+    cmake -S . -B "${BUILD_DIR}" -DCMAKE_BUILD_TYPE="${BUILD_TYPE}"
+else
+    echo "==== Skipping Configuration (Already configured) ===="
+fi
 
 # Inform the user
 echo ""

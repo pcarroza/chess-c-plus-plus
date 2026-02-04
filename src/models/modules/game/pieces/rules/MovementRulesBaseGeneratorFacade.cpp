@@ -1,33 +1,39 @@
 #include "models/modules/game/pieces/rules/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/rules/BishopRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rules/KingRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rules/KnightRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rules/QueenRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rules/RookRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rules/PawnRuleBasedCoordinateGenerator.hpp"
 
 namespace models::modules::game::pieces::rules
 {
-    MovementRulesBaseGenerator *MovementRulesBaseGeneratorFacade::createBishopRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createBishopRuleBasedCoordinateGenerator(Piece *piece)
     {
         return new BishopRuleBasedCoordinateGenerator(piece);
     }
 
-    MovementRulesBaseGenerator *MovementRulesBaseGeneratorFacade::createKingRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createKingRuleBasedCoordinateGenerator(Piece *piece)
     {
         return new KingRuleBasedCoordinateGenerator(piece);
     }
 
-    MovementRulesBaseGenerator *MovementRulesBaseGeneratorFacade::createKnightRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createKnightRuleBasedCoordinateGenerator(Piece *piece)
     {
         return new KnightRuleBasedCoordinateGenerator(piece);
     }
 
-    MovementRulesBaseGenerator *MovementRulesBaseGeneratorFacade::createQueenRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createQueenRuleBasedCoordinateGenerator(Piece *piece)
     {
         return new QueenRuleBasedCoordinateGenerator(piece);
     }
 
-    MovementRulesBaseGenerator *MovementRulesBaseGeneratorFacade::createRookRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createRookRuleBasedCoordinateGenerator(Piece *piece)
     {
         return new RookRuleBasedCoordinateGenerator(piece);
     }
 
-    MovementRulesBaseGenerator *MovementRulesBaseGeneratorFacade::createPawnRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createPawnRuleBasedCoordinateGenerator(Piece *piece)
     {
         return new PawnRuleBasedCoordinateGenerator(piece);
     }
