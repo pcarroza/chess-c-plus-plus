@@ -1,6 +1,6 @@
-#include "views/console/GameView.hpp"
+#include "views/modules/console/modules/game/GameView.hpp"
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     GameView::GameView()
     {

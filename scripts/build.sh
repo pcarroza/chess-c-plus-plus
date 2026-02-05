@@ -1,9 +1,19 @@
 #!/bin/bash
 set -e # Exit immediately if a command exits with a non-zero status.
 
+BUILD_DIR="build"
+
+# Check if the user wants to clean the build artifacts
+if [ "$1" == "clean" ]; then
+    if [ -d "${BUILD_DIR}" ]; then
+        echo "==== Cleaning compilation objects in ${BUILD_DIR}/lib ===="
+        cmake --build "${BUILD_DIR}" --target clean
+    fi
+    exit 0
+fi
+
 # Set the build type (Debug/Release). Default to Debug if no argument is provided.
 BUILD_TYPE=${1:-Debug}
-BUILD_DIR="build"
 
 # Inform the user
 # Check if configuration is needed (missing cache or different build type)
@@ -20,12 +30,19 @@ else
     echo "==== Skipping Configuration (Already configured) ===="
 fi
 
+# Determine the number of available cores for parallel build
+if command -v nproc &> /dev/null; then
+    JOBS=$(nproc)
+else
+    JOBS=2 # Fallback to 2 cores if nproc is not available
+fi
+
 # Inform the user
 echo ""
-echo "==== Building Project ===="
+echo "==== Building Project (using up to ${JOBS} cores) ===="
 
 # Build the project using the --build flag
-cmake --build "${BUILD_DIR}"
+cmake --build "${BUILD_DIR}" --parallel "${JOBS}"
 
 echo ""
 echo "Build complete. The executable is available at '${BUILD_DIR}/bin/chess'"

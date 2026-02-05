@@ -23,7 +23,7 @@
 #include "./Logic.hpp"
 
 #include "controllers/modules/game/local/LocalStartController.hpp"
-#include "views/console/ConsoleView.hpp"
+#include "views/modules/console/modules/game/ConsoleView.hpp"
 #include "controllers/modules/game/local/errors/GameErrorTypeGenerator.hpp"
 
 using controllers::modules::game::local::LocalStartController;
@@ -41,7 +41,7 @@ using models::modules::game::pieces::Piece;
 using models::modules::game::pieces::PiecesMapBuilder;
 using models::modules::game::pieces::Queen;
 using models::modules::game::pieces::Rook;
-using views::console::ConsoleView;
+using views::modules::console::modules::game::ConsoleView;
 
 #include "models/modules/game/Player.hpp"
 #include <iostream>

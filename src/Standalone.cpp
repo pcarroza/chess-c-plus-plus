@@ -1,7 +1,7 @@
 #include "Standalone.hpp"
-#include "views/console/ConsoleView.hpp"
+#include "views/modules/console/modules/game/ConsoleView.hpp"
 
-using views::console::ConsoleView;
+using views::modules::console::modules::game::ConsoleView;
 
 Standalone::Standalone()
 {

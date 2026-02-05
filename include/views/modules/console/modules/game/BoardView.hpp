@@ -5,7 +5,7 @@
 
 using controllers::modules::game::PlacementController;
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     class PlacementController;
 

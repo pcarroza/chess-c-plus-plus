@@ -1,6 +1,6 @@
-#include "views/console/ConsoleView.hpp"
+#include "views/modules/console/modules/game/ConsoleView.hpp"
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     ConsoleView::ConsoleView()
         : startView(new StartView()),

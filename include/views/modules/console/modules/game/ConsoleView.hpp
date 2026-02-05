@@ -13,7 +13,7 @@
 
 #include <memory>
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     class StartView;
     class GameView;
@@ -26,7 +26,7 @@ using controllers::modules::game::OperationControllerVisitor;
 using controllers::modules::game::PlacementController;
 using controllers::modules::game::StartController;
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     class ConsoleView : public OperationControllerVisitor, public View
     {

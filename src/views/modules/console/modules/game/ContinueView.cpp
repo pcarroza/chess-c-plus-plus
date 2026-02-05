@@ -1,6 +1,6 @@
-#include "views/console/ContinueView.hpp"
+#include "views/modules/console/modules/game/ConsoleView.hpp"
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     ContinueView::ContinueView()
     {

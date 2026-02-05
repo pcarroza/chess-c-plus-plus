@@ -3,11 +3,11 @@
 
 #include <iostream>
 
-#include "../../controllers/modules/game/StartController.hpp"
+#include "controllers/modules/game/StartController.hpp"
 
 using controllers::modules::game::StartController;
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     class StartView
     {

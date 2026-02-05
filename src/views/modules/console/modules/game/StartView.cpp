@@ -1,8 +1,8 @@
-#include "views/console/StartView.hpp"
+#include "views/modules/console/modules/game/StartView.hpp"
 #include "controllers/modules/game/StartController.hpp"
 #include <iostream>
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     StartView::StartView()
     {

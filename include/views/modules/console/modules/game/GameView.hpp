@@ -1,7 +1,7 @@
 #ifndef GAME_VIEW_HPP
 #define GAME_VIEW_HPP
 
-#include "../../controllers/modules/game/PlacementController.hpp"
+#include "controllers/modules/game/PlacementController.hpp"
 
 namespace controllers::modules::game
 {
@@ -10,7 +10,7 @@ namespace controllers::modules::game
 
 using controllers::modules::game::PlacementController;
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
     class GameView
     {

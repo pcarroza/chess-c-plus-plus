@@ -1,11 +1,11 @@
 #ifndef CONTINUE_VIEW_HPP
 #define CONTINUE_VIEW_HPP
 
-#include "../../controllers/modules/game/ContinueController.hpp"
+#include "controllers/modules/game/ContinueController.hpp"
 
 using controllers::modules::game::ContinueController;
 
-namespace views::console
+namespace views::modules::console::modules::game
 {
 
     class ContinueView

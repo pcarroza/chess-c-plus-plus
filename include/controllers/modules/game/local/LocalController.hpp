@@ -1,16 +1,25 @@
 #ifndef LOCAL_CONTROLLER_HPP
 #define LOCAL_CONTROLLER_HPP
 
-#include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/Player.hpp"
 #include "models/modules/game/Game.hpp"
 
+namespace models::modules::game
+{
+    class Game;
+}
+
+namespace models::modules::game::pieces
+{
+    class Coordinate;
+}
+
+using models::modules::game::Game;
+using models::modules::game::Player;
+using models::modules::game::pieces::Coordinate;
+
 namespace controllers::modules::game::local
 {
-    using models::modules::game::Game;
-    using models::modules::game::Player;
-    using models::modules::game::pieces::Coordinate;
-
     class LocalController
     {
     public:
