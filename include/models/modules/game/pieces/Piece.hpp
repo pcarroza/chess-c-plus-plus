@@ -51,7 +51,7 @@ namespace models::modules::game::pieces
 
         void generateMovements() override;
 
-        virtual void accept(PieceVisitor &visitor) = 0;
+        virtual void accept(PieceVisitor &pieceVisitor) = 0;
 
         virtual std::string toString() const = 0;
 

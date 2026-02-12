@@ -54,7 +54,7 @@ namespace models::modules::game::pieces
 
         std::shared_ptr<Coordinate> getDiagonalRight() const;
 
-        void accept(PieceVisitor &visitor) override;
+        void accept(PieceVisitor &pieceVisitor) override;
 
         std::string toString() const override;
 

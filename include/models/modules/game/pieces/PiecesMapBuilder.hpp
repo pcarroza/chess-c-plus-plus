@@ -27,7 +27,7 @@ namespace models::modules::game::pieces
 
         static std::list<std::shared_ptr<Piece>> createPiecesBlack();
 
-        static std::list<std::shared_ptr<Piece>> createPieces(int rowForPawnsByColor, int rowForPiecesByColor, Player color);
+        static std::list<std::shared_ptr<Piece>> createPieces(int rowForPawnsByColor, int rowForPiecesByColor, Player player);
     };
 }
 

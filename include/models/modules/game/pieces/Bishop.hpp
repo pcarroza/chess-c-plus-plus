@@ -17,7 +17,7 @@ namespace models::modules::game::pieces
     public:
         Bishop(Coordinate *coordinate, Player color);
 
-        void accept(PieceVisitor &visitor) override;
+        void accept(PieceVisitor &pieceVisitor) override;
 
         std::string toString() const override;
     };

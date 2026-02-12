@@ -44,21 +44,21 @@ namespace models::modules::game::pieces
         return createPieces(rowForPawnsByColor, rowForPiecesByColor, Player::BLACK);
     }
 
-    std::list<std::shared_ptr<Piece>> PiecesMapBuilder::createPieces(int rowForPawnsByColor, int rowForPiecesByColor, Player color)
+    std::list<std::shared_ptr<Piece>> PiecesMapBuilder::createPieces(int rowForPawnsByColor, int rowForPiecesByColor, Player player)
     {
         std::list<std::shared_ptr<Piece>> pieces;
         for (size_t i = 1; i <= 8; i++)
         {
-            pieces.push_back(std::make_shared<Pawn>(new Coordinate(rowForPawnsByColor, i), color));
+            pieces.push_back(std::make_shared<Pawn>(new Coordinate(rowForPawnsByColor, i), player));
         }
-        pieces.push_back(std::make_shared<Rook>(new Coordinate(rowForPiecesByColor, 1), color));
-        pieces.push_back(std::make_shared<Knight>(new Coordinate(rowForPiecesByColor, 2), color));
-        pieces.push_back(std::make_shared<Bishop>(new Coordinate(rowForPiecesByColor, 3), color));
-        pieces.push_back(std::make_shared<King>(new Coordinate(rowForPiecesByColor, 4), color));
-        pieces.push_back(std::make_shared<Queen>(new Coordinate(rowForPiecesByColor, 5), color));
-        pieces.push_back(std::make_shared<Bishop>(new Coordinate(rowForPiecesByColor, 6), color));
-        pieces.push_back(std::make_shared<Knight>(new Coordinate(rowForPiecesByColor, 7), color));
-        pieces.push_back(std::make_shared<Rook>(new Coordinate(rowForPiecesByColor, 8), color));
+        pieces.push_back(std::make_shared<Rook>(new Coordinate(rowForPiecesByColor, 1), player));
+        pieces.push_back(std::make_shared<Knight>(new Coordinate(rowForPiecesByColor, 2), player));
+        pieces.push_back(std::make_shared<Bishop>(new Coordinate(rowForPiecesByColor, 3), player));
+        pieces.push_back(std::make_shared<King>(new Coordinate(rowForPiecesByColor, 4), player));
+        pieces.push_back(std::make_shared<Queen>(new Coordinate(rowForPiecesByColor, 5), player));
+        pieces.push_back(std::make_shared<Bishop>(new Coordinate(rowForPiecesByColor, 6), player));
+        pieces.push_back(std::make_shared<Knight>(new Coordinate(rowForPiecesByColor, 7), player));
+        pieces.push_back(std::make_shared<Rook>(new Coordinate(rowForPiecesByColor, 8), player));
         return pieces;
     }
 }
