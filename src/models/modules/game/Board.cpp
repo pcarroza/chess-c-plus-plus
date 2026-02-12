@@ -85,9 +85,9 @@ namespace models::modules::game
         return selectedPiece != nullptr;
     }
 
-    bool Board::clearSelectedPiece()
+    void Board::clearSelectedPiece()
     {
-        return selectedPiece = nullptr;
+        selectedPiece = nullptr;
     }
 
     bool Board::isThePawnPromoted()

@@ -44,7 +44,7 @@ namespace models::modules::game
 
         bool isSelectedPiece();
 
-        bool clearSelectedPiece();
+        void clearSelectedPiece();
 
         bool isThePawnPromoted();
 
