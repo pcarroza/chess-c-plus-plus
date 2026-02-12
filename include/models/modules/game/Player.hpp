@@ -16,9 +16,7 @@ namespace models::modules::game
 
         ~Player() = default;
 
-        constexpr int getValue() const noexcept { return value_; }
-
-        constexpr int getVectorPlayer() const noexcept { return value_; }
+        constexpr int getVector() const noexcept { return value_; }
 
         const char *getName() const noexcept { return name_; }
 
@@ -81,7 +79,7 @@ namespace models::modules::game
 
     inline int getPlayerDirection(const Player &player) noexcept
     {
-        return player.getVectorPlayer();
+        return player.getVector();
     }
 }
 

@@ -34,7 +34,7 @@ namespace models::modules::game::pieces
 
     int Piece::getVectorPlayer() const
     {
-        return this->player.getVectorPlayer();
+        return this->player.getVector();
     }
 
     void Piece::put(Coordinate *target)

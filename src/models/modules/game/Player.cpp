@@ -74,6 +74,6 @@ namespace std
 {
     std::size_t hash<Player>::operator()(const Player &player) const noexcept
     {
-        return hash<int>{}(player.getValue());
+        return hash<int>{}(player.getVector());
     }
 }

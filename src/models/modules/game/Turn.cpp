@@ -12,14 +12,14 @@ namespace models::modules::game
 
     Player Turn::getCurrentPlayer()
     {
-        return PLAYERS[index];
+        return player.fromValue(index);
     }
 
     Player Turn::getRivalPlayer()
     {
         int auxIndex = index;
         int rivalPlayerIndex = (auxIndex + 1) % 2;
-        return PLAYERS[rivalPlayerIndex];
+        return player.fromValue(rivalPlayerIndex);
     }
 
     void Turn::change()

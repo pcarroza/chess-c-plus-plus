@@ -19,6 +19,8 @@ namespace models::modules::game
         void change();
 
     private:
+        Player player;
+
         int index;
     };
 }

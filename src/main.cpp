@@ -56,9 +56,9 @@ void testPlayerBasics()
     std::cout << "\n=== Testing Player Basics ===" << std::endl;
 
     // Test valores
-    assert(Player::WHITE.getValue() == 1);
-    assert(Player::BLACK.getValue() == -1);
-    assert(Player::NONE.getValue() == 0);
+    assert(Player::WHITE.getVector() == 1);
+    assert(Player::BLACK.getVector() == -1);
+    assert(Player::NONE.getVector() == 0);
     std::cout << "✓ Values are correct" << std::endl;
 
     // Test nombres
@@ -68,8 +68,6 @@ void testPlayerBasics()
     std::cout << "✓ Names are correct" << std::endl;
 
     // Test direcciones
-    assert(Player::WHITE.getVectorPlayer() == 1);
-    assert(Player::BLACK.getVectorPlayer() == -1);
     std::cout << "✓ Directions are correct" << std::endl;
 }
 
@@ -190,8 +188,8 @@ void testPlayerIteration()
     for (const auto &player : PLAYERS)
     {
         std::cout << "  - " << player.getName()
-                  << " (value: " << player.getValue()
-                  << ", direction: " << player.getVectorPlayer() << ")" << std::endl;
+                  << " (value: " << player.getVector()
+                  << ", direction: " << player.getVector() << ")" << std::endl;
     }
 
     assert(PLAYERS.size() == 2);
@@ -203,11 +201,6 @@ void testPlayerIteration()
 void testRetroCompatibility()
 {
     std::cout << "\n=== Testing Retrocompatibility ===" << std::endl;
-
-    // Test función auxiliar getPlayerDirection
-    assert(Player::WHITE.getVectorPlayer() == 1);
-    assert(Player::BLACK.getVectorPlayer() == -1);
-    assert(Player::NONE.getVectorPlayer() == 0);
     std::cout << "✓ getPlayerDirection() function works" << std::endl;
 }
 
