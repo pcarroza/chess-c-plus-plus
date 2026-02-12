@@ -22,27 +22,27 @@ namespace models::modules::game::pieces
         pawnPromoted = pawn.isPromoted();
     }
 
-    void PawnPromotionVisitor::visit(King &king)
+    void PawnPromotionVisitor::visit([[maybe_unused]] King &king)
     {
         // Do nothing
     }
 
-    void PawnPromotionVisitor::visit(Queen &queen)
+    void PawnPromotionVisitor::visit([[maybe_unused]] Queen &queen)
     {
         // Do nothing
     }
 
-    void PawnPromotionVisitor::visit(Rook &rook)
+    void PawnPromotionVisitor::visit([[maybe_unused]] Rook &rook)
     {
         // Do nothing
     }
 
-    void PawnPromotionVisitor::visit(Bishop &bishop)
+    void PawnPromotionVisitor::visit([[maybe_unused]] Bishop &bishop)
     {
         // Do nothing
     }
 
-    void PawnPromotionVisitor::visit(Knight &knight)
+    void PawnPromotionVisitor::visit([[maybe_unused]] Knight &knight)
     {
         // Do nothing
     }

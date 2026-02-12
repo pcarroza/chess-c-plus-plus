@@ -15,7 +15,7 @@ namespace models::modules::game::pieces
     class Bishop : public Piece
     {
     public:
-        Bishop(Coordinate *coordinate, Player color);
+        Bishop(Coordinate *coordinate, Player player);
 
         void accept(PieceVisitor &pieceVisitor) override;
 

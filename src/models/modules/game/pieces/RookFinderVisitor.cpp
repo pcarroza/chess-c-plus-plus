@@ -17,32 +17,32 @@ namespace models::modules::game::pieces
         return rookFound;
     }
 
-    void RookFinderVisitor::visit(Rook &rook)
+    void RookFinderVisitor::visit([[maybe_unused]] Rook &rook)
     {
         rookFound = true;
     }
 
-    void RookFinderVisitor::visit(King &king)
+    void RookFinderVisitor::visit([[maybe_unused]] King &king)
     {
         // Do nothing
     }
 
-    void RookFinderVisitor::visit(Queen &queen)
+    void RookFinderVisitor::visit([[maybe_unused]] Queen &queen)
     {
         // Do nothing
     }
 
-    void RookFinderVisitor::visit(Bishop &bishop)
+    void RookFinderVisitor::visit([[maybe_unused]] Bishop &bishop)
     {
         // Do nothing
     }
 
-    void RookFinderVisitor::visit(Knight &knight)
+    void RookFinderVisitor::visit([[maybe_unused]] Knight &knight)
     {
         // Do nothing
     }
 
-    void RookFinderVisitor::visit(Pawn &pawn)
+    void RookFinderVisitor::visit([[maybe_unused]] Pawn &pawn)
     {
         // Do nothing
     }

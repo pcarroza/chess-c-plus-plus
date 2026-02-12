@@ -23,6 +23,6 @@ namespace models::modules::game::pieces::rules::strategies
     Coordinate *InverseMovementStrategy::getDisplacedCoordinateBy(int step, const Coordinate &vector)
     {
         assert(step >= 1);
-        return piece->getDisplacedBy(Coordinate(step, step));
+        return piece->getDisplacedBy(Coordinate(step, step), vector);
     }
 }

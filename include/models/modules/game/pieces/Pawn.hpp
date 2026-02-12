@@ -22,7 +22,7 @@ namespace models::modules::game::pieces
     class Pawn : public Piece
     {
     public:
-        Pawn(Coordinate *coordinate, Player color);
+        Pawn(Coordinate *coordinate, Player player);
 
         ~Pawn();
 

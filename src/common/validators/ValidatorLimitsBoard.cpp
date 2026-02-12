@@ -14,13 +14,13 @@ namespace common::validators
 
     bool ValidatorLimitsBoard::isWithinLimits(const Coordinate &coordinate)
     {
-        return LIMITS.isIncluded(coordinate.getRow()) &&
+        return LIMITS.isIncluded(coordinate.getRow()) and
                LIMITS.isIncluded(coordinate.getColumn());
     }
 
     bool ValidatorLimitsBoard::isPieceEndBoardAt(const Coordinate &coordinate)
     {
-        return LIMITS.isEqualToMin(coordinate.getRow()) ||
+        return LIMITS.isEqualToMin(coordinate.getRow()) or
                LIMITS.isEqualToMax(coordinate.getColumn());
     }
 }

@@ -13,7 +13,7 @@ namespace models::modules::game::pieces
     class Rook : public Piece
     {
     public:
-        Rook(Coordinate *coordinate, Player color);
+        Rook(Coordinate *coordinate, Player player);
 
         void accept(PieceVisitor &pieceVisitor) override;
 
