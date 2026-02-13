@@ -15,7 +15,7 @@
 #include "models/modules/game/pieces/Knight.hpp"
 #include "models/modules/game/pieces/King.hpp"
 
-#include "controllers/modules/game/local/logic/LocalLogic.hpp"
+#include "controllers/modules/game/local/logic/LocalGameLogic.hpp"
 #include "controllers/modules/game/local/logic/StateBuilder.hpp"
 #include "models/modules/game/Game.hpp"
 #include "models/modules/game/Board.hpp"
@@ -28,7 +28,7 @@
 
 using controllers::modules::game::local::LocalStartController;
 using controllers::modules::game::local::errors::GameErrorTypeGenerator;
-using controllers::modules::game::local::logic::LocalLogic;
+using controllers::modules::game::local::logic::LocalGameLogic;
 using models::modules::game::Board;
 using models::modules::game::Game;
 using models::modules::game::Player;

@@ -3,12 +3,12 @@
 namespace controllers::modules::game::local::logic
 {
     InGameState::InGameState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder)
-        : State(stateBuilder),
+        : GameState(stateBuilder),
           builder(builder)
     {
     }
 
-    State *InGameState::finalize()
+    GameState *InGameState::finalize()
     {
         return stateBuilder->getFinalState();
     }

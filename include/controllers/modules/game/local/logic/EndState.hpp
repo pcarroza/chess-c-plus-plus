@@ -1,7 +1,7 @@
 #ifndef END_STATE_HPP
 #define END_STATE_HPP
 
-#include "State.hpp"
+#include "GameState.hpp"
 
 namespace controllers::modules::game::local
 {
@@ -10,7 +10,7 @@ namespace controllers::modules::game::local
 
 namespace controllers::modules::game::local::logic
 {
-    class EndState : public State
+    class EndState : public GameState
     {
     public:
         EndState(StateBuilder *stateBuilder);

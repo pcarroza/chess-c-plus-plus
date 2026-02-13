@@ -2,7 +2,7 @@
 
 namespace controllers::modules::game::local::logic
 {
-    EndState::EndState(StateBuilder *stateBuilder) : State(stateBuilder)
+    EndState::EndState(StateBuilder *stateBuilder) : GameState(stateBuilder)
     {
     }
 

@@ -6,18 +6,18 @@
 #include "controllers/modules/game/local/logic/InitialState.hpp"
 #include "controllers/modules/game/local/logic/StateBuilder.hpp"
 #include "controllers/modules/game/local/logic/EndState.hpp"
-#include "State.hpp"
+#include "GameState.hpp"
 
 namespace controllers::modules::game::local::logic
 {
-    class FinalState : public State
+    class FinalState : public GameState
     {
     public:
         FinalState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder);
 
-        State *initialize() override;
+        GameState *initialize() override;
 
-        State *end() override;
+        GameState *end() override;
 
         LocalOperationController *getController() const override;
 

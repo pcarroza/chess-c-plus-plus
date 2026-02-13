@@ -3,17 +3,17 @@
 namespace controllers::modules::game::local::logic
 {
     FinalState::FinalState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder)
-        : State(stateBuilder),
+        : GameState(stateBuilder),
           localContinueController(builder->getContinueController())
     {
     }
 
-    State *FinalState::initialize()
+    GameState *FinalState::initialize()
     {
         return stateBuilder->getInitialState();
     }
 
-    State *FinalState::end()
+    GameState *FinalState::end()
     {
         return stateBuilder->getEndState();
     }

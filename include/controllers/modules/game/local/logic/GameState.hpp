@@ -15,20 +15,20 @@ namespace controllers::modules::game::local::logic
 
 namespace controllers::modules::game::local::logic
 {
-    class State
+    class GameState
     {
     public:
-        State(StateBuilder *stateBuilder);
+        GameState(StateBuilder *stateBuilder);
 
-        virtual ~State() = default;
+        virtual ~GameState() = default;
 
-        virtual State *initialize();
+        virtual GameState *initialize();
 
-        virtual State *begin();
+        virtual GameState *begin();
 
-        virtual State *finalize();
+        virtual GameState *finalize();
 
-        virtual State *end();
+        virtual GameState *end();
 
         virtual LocalOperationController *getController() const = 0;
 

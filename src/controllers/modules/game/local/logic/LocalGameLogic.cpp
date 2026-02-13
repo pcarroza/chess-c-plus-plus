@@ -1,13 +1,12 @@
-#include "controllers/modules/game/local/logic/LocalLogic.hpp"
+#include "controllers/modules/game/local/logic/LocalGameLogic.hpp"
 #include "controllers/modules/game/local/LocalOperationControllerBuilder.hpp"
 #include "controllers/modules/game/local/logic/StateBuilder.hpp"
 #include "controllers/modules/game/local/logic/InitialState.hpp"
-#include "controllers/modules/game/local/logic/LocalLogic.hpp"
 #include "models/modules/game/Game.hpp"
 
 namespace controllers::modules::game::local::logic
 {
-    LocalLogic::LocalLogic()
+    LocalGameLogic::LocalGameLogic()
         : game(new Game(this)),
           state(nullptr),
           stateBuilder(nullptr),
@@ -18,34 +17,34 @@ namespace controllers::modules::game::local::logic
         state = stateBuilder->getInitialState();
     }
 
-    LocalLogic::~LocalLogic()
+    LocalGameLogic::~LocalGameLogic()
     {
         delete game;
         delete builder;
         delete stateBuilder;
     }
 
-    void LocalLogic::initialize()
+    void LocalGameLogic::initialize()
     {
         state = state->initialize();
     }
 
-    void LocalLogic::begin()
+    void LocalGameLogic::begin()
     {
         state = state->begin();
     }
 
-    void LocalLogic::finalize()
+    void LocalGameLogic::finalize()
     {
         state = state->finalize();
     }
 
-    void LocalLogic::end()
+    void LocalGameLogic::end()
     {
         state = state->end();
     }
 
-    LocalOperationController *LocalLogic::getController()
+    LocalOperationController *LocalGameLogic::getController()
     {
         return state->getController();
     }

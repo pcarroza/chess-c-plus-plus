@@ -3,12 +3,12 @@
 namespace controllers::modules::game::local::logic
 {
     InitialState::InitialState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder)
-        : State(stateBuilder),
+        : GameState(stateBuilder),
           localStartController(builder->getStartController())
     {
     }
 
-    State *InitialState::begin()
+    GameState *InitialState::begin()
     {
         return stateBuilder->getInGameState();
     }

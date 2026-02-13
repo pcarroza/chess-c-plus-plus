@@ -2,9 +2,9 @@
 #define STANDALONE_HPP
 
 #include "Chess.hpp"
-#include "controllers/modules/game/local/logic/LocalLogic.hpp"
+#include "controllers/modules/game/local/logic/LocalGameLogic.hpp"
 
-using controllers::modules::game::local::logic::LocalLogic;
+using controllers::modules::game::local::logic::LocalGameLogic;
 
 class Logic;
 
@@ -22,7 +22,7 @@ public:
     View *getView() override;
 
 private:
-    LocalLogic *logic;
+    LocalGameLogic *logic;
 };
 
 #endif

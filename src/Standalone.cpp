@@ -5,7 +5,7 @@ using views::modules::console::modules::game::ConsoleView;
 
 Standalone::Standalone()
 {
-    logic = new LocalLogic();
+    logic = new LocalGameLogic();
 }
 
 Standalone::~Standalone()

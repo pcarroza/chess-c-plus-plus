@@ -1,30 +1,30 @@
-#include "controllers/modules/game/local/logic/State.hpp"
+#include "controllers/modules/game/local/logic/GameState.hpp"
 
 namespace controllers::modules::game::local::logic
 {
-    State::State(StateBuilder *stateBuilder) : stateBuilder(stateBuilder)
+    GameState::GameState(StateBuilder *stateBuilder) : stateBuilder(stateBuilder)
     {
     }
 
-    State *State::initialize()
+    GameState *GameState::initialize()
     {
         assert(false && "initialize() not implemented");
         return nullptr;
     }
 
-    State *State::begin()
+    GameState *GameState::begin()
     {
         assert(false && "begin() not implemented");
         return nullptr;
     }
 
-    State *State::finalize()
+    GameState *GameState::finalize()
     {
         assert(false && "finalize() not implemented");
         return nullptr;
     }
 
-    State *State::end()
+    GameState *GameState::end()
     {
         assert(false && "end() not implemented");
         return nullptr;

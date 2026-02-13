@@ -1,7 +1,7 @@
 #ifndef IN_GAME_STATE_HPP
 #define IN_GAME_STATE_HPP
 
-#include "State.hpp"
+#include "GameState.hpp"
 #include "StateBuilder.hpp"
 #include "controllers/modules/game/local/LocalOperationController.hpp"
 #include "controllers/modules/game/local/LocalOperationControllerBuilder.hpp"
@@ -14,12 +14,12 @@ namespace controllers::modules::game::local
 
 namespace controllers::modules::game::local::logic
 {
-    class InGameState : public State
+    class InGameState : public GameState
     {
     public:
         InGameState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder);
 
-        State *finalize() override;
+        GameState *finalize() override;
 
         LocalOperationController *getController() const override;
 
