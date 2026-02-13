@@ -2,10 +2,10 @@
 #define IN_GAME_STATE_HPP
 
 #include "GameState.hpp"
-#include "StateBuilder.hpp"
+#include "GameStateBuilder.hpp"
 #include "controllers/modules/game/local/LocalOperationController.hpp"
 #include "controllers/modules/game/local/LocalOperationControllerBuilder.hpp"
-#include "controllers/modules/game/local/logic/FinalState.hpp"
+#include "controllers/modules/game/local/logic/GameFinalState.hpp"
 
 namespace controllers::modules::game::local
 {
@@ -17,7 +17,7 @@ namespace controllers::modules::game::local::logic
     class InGameState : public GameState
     {
     public:
-        InGameState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder);
+        InGameState(GameStateBuilder *gameStateBuilder, LocalOperationControllerBuilder *builder);
 
         GameState *finalize() override;
 

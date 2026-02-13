@@ -1,5 +1,5 @@
-#ifndef STATE_HPP
-#define STATE_HPP
+#ifndef GAME_STATE_HPP
+#define GAME_STATE_HPP
 
 #include <cassert>
 
@@ -10,7 +10,7 @@ namespace controllers::modules::game::local
 
 namespace controllers::modules::game::local::logic
 {
-    class StateBuilder;
+    class GameStateBuilder;
 }
 
 namespace controllers::modules::game::local::logic
@@ -18,7 +18,7 @@ namespace controllers::modules::game::local::logic
     class GameState
     {
     public:
-        GameState(StateBuilder *stateBuilder);
+        GameState(GameStateBuilder *gameStateBuilder);
 
         virtual ~GameState() = default;
 
@@ -33,7 +33,7 @@ namespace controllers::modules::game::local::logic
         virtual LocalOperationController *getController() const = 0;
 
     protected:
-        StateBuilder *stateBuilder;
+        GameStateBuilder *gameStateBuilder;
     };
 }
 

@@ -3,7 +3,7 @@
 
 #include "GameState.hpp"
 #include "InGameState.hpp"
-#include "StateBuilder.hpp"
+#include "GameStateBuilder.hpp"
 #include "../LocalStartController.hpp"
 
 namespace controllers::modules::game::local
@@ -16,10 +16,10 @@ using controllers::modules::game::local::LocalOperationController;
 
 namespace controllers::modules::game::local::logic
 {
-    class InitialState : public GameState
+    class GameInitialState : public GameState
     {
     public:
-        InitialState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder);
+        GameInitialState(GameStateBuilder *gameStateBuilder, LocalOperationControllerBuilder *builder);
 
         GameState *begin() override;
 

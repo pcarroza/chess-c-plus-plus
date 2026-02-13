@@ -2,15 +2,15 @@
 
 namespace controllers::modules::game::local::logic
 {
-    InGameState::InGameState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder)
-        : GameState(stateBuilder),
+    InGameState::InGameState(GameStateBuilder *gameStateBuilder, LocalOperationControllerBuilder *builder)
+        : GameState(gameStateBuilder),
           builder(builder)
     {
     }
 
     GameState *InGameState::finalize()
     {
-        return stateBuilder->getFinalState();
+        return gameStateBuilder->getFinalState();
     }
 
     LocalOperationController *InGameState::getController() const

@@ -2,7 +2,7 @@
 
 namespace controllers::modules::game::local::logic
 {
-    GameState::GameState(StateBuilder *stateBuilder) : stateBuilder(stateBuilder)
+    GameState::GameState(GameStateBuilder *gameStateBuilder) : gameStateBuilder(gameStateBuilder)
     {
     }
 

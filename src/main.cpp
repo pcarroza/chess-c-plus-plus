@@ -16,7 +16,7 @@
 #include "models/modules/game/pieces/King.hpp"
 
 #include "controllers/modules/game/local/logic/LocalGameLogic.hpp"
-#include "controllers/modules/game/local/logic/StateBuilder.hpp"
+#include "controllers/modules/game/local/logic/GameStateBuilder.hpp"
 #include "models/modules/game/Game.hpp"
 #include "models/modules/game/Board.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"

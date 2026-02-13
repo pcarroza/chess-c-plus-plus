@@ -1,19 +1,19 @@
-#ifndef FINAL_STATE_HPP
-#define FINAL_STATE_HPP
+#ifndef GAME_FINAL_STATE_HPP
+#define GAME_FINAL_STATE_HPP
 
 #include "controllers/modules/game/local/LocalOperationControllerBuilder.hpp"
 #include "controllers/modules/game/local/LocalContinueController.hpp"
-#include "controllers/modules/game/local/logic/InitialState.hpp"
-#include "controllers/modules/game/local/logic/StateBuilder.hpp"
-#include "controllers/modules/game/local/logic/EndState.hpp"
+#include "controllers/modules/game/local/logic/GameInitialState.hpp"
+#include "controllers/modules/game/local/logic/GameStateBuilder.hpp"
+#include "controllers/modules/game/local/logic/GameEndState.hpp"
 #include "GameState.hpp"
 
 namespace controllers::modules::game::local::logic
 {
-    class FinalState : public GameState
+    class GameFinalState : public GameState
     {
     public:
-        FinalState(StateBuilder *stateBuilder, LocalOperationControllerBuilder *builder);
+        GameFinalState(GameStateBuilder *gameStateBuilder, LocalOperationControllerBuilder *builder);
 
         GameState *initialize() override;
 

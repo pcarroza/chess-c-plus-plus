@@ -1,5 +1,5 @@
-#ifndef END_STATE_HPP
-#define END_STATE_HPP
+#ifndef GAME_END_STATE_HPP
+#define GAME_END_STATE_HPP
 
 #include "GameState.hpp"
 
@@ -10,10 +10,10 @@ namespace controllers::modules::game::local
 
 namespace controllers::modules::game::local::logic
 {
-    class EndState : public GameState
+    class GameEndState : public GameState
     {
     public:
-        EndState(StateBuilder *stateBuilder);
+        GameEndState(GameStateBuilder *gameStateBuilder);
 
         LocalOperationController *getController() const override;
     };

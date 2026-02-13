@@ -18,7 +18,7 @@ namespace controllers::modules::game::local
 namespace controllers::modules::game::local::logic
 {
     class GameState;
-    class StateBuilder;
+    class GameStateBuilder;
 }
 
 namespace models::modules::game
@@ -50,7 +50,7 @@ namespace controllers::modules::game::local::logic
 
         GameState *state;
 
-        StateBuilder *stateBuilder;
+        GameStateBuilder *gameStateBuilder;
 
         LocalOperationControllerBuilder *builder;
     };
