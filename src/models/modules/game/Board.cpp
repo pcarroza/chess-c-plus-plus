@@ -35,9 +35,9 @@ namespace models::modules::game
         delete turn;
     }
 
-    void Board::set(Piece *piece)
+    void Board::set(Piece *selectedPiece)
     {
-        this->selectedPiece = piece;
+        this->selectedPiece = selectedPiece;
     }
 
     void Board::set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements)
@@ -65,7 +65,7 @@ namespace models::modules::game
             auto &piece = *it;
             piece->generateMovements();
             set(piece->getValidMovements());
-            selectedPiece = piece.get();
+            set(piece.get());
         }
         else
         {
@@ -105,19 +105,25 @@ namespace models::modules::game
 
     bool Board::isSquareEmpty(const Coordinate &coordinate)
     {
-        auto pieceFinder = [&](const std::shared_ptr<Piece> &piece) { 
-            return piece->isAt(coordinate); 
+        auto pieceFinder = [&](const std::shared_ptr<Piece> &piece)
+        {
+            return piece->isAt(coordinate);
         };
+
         auto &currentPieces = getPiecesBy(getCurrentPlayer());
+
         if (std::any_of(currentPieces.begin(), currentPieces.end(), pieceFinder))
         {
             return false;
         }
+
         auto &rivalPieces = getPiecesBy(getRivalPlayer());
+
         if (std::any_of(rivalPieces.begin(), rivalPieces.end(), pieceFinder))
         {
             return false;
         }
+        
         return true;
     }
 
@@ -125,9 +131,8 @@ namespace models::modules::game
     {
         auto &pieces = getPiecesBy(getCurrentPlayer());
 
-        return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece) { 
-            return piece->isAt(coordinate); 
-        });
+        return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                           { return piece->isAt(coordinate); });
     }
 
     bool Board::isSquareOccupied(const Coordinate &coordinate)
@@ -148,7 +153,8 @@ namespace models::modules::game
     void Board::deleteEnPassantPawn(Piece *piece)
     {
         auto &enPassantPawns = enPassantPawnsMap.at(getCurrentPlayer());
-        enPassantPawns.remove_if([piece](const std::shared_ptr<Piece> &it) { return it.get() == piece; });
+        enPassantPawns.remove_if([piece](const std::shared_ptr<Piece> &it)
+                                 { return it.get() == piece; });
     }
 
     void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
@@ -168,12 +174,12 @@ namespace models::modules::game
 
         auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
                                  {
-        if (piece->isAt(coordinate))
-        {
-            removed.push_back(piece);
-            return true;
-        }
-        return false; });
+            if (piece->isAt(coordinate))
+            {
+                removed.push_back(piece);
+                return true;
+            }
+            return false; });
 
         pieces.erase(it, pieces.end());
     }
