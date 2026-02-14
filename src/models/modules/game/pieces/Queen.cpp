@@ -5,12 +5,12 @@ namespace models::modules::game::pieces
 {
     Queen::Queen(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     {
-        basedGenerator = rules::createQueenRuleBasedCoordinateGenerator(this);
+        basedGenerator = rules::createQueenRuleBasedCoordinateGenerator();
     }
 
-    void Queen::accept(PieceVisitor &visitor)
+    void Queen::accept(PieceVisitor &pieceVisitor)
     {
-        visitor.visit(*this);
+        pieceVisitor.visit(*this);
     }
 
     std::string Queen::toString() const

@@ -8,9 +8,9 @@ namespace models::modules::game::pieces::rules
     class RookRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        RookRuleBasedCoordinateGenerator(Piece *piece);
+        RookRuleBasedCoordinateGenerator();
 
-        void generate() override;
+        void generate(const Piece& piece) override;
     };
 }
 

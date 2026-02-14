@@ -8,9 +8,9 @@ namespace models::modules::game::pieces::rules
     class BishopRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        BishopRuleBasedCoordinateGenerator(Piece *piece);
+        BishopRuleBasedCoordinateGenerator();
 
-        void generate() override;
+        void generate(const Piece& piece) override;
     };
 }
 

@@ -5,14 +5,13 @@ using namespace models::modules::game::pieces::rules::strategies;
 
 namespace models::modules::game::pieces::rules
 {
-    BishopRuleBasedCoordinateGenerator::BishopRuleBasedCoordinateGenerator(Piece *piece)
-        : MovementRulesBaseGenerator(piece)
+    BishopRuleBasedCoordinateGenerator::BishopRuleBasedCoordinateGenerator()
     {
     }
 
-    void BishopRuleBasedCoordinateGenerator::generate()
+    void BishopRuleBasedCoordinateGenerator::generate(const Piece &piece)
     {
         possibleMoves.clear();
-        possibleMoves = BuilderMovementStrategy::buildBishopMovements(*piece);
+        possibleMoves = BuilderMovementStrategy::buildBishopMovements(piece);
     }
 }

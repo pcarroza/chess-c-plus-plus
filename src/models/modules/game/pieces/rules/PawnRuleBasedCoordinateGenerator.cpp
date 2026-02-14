@@ -2,34 +2,28 @@
 
 namespace models::modules::game::pieces::rules
 {
-    PawnRuleBasedCoordinateGenerator::PawnRuleBasedCoordinateGenerator(Piece *piece)
+    PawnRuleBasedCoordinateGenerator::PawnRuleBasedCoordinateGenerator()
     {
-        set(piece);
     }
 
-    void PawnRuleBasedCoordinateGenerator::set(Piece *piece)
+    void PawnRuleBasedCoordinateGenerator::generate(const Piece &piece)
     {
-        pawn = dynamic_cast<Pawn *>(piece);
-    }
-
-    void PawnRuleBasedCoordinateGenerator::generate()
-    {
+        const Pawn &pawn = dynamic_cast<const Pawn &>(piece);
         possibleMoves.clear();
 
-        if (pawn->canAdvanceOne())
-            possibleMoves.push_back(pawn->getForwardOne());
+        if (pawn.canAdvanceOne())
+            possibleMoves.push_back(pawn.getForwardOne());
 
-        if (pawn->canAdvanceTwo())
-            possibleMoves.push_back(pawn->getForwardTwo());
+        if (pawn.canAdvanceTwo())
+            possibleMoves.push_back(pawn.getForwardTwo());
 
-        if (pawn->canCaptureLeft())
-            possibleMoves.push_back(pawn->getDiagonalLeft());
+        if (pawn.canCaptureLeft())
+            possibleMoves.push_back(pawn.getDiagonalLeft());
 
-        if (pawn->canCaptureRight())
-            possibleMoves.push_back(pawn->getDiagonalRight());
+        if (pawn.canCaptureRight())
+            possibleMoves.push_back(pawn.getDiagonalRight());
 
         possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
                                 { return not ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
     }
 }
-

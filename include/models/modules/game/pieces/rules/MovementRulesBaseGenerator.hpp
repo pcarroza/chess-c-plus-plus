@@ -21,24 +21,18 @@ namespace models::modules::game::pieces::rules
     public:
         MovementRulesBaseGenerator();
 
-        MovementRulesBaseGenerator(Piece *piece);
-
         virtual ~MovementRulesBaseGenerator() = default;
-
-        virtual void set(Piece *piece);
 
         bool isMovementValid(const Coordinate &coordinate);
 
         std::list<std::shared_ptr<Coordinate>> &getMovements();
 
-        virtual void generate() = 0;
+        virtual void generate(const Piece &piece) = 0;
 
     private:
         bool isContained(const Coordinate &coordinate);
 
     protected:
-        Piece *piece;
-
         std::list<std::shared_ptr<Coordinate>> possibleMoves;
     };
 }

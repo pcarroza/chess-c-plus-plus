@@ -17,7 +17,7 @@ namespace models::modules::game::pieces
           vulnerablePawn(false),
           specialGenerator(new EnPassantPawnSpecialRuleGenerator(this))
     {
-        basedGenerator = rules::createPawnRuleBasedCoordinateGenerator(this);
+        basedGenerator = rules::createPawnRuleBasedCoordinateGenerator();
     }
 
     Pawn::~Pawn()

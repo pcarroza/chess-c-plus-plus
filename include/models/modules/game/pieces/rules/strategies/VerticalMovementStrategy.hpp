@@ -10,7 +10,7 @@ namespace models::modules::game::pieces::rules::strategies
     public:
         VerticalMovementStrategy() = delete;
 
-        VerticalMovementStrategy(Piece *piece);
+        VerticalMovementStrategy(const Piece &piece);
 
         std::list<std::shared_ptr<Coordinate>> generate() override;
 

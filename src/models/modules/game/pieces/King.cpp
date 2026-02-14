@@ -8,7 +8,7 @@ namespace models::modules::game::pieces
 {
     King::King(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     {
-        basedGenerator = rules::createKingRuleBasedCoordinateGenerator(this);
+        basedGenerator = rules::createKingRuleBasedCoordinateGenerator();
     }
 
     void King::accept(PieceVisitor &pieceVisitor)

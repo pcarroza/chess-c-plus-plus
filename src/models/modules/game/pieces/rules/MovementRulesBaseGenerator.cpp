@@ -3,17 +3,8 @@
 
 namespace models::modules::game::pieces::rules
 {
-    MovementRulesBaseGenerator::MovementRulesBaseGenerator() : piece(nullptr)
+    MovementRulesBaseGenerator::MovementRulesBaseGenerator()
     {
-    }
-
-    MovementRulesBaseGenerator::MovementRulesBaseGenerator(Piece *piece) : piece(piece)
-    {
-    }
-
-    void MovementRulesBaseGenerator::set(Piece *piece)
-    {
-        this->piece = piece;
     }
 
     std::list<std::shared_ptr<Coordinate>> &MovementRulesBaseGenerator::getMovements()

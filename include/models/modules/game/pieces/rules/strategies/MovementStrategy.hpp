@@ -17,7 +17,7 @@ namespace models::modules::game::pieces::rules::strategies
     class MovementStrategy
     {
     public:
-        MovementStrategy(Piece *piece);
+        MovementStrategy(const Piece &piece);
 
         virtual ~MovementStrategy() = default;
 
@@ -32,7 +32,7 @@ namespace models::modules::game::pieces::rules::strategies
         void generateRecursive(std::list<std::shared_ptr<Coordinate>> &coordinates, const Coordinate &coordinate, int step);
 
     protected:
-        Piece *piece;
+        const Piece &piece;
     };
 }
 

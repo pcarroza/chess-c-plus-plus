@@ -8,9 +8,9 @@ namespace models::modules::game::pieces::rules::strategies
     class HorizontalMovementStrategy : public MovementStrategy
     {
     public:
-        HorizontalMovementStrategy() = delete;
+        HorizontalMovementStrategy(const Piece &piece);
 
-        HorizontalMovementStrategy(Piece *piece);
+        HorizontalMovementStrategy() = delete;
 
         std::list<std::shared_ptr<Coordinate>> generate() override;
 

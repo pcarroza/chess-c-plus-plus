@@ -5,7 +5,7 @@
 
 namespace models::modules::game::pieces::rules::strategies
 {
-    VerticalMovementStrategy::VerticalMovementStrategy(Piece *piece) : MovementStrategy(piece)
+    VerticalMovementStrategy::VerticalMovementStrategy(const Piece &piece) : MovementStrategy(piece)
     {
     }
 
@@ -21,6 +21,6 @@ namespace models::modules::game::pieces::rules::strategies
 
     Coordinate *VerticalMovementStrategy::getDisplacedCoordinateBy(int increment, const Coordinate &vector)
     {
-        return piece->getDisplacedBy(Coordinate(increment, 0), vector);
+        return piece.getDisplacedBy(Coordinate(increment, 0), vector);
     }
 }

@@ -11,7 +11,7 @@ namespace models::modules::game::pieces::rules::strategies
     class InverseMovementStrategy : public MovementStrategy
     {
     public:
-        InverseMovementStrategy(Piece *piece);
+        InverseMovementStrategy(const Piece &piece);
 
         InverseMovementStrategy() = delete;
 

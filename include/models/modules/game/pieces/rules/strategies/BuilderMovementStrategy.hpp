@@ -13,11 +13,11 @@ namespace models::modules::game::pieces::rules::strategies
     public:
         BuilderMovementStrategy() = delete;
 
-        static std::list<std::shared_ptr<Coordinate>> buildRookMovements(Piece &piece);
+        static std::list<std::shared_ptr<Coordinate>> buildRookMovements(const Piece &piece);
 
-        static std::list<std::shared_ptr<Coordinate>> buildBishopMovements(Piece &piece);
+        static std::list<std::shared_ptr<Coordinate>> buildBishopMovements(const Piece &piece);
 
-        static std::list<std::shared_ptr<Coordinate>> buildQueenMovements(Piece &piece);
+        static std::list<std::shared_ptr<Coordinate>> buildQueenMovements(const Piece &piece);
     };
 }
 

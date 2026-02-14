@@ -16,9 +16,9 @@ namespace models::modules::game::pieces::rules
     class KnightRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        KnightRuleBasedCoordinateGenerator(Piece *piece);
+        KnightRuleBasedCoordinateGenerator();
 
-        void generate() override;
+        void generate(const Piece& piece) override;
     };
 }
 

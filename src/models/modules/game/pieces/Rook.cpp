@@ -5,12 +5,12 @@ namespace models::modules::game::pieces
 {
     Rook::Rook(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     {
-        basedGenerator = rules::createRookRuleBasedCoordinateGenerator(this);
+        basedGenerator = rules::createRookRuleBasedCoordinateGenerator();
     }
 
-    void Rook::accept(PieceVisitor &visitor)
+    void Rook::accept(PieceVisitor &pieceVisitor)
     {
-        visitor.visit(*this);
+        pieceVisitor.visit(*this);
     }
 
     std::string Rook::toString() const

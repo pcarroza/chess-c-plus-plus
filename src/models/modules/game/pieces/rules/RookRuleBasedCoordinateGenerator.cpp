@@ -5,14 +5,13 @@ using namespace models::modules::game::pieces::rules::strategies;
 
 namespace models::modules::game::pieces::rules
 {
-    RookRuleBasedCoordinateGenerator::RookRuleBasedCoordinateGenerator(Piece *piece)
-        : MovementRulesBaseGenerator(piece)
+    RookRuleBasedCoordinateGenerator::RookRuleBasedCoordinateGenerator()
     {
     }
 
-    void RookRuleBasedCoordinateGenerator::generate()
+    void RookRuleBasedCoordinateGenerator::generate(const Piece &piece)
     {
         possibleMoves.clear();
-        possibleMoves = BuilderMovementStrategy::buildRookMovements(*piece);
+        possibleMoves = BuilderMovementStrategy::buildRookMovements(piece);
     }
 }

@@ -7,7 +7,7 @@ namespace models::modules::game::pieces
 {
     Knight::Knight(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     {
-        basedGenerator = rules::createKnightRuleBasedCoordinateGenerator(this);
+        basedGenerator = rules::createKnightRuleBasedCoordinateGenerator();
     }
 
     void Knight::accept(PieceVisitor &pieceVisitor)

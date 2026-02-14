@@ -21,13 +21,9 @@ namespace models::modules::game::pieces::rules
     class PawnRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        PawnRuleBasedCoordinateGenerator(Piece *piece);
+        PawnRuleBasedCoordinateGenerator();
 
-        PawnRuleBasedCoordinateGenerator() = default;
-
-        void set(Piece *piece) override;
-
-        void generate() override;
+        void generate(const Piece& piece) override;
 
     private:
         Pawn *pawn;

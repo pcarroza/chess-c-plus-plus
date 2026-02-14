@@ -5,14 +5,13 @@ using namespace models::modules::game::pieces::rules::strategies;
 
 namespace models::modules::game::pieces::rules
 {
-    QueenRuleBasedCoordinateGenerator::QueenRuleBasedCoordinateGenerator(Piece *piece)
-        : MovementRulesBaseGenerator(piece)
+    QueenRuleBasedCoordinateGenerator::QueenRuleBasedCoordinateGenerator()
     {
     }
 
-    void QueenRuleBasedCoordinateGenerator::generate()
+    void QueenRuleBasedCoordinateGenerator::generate(const Piece &piece)
     {
         possibleMoves.clear();
-        possibleMoves = BuilderMovementStrategy::buildQueenMovements(*piece);
+        possibleMoves = BuilderMovementStrategy::buildQueenMovements(piece);
     }
 }

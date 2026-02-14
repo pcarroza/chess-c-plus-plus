@@ -6,7 +6,7 @@
 
 namespace models::modules::game::pieces::rules::strategies
 {
-    InverseMovementStrategy::InverseMovementStrategy(Piece *piece) : MovementStrategy(piece)
+    InverseMovementStrategy::InverseMovementStrategy(const Piece &piece) : MovementStrategy(piece)
     {
     }
 
@@ -23,6 +23,6 @@ namespace models::modules::game::pieces::rules::strategies
     Coordinate *InverseMovementStrategy::getDisplacedCoordinateBy(int step, const Coordinate &vector)
     {
         assert(step >= 1);
-        return piece->getDisplacedBy(Coordinate(step, step), vector);
+        return piece.getDisplacedBy(Coordinate(step, step), vector);
     }
 }

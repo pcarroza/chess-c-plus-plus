@@ -16,16 +16,16 @@ using models::modules::game::pieces::rules::MovementRulesBaseGenerator;
 
 namespace models::modules::game::pieces::rules
 {
-    MovementRulesBaseGenerator *createBishopRuleBasedCoordinateGenerator(Piece *piece);
+    MovementRulesBaseGenerator *createBishopRuleBasedCoordinateGenerator();
 
-    MovementRulesBaseGenerator *createKingRuleBasedCoordinateGenerator(Piece *piece);
+    MovementRulesBaseGenerator *createKingRuleBasedCoordinateGenerator();
 
-    MovementRulesBaseGenerator *createKnightRuleBasedCoordinateGenerator(Piece *piece);
+    MovementRulesBaseGenerator *createKnightRuleBasedCoordinateGenerator();
 
-    MovementRulesBaseGenerator *createQueenRuleBasedCoordinateGenerator(Piece *piece);
+    MovementRulesBaseGenerator *createQueenRuleBasedCoordinateGenerator();
 
-    MovementRulesBaseGenerator *createRookRuleBasedCoordinateGenerator(Piece *piece);
+    MovementRulesBaseGenerator *createRookRuleBasedCoordinateGenerator();
 
-    MovementRulesBaseGenerator *createPawnRuleBasedCoordinateGenerator(Piece *piece);
+    MovementRulesBaseGenerator *createPawnRuleBasedCoordinateGenerator();
 }
 #endif

@@ -7,7 +7,7 @@
 namespace models::modules::game::pieces::rules::strategies
 {
 
-    HorizontalMovementStrategy::HorizontalMovementStrategy(Piece *piece) : MovementStrategy(piece)
+    HorizontalMovementStrategy::HorizontalMovementStrategy(const Piece &piece) : MovementStrategy(piece)
     {
     }
 
@@ -23,6 +23,6 @@ namespace models::modules::game::pieces::rules::strategies
 
     Coordinate *HorizontalMovementStrategy::getDisplacedCoordinateBy(int step, const Coordinate &vector)
     {
-        return piece->getDisplacedBy(Coordinate(step, 0), vector);
+        return piece.getDisplacedBy(Coordinate(step, 0), vector);
     }
 }

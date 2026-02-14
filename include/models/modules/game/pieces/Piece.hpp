@@ -41,9 +41,9 @@ namespace models::modules::game::pieces
 
         Coordinate *getDisplacedBy(const Coordinate &increase) const;
 
-        Coordinate *getDisplacedBy(const Coordinate &increase, const Coordinate &vector);
+        Coordinate *getDisplacedBy(const Coordinate &increase, const Coordinate &vector) const;
 
-        bool isAt(const Coordinate &coordinate);
+        bool isAt(const Coordinate &coordinate) const;
 
         void put(Coordinate *coordinate) override;
 

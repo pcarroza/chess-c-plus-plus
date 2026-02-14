@@ -10,7 +10,7 @@ namespace models::modules::game::pieces::rules::strategies
     public:
         DiagonalMovementStrategy() = delete;
         
-        DiagonalMovementStrategy(Piece *piece);
+        DiagonalMovementStrategy(const Piece &piece);
 
         std::list<std::shared_ptr<Coordinate>> generate() override;
 

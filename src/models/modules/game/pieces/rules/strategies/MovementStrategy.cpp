@@ -6,7 +6,7 @@ using common::validators::ValidatorLimitsBoard;
 
 namespace models::modules::game::pieces::rules::strategies
 {
-    MovementStrategy::MovementStrategy(Piece *piece) : piece(piece)
+    MovementStrategy::MovementStrategy(const Piece &piece) : piece(piece)
     {
     }
 
@@ -24,11 +24,11 @@ namespace models::modules::game::pieces::rules::strategies
         {
             return;
         }
-        if (piece->isSameColorPieceAt(*coordinate))
+        if (piece.isSameColorPieceAt(*coordinate))
         {
             return;
         }
-        if (piece->isEnemy(*coordinate))
+        if (piece.isEnemy(*coordinate))
         {
             coordinates.push_back(std::shared_ptr<Coordinate>(new Coordinate(*coordinate)));
             return;

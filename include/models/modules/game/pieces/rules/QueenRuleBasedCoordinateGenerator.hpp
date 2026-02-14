@@ -8,9 +8,9 @@ namespace models::modules::game::pieces::rules
     class QueenRuleBasedCoordinateGenerator : public MovementRulesBaseGenerator
     {
     public:
-        QueenRuleBasedCoordinateGenerator(Piece *piece);
+        QueenRuleBasedCoordinateGenerator();
 
-        void generate() override;
+        void generate(const Piece& piece) override;
     };
 }
 

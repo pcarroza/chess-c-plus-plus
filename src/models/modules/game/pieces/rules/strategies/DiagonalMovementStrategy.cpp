@@ -3,7 +3,7 @@
 
 namespace models::modules::game::pieces::rules::strategies
 {
-    DiagonalMovementStrategy::DiagonalMovementStrategy(Piece *piece) : MovementStrategy(piece)
+    DiagonalMovementStrategy::DiagonalMovementStrategy(const Piece &piece) : MovementStrategy(piece)
     {
     }
 
@@ -19,6 +19,6 @@ namespace models::modules::game::pieces::rules::strategies
 
     Coordinate *DiagonalMovementStrategy::getDisplacedCoordinateBy(int increment, const Coordinate &vector)
     {
-        return piece->getDisplacedBy(Coordinate(increment, increment), vector);
+        return piece.getDisplacedBy(Coordinate(increment, increment), vector);
     }
 }

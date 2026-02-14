@@ -62,12 +62,12 @@ namespace models::modules::game::pieces
         return getCoordinate()->getDisplacedBy(displacement);
     }
 
-    Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector)
+    Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
     {
         return getCoordinate()->getDisplacedBy(displacement, vector);
     }
 
-    bool Piece::isAt(const Coordinate &coordinate)
+    bool Piece::isAt(const Coordinate &coordinate) const
     {
         return *getCoordinate() == coordinate;
     }
@@ -79,6 +79,6 @@ namespace models::modules::game::pieces
 
     void Piece::generateMovements()
     {
-        basedGenerator->generate();
+        basedGenerator->generate(*this);
     }
 }

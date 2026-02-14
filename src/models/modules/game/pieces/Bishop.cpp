@@ -7,7 +7,7 @@ namespace models::modules::game::pieces
 {
     Bishop::Bishop(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     {
-        basedGenerator = rules::createBishopRuleBasedCoordinateGenerator(this);
+        basedGenerator = rules::createBishopRuleBasedCoordinateGenerator();
     }
 
     void Bishop::accept(PieceVisitor &pieceVisitor)

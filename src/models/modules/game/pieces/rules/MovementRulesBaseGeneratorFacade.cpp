@@ -8,33 +8,33 @@
 
 namespace models::modules::game::pieces::rules
 {
-    MovementRulesBaseGenerator *createBishopRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createBishopRuleBasedCoordinateGenerator()
     {
-        return new BishopRuleBasedCoordinateGenerator(piece);
+        return new BishopRuleBasedCoordinateGenerator();
     }
 
-    MovementRulesBaseGenerator *createKingRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createKingRuleBasedCoordinateGenerator()
     {
-        return new KingRuleBasedCoordinateGenerator(piece);
+        return new KingRuleBasedCoordinateGenerator();
     }
 
-    MovementRulesBaseGenerator *createKnightRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createKnightRuleBasedCoordinateGenerator()
     {
-        return new KnightRuleBasedCoordinateGenerator(piece);
+        return new KnightRuleBasedCoordinateGenerator();
     }
 
-    MovementRulesBaseGenerator *createQueenRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createQueenRuleBasedCoordinateGenerator()
     {
-        return new QueenRuleBasedCoordinateGenerator(piece);
+        return new QueenRuleBasedCoordinateGenerator();
     }
 
-    MovementRulesBaseGenerator *createRookRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createRookRuleBasedCoordinateGenerator()
     {
-        return new RookRuleBasedCoordinateGenerator(piece);
+        return new RookRuleBasedCoordinateGenerator();
     }
 
-    MovementRulesBaseGenerator *createPawnRuleBasedCoordinateGenerator(Piece *piece)
+    MovementRulesBaseGenerator *createPawnRuleBasedCoordinateGenerator()
     {
-        return new PawnRuleBasedCoordinateGenerator(piece);
+        return new PawnRuleBasedCoordinateGenerator();
     }
 }

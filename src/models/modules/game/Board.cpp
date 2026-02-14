@@ -15,8 +15,8 @@ namespace models::modules::game
 {
     Board::Board()
         : piecesMap(PiecesMapBuilder::build(this)),
-          selectedPiece(nullptr),
           selectedPieceMovements(nullptr),
+          selectedPiece(nullptr),
           turn(new Turn())
     {
         removedPieces = {
@@ -123,7 +123,7 @@ namespace models::modules::game
         {
             return false;
         }
-        
+
         return true;
     }
 
