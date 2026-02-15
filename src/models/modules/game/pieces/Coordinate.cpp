@@ -21,9 +21,9 @@ namespace models::modules::game::pieces
         return row == other.row and column == other.column;
     }
 
-    Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
+    Coordinate *Coordinate::getDisplacedBy(int displacement) const
     {
-        return Coordinate(displacement).scaleBy(vector);
+        return new Coordinate(getRow() + displacement, getColumn() + displacement);
     }
 
     Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement) const
@@ -31,9 +31,9 @@ namespace models::modules::game::pieces
         return new Coordinate(getRow() + displacement.getRow(), getColumn() + displacement.getColumn());
     }
 
-    Coordinate *Coordinate::getDisplacedBy(int displacement) const
+    Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
     {
-        return new Coordinate(getRow() + displacement, getColumn() + displacement);
+        return Coordinate(displacement).scaleBy(vector);
     }
 
     Coordinate *Coordinate::scaleBy(const Coordinate &factor) const
