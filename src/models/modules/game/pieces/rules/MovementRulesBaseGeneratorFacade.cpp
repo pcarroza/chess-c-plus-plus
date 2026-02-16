@@ -1,40 +1,42 @@
-#include "models/modules/game/pieces/rules/MovementRulesBaseGeneratorFacade.hpp"
-#include "models/modules/game/pieces/rules/BishopRuleBasedCoordinateGenerator.hpp"
-#include "models/modules/game/pieces/rules/KingRuleBasedCoordinateGenerator.hpp"
-#include "models/modules/game/pieces/rules/KnightRuleBasedCoordinateGenerator.hpp"
-#include "models/modules/game/pieces/rules/QueenRuleBasedCoordinateGenerator.hpp"
-#include "models/modules/game/pieces/rules/RookRuleBasedCoordinateGenerator.hpp"
-#include "models/modules/game/pieces/rules/PawnRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rules/MovementRulesGeneratorFactory.hpp"
+#include "models/modules/game/pieces/Pawn.hpp"
+#include "models/modules/game/pieces/Bishop.hpp"
+#include "models/modules/game/pieces/Knight.hpp"
+#include "models/modules/game/pieces/Rook.hpp"
+#include "models/modules/game/pieces/Queen.hpp"
+#include "models/modules/game/pieces/King.hpp"
+
+using namespace models::modules::game::pieces;
 
 namespace models::modules::game::pieces::rules
 {
     MovementRulesBaseGenerator *createBishopRuleBasedCoordinateGenerator()
     {
-        return new BishopRuleBasedCoordinateGenerator();
+        return MovementRulesGeneratorFactory::getInstance().getGenerator<Bishop>();
     }
 
     MovementRulesBaseGenerator *createKingRuleBasedCoordinateGenerator()
     {
-        return new KingRuleBasedCoordinateGenerator();
+        return MovementRulesGeneratorFactory::getInstance().getGenerator<King>();
     }
 
     MovementRulesBaseGenerator *createKnightRuleBasedCoordinateGenerator()
     {
-        return new KnightRuleBasedCoordinateGenerator();
+        return MovementRulesGeneratorFactory::getInstance().getGenerator<Knight>();
     }
 
     MovementRulesBaseGenerator *createQueenRuleBasedCoordinateGenerator()
     {
-        return new QueenRuleBasedCoordinateGenerator();
+        return MovementRulesGeneratorFactory::getInstance().getGenerator<Queen>();
     }
 
     MovementRulesBaseGenerator *createRookRuleBasedCoordinateGenerator()
     {
-        return new RookRuleBasedCoordinateGenerator();
+        return MovementRulesGeneratorFactory::getInstance().getGenerator<Rook>();
     }
 
     MovementRulesBaseGenerator *createPawnRuleBasedCoordinateGenerator()
     {
-        return new PawnRuleBasedCoordinateGenerator();
+        return MovementRulesGeneratorFactory::getInstance().getGenerator<Pawn>();
     }
 }
