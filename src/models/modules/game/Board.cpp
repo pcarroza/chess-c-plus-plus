@@ -150,7 +150,7 @@ namespace models::modules::game
         return selectedPiece->isMovementValid(coordinate);
     }
 
-    void Board::deleteEnPassantPawn(Piece *piece)
+    void Board::deletedPawnInStep(Piece *piece)
     {
         auto &enPassantPawns = enPassantPawnsMap.at(getCurrentPlayer());
         enPassantPawns.remove_if([piece](const std::shared_ptr<Piece> &it)

@@ -35,12 +35,12 @@ namespace models::modules::game::pieces
         if (inStep(*target))
         {
             vulnerablePawn = true;
-            notifyEnPassantPawn(this);
+            notifyPawnInStep(this);
         }
         else
         {
             vulnerablePawn = false;
-            notifyDeletedEnPassantPawn(this);
+            notifyDeletedPawnInStep(this);
         }
         if (isThePawnPromoted(*target))
         {

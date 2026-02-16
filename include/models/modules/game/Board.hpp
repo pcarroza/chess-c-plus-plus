@@ -60,7 +60,7 @@ namespace models::modules::game
 
         void add(Piece *enPassantPawn) override;
 
-        void deleteEnPassantPawn(Piece *piece) override;
+        void deletedPawnInStep(Piece *piece) override;
 
         void removeCurrentPlayerPiece(const Coordinate &coordinate);
 

@@ -22,7 +22,7 @@ namespace models::modules::game::pieces
 
         virtual void add(Piece *enPassantPawn) = 0;
 
-        virtual void deleteEnPassantPawn(Piece *piece) = 0;
+        virtual void deletedPawnInStep(Piece *piece) = 0;
 
         virtual bool isEnemy(const Coordinate &coordinate) = 0;
 

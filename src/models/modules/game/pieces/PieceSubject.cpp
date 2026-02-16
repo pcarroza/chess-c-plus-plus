@@ -1,34 +1,34 @@
-#include "models/modules/game/pieces/PieceSubject.hpp"
+#include "models/modules/game/pieces/SubjectPiece.hpp"
 
 namespace models::modules::game::pieces
 {
-    void PieceSubject::subscribe(BoardObserver *boardObserver)
+    void SubjectPiece::subscribe(BoardObserver *boardObserver)
     {
         this->boardObserver = boardObserver;
     }
 
-    bool PieceSubject::isEnemy(const Coordinate &coordinate) const
+    bool SubjectPiece::isEnemy(const Coordinate &coordinate) const
     {
         return boardObserver->isEnemy(coordinate);
     }
 
-    bool PieceSubject::isSameColorPieceAt(const Coordinate &coordinate) const
+    bool SubjectPiece::isSameColorPieceAt(const Coordinate &coordinate) const
     {
         return boardObserver->isSameColorPieceAt(coordinate);
     }
 
-    bool PieceSubject::isSquareOccupied(const Coordinate &coordinate) const
+    bool SubjectPiece::isSquareOccupied(const Coordinate &coordinate) const
     {
         return boardObserver->isSquareOccupied(coordinate);
     }
 
-    void PieceSubject::notifyEnPassantPawn(Piece *enPassantPawn)
+    void SubjectPiece::notifyPawnInStep(Piece *pawnInStep)
     {
-        boardObserver->add(enPassantPawn);
+        boardObserver->add(pawnInStep);
     }
 
-    void PieceSubject::notifyDeletedEnPassantPawn(Piece *piece)
+    void SubjectPiece::notifyDeletedPawnInStep(Piece *piece)
     {
-        boardObserver->deleteEnPassantPawn(piece);
+        boardObserver->deletedPawnInStep(piece);
     }
 }

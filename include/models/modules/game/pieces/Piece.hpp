@@ -2,7 +2,7 @@
 #define PIECE_H
 
 #include "models/modules/game/pieces/SelectedPiece.hpp"
-#include "models/modules/game/pieces/PieceSubject.hpp"
+#include "models/modules/game/pieces/SubjectPiece.hpp"
 #include "models/modules/game/Player.hpp"
 
 #include <set>
@@ -24,7 +24,7 @@ using models::modules::game::pieces::rules::MovementRulesBaseGenerator;
 
 namespace models::modules::game::pieces
 {
-    class Piece : public PieceSubject, public SelectedPiece
+    class Piece : public SubjectPiece, public SelectedPiece
     {
     public:
         Piece(Coordinate *coordinate, Player player);

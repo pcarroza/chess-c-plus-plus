@@ -6,10 +6,10 @@
 
 namespace models::modules::game::pieces
 {
-    class PieceSubject
+    class SubjectPiece
     {
     public:
-        virtual ~PieceSubject() = default;
+        virtual ~SubjectPiece() = default;
 
         void subscribe(BoardObserver *boardObserver);
 
@@ -19,9 +19,9 @@ namespace models::modules::game::pieces
 
         bool isSquareOccupied(const Coordinate &coordinate) const;
 
-        void notifyEnPassantPawn(Piece *piece);
+        void notifyPawnInStep(Piece *piece);
 
-        void notifyDeletedEnPassantPawn(Piece *piece);
+        void notifyDeletedPawnInStep(Piece *piece);
 
     protected:
         BoardObserver *boardObserver;
