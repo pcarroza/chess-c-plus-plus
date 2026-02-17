@@ -9,6 +9,11 @@ namespace models::modules::game::pieces::rules
         GeneratorRegistry::registerAll(*this);
     }
 
+    MovementRulesGeneratorFactory::~MovementRulesGeneratorFactory()
+    {
+        releaseAll();
+    }
+
     MovementRulesGeneratorFactory &MovementRulesGeneratorFactory::getInstance()
     {
         static MovementRulesGeneratorFactory instance;
@@ -25,10 +30,5 @@ namespace models::modules::game::pieces::rules
         }
 
         generatorCache.clear();
-    }
-
-    MovementRulesGeneratorFactory::~MovementRulesGeneratorFactory()
-    {
-        releaseAll();
     }
 }

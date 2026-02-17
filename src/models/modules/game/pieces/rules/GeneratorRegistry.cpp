@@ -19,7 +19,6 @@ namespace models::modules::game::pieces::rules
 {
     void GeneratorRegistry::registerAll(MovementRulesGeneratorFactory &factory)
     {
-        using namespace models::modules::game::pieces;
         factory.registerGenerator<Pawn, PawnRuleBasedCoordinateGenerator>();
         factory.registerGenerator<Rook, RookRuleBasedCoordinateGenerator>();
         factory.registerGenerator<Knight, KnightRuleBasedCoordinateGenerator>();
