@@ -84,7 +84,7 @@ namespace models::modules::game
 
         std::map<Player, std::list<std::shared_ptr<Piece>>> removedPieces;
 
-        std::map<Player, std::list<std::shared_ptr<Piece>>> enPassantPawnsMap;
+        std::map<Player, std::list<std::shared_ptr<Piece>>> inStepPawnsMap;
 
         std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements;
 
