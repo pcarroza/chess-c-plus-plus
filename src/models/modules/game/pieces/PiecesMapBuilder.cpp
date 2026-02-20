@@ -17,9 +17,9 @@ namespace models::modules::game::pieces
     std::map<Player, std::list<std::shared_ptr<Piece>>> PiecesMapBuilder::build(BoardObserver *observerBoard)
     {
         std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap = {
-            {Player::BLACK, createPiecesBlack()},
             {Player::WHITE, createPiecesWhite()},
-        };
+            {Player::BLACK, createPiecesBlack()}};
+
         for (auto &pieces : piecesMap)
         {
             for (auto &piece : pieces.second)

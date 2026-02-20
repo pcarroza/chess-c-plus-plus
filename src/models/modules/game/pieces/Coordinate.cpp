@@ -16,11 +16,6 @@ namespace models::modules::game::pieces
         return column;
     }
 
-    bool Coordinate::operator==(const Coordinate &other) const
-    {
-        return row == other.row and column == other.column;
-    }
-
     Coordinate *Coordinate::getDisplacedBy(int displacement) const
     {
         return new Coordinate(getRow() + displacement, getColumn() + displacement);
@@ -39,6 +34,11 @@ namespace models::modules::game::pieces
     Coordinate *Coordinate::scaleBy(const Coordinate &factor) const
     {
         return new Coordinate(getRow() * factor.getRow(), getColumn() * factor.getColumn());
+    }
+
+    bool Coordinate::operator==(const Coordinate &other) const
+    {
+        return row == other.row and column == other.column;
     }
 
     std::ostream &operator<<(std::ostream &os, const Coordinate &coordinate)

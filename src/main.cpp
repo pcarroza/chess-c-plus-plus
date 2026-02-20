@@ -14,6 +14,7 @@
 #include "models/modules/game/pieces/King.hpp"
 #include "models/modules/game/pieces/Knight.hpp"
 #include "models/modules/game/pieces/King.hpp"
+#include "models/modules/game/pieces/PieceInspector.hpp"
 
 #include "controllers/modules/game/local/logic/LocalGameLogic.hpp"
 #include "controllers/modules/game/local/logic/GameStateBuilder.hpp"
@@ -206,6 +207,13 @@ void testRetroCompatibility()
 
 int main()
 {
+
+    King* king = new King(new Coordinate(1, 1), Player::WHITE);
+    bool ok = isKing(*king);
+    delete king;
+
+    std::cout << "===============================>" + ok  << std::endl;
+
     std::cout << "Starting Player class tests..." << std::endl;
     std::cout << "Starting Player class tests..." << std::endl;
     std::cout << "Starting Player class tests..." << std::endl;
