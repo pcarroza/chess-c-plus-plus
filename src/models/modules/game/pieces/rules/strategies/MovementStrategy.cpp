@@ -24,7 +24,7 @@ namespace models::modules::game::pieces::rules::strategies
         {
             return;
         }
-        if (piece.isSameColorPieceAt(*coordinate))
+        if (piece.isItTheSameColorIn(*coordinate))
         {
             return;
         }

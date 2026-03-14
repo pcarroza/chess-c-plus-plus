@@ -27,6 +27,6 @@ namespace models::modules::game::pieces::rules
                                 { return not ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
 
         possibleMoves.remove_if([&](const std::shared_ptr<Coordinate> &coordinate)
-                                { return piece.isSameColorPieceAt(*coordinate); });
+                                { return piece.isItTheSameColorIn(*coordinate); });
     }
 }

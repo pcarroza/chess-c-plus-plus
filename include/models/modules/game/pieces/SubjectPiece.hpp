@@ -15,7 +15,7 @@ namespace models::modules::game::pieces
 
         bool isEnemy(const Coordinate &coordinate) const;
 
-        bool isSameColorPieceAt(const Coordinate &coordinate) const;
+        bool isItTheSameColorIn(const Coordinate &coordinate) const;
 
         bool isSquareOccupied(const Coordinate &coordinate) const;
 

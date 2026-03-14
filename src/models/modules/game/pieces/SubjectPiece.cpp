@@ -12,7 +12,7 @@ namespace models::modules::game::pieces
         return boardObserver->isEnemy(coordinate);
     }
 
-    bool SubjectPiece::isSameColorPieceAt(const Coordinate &coordinate) const
+    bool SubjectPiece::isItTheSameColorIn(const Coordinate &coordinate) const
     {
         return boardObserver->isSameColorPieceAt(coordinate);
     }
