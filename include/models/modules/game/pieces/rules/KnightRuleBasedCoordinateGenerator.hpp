@@ -4,6 +4,8 @@
 #include "MovementRulesBaseGenerator.hpp"
 #include "common/validators/ValidatorLimitsBoard.hpp"
 
+#include <memory>
+
 namespace common::validators
 {
     class ValidatorLimitsBoard;

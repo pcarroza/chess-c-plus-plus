@@ -1,7 +1,5 @@
 #include "models/modules/game/pieces/rules/KnightRuleBasedCoordinateGenerator.hpp"
 
-#include <memory>
-
 namespace models::modules::game::pieces::rules
 {
     KnightRuleBasedCoordinateGenerator::KnightRuleBasedCoordinateGenerator()
