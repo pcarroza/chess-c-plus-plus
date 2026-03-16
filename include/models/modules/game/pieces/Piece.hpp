@@ -17,10 +17,10 @@ namespace models::modules::game::pieces
 
 namespace models::modules::game::pieces::rules
 {
-    class MovementRulesBaseGenerator;
+    class MovementRulesGenerator;
 }
 
-using models::modules::game::pieces::rules::MovementRulesBaseGenerator;
+using models::modules::game::pieces::rules::MovementRulesGenerator;
 
 namespace models::modules::game::pieces
 {
@@ -35,14 +35,6 @@ namespace models::modules::game::pieces
 
         int getVectorPlayer() const;
 
-        Coordinate *getCoordinate() const;
-
-        Coordinate *getDisplacedBy(int increase) const;
-
-        Coordinate *getDisplacedBy(const Coordinate &increase) const;
-
-        Coordinate *getDisplacedBy(const Coordinate &increase, const Coordinate &vector) const;
-
         bool isAt(const Coordinate &coordinate) const;
 
         void put(Coordinate *coordinate) override;
@@ -50,6 +42,14 @@ namespace models::modules::game::pieces
         bool isMovementValid(const Coordinate &coordinate) override;
 
         void generateMovements() override;
+
+        Coordinate *getCoordinate() const;
+
+        Coordinate *getDisplacedBy(int increase) const;
+
+        Coordinate *getDisplacedBy(const Coordinate &increase) const;
+
+        Coordinate *getDisplacedBy(const Coordinate &increase, const Coordinate &vector) const;
 
         virtual void accept(PieceVisitor &pieceVisitor) = 0;
 
@@ -62,7 +62,9 @@ namespace models::modules::game::pieces
 
         Coordinate *coordinate;
 
-        MovementRulesBaseGenerator *basedGenerator;
+        MovementRulesGenerator *movementRulesGenerator;
+
+        std::list<std::shared_ptr<Coordinate>> validMovements;
     };
 }
 

@@ -1,11 +1,11 @@
 #include "models/modules/game/pieces/Queen.hpp"
-#include "models/modules/game/pieces/rules/MovementRulesBaseGeneratorFacade.hpp"
+#include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
 
 namespace models::modules::game::pieces
 {
     Queen::Queen(Coordinate *coordinate, Player color) : Piece(coordinate, color)
     {
-        basedGenerator = rules::createQueenRuleBasedCoordinateGenerator();
+        movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getQueenRules());
     }
 
     void Queen::accept(PieceVisitor &pieceVisitor)

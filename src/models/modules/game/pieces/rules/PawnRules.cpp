@@ -1,15 +1,15 @@
-#include "models/modules/game/pieces/rules/PawnRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rules/PawnRules.hpp"
+#include "models/modules/game/pieces/Pawn.hpp"
+#include "common/validators/ValidatorLimitsBoard.hpp"
+
+using common::validators::ValidatorLimitsBoard;
 
 namespace models::modules::game::pieces::rules
 {
-    PawnRuleBasedCoordinateGenerator::PawnRuleBasedCoordinateGenerator()
-    {
-    }
-
-    void PawnRuleBasedCoordinateGenerator::generate(const Piece &piece)
+    std::list<std::shared_ptr<Coordinate>> PawnRules::generate(const Piece &piece) const
     {
         const Pawn &pawn = dynamic_cast<const Pawn &>(piece);
-        possibleMoves.clear();
+        std::list<std::shared_ptr<Coordinate>> possibleMoves;
 
         if (pawn.canAdvanceOne())
             possibleMoves.push_back(pawn.getForwardOne());
@@ -25,5 +25,7 @@ namespace models::modules::game::pieces::rules
 
         possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
                                 { return not ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
+
+        return possibleMoves;
     }
 }

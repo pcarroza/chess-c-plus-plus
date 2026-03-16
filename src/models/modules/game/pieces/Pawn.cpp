@@ -1,9 +1,9 @@
 #include "models/modules/game/Player.hpp"
 #include "models/modules/game/pieces/Pawn.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
-#include "models/modules/game/pieces/rules/MovementRulesBaseGeneratorFacade.hpp"
 #include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 #include "models/modules/game/pieces/PieceVisitor.hpp"
+#include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
 
 using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
 using models::modules::game::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
@@ -17,7 +17,7 @@ namespace models::modules::game::pieces
           vulnerablePawn(false),
           specialGenerator(new EnPassantPawnSpecialRuleGenerator(this))
     {
-        basedGenerator = rules::createPawnRuleBasedCoordinateGenerator();
+        movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getPawnRules());
     }
 
     Pawn::~Pawn()

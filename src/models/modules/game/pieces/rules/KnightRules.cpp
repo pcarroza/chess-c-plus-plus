@@ -1,19 +1,17 @@
-#include "models/modules/game/pieces/rules/KnightRuleBasedCoordinateGenerator.hpp"
+#include "models/modules/game/pieces/rules/KnightRules.hpp"
+#include "models/modules/game/pieces/Piece.hpp"
+#include "common/validators/ValidatorLimitsBoard.hpp"
+
+using common::validators::ValidatorLimitsBoard;
 
 namespace models::modules::game::pieces::rules
 {
-    KnightRuleBasedCoordinateGenerator::KnightRuleBasedCoordinateGenerator()
-    {
-    }
-
-    void KnightRuleBasedCoordinateGenerator::generate(const Piece &piece)
+    std::list<std::shared_ptr<Coordinate>> KnightRules::generate(const Piece &piece) const
     {
         const int doubleStep = 2;
         const int simpleStep = 1;
 
-        possibleMoves.clear();
-
-        possibleMoves = {
+        std::list<std::shared_ptr<Coordinate>> possibleMoves = {
             std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(doubleStep, simpleStep))),
             std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(doubleStep, -simpleStep))),
             std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-doubleStep, simpleStep))),
@@ -28,5 +26,7 @@ namespace models::modules::game::pieces::rules
 
         possibleMoves.remove_if([&](const std::shared_ptr<Coordinate> &coordinate)
                                 { return piece.isItTheSameColorIn(*coordinate); });
+
+        return possibleMoves;
     }
 }

@@ -2,24 +2,24 @@
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/Piece.hpp"
 #include "models/modules/game/Player.hpp"
-#include "models/modules/game/pieces/rules/MovementRulesBaseGenerator.hpp"
+#include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
 
 using models::modules::game::Player;
-using models::modules::game::pieces::rules::MovementRulesBaseGenerator;
+using models::modules::game::pieces::rules::MovementRulesFacade;
 
 namespace models::modules::game::pieces
 {
     Piece::Piece(Coordinate *coordinate, Player player)
         : player(player),
           coordinate(coordinate),
-          basedGenerator(nullptr)
+          movementRulesGenerator(nullptr)
     {
     }
 
     Piece::~Piece()
     {
         delete coordinate;
-        delete basedGenerator;
+        delete movementRulesGenerator;
     }
 
     void Piece::set(Coordinate *coordinate)
@@ -29,7 +29,7 @@ namespace models::modules::game::pieces
 
     std::list<std::shared_ptr<Coordinate>> &Piece::getValidMovements()
     {
-        return basedGenerator->getMovements();
+        return this->validMovements;
     }
 
     int Piece::getVectorPlayer() const
@@ -74,11 +74,18 @@ namespace models::modules::game::pieces
 
     bool Piece::isMovementValid(const Coordinate &target)
     {
-        return basedGenerator->isMovementValid(target);
+        for (const auto &movement : validMovements)
+        {
+            if (*movement == target)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void Piece::generateMovements()
     {
-        basedGenerator->generate(*this);
+        this->validMovements = movementRulesGenerator->generate(*this);
     }
 }
