@@ -3,7 +3,7 @@
 
 #include "models/modules/game/pieces/Coordinate.hpp"
 
-#include <list>
+#include <vector>
 #include <memory>
 #include <algorithm>
 
@@ -19,7 +19,7 @@ namespace models::modules::game::pieces::rules
     public:
         virtual ~MovementRulesGenerator() = default;
 
-        virtual std::list<std::shared_ptr<Coordinate>> generate(const Piece &piece) const = 0;
+        virtual void generate(const Piece &piece, std::vector<Coordinate> &movements) const = 0;
     };
 }
 

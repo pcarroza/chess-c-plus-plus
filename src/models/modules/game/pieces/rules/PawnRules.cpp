@@ -6,26 +6,36 @@ using common::validators::ValidatorLimitsBoard;
 
 namespace models::modules::game::pieces::rules
 {
-    std::list<std::shared_ptr<Coordinate>> PawnRules::generate(const Piece &piece) const
+    void PawnRules::generate(const Piece &piece, std::vector<Coordinate> &movements) const
     {
         const Pawn &pawn = dynamic_cast<const Pawn &>(piece);
-        std::list<std::shared_ptr<Coordinate>> possibleMoves;
 
         if (pawn.canAdvanceOne())
-            possibleMoves.push_back(pawn.getForwardOne());
+        {
+            Coordinate target = pawn.getForwardOne();
+            if (ValidatorLimitsBoard::getInstance().isWithinLimits(target))
+                movements.push_back(target);
+        }
 
         if (pawn.canAdvanceTwo())
-            possibleMoves.push_back(pawn.getForwardTwo());
+        {
+            Coordinate target = pawn.getForwardTwo();
+            if (ValidatorLimitsBoard::getInstance().isWithinLimits(target))
+                movements.push_back(target);
+        }
 
         if (pawn.canCaptureLeft())
-            possibleMoves.push_back(pawn.getDiagonalLeft());
+        {
+            Coordinate target = pawn.getDiagonalLeft();
+            if (ValidatorLimitsBoard::getInstance().isWithinLimits(target))
+                movements.push_back(target);
+        }
 
         if (pawn.canCaptureRight())
-            possibleMoves.push_back(pawn.getDiagonalRight());
-
-        possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
-                                { return not ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
-
-        return possibleMoves;
+        {
+            Coordinate target = pawn.getDiagonalRight();
+            if (ValidatorLimitsBoard::getInstance().isWithinLimits(target))
+                movements.push_back(target);
+        }
     }
 }

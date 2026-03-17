@@ -1,7 +1,7 @@
 #include "models/modules/game/pieces/rules/strategies/InverseMovementStrategy.hpp"
 #include "models/modules/game/pieces/Piece.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
-
+#include <vector>
 #include <cassert>
 
 namespace models::modules::game::pieces::rules::strategies
@@ -10,17 +10,13 @@ namespace models::modules::game::pieces::rules::strategies
     {
     }
 
-    std::list<std::shared_ptr<Coordinate>> InverseMovementStrategy::generate()
+    void InverseMovementStrategy::generate(std::vector<Coordinate> &movements)
     {
-        std::list<std::shared_ptr<Coordinate>> movements;
-
-        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(1, -1)));
-        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(-1, 1)));
-
-        return movements;
+        MovementStrategy::generate(Coordinate(1, -1), movements);
+        MovementStrategy::generate(Coordinate(-1, 1), movements);
     }
 
-    Coordinate *InverseMovementStrategy::getDisplacedCoordinateBy(int step, const Coordinate &vector)
+    Coordinate InverseMovementStrategy::getDisplacedCoordinateBy(int step, const Coordinate &vector)
     {
         assert(step >= 1);
         return piece.getDisplacedBy(Coordinate(step, step), vector);

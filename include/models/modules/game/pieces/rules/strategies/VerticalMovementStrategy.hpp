@@ -1,7 +1,8 @@
 #ifndef VERTICAL_MOVEMENT_STRATEGY_HPP
 #define VERTICAL_MOVEMENT_STRATEGY_HPP
 
-#include "MovementStrategy.hpp"
+#include "models/modules/game/pieces/rules/strategies/MovementStrategy.hpp"
+#include <vector>
 
 namespace models::modules::game::pieces::rules::strategies
 {
@@ -12,9 +13,9 @@ namespace models::modules::game::pieces::rules::strategies
 
         VerticalMovementStrategy(const Piece &piece);
 
-        std::list<std::shared_ptr<Coordinate>> generate() override;
+        void generate(std::vector<Coordinate> &movements) override;
 
-        Coordinate *getDisplacedCoordinateBy(int increment, const Coordinate &coordinate) override;
+        Coordinate getDisplacedCoordinateBy(int increment, const Coordinate &coordinate) override;
     };
 }
 

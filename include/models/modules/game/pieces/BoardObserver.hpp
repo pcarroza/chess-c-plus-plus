@@ -1,7 +1,7 @@
 #ifndef BOARD_OBSERVER_HPP
 #define BOARD_OBSERVER_HPP
 
-#include <list>
+#include <vector>
 #include <memory>
 
 namespace models::modules::game::pieces {
@@ -18,7 +18,7 @@ namespace models::modules::game::pieces
 
         virtual void set(Piece *piece) = 0;
 
-        virtual void set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements) = 0;
+        virtual void set(std::vector<Coordinate> &selectedPieceMovements) = 0;
 
         virtual void add(Piece *enPassantPawn) = 0;
 

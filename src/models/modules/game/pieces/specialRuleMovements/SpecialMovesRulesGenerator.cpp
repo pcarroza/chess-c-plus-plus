@@ -7,7 +7,7 @@ namespace models::modules::game::pieces::specialRuleMovements
     {
     }
 
-    std::list<std::shared_ptr<Coordinate>> SpecialMovesRulesGenerator::getValidMovements()
+    std::vector<Coordinate> SpecialMovesRulesGenerator::getValidMovements()
     {
         return possibleMoves;
     }
@@ -19,7 +19,7 @@ namespace models::modules::game::pieces::specialRuleMovements
 
     bool SpecialMovesRulesGenerator::isContained(const Coordinate &coordinate)
     {
-        return std::any_of(possibleMoves.begin(), possibleMoves.end(), [&](const std::shared_ptr<Coordinate> &elem)
-                           { return *elem == coordinate; });
+        return std::any_of(possibleMoves.begin(), possibleMoves.end(), [&](const Coordinate &elem)
+                           { return elem == coordinate; });
     }
 }

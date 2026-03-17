@@ -3,7 +3,7 @@
 
 #include "models/modules/game/pieces/rules/strategies/MovementStrategy.hpp"
 
-#include <list>
+#include <vector>
 #include <memory>
 
 namespace models::modules::game::pieces::rules::strategies
@@ -13,11 +13,11 @@ namespace models::modules::game::pieces::rules::strategies
     public:
         BuilderMovementStrategy() = delete;
 
-        static std::list<std::shared_ptr<Coordinate>> buildRookMovements(const Piece &piece);
+        static void buildRookMovements(const Piece &piece, std::vector<Coordinate> &movements);
 
-        static std::list<std::shared_ptr<Coordinate>> buildBishopMovements(const Piece &piece);
+        static void buildBishopMovements(const Piece &piece, std::vector<Coordinate> &movements);
 
-        static std::list<std::shared_ptr<Coordinate>> buildQueenMovements(const Piece &piece);
+        static void buildQueenMovements(const Piece &piece, std::vector<Coordinate> &movements);
     };
 }
 

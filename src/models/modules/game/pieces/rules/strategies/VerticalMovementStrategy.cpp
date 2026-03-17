@@ -1,6 +1,7 @@
 #include "models/modules/game/pieces/rules/strategies/VerticalMovementStrategy.hpp"
 #include "models/modules/game/pieces/Piece.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
+#include <vector>
 #include <cassert>
 
 namespace models::modules::game::pieces::rules::strategies
@@ -9,17 +10,13 @@ namespace models::modules::game::pieces::rules::strategies
     {
     }
 
-    std::list<std::shared_ptr<Coordinate>> VerticalMovementStrategy::generate()
+    void VerticalMovementStrategy::generate(std::vector<Coordinate> &movements)
     {
-        std::list<std::shared_ptr<Coordinate>> movements;
-
-        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(1, 1)));
-        movements.splice(movements.end(), MovementStrategy::generate(Coordinate(-1, 1)));
-
-        return movements;
+        MovementStrategy::generate(Coordinate(1, 1), movements);
+        MovementStrategy::generate(Coordinate(-1, 1), movements);
     }
 
-    Coordinate *VerticalMovementStrategy::getDisplacedCoordinateBy(int increment, const Coordinate &vector)
+    Coordinate VerticalMovementStrategy::getDisplacedCoordinateBy(int increment, const Coordinate &vector)
     {
         return piece.getDisplacedBy(Coordinate(increment, 0), vector);
     }

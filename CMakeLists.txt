@@ -82,6 +82,27 @@ target_link_libraries(run_tests PRIVATE GTest::gtest_main chess_lib)
 add_test(NAME AllTests COMMAND run_tests)
 
 # ===========================================
+# Configuración de Google Benchmark
+# ===========================================
+
+# Declarar la dependencia de Google Benchmark
+FetchContent_Declare(
+  googlebenchmark
+  GIT_REPOSITORY https://github.com/google/benchmark.git
+  GIT_TAG      v1.8.3
+)
+
+# Hacer que Google Benchmark esté disponible
+FetchContent_MakeAvailable(googlebenchmark)
+
+# Crear el ejecutable para los benchmarks
+# Nota: Suponemos que crearemos el archivo benchmarks/MovementBenchmark.cpp
+add_executable(run_benchmarks benchmarks/MovementBenchmark.cpp)
+
+# Vincular la librería de benchmark y tu lógica de juego
+target_link_libraries(run_benchmarks PRIVATE benchmark::benchmark chess_lib)
+
+# ===========================================
 # Mensajes informativos
 # ===========================================
 

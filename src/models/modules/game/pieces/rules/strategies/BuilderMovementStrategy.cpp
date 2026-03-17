@@ -7,29 +7,23 @@
 
 namespace models::modules::game::pieces::rules::strategies
 {
-    std::list<std::shared_ptr<Coordinate>> BuilderMovementStrategy::buildRookMovements(const Piece &piece)
+    void BuilderMovementStrategy::buildRookMovements(const Piece &piece, std::vector<Coordinate> &movements)
     {
-        std::list<std::shared_ptr<Coordinate>> movements;
-        movements.splice(movements.end(), VerticalMovementStrategy(piece).generate());
-        movements.splice(movements.end(), HorizontalMovementStrategy(piece).generate());
-        return movements;
+        VerticalMovementStrategy(piece).generate(movements);
+        HorizontalMovementStrategy(piece).generate(movements);
     }
 
-    std::list<std::shared_ptr<Coordinate>> BuilderMovementStrategy::buildBishopMovements(const Piece &piece)
+    void BuilderMovementStrategy::buildBishopMovements(const Piece &piece, std::vector<Coordinate> &movements)
     {
-        std::list<std::shared_ptr<Coordinate>> movements;
-        movements.splice(movements.end(), InverseMovementStrategy(piece).generate());
-        movements.splice(movements.end(), DiagonalMovementStrategy(piece).generate());
-        return movements;
+        InverseMovementStrategy(piece).generate(movements);
+        DiagonalMovementStrategy(piece).generate(movements);
     }
 
-    std::list<std::shared_ptr<Coordinate>> BuilderMovementStrategy::buildQueenMovements(const Piece &piece)
+    void BuilderMovementStrategy::buildQueenMovements(const Piece &piece, std::vector<Coordinate> &movements)
     {
-        std::list<std::shared_ptr<Coordinate>> movements;
-        movements.splice(movements.end(), InverseMovementStrategy(piece).generate());
-        movements.splice(movements.end(), DiagonalMovementStrategy(piece).generate());
-        movements.splice(movements.end(), VerticalMovementStrategy(piece).generate());
-        movements.splice(movements.end(), HorizontalMovementStrategy(piece).generate());
-        return movements;
+        InverseMovementStrategy(piece).generate(movements);
+        DiagonalMovementStrategy(piece).generate(movements);
+        VerticalMovementStrategy(piece).generate(movements);
+        HorizontalMovementStrategy(piece).generate(movements);
     }
 }

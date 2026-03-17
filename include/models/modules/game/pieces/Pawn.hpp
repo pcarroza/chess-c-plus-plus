@@ -30,8 +30,6 @@ namespace models::modules::game::pieces
 
         bool isMovementValid(const Coordinate &target) override;
 
-        void generateMovements() override;
-
         bool isVulnerablePawn() const;
 
         bool isPromoted() const;
@@ -46,13 +44,13 @@ namespace models::modules::game::pieces
 
         bool canCaptureRight() const;
 
-        std::shared_ptr<Coordinate> getForwardOne() const;
+        Coordinate getForwardOne() const;
 
-        std::shared_ptr<Coordinate> getForwardTwo() const;
+        Coordinate getForwardTwo() const;
 
-        std::shared_ptr<Coordinate> getDiagonalLeft() const;
+        Coordinate getDiagonalLeft() const;
 
-        std::shared_ptr<Coordinate> getDiagonalRight() const;
+        Coordinate getDiagonalRight() const;
 
         void accept(PieceVisitor &pieceVisitor) override;
 

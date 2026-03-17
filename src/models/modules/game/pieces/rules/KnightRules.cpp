@@ -6,27 +6,28 @@ using common::validators::ValidatorLimitsBoard;
 
 namespace models::modules::game::pieces::rules
 {
-    std::list<std::shared_ptr<Coordinate>> KnightRules::generate(const Piece &piece) const
+    void KnightRules::generate(const Piece &piece, std::vector<Coordinate> &movements) const
     {
         const int doubleStep = 2;
         const int simpleStep = 1;
 
-        std::list<std::shared_ptr<Coordinate>> possibleMoves = {
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(doubleStep, simpleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(doubleStep, -simpleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-doubleStep, simpleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-doubleStep, -simpleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(simpleStep, doubleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(simpleStep, -doubleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-simpleStep, doubleStep))),
-            std::shared_ptr<Coordinate>(piece.getDisplacedBy(Coordinate(-simpleStep, -doubleStep)))};
+        const Coordinate offsets[] = {
+            Coordinate(doubleStep, simpleStep),
+            Coordinate(doubleStep, -simpleStep),
+            Coordinate(-doubleStep, simpleStep),
+            Coordinate(-doubleStep, -simpleStep),
+            Coordinate(simpleStep, doubleStep),
+            Coordinate(simpleStep, -doubleStep),
+            Coordinate(-simpleStep, doubleStep),
+            Coordinate(-simpleStep, -doubleStep)};
 
-        possibleMoves.remove_if([](const std::shared_ptr<Coordinate> &coordinate)
-                                { return not ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate); });
-
-        possibleMoves.remove_if([&](const std::shared_ptr<Coordinate> &coordinate)
-                                { return piece.isItTheSameColorIn(*coordinate); });
-
-        return possibleMoves;
+        for (const auto &offset : offsets)
+        {
+            Coordinate target = piece.getDisplacedBy(offset);
+            if (ValidatorLimitsBoard::getInstance().isWithinLimits(target) and !piece.isItTheSameColorIn(target))
+            {
+                movements.push_back(target);
+            }
+        }
     }
 }

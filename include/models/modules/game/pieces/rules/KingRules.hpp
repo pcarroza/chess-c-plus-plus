@@ -2,6 +2,7 @@
 #define KING_RULES_HPP
 
 #include "MovementRulesGenerator.hpp"
+#include <vector>
 
 namespace models::modules::game::pieces::rules
 {
@@ -14,7 +15,7 @@ namespace models::modules::game::pieces::rules
             return instance;
         }
 
-        std::list<std::shared_ptr<Coordinate>> generate(const Piece &piece) const override;
+        void generate(const Piece &piece, std::vector<Coordinate> &movements) const override;
 
     private:
         KingRules() = default;

@@ -6,8 +6,8 @@ using namespace models::modules::game::pieces::rules::strategies;
 
 namespace models::modules::game::pieces::rules
 {
-    std::list<std::shared_ptr<Coordinate>> RookRules::generate(const Piece &piece) const
+    void RookRules::generate(const Piece &piece, std::vector<Coordinate> &movements) const
     {
-        return BuilderMovementStrategy::buildRookMovements(piece);
+        BuilderMovementStrategy::buildRookMovements(piece, movements);
     }
 }

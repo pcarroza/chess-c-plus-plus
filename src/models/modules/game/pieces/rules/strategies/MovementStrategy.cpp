@@ -1,6 +1,7 @@
 #include "models/modules/game/pieces/rules/strategies/MovementStrategy.hpp"
 #include "common/validators/ValidatorLimitsBoard.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
+#include <vector>
 
 using common::validators::ValidatorLimitsBoard;
 
@@ -10,31 +11,28 @@ namespace models::modules::game::pieces::rules::strategies
     {
     }
 
-    std::list<std::shared_ptr<Coordinate>> MovementStrategy::generate(const Coordinate &vector)
+    void MovementStrategy::generate(const Coordinate &vector, std::vector<Coordinate> &movements)
     {
-        std::list<std::shared_ptr<Coordinate>> coordinates;
-        generateRecursive(coordinates, vector, 1);
-        return coordinates;
+        generateRecursive(movements, vector, 1);
     }
 
-    void MovementStrategy::generateRecursive(std::list<std::shared_ptr<Coordinate>> &coordinates, const Coordinate &vector, int step)
+    void MovementStrategy::generateRecursive(std::vector<Coordinate> &coordinates, const Coordinate &vector, int step)
     {
-        Coordinate *coordinate = getDisplacedCoordinateBy(step, vector);
-        if (not ValidatorLimitsBoard::getInstance().isWithinLimits(*coordinate))
+        Coordinate coordinate = getDisplacedCoordinateBy(step, vector);
+        if (not ValidatorLimitsBoard::getInstance().isWithinLimits(coordinate))
         {
             return;
         }
-        if (piece.isItTheSameColorIn(*coordinate))
+        if (piece.isItTheSameColorIn(coordinate))
         {
             return;
         }
-        if (piece.isEnemy(*coordinate))
+        if (piece.isEnemy(coordinate))
         {
-            coordinates.push_back(std::shared_ptr<Coordinate>(new Coordinate(*coordinate)));
+            coordinates.push_back(coordinate);
             return;
         }
-        coordinates.push_back(std::shared_ptr<Coordinate>(new Coordinate(*coordinate)));
-        delete coordinate;
+        coordinates.push_back(coordinate);
         return generateRecursive(coordinates, vector, step + 1);
     }
 }

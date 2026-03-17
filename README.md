@@ -140,3 +140,19 @@ Para ejecutar los tests desde el directorio raíz, usa CTest indicando el direct
 ```sh
 ctest --test-dir build
 ```
+
+### Ejecutar los Benchmarks
+
+Para medir el rendimiento de la lógica del juego (especialmente tras optimizaciones):
+
+1.  **Asegúrate de compilar en modo Release** (para obtener mediciones reales):
+    ```sh
+    ./scripts/build.sh Release
+    ```
+
+2.  **Ejecuta el script de benchmark:**
+    ```sh
+    ./scripts/run-benchmarks.sh
+    ```
+
+Este comando mostrará el tiempo de ejecución en nanosegundos (ns) para operaciones críticas como la generación de movimientos.

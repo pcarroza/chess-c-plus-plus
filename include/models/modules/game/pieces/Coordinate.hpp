@@ -18,13 +18,13 @@ namespace models::modules::game::pieces
 
         int getColumn() const;
 
-        Coordinate *getDisplacedBy(int displacement) const;
+        Coordinate getDisplacedBy(int displacement) const;
 
-        Coordinate *getDisplacedBy(const Coordinate &displacement) const;
+        Coordinate getDisplacedBy(const Coordinate &displacement) const;
 
-        Coordinate *getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const;
+        Coordinate getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const;
 
-        Coordinate *scaleBy(const Coordinate &factor) const;
+        Coordinate scaleBy(const Coordinate &factor) const;
 
         bool operator==(const Coordinate &other) const;
 

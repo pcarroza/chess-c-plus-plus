@@ -6,6 +6,7 @@
 #include <memory>
 #include <list>
 #include <map>
+#include <vector>
 
 #include "models/modules/game/pieces/SelectedPiece.hpp"
 #include "models/modules/game/pieces/BoardObserver.hpp"
@@ -34,9 +35,9 @@ namespace models::modules::game
 
         void set(Piece *piece) override;
 
-        void set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements) override;
+        void set(std::vector<Coordinate> &selectedPieceMovements) override;
 
-        std::list<std::shared_ptr<Coordinate>> &getValidMovements();
+        std::vector<Coordinate> &getValidMovements();
 
         void selectPiece(const Coordinate &coordinate);
 
@@ -86,7 +87,7 @@ namespace models::modules::game
 
         std::map<Player, std::list<std::shared_ptr<Piece>>> inStepPawnsMap;
 
-        std::list<std::shared_ptr<Coordinate>> *selectedPieceMovements;
+        std::vector<Coordinate> *selectedPieceMovements;
 
         SelectedPiece *selectedPiece;
 

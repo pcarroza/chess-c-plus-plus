@@ -33,39 +33,30 @@ TEST(CoordinateTest, EqualityOperator) {
 // Test para el método getDisplacedBy con un solo entero
 TEST(CoordinateTest, GetDisplacedByInt) {
     Coordinate coord(3, 4);
-    Coordinate* displaced = coord.getDisplacedBy(2);
+    Coordinate displaced = coord.getDisplacedBy(2);
     Coordinate expected(5, 6);
     
-    ASSERT_NE(displaced, nullptr);
-    EXPECT_TRUE(*displaced == expected);
-    
-    delete displaced;
+    EXPECT_TRUE(displaced == expected);
 }
 
 // Test para el método getDisplacedBy con otro Coordinate
 TEST(CoordinateTest, GetDisplacedByCoordinate) {
     Coordinate coord(3, 4);
     Coordinate displacement(1, -2);
-    Coordinate* displaced = coord.getDisplacedBy(displacement);
+    Coordinate displaced = coord.getDisplacedBy(displacement);
     Coordinate expected(4, 2);
 
-    ASSERT_NE(displaced, nullptr);
-    EXPECT_TRUE(*displaced == expected);
-
-    delete displaced;
+    EXPECT_TRUE(displaced == expected);
 }
 
 // Test para el método scaleBy
 TEST(CoordinateTest, ScaleBy) {
     Coordinate coord(2, 3);
     Coordinate factor(-2, 3);
-    Coordinate* scaled = coord.scaleBy(factor);
+    Coordinate scaled = coord.scaleBy(factor);
     Coordinate expected(-4, 9);
     
-    ASSERT_NE(scaled, nullptr);
-    EXPECT_TRUE(*scaled == expected);
-    
-    delete scaled;
+    EXPECT_TRUE(scaled == expected);
 }
 
 // Test para getDisplacedBy con vector (simula el comportamiento de scaleBy)
@@ -74,13 +65,10 @@ TEST(CoordinateTest, GetDisplacedByWithVector) {
     Coordinate displacement(4, 5); // Representa la coordenada a escalar
     // La implementación actual de getDisplacedBy(coord, vector) llama a scaleBy(vector)
     // en la coordenada `displacement`. Es un poco confuso, pero testeamos la implementación actual.
-    Coordinate* result = displacement.getDisplacedBy(Coordinate(), coord); // La primera coord no se usa
+    Coordinate result = displacement.getDisplacedBy(Coordinate(), coord); // La primera coord no se usa
     Coordinate expected(8, 15); // 4*2, 5*3
     
-    ASSERT_NE(result, nullptr);
-    EXPECT_TRUE(*result == expected);
-    
-    delete result;
+    EXPECT_TRUE(result == expected);
 }
 
 // Test con coordenadas negativas
@@ -90,11 +78,8 @@ TEST(CoordinateTest, NegativeCoordinates) {
     EXPECT_EQ(coord.getColumn(), -8);
 
     Coordinate displacement(2, -3);
-    Coordinate* displaced = coord.getDisplacedBy(displacement);
+    Coordinate displaced = coord.getDisplacedBy(displacement);
     Coordinate expected(1, -11);
 
-    ASSERT_NE(displaced, nullptr);
-    EXPECT_TRUE(*displaced == expected);
-
-    delete displaced;
+    EXPECT_TRUE(displaced == expected);
 }

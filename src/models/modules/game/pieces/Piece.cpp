@@ -3,6 +3,7 @@
 #include "models/modules/game/pieces/Piece.hpp"
 #include "models/modules/game/Player.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
+#include "models/modules/game/pieces/rules/MovementRulesGenerator.hpp"
 
 using models::modules::game::Player;
 using models::modules::game::pieces::rules::MovementRulesFacade;
@@ -14,12 +15,12 @@ namespace models::modules::game::pieces
           coordinate(coordinate),
           movementRulesGenerator(nullptr)
     {
+        validMovements.reserve(27);
     }
 
     Piece::~Piece()
     {
         delete coordinate;
-        delete movementRulesGenerator;
     }
 
     void Piece::set(Coordinate *coordinate)
@@ -27,7 +28,7 @@ namespace models::modules::game::pieces
         this->coordinate = coordinate;
     }
 
-    std::list<std::shared_ptr<Coordinate>> &Piece::getValidMovements()
+    std::vector<Coordinate> &Piece::getValidMovements()
     {
         return this->validMovements;
     }
@@ -52,17 +53,17 @@ namespace models::modules::game::pieces
         return coordinate;
     }
 
-    Coordinate *Piece::getDisplacedBy(int displacement) const
+    Coordinate Piece::getDisplacedBy(int displacement) const
     {
         return getCoordinate()->getDisplacedBy(displacement);
     }
 
-    Coordinate *Piece::getDisplacedBy(const Coordinate &displacement) const
+    Coordinate Piece::getDisplacedBy(const Coordinate &displacement) const
     {
         return getCoordinate()->getDisplacedBy(displacement);
     }
 
-    Coordinate *Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
+    Coordinate Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
     {
         return getCoordinate()->getDisplacedBy(displacement, vector);
     }
@@ -76,7 +77,7 @@ namespace models::modules::game::pieces
     {
         for (const auto &movement : validMovements)
         {
-            if (*movement == target)
+            if (movement == target)
             {
                 return true;
             }
@@ -86,6 +87,7 @@ namespace models::modules::game::pieces
 
     void Piece::generateMovements()
     {
-        this->validMovements = movementRulesGenerator->generate(*this);
+        this->validMovements.clear();
+        movementRulesGenerator->generate(*this, this->validMovements);
     }
 }

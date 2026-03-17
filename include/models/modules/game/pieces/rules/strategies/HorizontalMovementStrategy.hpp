@@ -2,6 +2,7 @@
 #define HORIZONTAL_MOVEMENT_STRATEGY_HPP
 
 #include "models/modules/game/pieces/rules/strategies/MovementStrategy.hpp"
+#include <vector>
 
 namespace models::modules::game::pieces::rules::strategies
 {
@@ -12,9 +13,9 @@ namespace models::modules::game::pieces::rules::strategies
 
         HorizontalMovementStrategy() = delete;
 
-        std::list<std::shared_ptr<Coordinate>> generate() override;
+        void generate(std::vector<Coordinate> &movements) override;
 
-        Coordinate *getDisplacedCoordinateBy(int increment, const Coordinate &coordinate) override;
+        Coordinate getDisplacedCoordinateBy(int increment, const Coordinate &coordinate) override;
     };
 }
 

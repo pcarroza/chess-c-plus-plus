@@ -8,9 +8,9 @@ using namespace models::modules::game::pieces::rules::strategies;
 
 namespace models::modules::game::pieces::rules
 {
-    std::list<std::shared_ptr<Coordinate>> BishopRules::generate(const Piece &piece) const
+    void BishopRules::generate(const Piece &piece, std::vector<Coordinate> &movements) const
     {
-        return BuilderMovementStrategy::buildBishopMovements(piece);
+        BuilderMovementStrategy::buildBishopMovements(piece, movements);
     }
 
 }

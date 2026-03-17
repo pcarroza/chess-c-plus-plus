@@ -6,7 +6,7 @@
 #include "models/modules/game/Player.hpp"
 
 #include <set>
-#include <list>
+#include <vector>
 #include <memory>
 
 namespace models::modules::game::pieces
@@ -31,7 +31,7 @@ namespace models::modules::game::pieces
 
         virtual ~Piece();
 
-        std::list<std::shared_ptr<Coordinate>> &getValidMovements();
+        std::vector<Coordinate> &getValidMovements();
 
         int getVectorPlayer() const;
 
@@ -45,11 +45,11 @@ namespace models::modules::game::pieces
 
         Coordinate *getCoordinate() const;
 
-        Coordinate *getDisplacedBy(int increase) const;
+        Coordinate getDisplacedBy(int increase) const;
 
-        Coordinate *getDisplacedBy(const Coordinate &increase) const;
+        Coordinate getDisplacedBy(const Coordinate &increase) const;
 
-        Coordinate *getDisplacedBy(const Coordinate &increase, const Coordinate &vector) const;
+        Coordinate getDisplacedBy(const Coordinate &increase, const Coordinate &vector) const;
 
         virtual void accept(PieceVisitor &pieceVisitor) = 0;
 
@@ -64,7 +64,7 @@ namespace models::modules::game::pieces
 
         MovementRulesGenerator *movementRulesGenerator;
 
-        std::list<std::shared_ptr<Coordinate>> validMovements;
+        std::vector<Coordinate> validMovements;
     };
 }
 

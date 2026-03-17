@@ -24,11 +24,6 @@ namespace models::modules::game::pieces
         return Piece::isMovementValid(target);
     };
 
-    void King::generateMovements()
-    {
-        this->validMovements = movementRulesGenerator->generate(*this);
-    };
-
     void King::close()
     {
         isMoved = true;

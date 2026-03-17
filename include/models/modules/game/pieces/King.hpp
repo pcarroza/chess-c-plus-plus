@@ -21,8 +21,6 @@ namespace models::modules::game::pieces
         
         bool isMovementValid(const Coordinate &target) override;
 
-        void generateMovements() override;
-
         void close();
 
         void accept(PieceVisitor &pieceVisitor) override;

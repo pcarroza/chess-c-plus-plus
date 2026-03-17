@@ -4,7 +4,7 @@
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/Piece.hpp"
 
-#include <list>
+#include <vector>
 #include <memory>
 #include <algorithm>
 
@@ -24,7 +24,7 @@ namespace models::modules::game::pieces::specialRuleMovements
 
         virtual void generate() = 0;
 
-        std::list<std::shared_ptr<Coordinate>> getValidMovements();
+        std::vector<Coordinate> getValidMovements();
 
         bool isMovementValid(const Coordinate &coordinate);
 
@@ -32,7 +32,7 @@ namespace models::modules::game::pieces::specialRuleMovements
         bool isContained(const Coordinate &coordinate);
 
     protected:
-        std::list<std::shared_ptr<Coordinate>> possibleMoves;
+        std::vector<Coordinate> possibleMoves;
 
         Piece *piece;
     };

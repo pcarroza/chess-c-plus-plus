@@ -16,24 +16,24 @@ namespace models::modules::game::pieces
         return column;
     }
 
-    Coordinate *Coordinate::getDisplacedBy(int displacement) const
+    Coordinate Coordinate::getDisplacedBy(int displacement) const
     {
-        return new Coordinate(getRow() + displacement, getColumn() + displacement);
+        return Coordinate(getRow() + displacement, getColumn() + displacement);
     }
 
-    Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement) const
+    Coordinate Coordinate::getDisplacedBy(const Coordinate &displacement) const
     {
-        return new Coordinate(getRow() + displacement.getRow(), getColumn() + displacement.getColumn());
+        return Coordinate(getRow() + displacement.getRow(), getColumn() + displacement.getColumn());
     }
 
-    Coordinate *Coordinate::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
+    Coordinate Coordinate::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
     {
         return Coordinate(displacement).scaleBy(vector);
     }
 
-    Coordinate *Coordinate::scaleBy(const Coordinate &factor) const
+    Coordinate Coordinate::scaleBy(const Coordinate &factor) const
     {
-        return new Coordinate(getRow() * factor.getRow(), getColumn() * factor.getColumn());
+        return Coordinate(getRow() * factor.getRow(), getColumn() * factor.getColumn());
     }
 
     bool Coordinate::operator==(const Coordinate &other) const

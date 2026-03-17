@@ -2,8 +2,9 @@
 #define MOVEMENT_STRATEGY_HPP
 
 #include "models/modules/game/pieces/Piece.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
 
-#include <list>
+#include <vector>
 #include <memory>
 
 namespace models::modules::game::pieces
@@ -21,15 +22,15 @@ namespace models::modules::game::pieces::rules::strategies
 
         virtual ~MovementStrategy() = default;
 
-        virtual std::list<std::shared_ptr<Coordinate>> generate() = 0;
+        virtual void generate(std::vector<Coordinate> &movements) = 0;
 
     protected:
-        std::list<std::shared_ptr<Coordinate>> generate(const Coordinate &vector);
+        void generate(const Coordinate &vector, std::vector<Coordinate> &movements);
 
-        virtual Coordinate *getDisplacedCoordinateBy(int increment, const Coordinate &coordinate) = 0;
+        virtual Coordinate getDisplacedCoordinateBy(int increment, const Coordinate &coordinate) = 0;
 
     private:
-        void generateRecursive(std::list<std::shared_ptr<Coordinate>> &coordinates, const Coordinate &coordinate, int step);
+        void generateRecursive(std::vector<Coordinate> &coordinates, const Coordinate &vector, int step);
 
     protected:
         const Piece &piece;

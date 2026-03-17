@@ -40,12 +40,12 @@ namespace models::modules::game
         this->selectedPiece = selectedPiece;
     }
 
-    void Board::set(std::list<std::shared_ptr<Coordinate>> &selectedPieceMovements)
+    void Board::set(std::vector<Coordinate> &selectedPieceMovements)
     {
         this->selectedPieceMovements = &selectedPieceMovements;
     }
 
-    std::list<std::shared_ptr<Coordinate>> &Board::getValidMovements()
+    std::vector<Coordinate> &Board::getValidMovements()
     {
         return *selectedPieceMovements;
     }

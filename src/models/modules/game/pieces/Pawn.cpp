@@ -54,11 +54,6 @@ namespace models::modules::game::pieces
         return Piece::isMovementValid(target) || specialGenerator->isMovementValid(target);
     }
 
-    void Pawn::generateMovements()
-    {
-        Piece::generateMovements();
-    }
-
     bool Pawn::isVulnerablePawn() const
     {
         return vulnerablePawn;
@@ -82,10 +77,8 @@ namespace models::modules::game::pieces
     bool Pawn::inStep(Coordinate &target)
     {
         const int doubleStep = 2;
-        Coordinate *displaced = getDisplacedBy(Coordinate(doubleStep, 0));
-        bool isEquals = *displaced == target;
-        delete displaced;
-        return isEquals;
+        Coordinate displaced = getDisplacedBy(Coordinate(doubleStep, 0));
+        return displaced == target;
     }
 
     bool Pawn::isThePawnPromoted(Coordinate &coordinate)
@@ -100,48 +93,48 @@ namespace models::modules::game::pieces
 
     bool Pawn::canAdvanceOne() const
     {
-        return not isSquareOccupied(*getForwardOne());
+        return not isSquareOccupied(getForwardOne());
     }
 
     bool Pawn::canAdvanceTwo() const
     {
-        return isInitialState() and not isSquareOccupied(*getForwardOne()) and not isSquareOccupied(*getForwardTwo());
+        return isInitialState() and not isSquareOccupied(getForwardOne()) and not isSquareOccupied(getForwardTwo());
     }
 
     bool Pawn::canCaptureLeft() const
     {
-        return isEnemy(*getDiagonalLeft());
+        return isEnemy(getDiagonalLeft());
     }
 
     bool Pawn::canCaptureRight() const
     {
-        return isEnemy(*getDiagonalRight());
+        return isEnemy(getDiagonalRight());
     }
 
-    std::shared_ptr<Coordinate> Pawn::getForwardOne() const
+    Coordinate Pawn::getForwardOne() const
     {
         const int singgleStep = 1;
         const int direction = singgleStep * Piece::getVectorPlayer();
-        return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
+        return getDisplacedBy(Coordinate(direction, 0));
     }
 
-    std::shared_ptr<Coordinate> Pawn::getForwardTwo() const
+    Coordinate Pawn::getForwardTwo() const
     {
         const int doubleStep = 2;
         const int direction = doubleStep * getPlayerDirection(player);
-        return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(direction, 0)));
+        return getDisplacedBy(Coordinate(direction, 0));
     }
 
-    std::shared_ptr<Coordinate> Pawn::getDiagonalLeft() const
+    Coordinate Pawn::getDiagonalLeft() const
     {
         const int leftDiagonalOffset = -1;
-        return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), leftDiagonalOffset)));
+        return getDisplacedBy(Coordinate(getPlayerDirection(player), leftDiagonalOffset));
     }
 
-    std::shared_ptr<Coordinate> Pawn::getDiagonalRight() const
+    Coordinate Pawn::getDiagonalRight() const
     {
         const int rightDiagonalOffset = 1;
-        return std::shared_ptr<Coordinate>(getDisplacedBy(Coordinate(getPlayerDirection(player), rightDiagonalOffset)));
+        return getDisplacedBy(Coordinate(getPlayerDirection(player), rightDiagonalOffset));
     }
 
     void Pawn::accept(PieceVisitor &pieceVisitor)
