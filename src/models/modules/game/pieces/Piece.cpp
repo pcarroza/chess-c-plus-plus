@@ -33,6 +33,24 @@ namespace models::modules::game::pieces
         return this->validMovements;
     }
 
+    bool Piece::isMovementValid(const Coordinate &target)
+    {
+        for (const auto &movement : validMovements)
+        {
+            if (movement == target)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void Piece::generateMovements()
+    {
+        validMovements.clear();
+        movementRulesGenerator->generate(*this, validMovements);
+    }
+
     int Piece::getVectorPlayer() const
     {
         return this->player.getVector();
@@ -73,21 +91,4 @@ namespace models::modules::game::pieces
         return *getCoordinate() == coordinate;
     }
 
-    bool Piece::isMovementValid(const Coordinate &target)
-    {
-        for (const auto &movement : validMovements)
-        {
-            if (movement == target)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    void Piece::generateMovements()
-    {
-        this->validMovements.clear();
-        movementRulesGenerator->generate(*this, this->validMovements);
-    }
 }
