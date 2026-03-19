@@ -98,9 +98,11 @@ FetchContent_MakeAvailable(googlebenchmark)
 # Crear el ejecutable para los benchmarks
 # Nota: Suponemos que crearemos el archivo benchmarks/MovementBenchmark.cpp
 add_executable(run_benchmarks benchmarks/MovementBenchmark.cpp)
+add_executable(run_board_benchmarks benchmarks/BoardBenchmark.cpp)
 
 # Vincular la librería de benchmark y tu lógica de juego
 target_link_libraries(run_benchmarks PRIVATE benchmark::benchmark chess_lib)
+target_link_libraries(run_board_benchmarks PRIVATE benchmark::benchmark chess_lib)
 
 # ===========================================
 # Mensajes informativos

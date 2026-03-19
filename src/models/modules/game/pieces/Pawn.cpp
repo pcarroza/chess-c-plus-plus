@@ -10,29 +10,28 @@ using models::modules::game::pieces::specialRuleMovements::SpecialMovesRulesGene
 
 namespace models::modules::game::pieces
 {
-    Pawn::Pawn(Coordinate *coordinate, Player player)
+    Pawn::Pawn(Coordinate coordinate, Player player)
         : Piece(coordinate, player),
           initialState(true),
           isItPromoted(false),
           vulnerablePawn(false),
-          specialGenerator(new EnPassantPawnSpecialRuleGenerator(this))
+          specialGenerator(this)
     {
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getPawnRules());
     }
 
     Pawn::~Pawn()
     {
-        delete specialGenerator;
     }
 
-    void Pawn::put(Coordinate *target)
+    void Pawn::put(Coordinate target)
     {
         //  hay error en la logica de negocio
         if (isInitialState())
         {
             close();
         }
-        if (inStep(*target))
+        if (inStep(target))
         {
             vulnerablePawn = true;
             notifyPawnInStep(this);
@@ -42,7 +41,7 @@ namespace models::modules::game::pieces
             vulnerablePawn = false;
             notifyDeletedPawnInStep(this);
         }
-        if (isThePawnPromoted(*target))
+        if (isThePawnPromoted(target))
         {
             changeToPromoted();
         }
@@ -51,7 +50,7 @@ namespace models::modules::game::pieces
 
     bool Pawn::isMovementValid(const Coordinate &target)
     {
-        return Piece::isMovementValid(target) || specialGenerator->isMovementValid(target);
+        return Piece::isMovementValid(target) || specialGenerator.isMovementValid(target);
     }
 
     bool Pawn::isVulnerablePawn() const
@@ -74,14 +73,14 @@ namespace models::modules::game::pieces
         initialState = false;
     }
 
-    bool Pawn::inStep(Coordinate &target)
+    bool Pawn::inStep(Coordinate target)
     {
         const int doubleStep = 2;
         Coordinate displaced = getDisplacedBy(Coordinate(doubleStep, 0));
         return displaced == target;
     }
 
-    bool Pawn::isThePawnPromoted(Coordinate &coordinate)
+    bool Pawn::isThePawnPromoted(Coordinate coordinate)
     {
         return ValidatorLimitsBoard::getInstance().isPieceEndBoardAt(coordinate);
     }

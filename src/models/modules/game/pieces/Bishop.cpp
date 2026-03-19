@@ -5,7 +5,7 @@
 
 namespace models::modules::game::pieces
 {
-    Bishop::Bishop(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+    Bishop::Bishop(Coordinate coordinate, Player color) : Piece(coordinate, color)
     {
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator*>(&rules::MovementRulesFacade::getBishopRules());
     }

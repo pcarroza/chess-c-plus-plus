@@ -10,7 +10,7 @@ using models::modules::game::pieces::rules::MovementRulesFacade;
 
 namespace models::modules::game::pieces
 {
-    Piece::Piece(Coordinate *coordinate, Player player)
+    Piece::Piece(Coordinate coordinate, Player player)
         : player(player),
           coordinate(coordinate),
           movementRulesGenerator(nullptr)
@@ -20,10 +20,9 @@ namespace models::modules::game::pieces
 
     Piece::~Piece()
     {
-        delete coordinate;
     }
 
-    void Piece::set(Coordinate *coordinate)
+    void Piece::set(Coordinate coordinate)
     {
         this->coordinate = coordinate;
     }
@@ -56,39 +55,34 @@ namespace models::modules::game::pieces
         return this->player.getVector();
     }
 
-    void Piece::put(Coordinate *target)
+    void Piece::put(Coordinate target)
     {
-        if (coordinate != nullptr)
-        {
-            delete coordinate;
-            coordinate = nullptr;
-        }
         set(target);
     }
 
-    Coordinate *Piece::getCoordinate() const
+    Coordinate Piece::getCoordinate() const
     {
         return coordinate;
     }
 
     Coordinate Piece::getDisplacedBy(int displacement) const
     {
-        return getCoordinate()->getDisplacedBy(displacement);
+        return getCoordinate().getDisplacedBy(displacement);
     }
 
     Coordinate Piece::getDisplacedBy(const Coordinate &displacement) const
     {
-        return getCoordinate()->getDisplacedBy(displacement);
+        return getCoordinate().getDisplacedBy(displacement);
     }
 
     Coordinate Piece::getDisplacedBy(const Coordinate &displacement, const Coordinate &vector) const
     {
-        return getCoordinate()->getDisplacedBy(displacement, vector);
+        return getCoordinate().getDisplacedBy(displacement, vector);
     }
 
     bool Piece::isAt(const Coordinate &coordinate) const
     {
-        return *getCoordinate() == coordinate;
+        return getCoordinate() == coordinate;
     }
 
 }

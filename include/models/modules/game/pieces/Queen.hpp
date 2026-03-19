@@ -13,7 +13,7 @@ namespace models::modules::game::pieces
     class Queen : public Piece
     {
     public:
-        Queen(Coordinate *coordinate, Player player);
+        Queen(Coordinate coordinate, Player player);
 
         void accept(PieceVisitor &pieceVisitor) override;
 

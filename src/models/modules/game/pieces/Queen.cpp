@@ -3,7 +3,7 @@
 
 namespace models::modules::game::pieces
 {
-    Queen::Queen(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+    Queen::Queen(Coordinate coordinate, Player color) : Piece(coordinate, color)
     {
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getQueenRules());
     }

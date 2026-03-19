@@ -208,7 +208,7 @@ void testRetroCompatibility()
 int main()
 {
 
-    King* king = new King(new Coordinate(1, 1), Player::WHITE);
+    King* king = new King(Coordinate(1, 1), Player::WHITE);
     bool ok = isKing(*king);
     delete king;
 

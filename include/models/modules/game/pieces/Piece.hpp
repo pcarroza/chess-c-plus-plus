@@ -27,7 +27,7 @@ namespace models::modules::game::pieces
     class Piece : public SubjectPiece, public SelectedPiece
     {
     public:
-        Piece(Coordinate *coordinate, Player player);
+        Piece(Coordinate coordinate, Player player);
 
         virtual ~Piece();
 
@@ -37,13 +37,13 @@ namespace models::modules::game::pieces
 
         bool isAt(const Coordinate &coordinate) const;
 
-        void put(Coordinate *coordinate) override;
+        void put(Coordinate coordinate) override;
 
         bool isMovementValid(const Coordinate &coordinate) override;
 
         void generateMovements() override;
 
-        Coordinate *getCoordinate() const;
+        Coordinate getCoordinate() const;
 
         Coordinate getDisplacedBy(int increase) const;
 
@@ -56,11 +56,11 @@ namespace models::modules::game::pieces
         virtual std::string toString() const = 0;
 
     protected:
-        void set(Coordinate *coordinate);
+        void set(Coordinate coordinate);
 
         Player player;
 
-        Coordinate *coordinate;
+        Coordinate coordinate;
 
         MovementRulesGenerator *movementRulesGenerator;
 

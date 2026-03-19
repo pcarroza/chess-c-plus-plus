@@ -15,9 +15,9 @@ namespace models::modules::game::pieces
     class King : public Piece
     {
     public:
-        King(Coordinate *coordinate, Player player);
+        King(Coordinate coordinate, Player player);
         
-        void put(Coordinate *target) override;
+        void put(Coordinate target) override;
         
         bool isMovementValid(const Coordinate &target) override;
 

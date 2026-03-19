@@ -5,12 +5,12 @@
 
 namespace models::modules::game::pieces
 {
-    King::King(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+    King::King(Coordinate coordinate, Player color) : Piece(coordinate, color)
     {
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getKingRules());
     }
 
-    void King::put(Coordinate *coordinate)
+    void King::put(Coordinate coordinate)
     {
         if (!isMoved)
         {

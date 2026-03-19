@@ -15,7 +15,7 @@ namespace models::modules::game::pieces
     class Knight : public Piece
     {
     public:
-        Knight(Coordinate *coordinate, Player player);
+        Knight(Coordinate coordinate, Player player);
 
         void accept(PieceVisitor &pieceVisitor) override;
 

@@ -69,7 +69,7 @@ namespace models::modules::game
 
         bool isWithinBoardLimits(const Coordinate &coordinate);
 
-        std::list<std::shared_ptr<Piece>> &getPiecesBy(Player player);
+        std::vector<std::shared_ptr<Piece>> &getPiecesBy(Player player);
 
         void changeTurn();
 
@@ -81,11 +81,11 @@ namespace models::modules::game
         void removePiece(const Coordinate &coordinate, Player player);
 
     private:
-        std::map<Player, std::list<std::shared_ptr<Piece>>> piecesMap;
+        std::map<Player, std::vector<std::shared_ptr<Piece>>> piecesMap;
 
-        std::map<Player, std::list<std::shared_ptr<Piece>>> removedPieces;
+        std::map<Player, std::vector<std::shared_ptr<Piece>>> removedPieces;
 
-        std::map<Player, std::list<std::shared_ptr<Piece>>> inStepPawnsMap;
+        std::map<Player, std::vector<std::shared_ptr<Piece>>> inStepPawnsMap;
 
         std::vector<Coordinate> *selectedPieceMovements;
 

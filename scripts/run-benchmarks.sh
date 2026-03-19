@@ -11,10 +11,12 @@ if [ ! -f "$BENCHMARK_BIN" ]; then
     exit 1
 fi
 
-echo "==== Running Benchmarks ===="
+echo "==== Running Movement Benchmarks ===="
+"./${BUILD_DIR}/bin/run_benchmarks"
 
-# Run the benchmark executable
-"./${BENCHMARK_BIN}"
+echo ""
+echo "==== Running Board Benchmarks ===="
+"./${BUILD_DIR}/bin/run_board_benchmarks"
 
 echo ""
 echo "Benchmark execution complete."

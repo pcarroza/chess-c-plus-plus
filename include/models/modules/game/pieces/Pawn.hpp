@@ -10,23 +10,20 @@ namespace models::modules::game::pieces
     class PieceVisitor;
 }
 
-namespace models::modules::game::pieces::specialRuleMovements
-{
-    class SpecialMovesRulesGenerator;
-}
+#include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 
-using models::modules::game::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
+using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
 
 namespace models::modules::game::pieces
 {
     class Pawn : public Piece
     {
     public:
-        Pawn(Coordinate *coordinate, Player player);
+        Pawn(Coordinate coordinate, Player player);
 
         ~Pawn();
 
-        void put(Coordinate *target) override;
+        void put(Coordinate target) override;
 
         bool isMovementValid(const Coordinate &target) override;
 
@@ -59,9 +56,9 @@ namespace models::modules::game::pieces
     private:
         void close();
 
-        bool inStep(Coordinate &target);
+        bool inStep(Coordinate target);
 
-        bool isThePawnPromoted(Coordinate &coordinate);
+        bool isThePawnPromoted(Coordinate coordinate);
 
         void changeToPromoted();
 
@@ -72,7 +69,7 @@ namespace models::modules::game::pieces
 
         bool vulnerablePawn;
 
-        SpecialMovesRulesGenerator *specialGenerator;
+        EnPassantPawnSpecialRuleGenerator specialGenerator;
     };
 }
 

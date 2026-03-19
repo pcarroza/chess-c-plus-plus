@@ -5,7 +5,7 @@
 
 namespace models::modules::game::pieces
 {
-    Knight::Knight(Coordinate *coordinate, Player color) : Piece(coordinate, color)
+    Knight::Knight(Coordinate coordinate, Player color) : Piece(coordinate, color)
     {
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getKnightRules());
     }

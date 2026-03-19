@@ -20,13 +20,13 @@ namespace models::modules::game
           turn(new Turn())
     {
         removedPieces = {
-            {Player::BLACK, std::list<std::shared_ptr<Piece>>()},
-            {Player::WHITE, std::list<std::shared_ptr<Piece>>()},
+            {Player::BLACK, std::vector<std::shared_ptr<Piece>>()},
+            {Player::WHITE, std::vector<std::shared_ptr<Piece>>()},
         };
 
         inStepPawnsMap = {
-            {Player::BLACK, std::list<std::shared_ptr<Piece>>()},
-            {Player::WHITE, std::list<std::shared_ptr<Piece>>()},
+            {Player::BLACK, std::vector<std::shared_ptr<Piece>>()},
+            {Player::WHITE, std::vector<std::shared_ptr<Piece>>()},
         };
     }
 
@@ -77,7 +77,7 @@ namespace models::modules::game
     {
         assert(isWithinBoardLimits(coordinate) && "Invalid coordinate");
         assert(selectedPiece != nullptr && "Invalid coordinate");
-        selectedPiece->put(new Coordinate(coordinate));
+        selectedPiece->put(coordinate);
     }
 
     bool Board::isSelectedPiece()
@@ -92,7 +92,7 @@ namespace models::modules::game
 
     bool Board::isThePawnPromoted()
     {
-        return isPawnPromoted(*static_cast<Piece *>(selectedPiece));
+        return isPawnPromoted(*dynamic_cast<Piece *>(selectedPiece));
     }
 
     bool Board::isEnemy(const Coordinate &coordinate)
@@ -152,9 +152,9 @@ namespace models::modules::game
 
     void Board::deletedPawnInStep(Piece *piece)
     {
-        auto &inStepPawnsMap = this->inStepPawnsMap.at(getCurrentPlayer());
-        inStepPawnsMap.remove_if([piece](const std::shared_ptr<Piece> &it)
-                                 { return it.get() == piece; });
+        auto &inStepPawns = this->inStepPawnsMap.at(getCurrentPlayer());
+        inStepPawns.erase(std::remove_if(inStepPawns.begin(), inStepPawns.end(), [piece](const std::shared_ptr<Piece> &it)
+                                 { return it.get() == piece; }), inStepPawns.end());
     }
 
     void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)
@@ -189,7 +189,7 @@ namespace models::modules::game
         return ValidatorLimitsBoard::getInstance().isWithinLimits(coordinate);
     }
 
-    std::list<std::shared_ptr<Piece>> &Board::getPiecesBy(Player player)
+    std::vector<std::shared_ptr<Piece>> &Board::getPiecesBy(Player player)
     {
         return piecesMap.at(player);
     }

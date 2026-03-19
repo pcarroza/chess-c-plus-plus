@@ -10,7 +10,7 @@ namespace models::modules::game::pieces
     public:
         virtual ~SelectedPiece() = default;
 
-        virtual void put(Coordinate *coordinate) = 0;
+        virtual void put(Coordinate coordinate) = 0;
 
         virtual bool isMovementValid(const Coordinate &coordinate) = 0;
 

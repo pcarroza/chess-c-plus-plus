@@ -17,8 +17,7 @@ static void BM_PieceMovementGeneration(benchmark::State &state)
 {
     Board board;
     // Colocamos la pieza en el centro (4,4) para que tenga el máximo de movimientos posibles
-    Coordinate *coord = new Coordinate(4, 4);
-    T piece(coord, Player::WHITE);
+    T piece(Coordinate(4, 4), Player::WHITE);
     piece.subscribe(&board);
 
     for (auto _ : state)
