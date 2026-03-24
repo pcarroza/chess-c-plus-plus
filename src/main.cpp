@@ -225,7 +225,6 @@ int main()
         testPlayerInContainers();
         testPlayerIteration();
         testRetroCompatibility();
-
         std::cout << "\n=== ALL TESTS PASSED ✓ ===" << std::endl;
         return 0;
     }
