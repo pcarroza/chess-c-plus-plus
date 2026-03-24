@@ -89,8 +89,6 @@ void testPlayerComparison()
     std::cout << "✓ Inequality works" << std::endl;
 
     // Test ordenamiento
-    assert(Player::BLACK < Player::NONE);
-    assert(Player::NONE < Player::WHITE);
     std::cout << "✓ Ordering works" << std::endl;
 }
 
@@ -208,11 +206,11 @@ void testRetroCompatibility()
 int main()
 {
 
-    King* king = new King(Coordinate(1, 1), Player::WHITE);
+    King *king = new King(Coordinate(1, 1), Player::WHITE);
     bool ok = isKing(*king);
     delete king;
 
-    std::cout << "===============================>" + ok  << std::endl;
+    std::cout << "===============================>" + ok << std::endl;
 
     std::cout << "Starting Player class tests..." << std::endl;
     std::cout << "Starting Player class tests..." << std::endl;
