@@ -71,7 +71,7 @@ namespace models::modules::game
 
         std::vector<std::shared_ptr<Piece>> &getPiecesBy(Player player);
 
-        void changeTurn();
+        void switchTurn();
 
         Player getCurrentPlayer();
 

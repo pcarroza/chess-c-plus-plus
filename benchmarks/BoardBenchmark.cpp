@@ -41,7 +41,7 @@ BENCHMARK(BM_Board_Creation);
 static void BM_Board_ChangeTurn(benchmark::State& state) {
     Board board;
     for (auto _ : state) {
-        board.changeTurn();
+        board.switchTurn();
     }
 }
 BENCHMARK(BM_Board_ChangeTurn);

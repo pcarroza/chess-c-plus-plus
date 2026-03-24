@@ -47,7 +47,7 @@ namespace controllers::modules::game::local
 
         bool isTheBlackPieceSelected(Coordinate &coordinate);
 
-        void changeTurn();
+        void switchTurn();
 
         void initialize();
 

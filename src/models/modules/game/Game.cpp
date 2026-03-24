@@ -38,9 +38,9 @@ namespace models::modules::game
         return board->isMovementValid(coordinate);
     }
 
-    void Game::changeTurn()
+    void Game::switchTurn()
     {
-        board->changeTurn();
+        board->switchTurn();
     }
 
     void Game::removeCurrentPlayerPiece(const Coordinate &coordinate)

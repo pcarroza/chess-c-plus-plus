@@ -28,7 +28,7 @@ namespace models::modules::game
 
         bool isMovementValid(const Coordinate &coordinate);
 
-        void changeTurn();
+        void switchTurn();
 
         void removeCurrentPlayerPiece(const Coordinate &coordinate);
 

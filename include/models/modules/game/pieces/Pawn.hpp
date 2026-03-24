@@ -3,14 +3,13 @@
 
 #include "Piece.hpp"
 #include "models/modules/game/Player.hpp"
+#include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 
 namespace models::modules::game::pieces
 {
     class Coordinate;
     class PieceVisitor;
 }
-
-#include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
 
 using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
 

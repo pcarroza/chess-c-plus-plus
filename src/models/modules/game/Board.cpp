@@ -194,7 +194,7 @@ namespace models::modules::game
         return piecesMap.at(player);
     }
 
-    void Board::changeTurn()
+    void Board::switchTurn()
     {
         turn->change();
     }

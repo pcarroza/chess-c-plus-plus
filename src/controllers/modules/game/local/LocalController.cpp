@@ -61,9 +61,9 @@ namespace controllers::modules::game::local
         return false;
     }
 
-    void LocalController::changeTurn()
+    void LocalController::switchTurn()
     {
-        game.changeTurn();
+        game.switchTurn();
     }
 
     void LocalController::initialize()

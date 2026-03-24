@@ -71,13 +71,11 @@ namespace models::modules::game::pieces::rules
     void PawnRules::generate(const Piece &piece, std::vector<Coordinate> &movements) const
     {
         const Pawn &pawn = dynamic_cast<const Pawn &>(piece);
-
         std::vector<std::unique_ptr<MovementState>> states;
         states.push_back(std::make_unique<AdvanceOneMovementState>());
         states.push_back(std::make_unique<AdvanceTwoMovementState>());
         states.push_back(std::make_unique<CaptureLeftMovementState>());
         states.push_back(std::make_unique<CaptureRightMovementState>());
-
         for (const auto &state : states)
         {
             state->execute(pawn, movements);
