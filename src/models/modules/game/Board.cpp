@@ -154,7 +154,8 @@ namespace models::modules::game
     {
         auto &inStepPawns = this->inStepPawnsMap.at(getCurrentPlayer());
         inStepPawns.erase(std::remove_if(inStepPawns.begin(), inStepPawns.end(), [piece](const std::shared_ptr<Piece> &it)
-                                 { return it.get() == piece; }), inStepPawns.end());
+                                         { return it.get() == piece; }),
+                          inStepPawns.end());
     }
 
     void Board::removeCurrentPlayerPiece(const Coordinate &coordinate)

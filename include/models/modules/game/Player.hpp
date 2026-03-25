@@ -49,6 +49,16 @@ namespace models::modules::game
             return value_ != other.value_;
         }
 
+        constexpr bool operator<(const Player &other) const noexcept 
+        {
+            return value_ < other.value_;
+        }
+
+        constexpr bool operator>(const Player &other) const noexcept 
+        {
+            return value_ > other.value_;
+        }
+        
         // Hash support para std::unordered_map
         struct Hash
         {

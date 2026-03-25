@@ -84,5 +84,4 @@ namespace models::modules::game::pieces
     {
         return getCoordinate() == coordinate;
     }
-
 }
