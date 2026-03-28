@@ -48,7 +48,8 @@ namespace models::modules::game::pieces
     {
         std::vector<std::shared_ptr<Piece>> pieces;
         pieces.reserve(16);
-        for (size_t i = 1; i <= 8; i++)
+        const int NUMBER_MAX_PAWNS = 8;
+        for (size_t i = 1; i <= NUMBER_MAX_PAWNS; i++)
         {
             pieces.push_back(std::make_shared<Pawn>(Coordinate(rowForPawnsByColor, i), player));
         }
