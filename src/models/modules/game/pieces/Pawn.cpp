@@ -50,7 +50,7 @@ namespace models::modules::game::pieces
 
     bool Pawn::isMovementValid(const Coordinate &target)
     {
-        return Piece::isMovementValid(target) || specialGenerator.isMovementValid(target);
+        return Piece::isMovementValid(target) or specialGenerator.isMovementValid(target);
     }
 
     bool Pawn::isVulnerablePawn() const

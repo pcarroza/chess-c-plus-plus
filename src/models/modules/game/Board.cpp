@@ -24,7 +24,7 @@ namespace models::modules::game
             {Player::WHITE, std::vector<std::shared_ptr<Piece>>()},
         };
 
-        inStepPawnsMap = {
+        inPawnInStepMap = {
             {Player::BLACK, std::vector<std::shared_ptr<Piece>>()},
             {Player::WHITE, std::vector<std::shared_ptr<Piece>>()},
         };
@@ -140,9 +140,9 @@ namespace models::modules::game
         return !isSquareEmpty(coordinate);
     }
 
-    void Board::add(Piece *enPassantPawns)
+    void Board::add(Piece *pawnInStep)
     {
-        inStepPawnsMap.at(getCurrentPlayer()).push_back(std::shared_ptr<Piece>(enPassantPawns));
+        inPawnInStepMap.at(getCurrentPlayer()).push_back(std::shared_ptr<Piece>(pawnInStep));
     }
 
     bool Board::isMovementValid(const Coordinate &coordinate)
@@ -152,7 +152,7 @@ namespace models::modules::game
 
     void Board::deletedPawnInStep(Piece *piece)
     {
-        auto &inStepPawns = this->inStepPawnsMap.at(getCurrentPlayer());
+        auto &inStepPawns = this->inPawnInStepMap.at(getCurrentPlayer());
         inStepPawns.erase(std::remove_if(inStepPawns.begin(), inStepPawns.end(), [piece](const std::shared_ptr<Piece> &it)
                                          { return it.get() == piece; }),
                           inStepPawns.end());

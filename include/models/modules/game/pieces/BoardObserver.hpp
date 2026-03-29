@@ -16,10 +16,6 @@ namespace models::modules::game::pieces
     public:
         virtual ~BoardObserver() = default;
 
-        virtual void set(Piece *piece) = 0;
-
-        virtual void set(std::vector<Coordinate> &selectedPieceMovements) = 0;
-
         virtual void add(Piece *enPassantPawn) = 0;
 
         virtual void deletedPawnInStep(Piece *piece) = 0;

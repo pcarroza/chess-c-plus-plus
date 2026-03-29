@@ -33,9 +33,9 @@ namespace models::modules::game
 
         ~Board();
 
-        void set(Piece *piece) override;
+        void set(Piece *piece);
 
-        void set(std::vector<Coordinate> &selectedPieceMovements) override;
+        void set(std::vector<Coordinate> &selectedPieceMovements);
 
         std::vector<Coordinate> &getValidMovements();
 
@@ -59,7 +59,7 @@ namespace models::modules::game
 
         bool isMovementValid(const Coordinate &coordinate);
 
-        void add(Piece *enPassantPawn) override;
+        void add(Piece *pawnInStep) override;
 
         void deletedPawnInStep(Piece *piece) override;
 
@@ -85,7 +85,7 @@ namespace models::modules::game
 
         std::map<Player, std::vector<std::shared_ptr<Piece>>> removedPieces;
 
-        std::map<Player, std::vector<std::shared_ptr<Piece>>> inStepPawnsMap;
+        std::map<Player, std::vector<std::shared_ptr<Piece>>> inPawnInStepMap;
 
         std::vector<Coordinate> *selectedPieceMovements;
 

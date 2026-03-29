@@ -24,7 +24,7 @@ namespace models::modules::game::pieces::rules
         for (const auto &offset : offsets)
         {
             Coordinate target = piece.getDisplacedBy(offset);
-            if (ValidatorLimitsBoard::getInstance().isWithinLimits(target) and !piece.isItTheSameColorIn(target))
+            if (ValidatorLimitsBoard::getInstance().isWithinLimits(target) and not piece.isItTheSameColorIn(target))
             {
                 movements.push_back(target);
             }
