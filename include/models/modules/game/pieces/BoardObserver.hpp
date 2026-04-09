@@ -4,7 +4,8 @@
 #include <vector>
 #include <memory>
 
-namespace models::modules::game::pieces {
+namespace models::modules::game::pieces
+{
     class Piece;
     class Coordinate;
 }

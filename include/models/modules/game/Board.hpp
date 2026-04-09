@@ -39,9 +39,9 @@ namespace models::modules::game
 
         std::vector<Coordinate> &getValidMovements();
 
-        void selectPiece(const Coordinate &coordinate);
+        void selectPiece(const Coordinate &origin);
 
-        void putPieceTo(const Coordinate &coordinate);
+        void putPieceTo(const Coordinate &target);
 
         bool isSelectedPiece();
 
