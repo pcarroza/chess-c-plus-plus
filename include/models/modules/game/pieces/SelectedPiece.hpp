@@ -14,19 +14,33 @@ namespace models::modules::game::pieces
     {
     public:
         virtual ~SelectedPiece() = default;
+
         virtual void put(Coordinate coordinate) = 0;
+
         virtual bool isMovementValid(const Coordinate &coordinate) = 0;
+
         virtual void generateMovements() = 0;
+
         virtual PieceSimbol getSymbol() = 0;
+
         virtual Coordinate getCoordinate() = 0;
+
         virtual std::vector<Coordinate> getMovements() = 0;
+
         virtual std::vector<Coordinate> getEnPassantDiagonals() = 0;
+
         virtual bool isMovementValid(Coordinate coordinate) = 0;
+
         virtual bool isRookAvailableForCastling() = 0;
+
         virtual bool isKing() = 0;
+
         virtual bool isPawn() = 0;
+
         virtual bool isRook() = 0;
+
         virtual bool isPromoted() = 0;
+
         virtual bool isPawnPromoted() = 0;
     };
 }
