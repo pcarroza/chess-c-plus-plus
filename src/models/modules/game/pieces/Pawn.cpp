@@ -2,7 +2,6 @@
 #include "models/modules/game/pieces/Pawn.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
-#include "models/modules/game/pieces/PieceVisitor.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
 
 using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
@@ -48,9 +47,9 @@ namespace models::modules::game::pieces
         Piece::put(target);
     }
 
-    bool Pawn::isMovementValid(const Coordinate &target)
+    bool Pawn::isMovementValid(const Coordinate &target) const
     {
-        return Piece::isMovementValid(target) or specialGenerator.isMovementValid(target);
+        return Piece::isMovementValid(target) || specialGenerator.isMovementValid(target);
     }
 
     bool Pawn::isVulnerablePawn() const
@@ -136,16 +135,8 @@ namespace models::modules::game::pieces
         return getDisplacedBy(Coordinate(getPlayerDirection(player), rightDiagonalOffset));
     }
 
-    void Pawn::accept(PieceVisitor &pieceVisitor)
+    PieceSimbol Pawn::getSymbol()
     {
-        pieceVisitor.visit(*this);
-    }
-
-    std::string Pawn::toString() const
-    {
-        std::string colorStr = player == Player::WHITE ? "White" : "Black";
-        std::string stateStr = isInitialState() ? "Initial" : "Moved";
-        std::string promotedStr = isItPromoted ? "Promoted" : "Normal";
-        return "Pawn(" + colorStr + ", " + stateStr + ", " + promotedStr + ")";
+        return PieceSimbol::PAWN;
     }
 }

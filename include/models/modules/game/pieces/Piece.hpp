@@ -31,18 +31,6 @@ namespace models::modules::game::pieces
 
         virtual ~Piece();
 
-        std::vector<Coordinate> &getValidMovements();
-
-        int getVectorPlayer() const;
-
-        bool isAt(const Coordinate &coordinate) const;
-
-        void put(Coordinate coordinate) override;
-
-        bool isMovementValid(const Coordinate &coordinate) override;
-
-        void generateMovements() override;
-
         Coordinate getCoordinate() const;
 
         Coordinate getDisplacedBy(int increase) const;
@@ -51,9 +39,35 @@ namespace models::modules::game::pieces
 
         Coordinate getDisplacedBy(const Coordinate &increase, const Coordinate &vector) const;
 
-        virtual void accept(PieceVisitor &pieceVisitor) = 0;
+        std::vector<Coordinate> &getValidMovements();
 
-        virtual std::string toString() const = 0;
+        int getVectorPlayer() const;
+
+        bool isAt(const Coordinate &coordinate) const;
+
+        void put(Coordinate coordinate) override;
+
+        void generateMovements() override;
+
+        PieceSimbol getSymbol() override;
+
+        std::vector<Coordinate> getMovements() override;
+
+        std::vector<Coordinate> getEnPassantDiagonals() override;
+
+        bool isMovementValid(const Coordinate &coordinate) const override;
+
+        bool isRookAvailableForCastling() override;
+
+        bool isKing() override;
+
+        bool isPawn() override;
+
+        bool isRook() override;
+
+        bool isPromoted() const override;
+
+        bool isPawnPromoted() override;
 
     protected:
         void set(Coordinate coordinate);

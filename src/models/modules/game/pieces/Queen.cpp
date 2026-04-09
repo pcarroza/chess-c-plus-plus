@@ -8,13 +8,8 @@ namespace models::modules::game::pieces
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getQueenRules());
     }
 
-    void Queen::accept(PieceVisitor &pieceVisitor)
+    PieceSimbol Queen::getSymbol()
     {
-        pieceVisitor.visit(*this);
-    }
-
-    std::string Queen::toString() const
-    {
-        return "Queen()";
+        return PieceSimbol::QUEEN;
     }
 }

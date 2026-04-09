@@ -1,4 +1,3 @@
-#include "models/modules/game/pieces/PieceVisitor.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/Piece.hpp"
 #include "models/modules/game/Player.hpp"
@@ -30,18 +29,6 @@ namespace models::modules::game::pieces
     std::vector<Coordinate> &Piece::getValidMovements()
     {
         return this->validMovements;
-    }
-
-    bool Piece::isMovementValid(const Coordinate &target)
-    {
-        for (const auto &movement : validMovements)
-        {
-            if (movement == target)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 
     void Piece::generateMovements()
@@ -83,5 +70,62 @@ namespace models::modules::game::pieces
     bool Piece::isAt(const Coordinate &coordinate) const
     {
         return getCoordinate() == coordinate;
+    }
+
+    PieceSimbol Piece::getSymbol()
+    {
+        return PieceSimbol::EMPTY;
+    }
+
+    std::vector<Coordinate> Piece::getMovements()
+    {
+        return std::vector<Coordinate>();
+    }
+
+    std::vector<Coordinate> Piece::getEnPassantDiagonals()
+    {
+        return std::vector<Coordinate>();
+    }
+
+    bool Piece::isMovementValid(const Coordinate &target) const
+    {
+        for (const auto &movement : validMovements)
+        {
+            if (movement == target)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool Piece::isRookAvailableForCastling()
+    {
+        return false;
+    }
+
+    bool Piece::isKing()
+    {
+        return false;
+    }
+
+    bool Piece::isPawn()
+    {
+        return false;
+    }
+
+    bool Piece::isRook()
+    {
+        return false;
+    }
+
+    bool Piece::isPromoted() const
+    {
+        return false;
+    }
+
+    bool Piece::isPawnPromoted()
+    {
+        return false;
     }
 }

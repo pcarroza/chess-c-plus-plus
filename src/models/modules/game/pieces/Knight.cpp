@@ -1,6 +1,5 @@
 #include "models/modules/game/pieces/Knight.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
-#include "models/modules/game/pieces/PieceVisitor.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
 
 namespace models::modules::game::pieces
@@ -10,13 +9,8 @@ namespace models::modules::game::pieces
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getKnightRules());
     }
 
-    void Knight::accept(PieceVisitor &pieceVisitor)
+    PieceSimbol Knight::getSymbol()
     {
-        pieceVisitor.visit(*this);
-    }
-
-    std::string Knight::toString() const
-    {
-        return "Knight()";
+        return PieceSimbol::KNIGHT;
     }
 }

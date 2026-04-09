@@ -12,12 +12,12 @@ namespace models::modules::game::pieces::specialRuleMovements
         return possibleMoves;
     }
 
-    bool SpecialMovesRulesGenerator::isMovementValid(const Coordinate &coordinate)
+    bool SpecialMovesRulesGenerator::isMovementValid(const Coordinate &coordinate) const
     {
         return isContained(coordinate);
     }
 
-    bool SpecialMovesRulesGenerator::isContained(const Coordinate &coordinate)
+    bool SpecialMovesRulesGenerator::isContained(const Coordinate &coordinate) const
     {
         return std::any_of(possibleMoves.begin(), possibleMoves.end(), [&](const Coordinate &elem)
                            { return elem == coordinate; });

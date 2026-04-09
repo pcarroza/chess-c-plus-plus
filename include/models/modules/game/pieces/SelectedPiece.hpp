@@ -17,19 +17,15 @@ namespace models::modules::game::pieces
 
         virtual void put(Coordinate coordinate) = 0;
 
-        virtual bool isMovementValid(const Coordinate &coordinate) = 0;
-
         virtual void generateMovements() = 0;
 
         virtual PieceSimbol getSymbol() = 0;
-
-        virtual Coordinate getCoordinate() = 0;
 
         virtual std::vector<Coordinate> getMovements() = 0;
 
         virtual std::vector<Coordinate> getEnPassantDiagonals() = 0;
 
-        virtual bool isMovementValid(Coordinate coordinate) = 0;
+        virtual bool isMovementValid(const Coordinate &coordinate) const = 0;
 
         virtual bool isRookAvailableForCastling() = 0;
 
@@ -39,7 +35,7 @@ namespace models::modules::game::pieces
 
         virtual bool isRook() = 0;
 
-        virtual bool isPromoted() = 0;
+        virtual bool isPromoted() const = 0;
 
         virtual bool isPawnPromoted() = 0;
     };

@@ -1,6 +1,5 @@
 #include "models/modules/game/pieces/King.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
-#include "models/modules/game/pieces/PieceVisitor.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
 
 namespace models::modules::game::pieces
@@ -19,7 +18,7 @@ namespace models::modules::game::pieces
         Piece::put(coordinate);
     }
 
-    bool King::isMovementValid(const Coordinate &target)
+    bool King::isMovementValid(const Coordinate &target) const
     {
         return Piece::isMovementValid(target);
     };
@@ -29,13 +28,8 @@ namespace models::modules::game::pieces
         isMoved = true;
     }
 
-    void King::accept(PieceVisitor &pieceVisitor)
+    PieceSimbol King::getSymbol()
     {
-        pieceVisitor.visit(*this);
-    }
-
-    std::string King::toString() const
-    {
-        return "King()";
+        return PieceSimbol::KING;
     }
 }

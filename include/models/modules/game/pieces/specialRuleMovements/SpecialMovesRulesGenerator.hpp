@@ -8,7 +8,8 @@
 #include <memory>
 #include <algorithm>
 
-namespace models::modules::game::pieces {
+namespace models::modules::game::pieces
+{
     class Piece;
     class Coordinate;
 }
@@ -26,10 +27,10 @@ namespace models::modules::game::pieces::specialRuleMovements
 
         std::vector<Coordinate> getValidMovements();
 
-        bool isMovementValid(const Coordinate &coordinate);
+        bool isMovementValid(const Coordinate &coordinate) const;
 
     private:
-        bool isContained(const Coordinate &coordinate);
+        bool isContained(const Coordinate &coordinate) const;
 
     protected:
         std::vector<Coordinate> possibleMoves;

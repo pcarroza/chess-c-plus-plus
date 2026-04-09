@@ -16,16 +16,14 @@ namespace models::modules::game::pieces
     {
     public:
         King(Coordinate coordinate, Player player);
-        
+
         void put(Coordinate target) override;
-        
-        bool isMovementValid(const Coordinate &target) override;
+
+        bool isMovementValid(const Coordinate &target) const override;
 
         void close();
 
-        void accept(PieceVisitor &pieceVisitor) override;
-
-        std::string toString() const override;
+        PieceSimbol getSymbol() override;
 
     private:
         bool isMoved = false;

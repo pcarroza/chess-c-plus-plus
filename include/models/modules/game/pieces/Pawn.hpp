@@ -24,7 +24,7 @@ namespace models::modules::game::pieces
 
         void put(Coordinate target) override;
 
-        bool isMovementValid(const Coordinate &target) override;
+        bool isMovementValid(const Coordinate &target) const override;
 
         bool isVulnerablePawn() const;
 
@@ -48,9 +48,7 @@ namespace models::modules::game::pieces
 
         Coordinate getDiagonalRight() const;
 
-        void accept(PieceVisitor &pieceVisitor) override;
-
-        std::string toString() const override;
+        PieceSimbol getSymbol() override;
 
     private:
         void close();

@@ -1,6 +1,5 @@
 #include "common/validators/ValidatorLimitsBoard.hpp"
 #include "models/modules/game/pieces/PiecesMapBuilder.hpp"
-#include "models/modules/game/pieces/PieceInspector.hpp"
 #include "models/modules/game/Board.hpp"
 #include "models/modules/game/Player.hpp"
 
@@ -8,7 +7,6 @@
 #include <assert.h>
 
 using common::validators::ValidatorLimitsBoard;
-using models::modules::game::pieces::isPawnPromoted;
 using models::modules::game::pieces::PiecesMapBuilder;
 
 namespace models::modules::game
@@ -92,13 +90,12 @@ namespace models::modules::game
 
     bool Board::isThePawnPromoted()
     {
-        return isPawnPromoted(*dynamic_cast<Piece *>(selectedPiece));
+        return selectedPiece != nullptr and selectedPiece->isPawnPromoted();
     }
 
     bool Board::isEnemy(const Coordinate &coordinate)
     {
         auto &pieces = getPiecesBy(getRivalPlayer());
-
         return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
                            { return piece->isAt(coordinate); });
     }

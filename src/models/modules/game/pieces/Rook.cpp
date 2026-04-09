@@ -8,13 +8,8 @@ namespace models::modules::game::pieces
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getRookRules());
     }
 
-    void Rook::accept(PieceVisitor &pieceVisitor)
+    PieceSimbol Rook::getSymbol()
     {
-        pieceVisitor.visit(*this);
-    }
-
-    std::string Rook::toString() const
-    {
-        return "Rook()";
+        return PieceSimbol::ROOK;
     }
 }
