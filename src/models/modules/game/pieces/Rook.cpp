@@ -8,8 +8,8 @@ namespace models::modules::game::pieces
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getRookRules());
     }
 
-    PieceSimbol Rook::getSymbol()
+    PieceSymbol Rook::getSymbol() const
     {
-        return PieceSimbol::ROOK;
+        return PieceSymbol::ROOK;
     }
 }

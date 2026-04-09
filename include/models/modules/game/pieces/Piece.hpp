@@ -49,25 +49,25 @@ namespace models::modules::game::pieces
 
         void generateMovements() override;
 
-        PieceSimbol getSymbol() override;
+        PieceSymbol getSymbol() const override;
 
-        std::vector<Coordinate> getMovements() override;
+        std::vector<Coordinate> getMovements() const override;
 
-        std::vector<Coordinate> getEnPassantDiagonals() override;
+        std::vector<Coordinate> getEnPassantDiagonals() const override;
 
         bool isMovementValid(const Coordinate &coordinate) const override;
 
-        bool isRookAvailableForCastling() override;
+        bool isRookAvailableForCastling() const override;
 
-        bool isKing() override;
+        bool isKing() const override;
 
-        bool isPawn() override;
+        bool isPawn() const override;
 
-        bool isRook() override;
+        bool isRook() const override;
 
         bool isPromoted() const override;
 
-        bool isPawnPromoted() override;
+        bool isPawnPromoted() const override;
 
     protected:
         void set(Coordinate coordinate);

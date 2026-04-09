@@ -23,7 +23,7 @@ namespace models::modules::game::pieces
 
         void close();
 
-        PieceSimbol getSymbol() override;
+        PieceSymbol getSymbol() const override;
 
     private:
         bool isMoved = false;

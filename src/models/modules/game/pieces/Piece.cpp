@@ -72,17 +72,17 @@ namespace models::modules::game::pieces
         return getCoordinate() == coordinate;
     }
 
-    PieceSimbol Piece::getSymbol()
+    PieceSymbol Piece::getSymbol() const
     {
-        return PieceSimbol::EMPTY;
+        return PieceSymbol::EMPTY;
     }
 
-    std::vector<Coordinate> Piece::getMovements()
+    std::vector<Coordinate> Piece::getMovements() const
     {
         return std::vector<Coordinate>();
     }
 
-    std::vector<Coordinate> Piece::getEnPassantDiagonals()
+    std::vector<Coordinate> Piece::getEnPassantDiagonals() const
     {
         return std::vector<Coordinate>();
     }
@@ -99,22 +99,22 @@ namespace models::modules::game::pieces
         return false;
     }
 
-    bool Piece::isRookAvailableForCastling()
+    bool Piece::isRookAvailableForCastling() const
     {
         return false;
     }
 
-    bool Piece::isKing()
+    bool Piece::isKing() const
     {
         return false;
     }
 
-    bool Piece::isPawn()
+    bool Piece::isPawn() const
     {
         return false;
     }
 
-    bool Piece::isRook()
+    bool Piece::isRook() const
     {
         return false;
     }
@@ -124,7 +124,7 @@ namespace models::modules::game::pieces
         return false;
     }
 
-    bool Piece::isPawnPromoted()
+    bool Piece::isPawnPromoted() const
     {
         return false;
     }

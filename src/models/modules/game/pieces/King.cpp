@@ -28,8 +28,8 @@ namespace models::modules::game::pieces
         isMoved = true;
     }
 
-    PieceSimbol King::getSymbol()
+    PieceSymbol King::getSymbol() const
     {
-        return PieceSimbol::KING;
+        return PieceSymbol::KING;
     }
 }

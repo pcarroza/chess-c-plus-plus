@@ -48,7 +48,7 @@ namespace models::modules::game::pieces
 
         Coordinate getDiagonalRight() const;
 
-        PieceSimbol getSymbol() override;
+        PieceSymbol getSymbol() const override;
 
     private:
         void close();

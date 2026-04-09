@@ -135,8 +135,8 @@ namespace models::modules::game::pieces
         return getDisplacedBy(Coordinate(getPlayerDirection(player), rightDiagonalOffset));
     }
 
-    PieceSimbol Pawn::getSymbol()
+    PieceSymbol Pawn::getSymbol() const
     {
-        return PieceSimbol::PAWN;
+        return PieceSymbol::PAWN;
     }
 }

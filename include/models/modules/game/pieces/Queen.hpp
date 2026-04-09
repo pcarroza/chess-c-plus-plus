@@ -14,7 +14,7 @@ namespace models::modules::game::pieces
     public:
         Queen(Coordinate coordinate, Player player);
 
-        PieceSimbol getSymbol() override;
+        PieceSymbol getSymbol() const override;
     };
 }
 

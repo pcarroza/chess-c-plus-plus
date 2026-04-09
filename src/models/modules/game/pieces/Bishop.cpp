@@ -9,8 +9,8 @@ namespace models::modules::game::pieces
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getBishopRules());
     }
 
-    PieceSimbol Bishop::getSymbol()
+    PieceSymbol Bishop::getSymbol() const
     {
-        return PieceSimbol::BISHOP;
+        return PieceSymbol::BISHOP;
     }
 }

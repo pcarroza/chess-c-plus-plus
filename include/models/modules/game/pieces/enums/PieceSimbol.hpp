@@ -6,7 +6,7 @@
 namespace models::modules::game::pieces::enums
 {
 
-    enum class PieceSimbol
+    enum class PieceSymbol
     {
         PAWN,
         ROOK,
@@ -17,23 +17,23 @@ namespace models::modules::game::pieces::enums
         EMPTY
     };
 
-    inline std::string getPieceSimbolValue(PieceSimbol symbol)
+    inline std::string getPieceSimbolValue(PieceSymbol symbol)
     {
         switch (symbol)
         {
-        case PieceSimbol::PAWN:
+        case PieceSymbol::PAWN:
             return "P";
-        case PieceSimbol::ROOK:
+        case PieceSymbol::ROOK:
             return "T";
-        case PieceSimbol::KNIGHT:
+        case PieceSymbol::KNIGHT:
             return "C";
-        case PieceSimbol::BISHOP:
+        case PieceSymbol::BISHOP:
             return "B";
-        case PieceSimbol::QUEEN:
+        case PieceSymbol::QUEEN:
             return "Q";
-        case PieceSimbol::KING:
+        case PieceSymbol::KING:
             return "K";
-        case PieceSimbol::EMPTY:
+        case PieceSymbol::EMPTY:
             return ".";
         default:
             return "";

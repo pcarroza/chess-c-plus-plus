@@ -8,8 +8,8 @@ namespace models::modules::game::pieces
         movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getQueenRules());
     }
 
-    PieceSimbol Queen::getSymbol()
+    PieceSymbol Queen::getSymbol() const
     {
-        return PieceSimbol::QUEEN;
+        return PieceSymbol::QUEEN;
     }
 }

@@ -17,7 +17,7 @@ namespace models::modules::game::pieces
     public:
         Bishop(Coordinate coordinate, Player player);
 
-        PieceSimbol getSymbol() override;
+        PieceSymbol getSymbol() const override;
     };
 }
 

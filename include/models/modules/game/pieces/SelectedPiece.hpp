@@ -8,7 +8,7 @@
 
 namespace models::modules::game::pieces
 {
-    using enums::PieceSimbol;
+    using enums::PieceSymbol;
 
     class SelectedPiece
     {
@@ -19,25 +19,25 @@ namespace models::modules::game::pieces
 
         virtual void generateMovements() = 0;
 
-        virtual PieceSimbol getSymbol() = 0;
+        virtual PieceSymbol getSymbol() const = 0;
 
-        virtual std::vector<Coordinate> getMovements() = 0;
+        virtual std::vector<Coordinate> getMovements() const = 0;
 
-        virtual std::vector<Coordinate> getEnPassantDiagonals() = 0;
+        virtual std::vector<Coordinate> getEnPassantDiagonals() const = 0;
 
         virtual bool isMovementValid(const Coordinate &coordinate) const = 0;
 
-        virtual bool isRookAvailableForCastling() = 0;
+        virtual bool isRookAvailableForCastling() const = 0;
 
-        virtual bool isKing() = 0;
+        virtual bool isKing() const = 0;
 
-        virtual bool isPawn() = 0;
+        virtual bool isPawn() const = 0;
 
-        virtual bool isRook() = 0;
+        virtual bool isRook() const = 0;
 
         virtual bool isPromoted() const = 0;
 
-        virtual bool isPawnPromoted() = 0;
+        virtual bool isPawnPromoted() const = 0;
     };
 }
 
