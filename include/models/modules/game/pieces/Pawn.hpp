@@ -3,7 +3,7 @@
 
 #include "Piece.hpp"
 #include "models/modules/game/Player.hpp"
-#include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "models/modules/game/pieces/special/EnPassantPawnSpecialRuleGenerator.hpp"
 
 namespace models::modules::game::pieces
 {
@@ -11,7 +11,7 @@ namespace models::modules::game::pieces
     class PieceVisitor;
 }
 
-using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
+using models::modules::game::pieces::special::EnPassantPawnSpecialRuleGenerator;
 
 namespace models::modules::game::pieces
 {

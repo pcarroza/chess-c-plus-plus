@@ -1,3 +1,4 @@
+// ...existing code...
 #ifndef ENPASSANTPAWNSPECIALRULEGENERATOR_HPP
 #define ENPASSANTPAWNSPECIALRULEGENERATOR_HPP
 
@@ -15,7 +16,7 @@ namespace common::validators
 
 using common::validators::ValidatorLimitsBoard;
 
-namespace models::modules::game::pieces::specialRuleMovements
+namespace models::modules::game::pieces::special
 {
     class EnPassantPawnSpecialRuleGenerator : public SpecialMovesRulesGenerator
     {

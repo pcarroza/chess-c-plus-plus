@@ -1,11 +1,11 @@
 #include "models/modules/game/Player.hpp"
 #include "models/modules/game/pieces/Pawn.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
-#include "models/modules/game/pieces/specialRuleMovements/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "models/modules/game/pieces/special/EnPassantPawnSpecialRuleGenerator.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
 
-using models::modules::game::pieces::specialRuleMovements::EnPassantPawnSpecialRuleGenerator;
-using models::modules::game::pieces::specialRuleMovements::SpecialMovesRulesGenerator;
+using models::modules::game::pieces::special::EnPassantPawnSpecialRuleGenerator;
+using models::modules::game::pieces::special::SpecialMovesRulesGenerator;
 
 namespace models::modules::game::pieces
 {

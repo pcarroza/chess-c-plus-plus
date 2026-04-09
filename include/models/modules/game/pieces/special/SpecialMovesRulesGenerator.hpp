@@ -1,3 +1,4 @@
+// ...existing code...
 #ifndef SPECIALMOVESRULESGENERATOR_HPP
 #define SPECIALMOVESRULESGENERATOR_HPP
 
@@ -14,7 +15,7 @@ namespace models::modules::game::pieces
     class Coordinate;
 }
 
-namespace models::modules::game::pieces::specialRuleMovements
+namespace models::modules::game::pieces::special
 {
     class SpecialMovesRulesGenerator
     {
