@@ -1,12 +1,13 @@
 #include "models/modules/game/pieces/King.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
+#include "King.hpp"
 
 namespace models::modules::game::pieces
 {
     King::King(Coordinate coordinate, Player color) : Piece(coordinate, color)
     {
-        movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getKingRules());
+        movementRulesGenerator = &rules::MovementRulesFacade::getKingRules();
     }
 
     void King::put(Coordinate coordinate)
@@ -26,6 +27,11 @@ namespace models::modules::game::pieces
     void King::close()
     {
         isMoved = true;
+    }
+
+    bool King::isKing() const
+    {
+        return true;
     }
 
     PieceSymbol King::getSymbol() const

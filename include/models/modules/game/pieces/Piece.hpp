@@ -49,8 +49,6 @@ namespace models::modules::game::pieces
 
         void generateMovements() override;
 
-        PieceSymbol getSymbol() const override;
-
         std::vector<Coordinate> getMovements() const override;
 
         std::vector<Coordinate> getEnPassantDiagonals() const override;
@@ -69,6 +67,8 @@ namespace models::modules::game::pieces
 
         bool isPawnPromoted() const override;
 
+        PieceSymbol getSymbol() const override;
+
     protected:
         void set(Coordinate coordinate);
 
@@ -76,7 +76,7 @@ namespace models::modules::game::pieces
 
         Coordinate coordinate;
 
-        MovementRulesGenerator *movementRulesGenerator;
+        const MovementRulesGenerator *movementRulesGenerator;
 
         std::vector<Coordinate> validMovements;
     };

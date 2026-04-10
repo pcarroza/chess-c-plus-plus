@@ -18,10 +18,10 @@ using common::validators::ValidatorLimitsBoard;
 
 namespace models::modules::game::pieces::special
 {
-    class EnPassantPawnSpecialRuleGenerator : public SpecialMovesRulesGenerator
+    class InStepSpecialRuleGenerator : public SpecialMovesRulesGenerator
     {
     public:
-        EnPassantPawnSpecialRuleGenerator(Piece *piece);
+        InStepSpecialRuleGenerator(Piece *piece);
 
         void generate() override;
     };

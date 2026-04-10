@@ -2,11 +2,11 @@
 
 namespace models::modules::game::pieces::special
 {
-    EnPassantPawnSpecialRuleGenerator::EnPassantPawnSpecialRuleGenerator(Piece *piece) : SpecialMovesRulesGenerator(piece)
+    InStepSpecialRuleGenerator::InStepSpecialRuleGenerator(Piece *piece) : SpecialMovesRulesGenerator(piece)
     {
     }
 
-    void EnPassantPawnSpecialRuleGenerator::generate()
+    void InStepSpecialRuleGenerator::generate()
     {
     }
 }

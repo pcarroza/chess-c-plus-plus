@@ -72,11 +72,6 @@ namespace models::modules::game::pieces
         return getCoordinate() == coordinate;
     }
 
-    PieceSymbol Piece::getSymbol() const
-    {
-        return PieceSymbol::EMPTY;
-    }
-
     std::vector<Coordinate> Piece::getMovements() const
     {
         return std::vector<Coordinate>();
@@ -127,5 +122,10 @@ namespace models::modules::game::pieces
     bool Piece::isPawnPromoted() const
     {
         return false;
+    }
+
+    PieceSymbol Piece::getSymbol() const
+    {
+        return PieceSymbol::EMPTY;
     }
 }

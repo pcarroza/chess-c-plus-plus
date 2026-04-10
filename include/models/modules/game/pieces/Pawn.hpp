@@ -3,7 +3,8 @@
 
 #include "Piece.hpp"
 #include "models/modules/game/Player.hpp"
-#include "models/modules/game/pieces/special/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "models/modules/game/pieces/Coordinate.hpp"
+#include "models/modules/game/pieces/special/InStepSpecialRuleGenerator.hpp"
 
 namespace models::modules::game::pieces
 {
@@ -11,7 +12,7 @@ namespace models::modules::game::pieces
     class PieceVisitor;
 }
 
-using models::modules::game::pieces::special::EnPassantPawnSpecialRuleGenerator;
+using models::modules::game::pieces::special::InStepSpecialRuleGenerator;
 
 namespace models::modules::game::pieces
 {
@@ -47,6 +48,14 @@ namespace models::modules::game::pieces
         Coordinate getDiagonalLeft() const;
 
         Coordinate getDiagonalRight() const;
+        
+        std::vector<Coordinate> getEnPassantDiagonals() const override;
+
+        bool isPawn() const override;
+
+        bool isPromoted() const override;
+
+        bool isPawnPromoted() const override;
 
         PieceSymbol getSymbol() const override;
 
@@ -66,7 +75,7 @@ namespace models::modules::game::pieces
 
         bool vulnerablePawn;
 
-        EnPassantPawnSpecialRuleGenerator specialGenerator;
+        InStepSpecialRuleGenerator specialGenerator;
     };
 }
 

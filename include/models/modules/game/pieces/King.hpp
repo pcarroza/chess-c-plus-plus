@@ -23,6 +23,8 @@ namespace models::modules::game::pieces
 
         void close();
 
+        bool isKing() const override;
+
         PieceSymbol getSymbol() const override;
 
     private:

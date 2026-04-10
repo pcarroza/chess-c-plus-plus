@@ -5,7 +5,7 @@ namespace models::modules::game::pieces
 {
     Rook::Rook(Coordinate coordinate, Player color) : Piece(coordinate, color)
     {
-        movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getRookRules());
+        movementRulesGenerator = &rules::MovementRulesFacade::getRookRules();
     }
 
     PieceSymbol Rook::getSymbol() const

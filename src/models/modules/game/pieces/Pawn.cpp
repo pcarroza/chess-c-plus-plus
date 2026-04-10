@@ -1,10 +1,7 @@
-#include "models/modules/game/Player.hpp"
 #include "models/modules/game/pieces/Pawn.hpp"
-#include "models/modules/game/pieces/Coordinate.hpp"
-#include "models/modules/game/pieces/special/EnPassantPawnSpecialRuleGenerator.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
 
-using models::modules::game::pieces::special::EnPassantPawnSpecialRuleGenerator;
+using models::modules::game::pieces::special::InStepSpecialRuleGenerator;
 using models::modules::game::pieces::special::SpecialMovesRulesGenerator;
 
 namespace models::modules::game::pieces
@@ -16,7 +13,7 @@ namespace models::modules::game::pieces
           vulnerablePawn(false),
           specialGenerator(this)
     {
-        movementRulesGenerator = const_cast<rules::MovementRulesGenerator *>(&rules::MovementRulesFacade::getPawnRules());
+        movementRulesGenerator = &rules::MovementRulesFacade::getPawnRules();
     }
 
     Pawn::~Pawn()
@@ -45,26 +42,6 @@ namespace models::modules::game::pieces
             changeToPromoted();
         }
         Piece::put(target);
-    }
-
-    bool Pawn::isMovementValid(const Coordinate &target) const
-    {
-        return Piece::isMovementValid(target) || specialGenerator.isMovementValid(target);
-    }
-
-    bool Pawn::isVulnerablePawn() const
-    {
-        return vulnerablePawn;
-    }
-
-    bool Pawn::isPromoted() const
-    {
-        return isItPromoted;
-    }
-
-    bool Pawn::isInitialState() const
-    {
-        return initialState;
     }
 
     void Pawn::close()
@@ -135,8 +112,44 @@ namespace models::modules::game::pieces
         return getDisplacedBy(Coordinate(getPlayerDirection(player), rightDiagonalOffset));
     }
 
+    std::vector<Coordinate> Pawn::getEnPassantDiagonals() const
+    {
+        return std::vector<Coordinate>();
+    }
+
+    bool Pawn::isPawn() const
+    {
+        return true;
+    }
+
     PieceSymbol Pawn::getSymbol() const
     {
         return PieceSymbol::PAWN;
     }
+
+    bool Pawn::isMovementValid(const Coordinate &target) const
+    {
+        return Piece::isMovementValid(target) || specialGenerator.isMovementValid(target);
+    }
+
+    bool Pawn::isVulnerablePawn() const
+    {
+        return vulnerablePawn;
+    }
+
+    bool Pawn::isPromoted() const
+    {
+        return isItPromoted;
+    }
+
+    bool Pawn::isPawnPromoted() const
+    {
+        return isItPromoted;
+    }
+
+    bool Pawn::isInitialState() const
+    {
+        return initialState;
+    }
+
 }
