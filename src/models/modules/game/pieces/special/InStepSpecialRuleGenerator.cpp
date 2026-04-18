@@ -1,4 +1,4 @@
-#include "models/modules/game/pieces/special/EnPassantPawnSpecialRuleGenerator.hpp"
+#include "models/modules/game/pieces/special/InStepSpecialRuleGenerator.hpp"
 
 namespace models::modules::game::pieces::special
 {

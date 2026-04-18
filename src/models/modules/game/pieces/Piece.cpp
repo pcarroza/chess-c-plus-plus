@@ -77,7 +77,7 @@ namespace models::modules::game::pieces
         return std::vector<Coordinate>();
     }
 
-    std::vector<Coordinate> Piece::getEnPassantDiagonals() const
+    std::vector<Coordinate> Piece::getInStepDiagonals() const
     {
         return std::vector<Coordinate>();
     }

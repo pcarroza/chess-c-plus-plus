@@ -1,11 +1,10 @@
-#ifndef PIECE_SIMBOL_HPP
-#define PIECE_SIMBOL_HPP
+#ifndef PIECE_SYMBOL_HPP
+#define PIECE_SYMBOL_HPP
 
 #include <string>
 
 namespace models::modules::game::pieces::enums
 {
-
     enum class PieceSymbol
     {
         PAWN,
@@ -17,7 +16,7 @@ namespace models::modules::game::pieces::enums
         EMPTY
     };
 
-    inline std::string getPieceSimbolValue(PieceSymbol symbol)
+    inline std::string getPieceSymbolValue(PieceSymbol symbol)
     {
         switch (symbol)
         {

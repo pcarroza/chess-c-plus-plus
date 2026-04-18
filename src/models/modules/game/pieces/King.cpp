@@ -1,7 +1,6 @@
 #include "models/modules/game/pieces/King.hpp"
 #include "models/modules/game/pieces/Coordinate.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
-#include "King.hpp"
 
 namespace models::modules::game::pieces
 {

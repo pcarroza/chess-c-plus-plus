@@ -112,7 +112,7 @@ namespace models::modules::game::pieces
         return getDisplacedBy(Coordinate(getPlayerDirection(player), rightDiagonalOffset));
     }
 
-    std::vector<Coordinate> Pawn::getEnPassantDiagonals() const
+    std::vector<Coordinate> Pawn::getInStepDiagonals() const
     {
         return std::vector<Coordinate>();
     }

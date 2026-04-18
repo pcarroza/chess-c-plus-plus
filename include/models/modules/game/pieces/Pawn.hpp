@@ -29,8 +29,6 @@ namespace models::modules::game::pieces
 
         bool isVulnerablePawn() const;
 
-        bool isPromoted() const;
-
         bool isInitialState() const;
 
         bool canAdvanceOne() const;
@@ -49,7 +47,7 @@ namespace models::modules::game::pieces
 
         Coordinate getDiagonalRight() const;
         
-        std::vector<Coordinate> getEnPassantDiagonals() const override;
+        std::vector<Coordinate> getInStepDiagonals() const override;
 
         bool isPawn() const override;
 

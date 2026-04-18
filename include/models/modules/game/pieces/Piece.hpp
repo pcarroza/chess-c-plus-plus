@@ -51,7 +51,7 @@ namespace models::modules::game::pieces
 
         std::vector<Coordinate> getMovements() const override;
 
-        std::vector<Coordinate> getEnPassantDiagonals() const override;
+        std::vector<Coordinate> getInStepDiagonals() const override;
 
         bool isMovementValid(const Coordinate &coordinate) const override;
 

@@ -2,7 +2,7 @@
 #define SELECTED_PIECE_HPP
 
 #include "Coordinate.hpp"
-#include "./enums/PieceSimbol.hpp"
+#include "./enums/PieceSymbol.hpp"
 
 #include <vector>
 
@@ -23,7 +23,7 @@ namespace models::modules::game::pieces
 
         virtual std::vector<Coordinate> getMovements() const = 0;
 
-        virtual std::vector<Coordinate> getEnPassantDiagonals() const = 0;
+        virtual std::vector<Coordinate> getInStepDiagonals() const = 0;
 
         virtual bool isMovementValid(const Coordinate &coordinate) const = 0;
 
