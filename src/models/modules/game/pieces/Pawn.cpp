@@ -1,5 +1,6 @@
 #include "models/modules/game/pieces/Pawn.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
+#include "Pawn.hpp"
 
 using models::modules::game::pieces::special::InStepSpecialRuleGenerator;
 using models::modules::game::pieces::special::SpecialMovesRulesGenerator;
@@ -22,7 +23,6 @@ namespace models::modules::game::pieces
 
     void Pawn::put(Coordinate target)
     {
-        //  hay error en la logica de negocio
         if (isInitialState())
         {
             close();
@@ -117,16 +117,6 @@ namespace models::modules::game::pieces
         return std::vector<Coordinate>();
     }
 
-    bool Pawn::isPawn() const
-    {
-        return true;
-    }
-
-    PieceSymbol Pawn::getSymbol() const
-    {
-        return PieceSymbol::PAWN;
-    }
-
     bool Pawn::isMovementValid(const Coordinate &target) const
     {
         return Piece::isMovementValid(target) || specialGenerator.isMovementValid(target);
@@ -142,14 +132,18 @@ namespace models::modules::game::pieces
         return isItPromoted;
     }
 
-    bool Pawn::isPawnPromoted() const
-    {
-        return isItPromoted;
-    }
-
     bool Pawn::isInitialState() const
     {
         return initialState;
     }
 
+    bool Pawn::isPawn() const
+    {
+        return true;
+    }
+
+    PieceSymbol Pawn::getSymbol() const
+    {
+        return PieceSymbol::PAWN;
+    }
 }

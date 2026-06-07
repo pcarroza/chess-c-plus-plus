@@ -29,6 +29,6 @@ namespace models::modules::game::pieces
 
     void SubjectPiece::notifyDeletedPawnInStep(Piece *piece)
     {
-        boardObserver->deletedPawnInStep(piece);
+        boardObserver->remove(piece);
     }
 }

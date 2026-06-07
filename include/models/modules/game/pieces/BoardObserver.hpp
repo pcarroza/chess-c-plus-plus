@@ -19,15 +19,23 @@ namespace models::modules::game::pieces
 
         virtual void add(Piece *enPassantPawn) = 0;
 
-        virtual void deletedPawnInStep(Piece *piece) = 0;
+        virtual void remove(Piece *piece) = 0;
 
-        virtual bool isEnemy(const Coordinate &coordinate) = 0;
+        virtual bool isEnemy(const Coordinate &coordinate) const = 0;
 
-        virtual bool isSquareEmpty(const Coordinate &coordinate) = 0;
+        virtual bool isRookAvailableForCastling(const Coordinate &coordinate) const = 0;
 
-        virtual bool isSquareOccupied(const Coordinate &coordinate) = 0;
+        virtual bool isVulnerablePawnAt(const Coordinate &coordinate) const = 0;
 
-        virtual bool isSameColorPieceAt(const Coordinate &coordinate) = 0;
+        virtual bool isOccupied(const Coordinate &coordinate) const = 0;
+
+        virtual bool isSquareEmpty(const Coordinate &coordinate) const = 0;
+
+        virtual bool isSquareOccupied(const Coordinate &coordinate) const = 0;
+
+        virtual bool isSameColorPieceAt(const Coordinate &coordinate) const = 0;
+
+        virtual bool isKingInCheck() const = 0;
     };
 }
 

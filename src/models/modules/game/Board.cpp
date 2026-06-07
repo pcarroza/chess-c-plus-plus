@@ -93,20 +93,19 @@ namespace models::modules::game
         return selectedPiece != nullptr and selectedPiece->isPawnPromoted();
     }
 
-    bool Board::isEnemy(const Coordinate &coordinate)
+    bool Board::isEnemy(const Coordinate &coordinate) const
     {
         auto &pieces = getPiecesBy(getRivalPlayer());
         return std::any_of(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
                            { return piece->isAt(coordinate); });
     }
 
-    bool Board::isSquareEmpty(const Coordinate &coordinate)
+    bool Board::isSquareEmpty(const Coordinate &coordinate) const
     {
         auto pieceFinder = [&](const std::shared_ptr<Piece> &piece)
         {
             return piece->isAt(coordinate);
         };
-
         auto &currentPieces = getPiecesBy(getCurrentPlayer());
 
         if (std::any_of(currentPieces.begin(), currentPieces.end(), pieceFinder))
@@ -120,11 +119,11 @@ namespace models::modules::game
         {
             return false;
         }
-
+        
         return true;
     }
 
-    bool Board::isSameColorPieceAt(const Coordinate &coordinate)
+    bool Board::isSameColorPieceAt(const Coordinate &coordinate) const
     {
         auto &pieces = getPiecesBy(getCurrentPlayer());
 
@@ -132,7 +131,7 @@ namespace models::modules::game
                            { return piece->isAt(coordinate); });
     }
 
-    bool Board::isSquareOccupied(const Coordinate &coordinate)
+    bool Board::isSquareOccupied(const Coordinate &coordinate) const
     {
         return !isSquareEmpty(coordinate);
     }
@@ -147,7 +146,7 @@ namespace models::modules::game
         return selectedPiece->isMovementValid(coordinate);
     }
 
-    void Board::deletedPawnInStep(Piece *piece)
+    void Board::remove(Piece *piece)
     {
         auto &inStepPawns = this->inPawnInStepMap.at(getCurrentPlayer());
         inStepPawns.erase(std::remove_if(inStepPawns.begin(), inStepPawns.end(), [piece](const std::shared_ptr<Piece> &it)
@@ -167,7 +166,7 @@ namespace models::modules::game
 
     void Board::removePiece(const Coordinate &coordinate, Player player)
     {
-        auto &pieces = getPiecesBy(player);
+        auto &pieces = piecesMap.at(player);
         auto &removed = removedPieces.at(player);
 
         auto it = std::remove_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
@@ -187,7 +186,7 @@ namespace models::modules::game
         return ValidatorLimitsBoard::getInstance().isWithinLimits(coordinate);
     }
 
-    std::vector<std::shared_ptr<Piece>> &Board::getPiecesBy(Player player)
+    const std::vector<std::shared_ptr<Piece>> &Board::getPiecesBy(Player player) const
     {
         return piecesMap.at(player);
     }
@@ -197,12 +196,12 @@ namespace models::modules::game
         turn->change();
     }
 
-    Player Board::getCurrentPlayer()
+    Player Board::getCurrentPlayer() const
     {
         return turn->getCurrentPlayer();
     }
 
-    Player Board::getRivalPlayer()
+    Player Board::getRivalPlayer() const
     {
         return turn->getRivalPlayer();
     }

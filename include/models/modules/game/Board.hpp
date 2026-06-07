@@ -49,19 +49,19 @@ namespace models::modules::game
 
         bool isThePawnPromoted();
 
-        bool isEnemy(const Coordinate &coordinate) override;
+        bool isEnemy(const Coordinate &coordinate) const override;
 
-        bool isSquareEmpty(const Coordinate &coordinate) override;
+        bool isSquareEmpty(const Coordinate &coordinate) const override;
 
-        bool isSameColorPieceAt(const Coordinate &coordinate) override;
+        bool isSameColorPieceAt(const Coordinate &coordinate) const override;
 
-        bool isSquareOccupied(const Coordinate &coordinate) override;
+        bool isSquareOccupied(const Coordinate &coordinate) const override;
 
         bool isMovementValid(const Coordinate &coordinate);
 
         void add(Piece *pawnInStep) override;
 
-        void deletedPawnInStep(Piece *piece) override;
+        void remove(Piece *piece) override;
 
         void removeCurrentPlayerPiece(const Coordinate &coordinate);
 
@@ -69,13 +69,13 @@ namespace models::modules::game
 
         bool isWithinBoardLimits(const Coordinate &coordinate);
 
-        std::vector<std::shared_ptr<Piece>> &getPiecesBy(Player player);
+        const std::vector<std::shared_ptr<Piece>> &getPiecesBy(Player player) const;
 
         void switchTurn();
 
-        Player getCurrentPlayer();
+        Player getCurrentPlayer() const;
 
-        Player getRivalPlayer();
+        Player getRivalPlayer() const;
 
     private:
         void removePiece(const Coordinate &coordinate, Player player);

@@ -53,8 +53,6 @@ namespace models::modules::game::pieces
 
         bool isPromoted() const override;
 
-        bool isPawnPromoted() const override;
-
         PieceSymbol getSymbol() const override;
 
     private:
