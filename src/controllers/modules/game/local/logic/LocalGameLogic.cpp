@@ -3,6 +3,7 @@
 #include "controllers/modules/game/local/logic/GameStateBuilder.hpp"
 #include "controllers/modules/game/local/logic/GameInitialState.hpp"
 #include "models/modules/game/Game.hpp"
+#include "controllers/modules/game/local/logic/LocalGameLogic.hpp"
 
 namespace controllers::modules::game::local::logic
 {
@@ -42,6 +43,14 @@ namespace controllers::modules::game::local::logic
     void LocalGameLogic::end()
     {
         state = state->end();
+    }
+
+    void LocalGameLogic::save()
+    {
+    }
+
+    void LocalGameLogic::resume()
+    {
     }
 
     LocalOperationController *LocalGameLogic::getController()

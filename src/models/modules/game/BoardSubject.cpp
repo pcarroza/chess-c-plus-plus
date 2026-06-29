@@ -22,6 +22,16 @@ namespace models::modules::game::pieces
         logicObserver->finalize();
     }
 
+    void BoardSubject::save()
+    {
+        logicObserver->save();
+    }
+
+    void BoardSubject::resume()
+    {
+        logicObserver->resume();
+    }
+
     void BoardSubject::end()
     {
         logicObserver->end();

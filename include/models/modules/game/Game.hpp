@@ -46,6 +46,10 @@ namespace models::modules::game
 
         void finalize();
 
+        void save();
+
+        void resume();
+
     public:
         static const int NUMBER_OF_PLAYERS = 2;
 

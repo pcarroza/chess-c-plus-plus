@@ -82,4 +82,14 @@ namespace models::modules::game
     {
         board->finalize();
     }
+
+    void Game::save()
+    {
+        board->save();
+    }
+
+    void Game::resume()
+    {
+        board->resume();
+    }
 }

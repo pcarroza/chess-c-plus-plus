@@ -1,6 +1,5 @@
 #include "models/modules/game/pieces/Pawn.hpp"
 #include "models/modules/game/pieces/rules/MovementRulesFacade.hpp"
-#include "Pawn.hpp"
 
 using models::modules::game::pieces::special::InStepSpecialRuleGenerator;
 using models::modules::game::pieces::special::SpecialMovesRulesGenerator;

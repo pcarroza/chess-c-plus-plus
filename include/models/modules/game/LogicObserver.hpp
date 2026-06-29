@@ -14,6 +14,10 @@ namespace models::modules::game
 
         virtual void finalize() = 0;
 
+        virtual void save() = 0;
+
+        virtual void resume() = 0;
+
         virtual void end() = 0;
     };
 }

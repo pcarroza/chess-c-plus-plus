@@ -22,6 +22,10 @@ namespace models::modules::game::pieces
 
         void finalize();
 
+        void save();
+
+        void resume();
+
         void end();
 
     private:

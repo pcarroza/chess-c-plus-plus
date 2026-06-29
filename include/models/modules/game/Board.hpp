@@ -51,6 +51,14 @@ namespace models::modules::game
 
         bool isEnemy(const Coordinate &coordinate) const override;
 
+        bool isRookAvailableForCastling(const Coordinate &coordinate) const override;
+
+        bool isVulnerablePawnAt(const Coordinate &coordinate) const override;
+
+        bool isOccupied(const Coordinate &coordinate) const override;
+
+        bool isKingInCheck() const override;
+
         bool isSquareEmpty(const Coordinate &coordinate) const override;
 
         bool isSameColorPieceAt(const Coordinate &coordinate) const override;

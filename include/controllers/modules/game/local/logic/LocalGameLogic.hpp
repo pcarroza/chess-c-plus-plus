@@ -43,6 +43,10 @@ namespace controllers::modules::game::local::logic
 
         void end() override;
 
+        void save() override;
+
+        void resume() override;
+
         LocalOperationController *getController() override;
 
     private:

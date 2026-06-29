@@ -100,6 +100,40 @@ namespace models::modules::game
                            { return piece->isAt(coordinate); });
     }
 
+    bool Board::isRookAvailableForCastling(const Coordinate &coordinate) const
+    {
+        auto &pieces = getPiecesBy(getCurrentPlayer());
+        auto it = std::find_if(pieces.begin(), pieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                               { return piece->isAt(coordinate); });
+        return it != pieces.end() && (*it)->isRookAvailableForCastling();
+    }
+
+    bool Board::isVulnerablePawnAt(const Coordinate &coordinate) const
+    {
+        auto &inStepPawns = inPawnInStepMap.at(getRivalPlayer());
+        return std::any_of(inStepPawns.begin(), inStepPawns.end(), [&](const std::shared_ptr<Piece> &piece)
+                           { return piece->isAt(coordinate); });
+    }
+
+    bool Board::isOccupied(const Coordinate &coordinate) const
+    {
+        return !isSquareEmpty(coordinate);
+    }
+
+    bool Board::isKingInCheck() const
+    {
+        auto &pieces = getPiecesBy(getCurrentPlayer());
+        auto kingIt = std::find_if(pieces.begin(), pieces.end(), [](const std::shared_ptr<Piece> &p)
+                                   { return p->isKing(); });
+        if (kingIt == pieces.end())
+            return false;
+
+        Coordinate kingCoord = (*kingIt)->getCoordinate();
+        auto &rivalPieces = getPiecesBy(getRivalPlayer());
+        return std::any_of(rivalPieces.begin(), rivalPieces.end(), [&](const std::shared_ptr<Piece> &piece)
+                           { return piece->isMovementValid(kingCoord); });
+    }
+
     bool Board::isSquareEmpty(const Coordinate &coordinate) const
     {
         auto pieceFinder = [&](const std::shared_ptr<Piece> &piece)
